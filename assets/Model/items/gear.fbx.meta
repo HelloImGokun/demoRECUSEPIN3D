@@ -1,0 +1,62 @@
+{
+  "ver": "2.3.2",
+  "importer": "fbx",
+  "imported": true,
+  "uuid": "2f752316-1c7f-4af1-a677-c4c598574899",
+  "files": [],
+  "subMetas": {
+    "c244a": {
+      "importer": "gltf-mesh",
+      "uuid": "2f752316-1c7f-4af1-a677-c4c598574899@c244a",
+      "displayName": "",
+      "id": "c244a",
+      "name": "Cylinder.mesh",
+      "userData": {
+        "gltfIndex": 0
+      },
+      "ver": "1.1.0",
+      "imported": true,
+      "files": [
+        ".bin",
+        ".json"
+      ],
+      "subMetas": {}
+    },
+    "8ee38": {
+      "importer": "gltf-scene",
+      "uuid": "2f752316-1c7f-4af1-a677-c4c598574899@8ee38",
+      "displayName": "",
+      "id": "8ee38",
+      "name": "gear.prefab",
+      "userData": {
+        "gltfIndex": 0
+      },
+      "ver": "1.0.12",
+      "imported": true,
+      "files": [
+        ".json"
+      ],
+      "subMetas": {}
+    }
+  },
+  "userData": {
+    "imageMetas": [],
+    "legacyFbxImporter": false,
+    "redirect": "2f752316-1c7f-4af1-a677-c4c598574899@8ee38",
+    "assetFinder": {
+      "meshes": [
+        "2f752316-1c7f-4af1-a677-c4c598574899@c244a"
+      ],
+      "skeletons": [],
+      "textures": [],
+      "materials": [],
+      "scenes": [
+        "2f752316-1c7f-4af1-a677-c4c598574899@8ee38"
+      ]
+    },
+    "fbx": {
+      "preferLocalTimeSpan": false,
+      "smartMaterialEnabled": false
+    }
+  }
+}

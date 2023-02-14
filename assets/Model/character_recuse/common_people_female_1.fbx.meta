@@ -1,0 +1,156 @@
+{
+  "ver": "2.3.2",
+  "importer": "fbx",
+  "imported": true,
+  "uuid": "7c77513c-eccd-4ae1-b09e-5830ced0c312",
+  "files": [
+    "__original-animation-0.cconb"
+  ],
+  "subMetas": {
+    "b9af9": {
+      "importer": "gltf-mesh",
+      "uuid": "7c77513c-eccd-4ae1-b09e-5830ced0c312@b9af9",
+      "displayName": "",
+      "id": "b9af9",
+      "name": "common_people_female_1_Material0.mesh",
+      "userData": {
+        "gltfIndex": 0
+      },
+      "ver": "1.1.0",
+      "imported": true,
+      "files": [
+        ".bin",
+        ".json"
+      ],
+      "subMetas": {}
+    },
+    "73b7f": {
+      "importer": "gltf-animation",
+      "uuid": "7c77513c-eccd-4ae1-b09e-5830ced0c312@73b7f",
+      "displayName": "",
+      "id": "73b7f",
+      "name": "Take 001.animation",
+      "userData": {
+        "gltfIndex": 0,
+        "wrapMode": 2,
+        "sample": 30,
+        "span": {
+          "from": 0,
+          "to": 1.6333333253860474
+        },
+        "events": []
+      },
+      "ver": "1.0.16",
+      "imported": true,
+      "files": [
+        ".cconb"
+      ],
+      "subMetas": {}
+    },
+    "438fe": {
+      "importer": "gltf-skeleton",
+      "uuid": "7c77513c-eccd-4ae1-b09e-5830ced0c312@438fe",
+      "displayName": "",
+      "id": "438fe",
+      "name": "UnnamedSkeleton.skeleton",
+      "userData": {
+        "gltfIndex": 0,
+        "jointsLength": 27
+      },
+      "ver": "1.0.1",
+      "imported": true,
+      "files": [
+        ".json"
+      ],
+      "subMetas": {}
+    },
+    "f4b39": {
+      "importer": "gltf-material",
+      "uuid": "7c77513c-eccd-4ae1-b09e-5830ced0c312@f4b39",
+      "displayName": "",
+      "id": "f4b39",
+      "name": "Body.material",
+      "userData": {
+        "gltfIndex": 0
+      },
+      "ver": "1.0.14",
+      "imported": true,
+      "files": [
+        ".json"
+      ],
+      "subMetas": {}
+    },
+    "33f5e": {
+      "importer": "gltf-material",
+      "uuid": "7c77513c-eccd-4ae1-b09e-5830ced0c312@33f5e",
+      "displayName": "",
+      "id": "33f5e",
+      "name": "Face.material",
+      "userData": {
+        "gltfIndex": 1
+      },
+      "ver": "1.0.14",
+      "imported": true,
+      "files": [
+        ".json"
+      ],
+      "subMetas": {}
+    },
+    "1731e": {
+      "importer": "gltf-scene",
+      "uuid": "7c77513c-eccd-4ae1-b09e-5830ced0c312@1731e",
+      "displayName": "",
+      "id": "1731e",
+      "name": "common_people_female_1.prefab",
+      "userData": {
+        "gltfIndex": 0
+      },
+      "ver": "1.0.12",
+      "imported": true,
+      "files": [
+        ".json"
+      ],
+      "subMetas": {}
+    }
+  },
+  "userData": {
+    "imageMetas": [],
+    "legacyFbxImporter": false,
+    "animationImportSettings": [
+      {
+        "name": "Take 001",
+        "duration": 1.6333333253860474,
+        "fps": 30,
+        "splits": [
+          {
+            "name": "Take 001",
+            "from": 0,
+            "to": 1.6333333253860474,
+            "wrapMode": 2
+          }
+        ]
+      }
+    ],
+    "redirect": "7c77513c-eccd-4ae1-b09e-5830ced0c312@1731e",
+    "assetFinder": {
+      "meshes": [
+        "7c77513c-eccd-4ae1-b09e-5830ced0c312@b9af9"
+      ],
+      "skeletons": [
+        "7c77513c-eccd-4ae1-b09e-5830ced0c312@438fe"
+      ],
+      "textures": [],
+      "materials": [
+        "7c77513c-eccd-4ae1-b09e-5830ced0c312@f4b39",
+        "7c77513c-eccd-4ae1-b09e-5830ced0c312@33f5e"
+      ],
+      "scenes": [
+        "7c77513c-eccd-4ae1-b09e-5830ced0c312@1731e"
+      ]
+    },
+    "fbx": {
+      "preferLocalTimeSpan": false,
+      "smartMaterialEnabled": false
+    }
+  }
+}

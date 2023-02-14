@@ -1,0 +1,188 @@
+{
+  "ver": "2.3.2",
+  "importer": "fbx",
+  "imported": true,
+  "uuid": "dfc26688-e8f8-4e5b-b035-21b3bc60a0dc",
+  "files": [],
+  "subMetas": {
+    "99d6c": {
+      "importer": "gltf-mesh",
+      "uuid": "dfc26688-e8f8-4e5b-b035-21b3bc60a0dc@99d6c",
+      "displayName": "",
+      "id": "99d6c",
+      "name": "Scene-0.mesh",
+      "userData": {
+        "gltfIndex": 0
+      },
+      "ver": "1.1.0",
+      "imported": true,
+      "files": [
+        ".bin",
+        ".json"
+      ],
+      "subMetas": {}
+    },
+    "6ec10": {
+      "importer": "gltf-mesh",
+      "uuid": "dfc26688-e8f8-4e5b-b035-21b3bc60a0dc@6ec10",
+      "displayName": "",
+      "id": "6ec10",
+      "name": "Scene-1.mesh",
+      "userData": {
+        "gltfIndex": 1
+      },
+      "ver": "1.1.0",
+      "imported": true,
+      "files": [
+        ".bin",
+        ".json"
+      ],
+      "subMetas": {}
+    },
+    "3620d": {
+      "importer": "gltf-mesh",
+      "uuid": "dfc26688-e8f8-4e5b-b035-21b3bc60a0dc@3620d",
+      "displayName": "",
+      "id": "3620d",
+      "name": "Scene-2.mesh",
+      "userData": {
+        "gltfIndex": 2
+      },
+      "ver": "1.1.0",
+      "imported": true,
+      "files": [
+        ".bin",
+        ".json"
+      ],
+      "subMetas": {}
+    },
+    "cbffa": {
+      "importer": "gltf-mesh",
+      "uuid": "dfc26688-e8f8-4e5b-b035-21b3bc60a0dc@cbffa",
+      "displayName": "",
+      "id": "cbffa",
+      "name": "Scene-3.mesh",
+      "userData": {
+        "gltfIndex": 3
+      },
+      "ver": "1.1.0",
+      "imported": true,
+      "files": [
+        ".bin",
+        ".json"
+      ],
+      "subMetas": {}
+    },
+    "3c0d1": {
+      "importer": "gltf-mesh",
+      "uuid": "dfc26688-e8f8-4e5b-b035-21b3bc60a0dc@3c0d1",
+      "displayName": "",
+      "id": "3c0d1",
+      "name": "Scene-4.mesh",
+      "userData": {
+        "gltfIndex": 4
+      },
+      "ver": "1.1.0",
+      "imported": true,
+      "files": [
+        ".bin",
+        ".json"
+      ],
+      "subMetas": {}
+    },
+    "6745b": {
+      "importer": "gltf-mesh",
+      "uuid": "dfc26688-e8f8-4e5b-b035-21b3bc60a0dc@6745b",
+      "displayName": "",
+      "id": "6745b",
+      "name": "Scene-5.mesh",
+      "userData": {
+        "gltfIndex": 5
+      },
+      "ver": "1.1.0",
+      "imported": true,
+      "files": [
+        ".bin",
+        ".json"
+      ],
+      "subMetas": {}
+    },
+    "b832b": {
+      "importer": "gltf-mesh",
+      "uuid": "dfc26688-e8f8-4e5b-b035-21b3bc60a0dc@b832b",
+      "displayName": "",
+      "id": "b832b",
+      "name": "Scene-6.mesh",
+      "userData": {
+        "gltfIndex": 6
+      },
+      "ver": "1.1.0",
+      "imported": true,
+      "files": [
+        ".bin",
+        ".json"
+      ],
+      "subMetas": {}
+    },
+    "cb09c": {
+      "importer": "gltf-material",
+      "uuid": "dfc26688-e8f8-4e5b-b035-21b3bc60a0dc@cb09c",
+      "displayName": "",
+      "id": "cb09c",
+      "name": "wall_mat_4.material",
+      "userData": {
+        "gltfIndex": 0
+      },
+      "ver": "1.0.14",
+      "imported": true,
+      "files": [
+        ".json"
+      ],
+      "subMetas": {}
+    },
+    "deba6": {
+      "importer": "gltf-scene",
+      "uuid": "dfc26688-e8f8-4e5b-b035-21b3bc60a0dc@deba6",
+      "displayName": "",
+      "id": "deba6",
+      "name": "Lv020.prefab",
+      "userData": {
+        "gltfIndex": 0
+      },
+      "ver": "1.0.12",
+      "imported": true,
+      "files": [
+        ".json"
+      ],
+      "subMetas": {}
+    }
+  },
+  "userData": {
+    "imageMetas": [],
+    "legacyFbxImporter": false,
+    "redirect": "dfc26688-e8f8-4e5b-b035-21b3bc60a0dc@deba6",
+    "assetFinder": {
+      "meshes": [
+        "dfc26688-e8f8-4e5b-b035-21b3bc60a0dc@99d6c",
+        "dfc26688-e8f8-4e5b-b035-21b3bc60a0dc@6ec10",
+        "dfc26688-e8f8-4e5b-b035-21b3bc60a0dc@3620d",
+        "dfc26688-e8f8-4e5b-b035-21b3bc60a0dc@cbffa",
+        "dfc26688-e8f8-4e5b-b035-21b3bc60a0dc@3c0d1",
+        "dfc26688-e8f8-4e5b-b035-21b3bc60a0dc@6745b",
+        "dfc26688-e8f8-4e5b-b035-21b3bc60a0dc@b832b"
+      ],
+      "skeletons": [],
+      "textures": [],
+      "materials": [
+        "dfc26688-e8f8-4e5b-b035-21b3bc60a0dc@cb09c"
+      ],
+      "scenes": [
+        "dfc26688-e8f8-4e5b-b035-21b3bc60a0dc@deba6"
+      ]
+    },
+    "fbx": {
+      "preferLocalTimeSpan": false,
+      "smartMaterialEnabled": false
+    }
+  }
+}

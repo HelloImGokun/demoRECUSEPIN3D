@@ -1,0 +1,188 @@
+{
+  "ver": "2.3.2",
+  "importer": "fbx",
+  "imported": true,
+  "uuid": "15c101cb-6b13-4c86-bede-abbc66e5bffe",
+  "files": [],
+  "subMetas": {
+    "99380": {
+      "importer": "gltf-material",
+      "uuid": "15c101cb-6b13-4c86-bede-abbc66e5bffe@99380",
+      "displayName": "",
+      "id": "99380",
+      "name": "Material.001.material",
+      "userData": {
+        "gltfIndex": 0
+      },
+      "ver": "1.0.14",
+      "imported": true,
+      "files": [
+        ".json"
+      ],
+      "subMetas": {}
+    },
+    "313e0": {
+      "importer": "gltf-mesh",
+      "uuid": "15c101cb-6b13-4c86-bede-abbc66e5bffe@313e0",
+      "displayName": "",
+      "id": "313e0",
+      "name": "Plane.002.mesh",
+      "userData": {
+        "gltfIndex": 0
+      },
+      "ver": "1.1.0",
+      "imported": true,
+      "files": [
+        ".bin",
+        ".json"
+      ],
+      "subMetas": {}
+    },
+    "c244a": {
+      "importer": "gltf-mesh",
+      "uuid": "15c101cb-6b13-4c86-bede-abbc66e5bffe@c244a",
+      "displayName": "",
+      "id": "c244a",
+      "name": "Cylinder.mesh",
+      "userData": {
+        "gltfIndex": 1
+      },
+      "ver": "1.1.0",
+      "imported": true,
+      "files": [
+        ".bin",
+        ".json"
+      ],
+      "subMetas": {}
+    },
+    "0b568": {
+      "importer": "gltf-mesh",
+      "uuid": "15c101cb-6b13-4c86-bede-abbc66e5bffe@0b568",
+      "displayName": "",
+      "id": "0b568",
+      "name": "Cylinder.001.mesh",
+      "userData": {
+        "gltfIndex": 2
+      },
+      "ver": "1.1.0",
+      "imported": true,
+      "files": [
+        ".bin",
+        ".json"
+      ],
+      "subMetas": {}
+    },
+    "bdd91": {
+      "importer": "gltf-mesh",
+      "uuid": "15c101cb-6b13-4c86-bede-abbc66e5bffe@bdd91",
+      "displayName": "",
+      "id": "bdd91",
+      "name": "Cylinder.002.mesh",
+      "userData": {
+        "gltfIndex": 3
+      },
+      "ver": "1.1.0",
+      "imported": true,
+      "files": [
+        ".bin",
+        ".json"
+      ],
+      "subMetas": {}
+    },
+    "faad7": {
+      "importer": "gltf-mesh",
+      "uuid": "15c101cb-6b13-4c86-bede-abbc66e5bffe@faad7",
+      "displayName": "",
+      "id": "faad7",
+      "name": "Cylinder.003.mesh",
+      "userData": {
+        "gltfIndex": 4
+      },
+      "ver": "1.1.0",
+      "imported": true,
+      "files": [
+        ".bin",
+        ".json"
+      ],
+      "subMetas": {}
+    },
+    "c1084": {
+      "importer": "gltf-mesh",
+      "uuid": "15c101cb-6b13-4c86-bede-abbc66e5bffe@c1084",
+      "displayName": "",
+      "id": "c1084",
+      "name": "Plane.004.mesh",
+      "userData": {
+        "gltfIndex": 5
+      },
+      "ver": "1.1.0",
+      "imported": true,
+      "files": [
+        ".bin",
+        ".json"
+      ],
+      "subMetas": {}
+    },
+    "41ac8": {
+      "importer": "gltf-mesh",
+      "uuid": "15c101cb-6b13-4c86-bede-abbc66e5bffe@41ac8",
+      "displayName": "",
+      "id": "41ac8",
+      "name": "Cube.001.mesh",
+      "userData": {
+        "gltfIndex": 6
+      },
+      "ver": "1.1.0",
+      "imported": true,
+      "files": [
+        ".bin",
+        ".json"
+      ],
+      "subMetas": {}
+    },
+    "d35af": {
+      "importer": "gltf-scene",
+      "uuid": "15c101cb-6b13-4c86-bede-abbc66e5bffe@d35af",
+      "displayName": "",
+      "id": "d35af",
+      "name": "cagedoor.prefab",
+      "userData": {
+        "gltfIndex": 0
+      },
+      "ver": "1.0.12",
+      "imported": true,
+      "files": [
+        ".json"
+      ],
+      "subMetas": {}
+    }
+  },
+  "userData": {
+    "imageMetas": [],
+    "legacyFbxImporter": false,
+    "redirect": "15c101cb-6b13-4c86-bede-abbc66e5bffe@d35af",
+    "assetFinder": {
+      "meshes": [
+        "15c101cb-6b13-4c86-bede-abbc66e5bffe@313e0",
+        "15c101cb-6b13-4c86-bede-abbc66e5bffe@c244a",
+        "15c101cb-6b13-4c86-bede-abbc66e5bffe@0b568",
+        "15c101cb-6b13-4c86-bede-abbc66e5bffe@bdd91",
+        "15c101cb-6b13-4c86-bede-abbc66e5bffe@faad7",
+        "15c101cb-6b13-4c86-bede-abbc66e5bffe@c1084",
+        "15c101cb-6b13-4c86-bede-abbc66e5bffe@41ac8"
+      ],
+      "skeletons": [],
+      "textures": [],
+      "materials": [
+        "15c101cb-6b13-4c86-bede-abbc66e5bffe@99380"
+      ],
+      "scenes": [
+        "15c101cb-6b13-4c86-bede-abbc66e5bffe@d35af"
+      ]
+    },
+    "fbx": {
+      "preferLocalTimeSpan": false,
+      "smartMaterialEnabled": false
+    }
+  }
+}
