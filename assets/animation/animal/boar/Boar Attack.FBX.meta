@@ -2,27 +2,26 @@
   "ver": "2.3.2",
   "importer": "fbx",
   "imported": true,
-  "uuid": "f69c4623-df42-4533-9633-c439b408e285",
+  "uuid": "f7e78b4c-3b11-44bb-ab09-924f87907a6b",
   "files": [
     "__original-animation-0.cconb"
   ],
   "subMetas": {
-    "f39c0": {
+    "2cd1c": {
       "importer": "gltf-animation",
-      "uuid": "f69c4623-df42-4533-9633-c439b408e285@f39c0",
+      "uuid": "f7e78b4c-3b11-44bb-ab09-924f87907a6b@2cd1c",
       "displayName": "",
-      "id": "f39c0",
-      "name": "victory.animation",
+      "id": "2cd1c",
+      "name": "Attack.animation",
       "userData": {
         "gltfIndex": 0,
-        "wrapMode": 2,
+        "wrapMode": 1,
         "sample": 30,
         "span": {
           "from": 0,
-          "to": 3.566666603088379
+          "to": 1
         },
-        "events": [],
-        "speed": 1
+        "events": []
       },
       "ver": "1.0.16",
       "imported": true,
@@ -31,12 +30,12 @@
       ],
       "subMetas": {}
     },
-    "67e2f": {
+    "98fc1": {
       "importer": "gltf-scene",
-      "uuid": "f69c4623-df42-4533-9633-c439b408e285@67e2f",
+      "uuid": "f7e78b4c-3b11-44bb-ab09-924f87907a6b@98fc1",
       "displayName": "",
-      "id": "67e2f",
-      "name": "common_people@victory.prefab",
+      "id": "98fc1",
+      "name": "Boar Attack.prefab",
       "userData": {
         "gltfIndex": 0
       },
@@ -54,27 +53,26 @@
     "animationImportSettings": [
       {
         "name": "Take 001",
-        "duration": 3.566666603088379,
+        "duration": 4.900000095367432,
         "fps": 30,
         "splits": [
           {
-            "name": "victory",
+            "name": "Attack",
             "from": 0,
-            "to": 3.566666603088379,
-            "wrapMode": 2,
-            "speed": 1
+            "to": 1,
+            "wrapMode": 1
           }
         ]
       }
     ],
-    "redirect": "f69c4623-df42-4533-9633-c439b408e285@67e2f",
+    "redirect": "f7e78b4c-3b11-44bb-ab09-924f87907a6b@98fc1",
     "assetFinder": {
       "meshes": [],
       "skeletons": [],
       "textures": [],
       "materials": [],
       "scenes": [
-        "f69c4623-df42-4533-9633-c439b408e285@67e2f"
+        "f7e78b4c-3b11-44bb-ab09-924f87907a6b@98fc1"
       ]
     },
     "fbx": {

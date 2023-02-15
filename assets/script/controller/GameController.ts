@@ -1,9 +1,11 @@
-import { _decorator, Component,instantiate, Camera, input, Input, Vec2, geometry, PhysicsSystem, EventTouch, Node } from 'cc';
+import { _decorator, Component,instantiate, Camera, input, Input, Vec2, geometry, PhysicsSystem, EventTouch, Node, tween } from 'cc';
 import { Configs } from '../../utils/Configs';
 import { ResouceUtils } from '../../utils/ResouceUtils';
 import { GameModel } from '../model/GameModel';
 import { WinUI } from '../ui/WinUI';
 import { LevelController } from './LevelController';
+import { PointNode } from '../P/PointNode';
+import { LoseUI } from '../ui/LoseUI';
 const { ccclass, property } = _decorator;
 
 @ccclass('GameController')
@@ -13,11 +15,11 @@ export class GameController extends Component {
     @property(Camera)
     private camera:Camera;
     //
-    private currentLevelNumber:number = 1;
+    private currentLevelNumber:number = 2;
     //
     @property(Node)
     private currentLevelNode:Node;
-
+    //
     start() {
         //create raycast
         input.on(Input.EventType.TOUCH_START,this.onTouchScreen,this);
@@ -53,7 +55,14 @@ export class GameController extends Component {
         })
         this.gameModel.canvasUI.addChild(winUI);
     }
-    //
+    // loselevel
+    private loseLevel(){
+        let loseUI = instantiate(this.gameModel.loseUIPrefabs);
+        loseUI.getComponent(LoseUI).setUp(()=>{
+            this.currentLevelNumber;
+        })
+        this.gameModel.canvasUI.addChild(loseUI);
+    }
     //next level
     private nextLevel(){
         //

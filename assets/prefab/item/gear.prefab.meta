@@ -2,12 +2,12 @@
   "ver": "1.1.43",
   "importer": "prefab",
   "imported": true,
-  "uuid": "9c9d058a-7c3c-4cf7-825d-d982f2fe045e",
+  "uuid": "a31d7426-d3be-41e4-96c9-371f8cbb52d6",
   "files": [
     ".json"
   ],
   "subMetas": {},
   "userData": {
-    "syncNodeName": "Spike"
+    "syncNodeName": "gear"
   }
 }

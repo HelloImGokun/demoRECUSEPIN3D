@@ -2,12 +2,12 @@
   "ver": "1.1.43",
   "importer": "prefab",
   "imported": true,
-  "uuid": "9c9d058a-7c3c-4cf7-825d-d982f2fe045e",
+  "uuid": "45744491-22c9-4a65-8ada-1628169506b9",
   "files": [
     ".json"
   ],
   "subMetas": {},
   "userData": {
-    "syncNodeName": "Spike"
+    "syncNodeName": "loseUI"
   }
 }

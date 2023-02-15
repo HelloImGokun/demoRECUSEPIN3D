@@ -1,0 +1,83 @@
+{
+  "ver": "2.3.2",
+  "importer": "fbx",
+  "imported": true,
+  "uuid": "0f6df6c8-3e25-4c48-a396-997f42a99150",
+  "files": [
+    "__original-animation-0.cconb"
+  ],
+  "subMetas": {
+    "2cd1c": {
+      "importer": "gltf-animation",
+      "uuid": "0f6df6c8-3e25-4c48-a396-997f42a99150@2cd1c",
+      "displayName": "",
+      "id": "2cd1c",
+      "name": "Attack.animation",
+      "userData": {
+        "gltfIndex": 0,
+        "wrapMode": 1,
+        "sample": 30,
+        "span": {
+          "from": 2,
+          "to": 2.566666603088379
+        },
+        "events": []
+      },
+      "ver": "1.0.16",
+      "imported": true,
+      "files": [
+        ".cconb"
+      ],
+      "subMetas": {}
+    },
+    "fcb57": {
+      "importer": "gltf-scene",
+      "uuid": "0f6df6c8-3e25-4c48-a396-997f42a99150@fcb57",
+      "displayName": "",
+      "id": "fcb57",
+      "name": "Boar Run.prefab",
+      "userData": {
+        "gltfIndex": 0
+      },
+      "ver": "1.0.12",
+      "imported": true,
+      "files": [
+        ".json"
+      ],
+      "subMetas": {}
+    }
+  },
+  "userData": {
+    "imageMetas": [],
+    "legacyFbxImporter": false,
+    "animationImportSettings": [
+      {
+        "name": "Take 001",
+        "duration": 2.566666603088379,
+        "fps": 30,
+        "splits": [
+          {
+            "name": "Attack",
+            "from": 2,
+            "to": 2.566666603088379,
+            "wrapMode": 1
+          }
+        ]
+      }
+    ],
+    "redirect": "0f6df6c8-3e25-4c48-a396-997f42a99150@fcb57",
+    "assetFinder": {
+      "meshes": [],
+      "skeletons": [],
+      "textures": [],
+      "materials": [],
+      "scenes": [
+        "0f6df6c8-3e25-4c48-a396-997f42a99150@fcb57"
+      ]
+    },
+    "fbx": {
+      "preferLocalTimeSpan": false,
+      "smartMaterialEnabled": false
+    }
+  }
+}

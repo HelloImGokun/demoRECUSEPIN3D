@@ -2,31 +2,26 @@
   "ver": "2.3.2",
   "importer": "fbx",
   "imported": true,
-  "uuid": "d3a8b94a-6a6d-4d89-a9e2-87408c7533e3",
+  "uuid": "e14ac2ee-999c-4c86-ac10-ff8735382e95",
   "files": [
     "__original-animation-0.cconb"
   ],
   "subMetas": {
-    "cf5ee": {
+    "8bfbd": {
       "importer": "gltf-animation",
-      "uuid": "d3a8b94a-6a6d-4d89-a9e2-87408c7533e3@cf5ee",
+      "uuid": "e14ac2ee-999c-4c86-ac10-ff8735382e95@8bfbd",
       "displayName": "",
-      "id": "cf5ee",
-      "name": "run.animation",
+      "id": "8bfbd",
+      "name": "midair.animation",
       "userData": {
         "gltfIndex": 0,
-        "wrapMode": 2,
+        "wrapMode": 1,
         "sample": 30,
         "span": {
           "from": 0,
-          "to": 0.6666666865348816
+          "to": 1.4166666269302368
         },
-        "events": [],
-        "embeddedPlayers": [],
-        "editorExtras": {
-          "embeddedPlayerGroups": []
-        },
-        "speed": 1
+        "events": []
       },
       "ver": "1.0.16",
       "imported": true,
@@ -35,12 +30,12 @@
       ],
       "subMetas": {}
     },
-    "112ff": {
+    "16b2a": {
       "importer": "gltf-scene",
-      "uuid": "d3a8b94a-6a6d-4d89-a9e2-87408c7533e3@112ff",
+      "uuid": "e14ac2ee-999c-4c86-ac10-ff8735382e95@16b2a",
       "displayName": "",
-      "id": "112ff",
-      "name": "common_people@run.prefab",
+      "id": "16b2a",
+      "name": "common_people@jump-float.FBX.prefab",
       "userData": {
         "gltfIndex": 0
       },
@@ -58,26 +53,26 @@
     "animationImportSettings": [
       {
         "name": "Take 001",
-        "duration": 0.6666666865348816,
+        "duration": 1.4166666269302368,
         "fps": 30,
         "splits": [
           {
-            "name": "run",
+            "name": "midair",
             "from": 0,
-            "to": 0.6666666865348816,
-            "wrapMode": 2
+            "to": 1.4166666269302368,
+            "wrapMode": 1
           }
         ]
       }
     ],
-    "redirect": "d3a8b94a-6a6d-4d89-a9e2-87408c7533e3@112ff",
+    "redirect": "e14ac2ee-999c-4c86-ac10-ff8735382e95@16b2a",
     "assetFinder": {
       "meshes": [],
       "skeletons": [],
       "textures": [],
       "materials": [],
       "scenes": [
-        "d3a8b94a-6a6d-4d89-a9e2-87408c7533e3@112ff"
+        "e14ac2ee-999c-4c86-ac10-ff8735382e95@16b2a"
       ]
     },
     "fbx": {

@@ -1,7 +1,7 @@
 [
   {
     "__type__": "cc.Prefab",
-    "_name": "spike",
+    "_name": "Spike",
     "_objFlags": 0,
     "_native": "",
     "data": {
@@ -12,7 +12,7 @@
   },
   {
     "__type__": "cc.Node",
-    "_name": "spike",
+    "_name": "Spike",
     "_objFlags": 0,
     "__editorExtras__": {},
     "_parent": null,
@@ -425,7 +425,7 @@
       "__id__": 18
     },
     "_material": null,
-    "_isTrigger": false,
+    "_isTrigger": true,
     "_center": {
       "__type__": "cc.Vec3",
       "x": 0.1,
@@ -453,6 +453,7 @@
       "__id__": 0
     },
     "fileId": "0dDovUaTVCtokO9xb076Vc",
+    "instance": null,
     "targetOverrides": null
   }
 ]

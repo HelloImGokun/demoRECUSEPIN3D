@@ -12,6 +12,8 @@ export class GameModel extends Component {
 
     @property(Prefab)
     public winUIPrefab:Prefab;
+    @property(Prefab)
+    public loseUIPrefabs:Prefab;
     start() {
 
     }

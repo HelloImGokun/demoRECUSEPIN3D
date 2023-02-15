@@ -9,6 +9,7 @@ export class Level1 extends LevelController {
     @property(Node)
     private pin:Node | null = null;
     start() {
+        console.log('start cua level');
         //set up parent raycast
         this.setUpRaycastCallback((rayData)=>{
             console.log(this.name,rayData);

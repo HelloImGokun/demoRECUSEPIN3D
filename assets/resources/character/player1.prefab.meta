@@ -2,12 +2,12 @@
   "ver": "1.1.43",
   "importer": "prefab",
   "imported": true,
-  "uuid": "9c9d058a-7c3c-4cf7-825d-d982f2fe045e",
+  "uuid": "4e4db610-f89c-4956-b1a7-ba424b4ed70e",
   "files": [
     ".json"
   ],
   "subMetas": {},
   "userData": {
-    "syncNodeName": "Spike"
+    "syncNodeName": "player1"
   }
 }

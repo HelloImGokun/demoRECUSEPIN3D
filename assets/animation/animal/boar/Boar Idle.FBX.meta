@@ -2,24 +2,24 @@
   "ver": "2.3.2",
   "importer": "fbx",
   "imported": true,
-  "uuid": "e14ac2ee-999c-4c86-ac10-ff8735382e95",
+  "uuid": "f12ed131-6621-4e1b-a2e7-5d57386cf195",
   "files": [
     "__original-animation-0.cconb"
   ],
   "subMetas": {
-    "8bfbd": {
+    "c2696": {
       "importer": "gltf-animation",
-      "uuid": "e14ac2ee-999c-4c86-ac10-ff8735382e95@8bfbd",
+      "uuid": "f12ed131-6621-4e1b-a2e7-5d57386cf195@c2696",
       "displayName": "",
-      "id": "8bfbd",
-      "name": "midair.animation",
+      "id": "c2696",
+      "name": "Idle.animation",
       "userData": {
         "gltfIndex": 0,
-        "wrapMode": 1,
+        "wrapMode": 2,
         "sample": 30,
         "span": {
           "from": 0,
-          "to": 1.4166666269302368
+          "to": 3.3
         },
         "events": []
       },
@@ -30,12 +30,12 @@
       ],
       "subMetas": {}
     },
-    "16b2a": {
+    "ed03d": {
       "importer": "gltf-scene",
-      "uuid": "e14ac2ee-999c-4c86-ac10-ff8735382e95@16b2a",
+      "uuid": "f12ed131-6621-4e1b-a2e7-5d57386cf195@ed03d",
       "displayName": "",
-      "id": "16b2a",
-      "name": "common_people@jump-float.prefab",
+      "id": "ed03d",
+      "name": "Boar Idle.prefab",
       "userData": {
         "gltfIndex": 0
       },
@@ -53,26 +53,26 @@
     "animationImportSettings": [
       {
         "name": "Take 001",
-        "duration": 1.4166666269302368,
+        "duration": 14.300000190734863,
         "fps": 30,
         "splits": [
           {
-            "name": "midair",
+            "name": "Idle",
             "from": 0,
-            "to": 1.4166666269302368,
-            "wrapMode": 1
+            "to": 3.3,
+            "wrapMode": 2
           }
         ]
       }
     ],
-    "redirect": "e14ac2ee-999c-4c86-ac10-ff8735382e95@16b2a",
+    "redirect": "f12ed131-6621-4e1b-a2e7-5d57386cf195@ed03d",
     "assetFinder": {
       "meshes": [],
       "skeletons": [],
       "textures": [],
       "materials": [],
       "scenes": [
-        "e14ac2ee-999c-4c86-ac10-ff8735382e95@16b2a"
+        "f12ed131-6621-4e1b-a2e7-5d57386cf195@ed03d"
       ]
     },
     "fbx": {

@@ -13,8 +13,10 @@ export class ResouceUtils extends Component {
     public static loadPrefab(path,callback){
         // load Prefab
         resources.load(path, Prefab, (err, prefab) => {
-            if(!err)
-            callback(prefab);
+            if(!err){
+                callback(prefab);
+            }
+
         });
     }
 }

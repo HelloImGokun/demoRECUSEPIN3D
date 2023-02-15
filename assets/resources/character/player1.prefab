@@ -1,7 +1,7 @@
 [
   {
     "__type__": "cc.Prefab",
-    "_name": "main_player",
+    "_name": "player1",
     "_objFlags": 0,
     "_native": "",
     "data": {
@@ -12,7 +12,7 @@
   },
   {
     "__type__": "cc.Node",
-    "_name": "main_player",
+    "_name": "player1",
     "_objFlags": 0,
     "__editorExtras__": {},
     "_parent": null,
@@ -44,9 +44,9 @@
     },
     "_lpos": {
       "__type__": "cc.Vec3",
-      "x": 0.764,
-      "y": 1.791,
-      "z": 1.376
+      "x": 0,
+      "y": 2.055,
+      "z": -1.362
     },
     "_lrot": {
       "__type__": "cc.Quat",
@@ -1994,9 +1994,6 @@
     "rigidBody": {
       "__id__": 71
     },
-    "pointList": [],
-    "findnote2": [],
-    "player": null,
     "_id": ""
   },
   {

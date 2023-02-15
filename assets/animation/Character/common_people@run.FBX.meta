@@ -2,24 +2,24 @@
   "ver": "2.3.2",
   "importer": "fbx",
   "imported": true,
-  "uuid": "1079ed44-c12d-4d9a-b1d0-88c21112799a",
+  "uuid": "d3a8b94a-6a6d-4d89-a9e2-87408c7533e3",
   "files": [
     "__original-animation-0.cconb"
   ],
   "subMetas": {
-    "1f586": {
+    "cf5ee": {
       "importer": "gltf-animation",
-      "uuid": "1079ed44-c12d-4d9a-b1d0-88c21112799a@1f586",
+      "uuid": "d3a8b94a-6a6d-4d89-a9e2-87408c7533e3@cf5ee",
       "displayName": "",
-      "id": "1f586",
-      "name": "idle.animation",
+      "id": "cf5ee",
+      "name": "run.animation",
       "userData": {
         "gltfIndex": 0,
         "wrapMode": 2,
         "sample": 30,
         "span": {
           "from": 0,
-          "to": 4
+          "to": 0.6666666865348816
         },
         "events": [],
         "embeddedPlayers": [],
@@ -35,12 +35,12 @@
       ],
       "subMetas": {}
     },
-    "85d77": {
+    "112ff": {
       "importer": "gltf-scene",
-      "uuid": "1079ed44-c12d-4d9a-b1d0-88c21112799a@85d77",
+      "uuid": "d3a8b94a-6a6d-4d89-a9e2-87408c7533e3@112ff",
       "displayName": "",
-      "id": "85d77",
-      "name": "common_people@idle.prefab",
+      "id": "112ff",
+      "name": "common_people@run.FBX.prefab",
       "userData": {
         "gltfIndex": 0
       },
@@ -58,26 +58,26 @@
     "animationImportSettings": [
       {
         "name": "Take 001",
-        "duration": 4,
+        "duration": 0.6666666865348816,
         "fps": 30,
         "splits": [
           {
-            "name": "idle",
+            "name": "run",
             "from": 0,
-            "to": 4,
+            "to": 0.6666666865348816,
             "wrapMode": 2
           }
         ]
       }
     ],
-    "redirect": "1079ed44-c12d-4d9a-b1d0-88c21112799a@85d77",
+    "redirect": "d3a8b94a-6a6d-4d89-a9e2-87408c7533e3@112ff",
     "assetFinder": {
       "meshes": [],
       "skeletons": [],
       "textures": [],
       "materials": [],
       "scenes": [
-        "1079ed44-c12d-4d9a-b1d0-88c21112799a@85d77"
+        "d3a8b94a-6a6d-4d89-a9e2-87408c7533e3@112ff"
       ]
     },
     "fbx": {
