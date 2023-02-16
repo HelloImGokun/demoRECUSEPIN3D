@@ -27,7 +27,7 @@ export class LevelController extends Component {
     start() {
         console.log('start cua parent');
     }
-    setUp(winCallback) {
+    setUp(winCallback,loseCallback) {
         //setup player
         //khoi tao player
         ResouceUtils.loadPrefab(Configs.PLAYER_PREFAB_PATH+'player1', (playerPrefab) => {
@@ -41,6 +41,7 @@ export class LevelController extends Component {
 
         //
         this.winCallback = winCallback;
+        this.loseCallback =loseCallback;
         //setup pin event
         if (this.pinList && this.pinList.length > 0) {
             for (let i = 0; i < this.pinList.length; i++) {
@@ -52,6 +53,8 @@ export class LevelController extends Component {
             }
         }
     }
+    //
+    
     //lay list all duong di
     public getPathList(){
         return this.pathList;
@@ -75,17 +78,17 @@ export class LevelController extends Component {
         }
     }
     //
-    protected loseGame() {
+    public loseGame() {
         if (this.loseCallback) {
             this.loseCallback();
         }
     }
-    //callback tu con ve cha
-    protected callbackTuConVeCha(callback) {
-        if (callback) {
-            callback();
-        }
-    }
+    // //callback tu con ve cha
+    // protected callbackTuConVeCha(callback) {
+    //     if (callback) {
+    //         callback();
+    //     }
+    // }
     onDisable() {
         console.log('disable');
     }

@@ -91,10 +91,16 @@ export class PlayerController extends Component {
             //cham vao enemy la die
             else if (collisionNode.name.includes(Configs.ENEMY_NAME)){
                 this.animationController.setValue('Die',true);
+                this.failure();
             }
-        }
-       
-       
+        }      
+    }
+    private failure(){
+        
+        let LevelControllerNode = this.node.getParent();
+        if (LevelControllerNode.getComponent(LevelController)) {
+            LevelControllerNode.getComponent(LevelController).loseGame();
+        }  
     }
     private findDoor() {
         if (this.isFindDoor) return;
