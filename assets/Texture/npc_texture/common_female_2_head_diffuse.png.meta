@@ -1,0 +1,42 @@
+{
+  "ver": "1.0.25",
+  "importer": "image",
+  "imported": true,
+  "uuid": "085fe32d-2e14-4cfe-b306-2523d68bb3f6",
+  "files": [
+    ".json",
+    ".png"
+  ],
+  "subMetas": {
+    "6c48a": {
+      "importer": "texture",
+      "uuid": "085fe32d-2e14-4cfe-b306-2523d68bb3f6@6c48a",
+      "displayName": "common_female_2_head_diffuse",
+      "id": "6c48a",
+      "name": "texture",
+      "userData": {
+        "wrapModeS": "repeat",
+        "wrapModeT": "repeat",
+        "minfilter": "linear",
+        "magfilter": "linear",
+        "mipfilter": "none",
+        "anisotropy": 0,
+        "isUuid": true,
+        "imageUuidOrDatabaseUri": "085fe32d-2e14-4cfe-b306-2523d68bb3f6",
+        "visible": true
+      },
+      "ver": "1.0.22",
+      "imported": true,
+      "files": [
+        ".json"
+      ],
+      "subMetas": {}
+    }
+  },
+  "userData": {
+    "hasAlpha": false,
+    "type": "texture",
+    "redirect": "085fe32d-2e14-4cfe-b306-2523d68bb3f6@6c48a",
+    "fixAlphaTransparencyArtifacts": false
+  }
+}

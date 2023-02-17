@@ -120,7 +120,10 @@
       "__id__": 4
     },
     "_materials": [
-      null
+      {
+        "__uuid__": "47106ad4-91ed-4498-8577-1a8f0cf1a8d3",
+        "__expectedType__": "cc.Material"
+      }
     ],
     "_visFlags": 0,
     "bakeSettings": {
@@ -234,6 +237,7 @@
       "__id__": 0
     },
     "fileId": "3aEpF07KVZV4LOiXZYwRGC",
+    "instance": null,
     "targetOverrides": null
   }
 ]
