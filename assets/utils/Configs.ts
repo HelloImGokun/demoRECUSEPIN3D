@@ -11,7 +11,8 @@ export class Configs {
     public static LOAD_LEVEL_PATH = 'level/lv';
     public static PLAYER_PREFAB_PATH = 'character/';
     public static SPIKE_PREFABS:string = 'Spike'
-    public static ENEMY_NAME:string = 'enemy';
+    public static KILL_PLAYER_OBJ = 'obj_kill';
+    public static KILL_ALL_OBJ = 'obj_kill_all';
 }
 
 

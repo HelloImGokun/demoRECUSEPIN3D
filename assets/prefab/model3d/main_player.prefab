@@ -1994,9 +1994,6 @@
     "rigidBody": {
       "__id__": 71
     },
-    "pointList": [],
-    "findnote2": [],
-    "player": null,
     "_id": ""
   },
   {
@@ -2019,7 +2016,7 @@
     "_type": 1,
     "_mass": 1,
     "_allowSleep": false,
-    "_linearDamping": 0.1,
+    "_linearDamping": 0,
     "_angularDamping": 0,
     "_useGravity": true,
     "_linearFactor": {

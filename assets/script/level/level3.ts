@@ -1,12 +1,11 @@
 import { _decorator, Component, Node } from 'cc';
 import { Configs } from '../../utils/Configs';
 import { LevelController } from '../controller/LevelController';
+import { Pin } from '../P/Pin';
 const { ccclass, property } = _decorator;
 
-@ccclass('level3')
-export class level3 extends LevelController {
-    @property(Node)
-    private pin:Node | [] = [];
+@ccclass('Level3')
+export class Level3 extends LevelController {
     start() {
         //set up parent raycast
         this.setUpRaycastCallback((rayData)=>{
@@ -16,19 +15,16 @@ export class level3 extends LevelController {
                 this.rayToNode(rayData[i].collider.node)
             }
         })
+        //
     
     }
     //===============LEVEL LOGIC HERE!========================///
     private rayToNode(whichNode:Node){
         if(whichNode.name.includes(Configs.PIN_NAME)){
-            this.doWin();
+            //pull the pin
+            whichNode.getComponent(Pin).onTouchMe();
         }
     }
-    //===============LEVEL LOGIC HERE!========================///
-    private doWin(){
-        this.node.destroy();
-    }
-
 }
 
 

@@ -17,7 +17,7 @@ export class LevelController extends Component {
     @property(PathList)
     private pathList: PathList[] = [];
     //
-    //point list
+    //point list 
     //p1,p2
     //vi tri xp cuar player
     @property(Vec3)
@@ -27,7 +27,7 @@ export class LevelController extends Component {
     start() {
         console.log('start cua parent');
     }
-    setUp(winCallback) {
+    setUp(winCallback,loseCallback) {
         //setup player
         //khoi tao player
         ResouceUtils.loadPrefab(Configs.PLAYER_PREFAB_PATH+'player1', (playerPrefab) => {
@@ -51,6 +51,8 @@ export class LevelController extends Component {
                 });
             }
         }
+        //
+        this.loseCallback = loseCallback;
     }
     //lay list all duong di
     public getPathList(){
@@ -75,7 +77,7 @@ export class LevelController extends Component {
         }
     }
     //
-    protected loseGame() {
+    public loseGame() {
         if (this.loseCallback) {
             this.loseCallback();
         }

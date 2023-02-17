@@ -1280,7 +1280,7 @@
     "playerPos": {
       "__type__": "cc.Vec3",
       "x": 0,
-      "y": 1.2,
+      "y": 2,
       "z": 0
     },
     "pin": {
@@ -1302,6 +1302,7 @@
     },
     "fileId": "e9L+TopCxDLpi5b4/2QUbR",
     "instance": null,
+    "targetOverrides": null,
     "nestedPrefabInstanceRoots": [
       {
         "__id__": 61

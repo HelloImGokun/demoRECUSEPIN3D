@@ -20,6 +20,8 @@ export class PlayerController extends Component {
     //check door
     private isFindDoor: boolean = false;
     private levelController: LevelController;
+    //check xem player da die or win
+    private isOver:boolean = false;
     start() {
         //get LevelController
         this.levelController = this.node.parent?.getComponent(LevelController);
@@ -35,6 +37,7 @@ export class PlayerController extends Component {
         //lap qua path list de tim duong
         //
         if (this.isFind) return;
+        if(this.isOver) return;
 
         //
         let pathList = this.levelController.getPathList();
@@ -66,15 +69,38 @@ export class PlayerController extends Component {
         //
 
     }
+    private convertPositionToPlayerY(playerPos,pointPos){
+        return new Vec3(pointPos.x,playerPos.y,0);
+    }
     private movePlayerThroughThePointList(pointList) {
         //p1 - p2
-        for (let i = 0; i < pointList.length; i++) {
-            tween(this.node).sequence(
-                tween(this.node).delay(i * 2),
-                tween(this.node).to(1, { position: pointList[i].getPosition() })
-            ).start();
+        //nhan vat khi di chuyen thi y ko doi = y cua nhan vat hien tai
 
+        let pointCount = 0;
+        //b1: check diem pointCount neu co => thuc hien buoc di
+        //b2: Thuc hien buoc di xong lap lai b1
+        const moveToPoint = (position)=>{
+            let newPosition = this.convertPositionToPlayerY(this.node.position,position);
+            //do move
+            tween(this.node).sequence(
+                tween(this.node).to(0.5, { position:newPosition}),
+                tween(this.node).delay(1),
+                tween().call(()=>{
+                    //retrack check tiep xem co di chuyen tiep den diem sau ko
+                    pointCount++;
+                    //check point again
+
+                    checkPoint();
+                })
+            ).start();
         }
+        const checkPoint = ()=>{
+            if(pointList[pointCount]){
+                moveToPoint(pointList[pointCount].getPosition());
+            }
+        }
+        //
+        checkPoint();
         //from 1 - 2 - 3
     }
     //
@@ -89,8 +115,17 @@ export class PlayerController extends Component {
                 this.findDoor();
             }
             //cham vao enemy la die
-            else if (collisionNode.name.includes(Configs.ENEMY_NAME)){
-                this.animationController.setValue('Die',true);
+            else if (collisionNode.name.includes(Configs.KILL_PLAYER_OBJ)){
+                this.animationController.setValue('isDie',true);
+                this.isOver = true;
+                //delay for a second
+                this.scheduleOnce(()=>{
+                    //lose game
+                    let LevelControllerNode = this.node.getParent();
+                    if (LevelControllerNode.getComponent(LevelController)) {
+                        LevelControllerNode.getComponent(LevelController).loseGame();
+                    }
+                },2)
             }
         }
        
@@ -142,12 +177,15 @@ export class PlayerController extends Component {
         //
     }
     private checkOnAir() {
-        this.newY = this.node.position.y;
+    
+        //this.newY = this.node.position.y;
         if (this.oldY == null) {
-            this.oldY = this.newY;
+            this.oldY = this.node.position.y;
+            return;
         } else {
+            this.newY = this.node.position.y;
             let deltaY = (Math.abs(this.newY - this.oldY));
-
+            console.log('delta Y',deltaY);
             this.animationController.setValue('dy', deltaY);
             this.oldY = this.newY;
         }

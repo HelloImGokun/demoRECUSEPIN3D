@@ -15,7 +15,7 @@ export class GameController extends Component {
     @property(Camera)
     private camera:Camera;
     //
-    private currentLevelNumber:number = 2;
+    private currentLevelNumber:number = 1;
     //
     @property(Node)
     private currentLevelNode:Node;
@@ -28,20 +28,25 @@ export class GameController extends Component {
     }
     private startLastLevel(){
         this.gameModel.lbGameLevel.string = 'Level '+ this.currentLevelNumber;
+        this.createNewLevel();
+        //preload next level
+        let nextLevelPath = Configs.LOAD_LEVEL_PATH+(this.currentLevelNumber+1);
+        ResouceUtils.preloadPrefab(nextLevelPath);
+    }
+    private createNewLevel(){
         ResouceUtils.loadPrefab(Configs.LOAD_LEVEL_PATH+this.currentLevelNumber,(lvPrefab)=>{
             //
             this.currentLevelNode = instantiate(lvPrefab);
             this.currentLevelNode.getComponent(LevelController).setUp(()=>{
                 //win level event
                 this.winLevel();
+            },()=>{
+                //lose level
+                this.loseLevel();
             })
             this.gameModel.gamePlayNode.addChild(this.currentLevelNode);
         })
-        //preload next level
-        let nextLevelPath = Configs.LOAD_LEVEL_PATH+(this.currentLevelNumber+1);
-        ResouceUtils.preloadPrefab(nextLevelPath);
     }
-   
     private winLevel(){
         //
         let winUI = instantiate(this.gameModel.winUIPrefab);
@@ -67,16 +72,7 @@ export class GameController extends Component {
     private nextLevel(){
         //
         this.gameModel.lbGameLevel.string = 'Level '+ this.currentLevelNumber;
-        ResouceUtils.loadPrefab(Configs.LOAD_LEVEL_PATH+this.currentLevelNumber,(lvPrefab)=>{
-            //
-            this.currentLevelNode = instantiate(lvPrefab);
-            this.currentLevelNode.getComponent(LevelController).setUp(()=>{
-                //win level event
-                this.winLevel();
-            })
-            this.gameModel.gamePlayNode.addChild(this.currentLevelNode);
-
-        })
+        this.createNewLevel();
         //
         this.preloadNextLevel();
     }

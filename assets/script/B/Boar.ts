@@ -1,4 +1,5 @@
-import { _decorator, Collider, Component, geometry, ICollisionEvent , physics, PhysicsSystem, RigidBody, SkeletalAnimationComponent, tween, Vec3 } from 'cc';
+import { _decorator, Collider, Component, geometry, physics, PhysicsSystem, RigidBody, SkeletalAnimationComponent, tween, Vec3, ITriggerEvent } from 'cc';
+import { Configs } from '../../utils/Configs';
 const { ccclass, property } = _decorator;
 
 @ccclass('Boar')
@@ -10,16 +11,16 @@ export class Boar extends Component {
     start() {
         this.LOG_NAME = this.node.name;
         let collider = this.getComponent(Collider);
-        collider.on('onCollisionEnter',this.onCollisionEnter,this);
+        collider.on('onTriggerEnter',this.onTriggerEnter,this);
         this.animator = this.node.getComponent(SkeletalAnimationComponent);
     }
-    private onCollisionEnter(event:ICollisionEvent){
+    private onTriggerEnter(event: ITriggerEvent){
         let name = event.otherCollider.node.name;
         if (name.includes('player1')) {
             //attack
             if(this.animator)
             this.animator.play('Attack');
-        } else if (name.includes('Spike') || name.includes('predator')) {
+        } else if (name.includes(Configs.KILL_ALL_OBJ)) {
             //death
             this.isDie=true;
             this.node.getComponent(RigidBody).isStatic = true;
@@ -38,12 +39,12 @@ export class Boar extends Component {
     physicGroup:physics.PhysicsGroup = 1;
     createRay(direction:number) {
         if(this.isDie) return;
-        console.log('Tiger Direction',direction);
+        //console.log('Tiger Direction',direction);
         const outRay = geometry.Ray.create(this.node.worldPosition.x, this.node.worldPosition.y+0.1, this.node.worldPosition.z, direction, 0, 0);
         if (PhysicsSystem.instance.raycastClosest(outRay, this.physicGroup, 3)) {
             let collider = PhysicsSystem.instance.raycastClosestResult.collider;
             let seeObjectName = collider.node.name;
-            console.log('Wild ray to',seeObjectName);
+            //console.log('Wild ray to',seeObjectName);
             if (seeObjectName != this.node.name) {
                 if (seeObjectName.includes('player1') || seeObjectName.includes('Prey')) {
                     //move to player
