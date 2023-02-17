@@ -1880,11 +1880,11 @@
     },
     "_materials": [
       {
-        "__uuid__": "7c77513c-eccd-4ae1-b09e-5830ced0c312@f4b39",
+        "__uuid__": "9be88cac-e33b-4893-97ff-ead4f52c6719",
         "__expectedType__": "cc.Material"
       },
       {
-        "__uuid__": "7c77513c-eccd-4ae1-b09e-5830ced0c312@33f5e",
+        "__uuid__": "52ec38a9-b12c-4d5e-bc8d-2461d9fad598",
         "__expectedType__": "cc.Material"
       }
     ],
@@ -2019,6 +2019,7 @@
       "__id__": 0
     },
     "fileId": "b3embkgvdeM5pa2gzoo+zr",
+    "instance": null,
     "targetOverrides": null
   }
 ]

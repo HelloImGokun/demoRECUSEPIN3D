@@ -1889,11 +1889,11 @@
     },
     "_materials": [
       {
-        "__uuid__": "05e26634-de16-404f-916a-80b9c733ccc8@f4b39",
+        "__uuid__": "0cfbc670-0f2b-4bd1-8d60-00674f3faa2c",
         "__expectedType__": "cc.Material"
       },
       {
-        "__uuid__": "05e26634-de16-404f-916a-80b9c733ccc8@33f5e",
+        "__uuid__": "6a2bcce4-1839-43b1-b2fa-1dc5107fe8dd",
         "__expectedType__": "cc.Material"
       }
     ],
