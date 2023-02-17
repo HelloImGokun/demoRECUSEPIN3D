@@ -11,19 +11,25 @@
     ],
     "_variables": {
       "dy": {
-        "__id__": 65
+        "__id__": 51
       },
       "dx": {
-        "__id__": 66
+        "__id__": 52
       },
       "dz": {
-        "__id__": 67
+        "__id__": 53
       },
       "isDie": {
-        "__id__": 68
+        "__id__": 54
       },
       "win": {
-        "__id__": 69
+        "__id__": 55
+      },
+      "onair": {
+        "__id__": 56
+      },
+      "landed": {
+        "__id__": 57
       }
     }
   },
@@ -43,9 +49,9 @@
       "id": "16759103720810.2503933565822951",
       "clone": null,
       "viewport": {
-        "scale": 1.2499999999999998,
-        "top": -115.80639946357178,
-        "left": -218.6536359529087
+        "scale": 0.9250000000000003,
+        "top": -65.84361244434831,
+        "left": -53.93000277775579
       }
     },
     "_states": [
@@ -85,31 +91,28 @@
         "__id__": 23
       },
       {
-        "__id__": 33
+        "__id__": 27
       },
       {
-        "__id__": 37
+        "__id__": 34
       },
       {
-        "__id__": 44
+        "__id__": 36
+      },
+      {
+        "__id__": 38
+      },
+      {
+        "__id__": 42
       },
       {
         "__id__": 46
       },
       {
-        "__id__": 48
+        "__id__": 47
       },
       {
-        "__id__": 52
-      },
-      {
-        "__id__": 56
-      },
-      {
-        "__id__": 60
-      },
-      {
-        "__id__": 64
+        "__id__": 49
       }
     ],
     "_entryState": {
@@ -128,8 +131,8 @@
       "name": "",
       "id": "16759103720810.1645347921470337",
       "clone": null,
-      "centerX": -205.86206896551727,
-      "centerY": 5.447391688771006
+      "centerX": -249.1053122087605,
+      "centerY": 7.6095538509331675
     },
     "name": "Entry"
   },
@@ -150,8 +153,8 @@
       "name": "",
       "id": "16759103720810.6994024245996884",
       "clone": null,
-      "centerX": 309.953549324239,
-      "centerY": 104.49981053429332
+      "centerX": 296.9805763512661,
+      "centerY": 149.90521593969868
     },
     "name": "Any"
   },
@@ -191,8 +194,8 @@
       "name": "",
       "id": "16759104285090.3073629846578565",
       "clone": null,
-      "centerX": -28.060123784261748,
-      "centerY": 172.44827586206895
+      "centerX": -44.276340000477944,
+      "centerY": 123.79962721342031
     },
     "name": "midair",
     "_components": [
@@ -228,8 +231,8 @@
       "name": "",
       "id": "16759173108830.47552276467947063",
       "clone": null,
-      "centerX": 104.23692686623735,
-      "centerY": 71.68507641783512
+      "centerX": 70.72341335272387,
+      "centerY": 13.306698039456762
     },
     "name": "idle",
     "_components": [
@@ -393,98 +396,6 @@
     "__type__": "cc.animation.AnimationTransition",
     "__editorExtras__": {
       "name": "",
-      "id": "16759355105080.9322757577434477",
-      "clone": null
-    },
-    "from": {
-      "__id__": 8
-    },
-    "to": {
-      "__id__": 11
-    },
-    "conditions": [
-      {
-        "__id__": 24
-      },
-      {
-        "__id__": 27
-      },
-      {
-        "__id__": 30
-      }
-    ],
-    "duration": 0.3,
-    "relativeDuration": false,
-    "exitConditionEnabled": true,
-    "destinationStart": 0,
-    "relativeDestinationStart": false,
-    "interruptionSource": 0,
-    "_exitCondition": 0
-  },
-  {
-    "__type__": "cc.animation.BinaryCondition",
-    "operator": 0,
-    "lhs": {
-      "__id__": 25
-    },
-    "rhs": {
-      "__id__": 26
-    }
-  },
-  {
-    "__type__": "cc.animation.BindableNumber",
-    "variable": "dy",
-    "value": 0
-  },
-  {
-    "__type__": "cc.animation.BindableNumber",
-    "variable": "",
-    "value": 0
-  },
-  {
-    "__type__": "cc.animation.BinaryCondition",
-    "operator": 0,
-    "lhs": {
-      "__id__": 28
-    },
-    "rhs": {
-      "__id__": 29
-    }
-  },
-  {
-    "__type__": "cc.animation.BindableNumber",
-    "variable": "dx",
-    "value": 0
-  },
-  {
-    "__type__": "cc.animation.BindableNumber",
-    "variable": "",
-    "value": 0
-  },
-  {
-    "__type__": "cc.animation.BinaryCondition",
-    "operator": 0,
-    "lhs": {
-      "__id__": 31
-    },
-    "rhs": {
-      "__id__": 32
-    }
-  },
-  {
-    "__type__": "cc.animation.BindableNumber",
-    "variable": "dz",
-    "value": 0
-  },
-  {
-    "__type__": "cc.animation.BindableNumber",
-    "variable": "",
-    "value": 0
-  },
-  {
-    "__type__": "cc.animation.AnimationTransition",
-    "__editorExtras__": {
-      "name": "",
       "id": "16759979019400.7388093182937252",
       "clone": null
     },
@@ -496,7 +407,7 @@
     },
     "conditions": [
       {
-        "__id__": 34
+        "__id__": 24
       }
     ],
     "duration": 0,
@@ -511,10 +422,10 @@
     "__type__": "cc.animation.BinaryCondition",
     "operator": 1,
     "lhs": {
-      "__id__": 35
+      "__id__": 25
     },
     "rhs": {
-      "__id__": 36
+      "__id__": 26
     }
   },
   {
@@ -542,10 +453,10 @@
     },
     "conditions": [
       {
-        "__id__": 38
+        "__id__": 28
       },
       {
-        "__id__": 41
+        "__id__": 31
       }
     ],
     "duration": 0.3,
@@ -560,10 +471,10 @@
     "__type__": "cc.animation.BinaryCondition",
     "operator": 0,
     "lhs": {
-      "__id__": 39
+      "__id__": 29
     },
     "rhs": {
-      "__id__": 40
+      "__id__": 30
     }
   },
   {
@@ -580,10 +491,10 @@
     "__type__": "cc.animation.BinaryCondition",
     "operator": 0,
     "lhs": {
-      "__id__": 42
+      "__id__": 32
     },
     "rhs": {
-      "__id__": 43
+      "__id__": 33
     }
   },
   {
@@ -611,7 +522,7 @@
     },
     "conditions": [
       {
-        "__id__": 45
+        "__id__": 35
       }
     ],
     "duration": 0.3,
@@ -641,7 +552,7 @@
     },
     "conditions": [
       {
-        "__id__": 47
+        "__id__": 37
       }
     ],
     "duration": 0.3,
@@ -671,7 +582,7 @@
     },
     "conditions": [
       {
-        "__id__": 49
+        "__id__": 39
       }
     ],
     "duration": 0.3,
@@ -686,10 +597,10 @@
     "__type__": "cc.animation.BinaryCondition",
     "operator": 0,
     "lhs": {
-      "__id__": 50
+      "__id__": 40
     },
     "rhs": {
-      "__id__": 51
+      "__id__": 41
     }
   },
   {
@@ -706,93 +617,9 @@
     "__type__": "cc.animation.AnimationTransition",
     "__editorExtras__": {
       "name": "",
-      "id": "16765303470680.9874592308743304",
+      "id": "16766012645950.1408894510041372",
       "clone": null
     },
-    "from": {
-      "__id__": 6
-    },
-    "to": {
-      "__id__": 8
-    },
-    "conditions": [
-      {
-        "__id__": 53
-      }
-    ],
-    "duration": 0.3,
-    "relativeDuration": false,
-    "exitConditionEnabled": false,
-    "destinationStart": 0,
-    "relativeDestinationStart": false,
-    "interruptionSource": 0,
-    "_exitCondition": 1
-  },
-  {
-    "__type__": "cc.animation.BinaryCondition",
-    "operator": 4,
-    "lhs": {
-      "__id__": 54
-    },
-    "rhs": {
-      "__id__": 55
-    }
-  },
-  {
-    "__type__": "cc.animation.BindableNumber",
-    "variable": "dy",
-    "value": 0
-  },
-  {
-    "__type__": "cc.animation.BindableNumber",
-    "variable": "",
-    "value": 0.01
-  },
-  {
-    "__type__": "cc.animation.AnimationTransition",
-    "__editorExtras__": null,
-    "from": {
-      "__id__": 11
-    },
-    "to": {
-      "__id__": 8
-    },
-    "conditions": [
-      {
-        "__id__": 57
-      }
-    ],
-    "duration": 0.3,
-    "relativeDuration": false,
-    "exitConditionEnabled": false,
-    "destinationStart": 0,
-    "relativeDestinationStart": false,
-    "interruptionSource": 0,
-    "_exitCondition": 1
-  },
-  {
-    "__type__": "cc.animation.BinaryCondition",
-    "operator": 4,
-    "lhs": {
-      "__id__": 58
-    },
-    "rhs": {
-      "__id__": 59
-    }
-  },
-  {
-    "__type__": "cc.animation.BindableNumber",
-    "variable": "dy",
-    "value": 0
-  },
-  {
-    "__type__": "cc.animation.BindableNumber",
-    "variable": "",
-    "value": 0.01
-  },
-  {
-    "__type__": "cc.animation.AnimationTransition",
-    "__editorExtras__": null,
     "from": {
       "__id__": 11
     },
@@ -801,7 +628,7 @@
     },
     "conditions": [
       {
-        "__id__": 61
+        "__id__": 43
       }
     ],
     "duration": 0.3,
@@ -816,10 +643,10 @@
     "__type__": "cc.animation.BinaryCondition",
     "operator": 1,
     "lhs": {
-      "__id__": 62
+      "__id__": 44
     },
     "rhs": {
-      "__id__": 63
+      "__id__": 45
     }
   },
   {
@@ -839,14 +666,61 @@
       "__id__": 3
     },
     "to": {
-      "__id__": 11
+      "__id__": 8
     },
     "conditions": []
   },
   {
-    "__type__": "cc.animation.PlainVariable",
-    "_type": 0,
-    "_value": 0
+    "__type__": "cc.animation.AnimationTransition",
+    "__editorExtras__": null,
+    "from": {
+      "__id__": 5
+    },
+    "to": {
+      "__id__": 8
+    },
+    "conditions": [
+      {
+        "__id__": 48
+      }
+    ],
+    "duration": 0.3,
+    "relativeDuration": false,
+    "exitConditionEnabled": false,
+    "destinationStart": 0,
+    "relativeDestinationStart": false,
+    "interruptionSource": 0,
+    "_exitCondition": 1
+  },
+  {
+    "__type__": "cc.animation.TriggerCondition",
+    "trigger": "onair"
+  },
+  {
+    "__type__": "cc.animation.AnimationTransition",
+    "__editorExtras__": null,
+    "from": {
+      "__id__": 8
+    },
+    "to": {
+      "__id__": 11
+    },
+    "conditions": [
+      {
+        "__id__": 50
+      }
+    ],
+    "duration": 0.3,
+    "relativeDuration": false,
+    "exitConditionEnabled": false,
+    "destinationStart": 0,
+    "relativeDestinationStart": false,
+    "interruptionSource": 0,
+    "_exitCondition": 1
+  },
+  {
+    "__type__": "cc.animation.TriggerCondition",
+    "trigger": "landed"
   },
   {
     "__type__": "cc.animation.PlainVariable",
@@ -857,6 +731,19 @@
     "__type__": "cc.animation.PlainVariable",
     "_type": 0,
     "_value": 0
+  },
+  {
+    "__type__": "cc.animation.PlainVariable",
+    "_type": 0,
+    "_value": 0
+  },
+  {
+    "__type__": "cc.animation.TriggerVariable",
+    "_flags": 0
+  },
+  {
+    "__type__": "cc.animation.TriggerVariable",
+    "_flags": 0
   },
   {
     "__type__": "cc.animation.TriggerVariable",

@@ -10,8 +10,6 @@ export class PlayerController extends Component {
     private animationController: animation.AnimationController;
     @property(RigidBody)
     private rigidBody: RigidBody;
-    private oldY = null;
-    private newY = null;
     private oldX = null;
     private newX = null;
     private oldZ = null;
@@ -27,6 +25,7 @@ export class PlayerController extends Component {
         this.levelController = this.node.parent?.getComponent(LevelController);
         let collider = this.getComponent(Collider);
         collider.on('onTriggerEnter', this.onTriggerEnter, this);
+        collider.on('onTriggerExit', this.onTriggerExit, this);
         this.findPath();
 
     }
@@ -107,8 +106,14 @@ export class PlayerController extends Component {
     //check touch door
     private onTriggerEnter(event: ITriggerEvent) {
         //
+        if(this.isOver) return;
+        //
         let collisionNode: Node = event.otherCollider.node;
-        console.log(collisionNode.name);
+        //check player dat chan xuong mat dat hay chua
+        if(collisionNode.name.includes(Configs.FLOOR_GROUND_NAME)||collisionNode.name.includes(Configs.DOOR_NAME)){
+            //player roi xuong mat dat
+            this.animationController.setValue('landed',true);
+        }
         if (!this.isFindDoor) {
             //1. check door
             if (collisionNode.name.includes(Configs.DOOR_NAME)) {
@@ -130,6 +135,14 @@ export class PlayerController extends Component {
         }
        
        
+    }
+    private onTriggerExit(event: ITriggerEvent){
+        //check xem player da thoat khoi mat dat chua
+        if(this.isOver) return;
+        if(event.otherCollider.name.includes(Configs.FLOOR_GROUND_NAME)){
+            //player roi tu do
+            this.animationController.setValue('onair',true);
+        }
     }
     private findDoor() {
         if (this.isFindDoor) return;
@@ -168,28 +181,12 @@ export class PlayerController extends Component {
 
     //
     update(deltaTime: number) {
-        //check on air
-        this.checkOnAir();
-
         //check run
         this.checkRun();
 
         //
     }
-    private checkOnAir() {
-    
-        //this.newY = this.node.position.y;
-        if (this.oldY == null) {
-            this.oldY = this.node.position.y;
-            return;
-        } else {
-            this.newY = this.node.position.y;
-            let deltaY = (Math.abs(this.newY - this.oldY));
-            console.log('delta Y',deltaY);
-            this.animationController.setValue('dy', deltaY);
-            this.oldY = this.newY;
-        }
-    }
+
 
     private checkRun() {
         this.newX = this.node.position.x;
