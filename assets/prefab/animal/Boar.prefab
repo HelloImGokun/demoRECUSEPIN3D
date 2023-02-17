@@ -2194,7 +2194,7 @@
     },
     "_materials": [
       {
-        "__uuid__": "4f8f4441-19a7-4e03-b6de-2d3069a10659@5031e",
+        "__uuid__": "02bab08f-c563-492d-b129-a1221d47e391",
         "__expectedType__": "cc.Material"
       }
     ],
@@ -2310,7 +2310,7 @@
     },
     "_materials": [
       {
-        "__uuid__": "4f8f4441-19a7-4e03-b6de-2d3069a10659@5031e",
+        "__uuid__": "02bab08f-c563-492d-b129-a1221d47e391",
         "__expectedType__": "cc.Material"
       }
     ],
@@ -2433,7 +2433,7 @@
     },
     "_materials": [
       {
-        "__uuid__": "4f8f4441-19a7-4e03-b6de-2d3069a10659@5031e",
+        "__uuid__": "02bab08f-c563-492d-b129-a1221d47e391",
         "__expectedType__": "cc.Material"
       }
     ],
@@ -2556,7 +2556,7 @@
     },
     "_materials": [
       {
-        "__uuid__": "4f8f4441-19a7-4e03-b6de-2d3069a10659@c28f0",
+        "__uuid__": "9795330a-928c-4f52-9784-581ded8518a3",
         "__expectedType__": "cc.Material"
       }
     ],
@@ -2679,7 +2679,7 @@
     },
     "_materials": [
       {
-        "__uuid__": "4f8f4441-19a7-4e03-b6de-2d3069a10659@7ca6e",
+        "__uuid__": "02bab08f-c563-492d-b129-a1221d47e391",
         "__expectedType__": "cc.Material"
       }
     ],
@@ -2869,6 +2869,7 @@
       "__id__": 0
     },
     "fileId": "a0weGGTbFG04h5wTdojUbu",
+    "instance": null,
     "targetOverrides": null
   }
 ]
