@@ -30,17 +30,17 @@
         "__id__": 106
       },
       {
-        "__id__": 123
+        "__id__": 125
       }
     ],
     "_active": true,
     "_components": [
       {
-        "__id__": 139
+        "__id__": 141
       }
     ],
     "_prefab": {
-      "__id__": 141
+      "__id__": 143
     },
     "_lpos": {
       "__type__": "cc.Vec3",
@@ -277,7 +277,7 @@
     "propertyPath": [
       "_name"
     ],
-    "value": "pin1"
+    "value": "pin"
   },
   {
     "__type__": "cc.TargetInfo",
@@ -465,7 +465,7 @@
     "propertyPath": [
       "_name"
     ],
-    "value": "pin2"
+    "value": "pin"
   },
   {
     "__type__": "cc.TargetInfo",
@@ -1858,7 +1858,7 @@
       "__type__": "cc.Vec3",
       "x": -1.066,
       "y": -0.577,
-      "z": -0.82
+      "z": -0.535
     }
   },
   {
@@ -1951,6 +1951,9 @@
       },
       {
         "__id__": 122
+      },
+      {
+        "__id__": 123
       }
     ],
     "removedComponents": []
@@ -2113,20 +2116,38 @@
     "value": false
   },
   {
+    "__type__": "CCPropertyOverrideInfo",
+    "targetInfo": {
+      "__id__": 124
+    },
+    "propertyPath": [
+      "_skinningRoot"
+    ],
+    "value": {
+      "__id__": 106
+    }
+  },
+  {
+    "__type__": "cc.TargetInfo",
+    "localID": [
+      "f0sK03lv5LYqVWNc+cF2IG"
+    ]
+  },
+  {
     "__type__": "cc.Node",
     "_objFlags": 0,
     "_parent": {
       "__id__": 1
     },
     "_prefab": {
-      "__id__": 124
+      "__id__": 126
     },
     "__editorExtras__": {}
   },
   {
     "__type__": "cc.PrefabInfo",
     "root": {
-      "__id__": 123
+      "__id__": 125
     },
     "asset": {
       "__uuid__": "9c9d058a-7c3c-4cf7-825d-d982f2fe045e",
@@ -2134,7 +2155,7 @@
     },
     "fileId": "0dDovUaTVCtokO9xb076Vc",
     "instance": {
-      "__id__": 125
+      "__id__": 127
     },
     "targetOverrides": null
   },
@@ -2148,19 +2169,16 @@
     "mountedComponents": [],
     "propertyOverrides": [
       {
-        "__id__": 126
-      },
-      {
         "__id__": 128
-      },
-      {
-        "__id__": 129
       },
       {
         "__id__": 130
       },
       {
         "__id__": 131
+      },
+      {
+        "__id__": 132
       },
       {
         "__id__": 133
@@ -2170,6 +2188,9 @@
       },
       {
         "__id__": 137
+      },
+      {
+        "__id__": 139
       }
     ],
     "removedComponents": []
@@ -2177,7 +2198,7 @@
   {
     "__type__": "CCPropertyOverrideInfo",
     "targetInfo": {
-      "__id__": 127
+      "__id__": 129
     },
     "propertyPath": [
       "_name"
@@ -2193,7 +2214,7 @@
   {
     "__type__": "CCPropertyOverrideInfo",
     "targetInfo": {
-      "__id__": 127
+      "__id__": 129
     },
     "propertyPath": [
       "_lpos"
@@ -2208,7 +2229,7 @@
   {
     "__type__": "CCPropertyOverrideInfo",
     "targetInfo": {
-      "__id__": 127
+      "__id__": 129
     },
     "propertyPath": [
       "_lrot"
@@ -2224,7 +2245,7 @@
   {
     "__type__": "CCPropertyOverrideInfo",
     "targetInfo": {
-      "__id__": 127
+      "__id__": 129
     },
     "propertyPath": [
       "_euler"
@@ -2239,7 +2260,7 @@
   {
     "__type__": "CCPropertyOverrideInfo",
     "targetInfo": {
-      "__id__": 132
+      "__id__": 134
     },
     "propertyPath": [
       "_lpos"
@@ -2260,7 +2281,7 @@
   {
     "__type__": "CCPropertyOverrideInfo",
     "targetInfo": {
-      "__id__": 134
+      "__id__": 136
     },
     "propertyPath": [
       "_lpos"
@@ -2281,7 +2302,7 @@
   {
     "__type__": "CCPropertyOverrideInfo",
     "targetInfo": {
-      "__id__": 136
+      "__id__": 138
     },
     "propertyPath": [
       "_lpos"
@@ -2302,7 +2323,7 @@
   {
     "__type__": "CCPropertyOverrideInfo",
     "targetInfo": {
-      "__id__": 138
+      "__id__": 140
     },
     "propertyPath": [
       "_center"
@@ -2329,7 +2350,7 @@
     },
     "_enabled": true,
     "__prefab": {
-      "__id__": 140
+      "__id__": 142
     },
     "pinList": [
       {
@@ -2369,7 +2390,7 @@
     "targetOverrides": null,
     "nestedPrefabInstanceRoots": [
       {
-        "__id__": 123
+        "__id__": 125
       },
       {
         "__id__": 106

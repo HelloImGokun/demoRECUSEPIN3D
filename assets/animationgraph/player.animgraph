@@ -49,9 +49,9 @@
       "id": "16759103720810.2503933565822951",
       "clone": null,
       "viewport": {
-        "scale": 0.9250000000000003,
-        "top": -65.84361244434831,
-        "left": -53.93000277775579
+        "scale": 0.8250000000000002,
+        "top": -37.539445055500835,
+        "left": -44.881515234572646
       }
     },
     "_states": [
@@ -153,8 +153,8 @@
       "name": "",
       "id": "16759103720810.6994024245996884",
       "clone": null,
-      "centerX": 296.9805763512661,
-      "centerY": 149.90521593969868
+      "centerX": 300.7947801654699,
+      "centerY": 138.10692414140692
     },
     "name": "Any"
   },
@@ -194,8 +194,8 @@
       "name": "",
       "id": "16759104285090.3073629846578565",
       "clone": null,
-      "centerX": -44.276340000477944,
-      "centerY": 123.79962721342031
+      "centerX": -48.60066432480227,
+      "centerY": 146.50232991612302
     },
     "name": "midair",
     "_components": [
@@ -231,8 +231,8 @@
       "name": "",
       "id": "16759173108830.47552276467947063",
       "clone": null,
-      "centerX": 70.72341335272387,
-      "centerY": 13.306698039456762
+      "centerX": 91.26395389326433,
+      "centerY": 41.41480614756486
     },
     "name": "idle",
     "_components": [
@@ -661,7 +661,11 @@
   },
   {
     "__type__": "cc.animation.Transition",
-    "__editorExtras__": null,
+    "__editorExtras__": {
+      "name": "",
+      "id": "16766026071180.19229137577182853",
+      "clone": null
+    },
     "from": {
       "__id__": 3
     },
@@ -672,7 +676,11 @@
   },
   {
     "__type__": "cc.animation.AnimationTransition",
-    "__editorExtras__": null,
+    "__editorExtras__": {
+      "name": "",
+      "id": "16766026071180.4741801896922948",
+      "clone": null
+    },
     "from": {
       "__id__": 5
     },
@@ -698,7 +706,11 @@
   },
   {
     "__type__": "cc.animation.AnimationTransition",
-    "__editorExtras__": null,
+    "__editorExtras__": {
+      "name": "",
+      "id": "16766026071180.5271513232339171",
+      "clone": null
+    },
     "from": {
       "__id__": 8
     },
