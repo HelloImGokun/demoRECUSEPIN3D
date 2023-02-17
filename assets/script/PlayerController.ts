@@ -138,6 +138,7 @@ export class PlayerController extends Component {
     }
     private onTriggerExit(event: ITriggerEvent){
         //check xem player da thoat khoi mat dat chua
+        //
         if(this.isOver) return;
         if(event.otherCollider.name.includes(Configs.FLOOR_GROUND_NAME)){
             //player roi tu do
