@@ -46,9 +46,9 @@ export class PlayerController extends Component {
             let pointList = pointListObject.getPointList();
 
             //tim duong va kiem tra, neu co duong roi thi thoat for
+        
             if (this.checkPointList(pointList)) {
                 //
-                console.log('Let pass');
                 this.isFind = true;
                 //
                 return this.movePlayerThroughThePointList(pointList);
@@ -68,6 +68,7 @@ export class PlayerController extends Component {
         //
 
     }
+    // z luon bang 0
     private convertPositionToPlayerY(playerPos,pointPos){
         return new Vec3(pointPos.x,playerPos.y,0);
     }
@@ -94,6 +95,7 @@ export class PlayerController extends Component {
             ).start();
         }
         const checkPoint = ()=>{
+            console.log('p:'+pointList[pointCount]);
             if(pointList[pointCount]){
                 moveToPoint(pointList[pointCount].getPosition());
             }
@@ -106,9 +108,11 @@ export class PlayerController extends Component {
     //check touch door
     private onTriggerEnter(event: ITriggerEvent) {
         //
+   
         if(this.isOver) return;
         //
         let collisionNode: Node = event.otherCollider.node;
+        console.log('collider',collisionNode.name);
         //check player dat chan xuong mat dat hay chua
         if(collisionNode.name.includes(Configs.FLOOR_GROUND_NAME)||collisionNode.name.includes(Configs.DOOR_NAME)){
             //player roi xuong mat dat
@@ -120,7 +124,7 @@ export class PlayerController extends Component {
                 this.findDoor();
             }
             //cham vao enemy la die
-            else if (collisionNode.name.includes(Configs.KILL_PLAYER_OBJ)){
+            else if (collisionNode.name.includes(Configs.KILL_PLAYER_OBJ)||collisionNode.name.includes(Configs.KILL_ALL_OBJ)){
                 this.animationController.setValue('isDie',true);
                 this.isOver = true;
                 //delay for a second
@@ -148,12 +152,12 @@ export class PlayerController extends Component {
     private findDoor() {
         if (this.isFindDoor) return;
         this.isFindDoor = true;
-        console.log('find door');
+       
         tween(this.node).sequence(
             //xoay nguoi lai huong door
             tween(this.node).delay(0.5),
             tween(this.node).to(0.2, { eulerAngles: new Vec3(0, 180, 0) }),
-            tween(this.node).by(0.5, { position: new Vec3(0, 0, -0.5) }),
+            tween(this.node).by(0.5, { position: new Vec3(0, 0, -0.4) }),
             //xoay nguoi huong ra ngoai 
             tween(this.node).to(0.2, { eulerAngles: new Vec3(0, 0, 0) }),
             tween(this.node).call(() => {
@@ -190,10 +194,10 @@ export class PlayerController extends Component {
 
 
     private checkRun() {
-        this.newX = this.node.position.x;
         if (this.oldX == null) {
             this.oldX = this.node.position.x;
         } else {
+            this.newX = this.node.position.x;
             let deltaX = this.newX - this.oldX
             //check left or right
             this.checkMoveLeftOrRight(deltaX);
@@ -203,10 +207,11 @@ export class PlayerController extends Component {
         }
         //check z
 
-        this.newZ = this.node.position.z;
+
         if (this.oldZ == null) {
             this.oldZ = this.node.position.z;
         } else {
+            this.newZ = this.node.position.z;
             let deltaZ = this.newZ - this.oldZ
             //check left or right
             this.animationController.setValue('dz', Math.abs(deltaZ));
@@ -217,10 +222,13 @@ export class PlayerController extends Component {
 
     }
     private checkMoveLeftOrRight(deltaX) {
-        if (deltaX > 0) {
+       
+        if (deltaX > 0.001) {
             //move right
+            console.log('move right');
             this.node.setRotationFromEuler(new Vec3(0, 90, 0));
-        } else if (deltaX < 0) {
+        } else if (deltaX < -0.001) {
+            console.log('move left');
             //move left
             this.node.setRotationFromEuler(new Vec3(0, -90, 0));
         }

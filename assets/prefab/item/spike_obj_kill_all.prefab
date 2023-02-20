@@ -1,7 +1,7 @@
 [
   {
     "__type__": "cc.Prefab",
-    "_name": "spike_enemy",
+    "_name": "spike_obj_kill_all",
     "_objFlags": 0,
     "_native": "",
     "data": {
@@ -12,7 +12,7 @@
   },
   {
     "__type__": "cc.Node",
-    "_name": "spike_enemy",
+    "_name": "spike_obj_kill_all",
     "_objFlags": 0,
     "__editorExtras__": {},
     "_parent": null,
@@ -38,9 +38,9 @@
     },
     "_lpos": {
       "__type__": "cc.Vec3",
-      "x": 0,
-      "y": 0,
-      "z": 0
+      "x": 1.035,
+      "y": -0.701,
+      "z": 0.161
     },
     "_lrot": {
       "__type__": "cc.Quat",
@@ -453,7 +453,6 @@
       "__id__": 0
     },
     "fileId": "0dDovUaTVCtokO9xb076Vc",
-    "instance": null,
     "targetOverrides": null
   }
 ]

@@ -24,14 +24,10 @@ export class LevelController extends Component {
     private playerPos: Vec3 = new Vec3(0, 0, 0);
 
     private player: PlayerController;
-    start() {
-        console.log('start cua parent');
-    }
     setUp(winCallback,loseCallback) {
         //setup player
         //khoi tao player
         ResouceUtils.loadPrefab(Configs.PLAYER_PREFAB_PATH+'player1', (playerPrefab) => {
-            console.log('test');
             let newPlayer: Node = instantiate(playerPrefab);
             this.player = newPlayer.getComponent(PlayerController);
             //set pos

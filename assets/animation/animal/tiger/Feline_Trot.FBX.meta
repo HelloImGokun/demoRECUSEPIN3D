@@ -1,0 +1,83 @@
+{
+  "ver": "2.3.2",
+  "importer": "fbx",
+  "imported": true,
+  "uuid": "0592835c-151a-45b4-88d6-bd66758dbf49",
+  "files": [
+    "__original-animation-0.cconb"
+  ],
+  "subMetas": {
+    "99936": {
+      "importer": "gltf-scene",
+      "uuid": "0592835c-151a-45b4-88d6-bd66758dbf49@99936",
+      "displayName": "",
+      "id": "99936",
+      "name": "Feline_Trot.prefab",
+      "userData": {
+        "gltfIndex": 0
+      },
+      "ver": "1.0.12",
+      "imported": true,
+      "files": [
+        ".json"
+      ],
+      "subMetas": {}
+    },
+    "9292d": {
+      "importer": "gltf-animation",
+      "uuid": "0592835c-151a-45b4-88d6-bd66758dbf49@9292d",
+      "displayName": "",
+      "id": "9292d",
+      "name": "Run.animation",
+      "userData": {
+        "gltfIndex": 0,
+        "wrapMode": 1,
+        "sample": 30,
+        "span": {
+          "from": 0,
+          "to": 0.8
+        },
+        "events": []
+      },
+      "ver": "1.0.16",
+      "imported": true,
+      "files": [
+        ".cconb"
+      ],
+      "subMetas": {}
+    }
+  },
+  "userData": {
+    "imageMetas": [],
+    "legacyFbxImporter": false,
+    "animationImportSettings": [
+      {
+        "name": "Take 001",
+        "duration": 2.6666667461395264,
+        "fps": 30,
+        "splits": [
+          {
+            "name": "Run",
+            "from": 0,
+            "to": 0.8,
+            "wrapMode": 1
+          }
+        ]
+      }
+    ],
+    "redirect": "0592835c-151a-45b4-88d6-bd66758dbf49@99936",
+    "assetFinder": {
+      "meshes": [],
+      "skeletons": [],
+      "textures": [],
+      "materials": [],
+      "scenes": [
+        "0592835c-151a-45b4-88d6-bd66758dbf49@99936"
+      ]
+    },
+    "fbx": {
+      "preferLocalTimeSpan": false,
+      "smartMaterialEnabled": false
+    }
+  }
+}

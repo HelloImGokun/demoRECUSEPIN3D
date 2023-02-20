@@ -2,12 +2,12 @@
   "ver": "1.1.43",
   "importer": "prefab",
   "imported": true,
-  "uuid": "9c9d058a-7c3c-4cf7-825d-d982f2fe045e",
+  "uuid": "0ab438b4-277e-4f10-a069-e7054b63b46c",
   "files": [
     ".json"
   ],
   "subMetas": {},
   "userData": {
-    "syncNodeName": "spike_enemy"
+    "syncNodeName": "Tiger_obj_kill_all"
   }
 }

@@ -10,7 +10,7 @@ enum DIRECTION{
 @ccclass('Pin')
 export class Pin extends Component {
     isMove:boolean=false;
-    @property
+    @property   
     direction:DIRECTION = DIRECTION.left;
     @property(Node)
     private attachPathNode:Node;

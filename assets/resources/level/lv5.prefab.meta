@@ -2,12 +2,12 @@
   "ver": "1.1.43",
   "importer": "prefab",
   "imported": true,
-  "uuid": "14503c0a-c27b-46e1-b620-32ebd56100df",
+  "uuid": "08214f00-e755-4eef-bf20-00ac0cfe1c52",
   "files": [
     ".json"
   ],
   "subMetas": {},
   "userData": {
-    "syncNodeName": "finalDoor"
+    "syncNodeName": "lv5"
   }
 }
