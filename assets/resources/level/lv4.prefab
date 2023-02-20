@@ -740,8 +740,6 @@
       "__id__": 0
     },
     "fileId": "31gMymGZJNsazxkEWX9dWc",
-    "instance": null,
-    "targetOverrides": null,
     "nestedPrefabInstanceRoots": null
   },
   {
@@ -2803,7 +2801,7 @@
     "nestedPrefabInstanceRoots": null
   },
   {
-    "__type__": "57685D/9jNHc5HcIkvdmDCG",
+    "__type__": "4c278ekgv9HZaCzQ0kDdW/F",
     "_name": "",
     "_objFlags": 0,
     "node": {
@@ -2831,15 +2829,15 @@
     ],
     "playerPos": {
       "__type__": "cc.Vec3",
-      "x": -1.1,
-      "y": 2,
+      "x": -0.9,
+      "y": 1.9,
       "z": 0
     },
     "_id": ""
   },
   {
     "__type__": "cc.CompPrefabInfo",
-    "fileId": "60xTxEuGNIy4CmHy+Oj+wo"
+    "fileId": "f6IYxy9IdD4oQLf4lfGsLt"
   },
   {
     "__type__": "cc.PrefabInfo",
