@@ -24,6 +24,9 @@ export class LevelController extends Component {
     private playerPos: Vec3 = new Vec3(0, 0, 0);
 
     private player: PlayerController;
+    start() {
+        console.log('start cua parent');
+    }
     setUp(winCallback,loseCallback) {
         //setup player
         //khoi tao player
@@ -37,6 +40,7 @@ export class LevelController extends Component {
 
         //
         this.winCallback = winCallback;
+        this.loseCallback =loseCallback;
         //setup pin event
         if (this.pinList && this.pinList.length > 0) {
             for (let i = 0; i < this.pinList.length; i++) {
@@ -50,6 +54,8 @@ export class LevelController extends Component {
         //
         this.loseCallback = loseCallback;
     }
+    //
+    
     //lay list all duong di
     public getPathList(){
         return this.pathList;
@@ -78,12 +84,12 @@ export class LevelController extends Component {
             this.loseCallback();
         }
     }
-    //callback tu con ve cha
-    protected callbackTuConVeCha(callback) {
-        if (callback) {
-            callback();
-        }
-    }
+    // //callback tu con ve cha
+    // protected callbackTuConVeCha(callback) {
+    //     if (callback) {
+    //         callback();
+    //     }
+    // }
     onDisable() {
         console.log('disable');
     }

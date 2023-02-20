@@ -1,13 +1,9 @@
 {
   "ver": "1.1.43",
   "importer": "prefab",
-  "imported": true,
-  "uuid": "9c9d058a-7c3c-4cf7-825d-d982f2fe045e",
-  "files": [
-    ".json"
-  ],
+  "imported": false,
+  "uuid": "2ec3f476-ad53-45e1-90b7-027cb6472588",
+  "files": [],
   "subMetas": {},
-  "userData": {
-    "syncNodeName": "spike_obj_kill_all"
-  }
+  "userData": {}
 }

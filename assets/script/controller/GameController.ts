@@ -40,9 +40,6 @@ export class GameController extends Component {
             this.currentLevelNode.getComponent(LevelController).setUp(()=>{
                 //win level event
                 this.winLevel();
-            },()=>{
-                //lose level
-                this.loseLevel();
             })
             this.gameModel.gamePlayNode.addChild(this.currentLevelNode);
         })
@@ -62,17 +59,59 @@ export class GameController extends Component {
     }
     // loselevel
     private loseLevel(){
+        console.log('lose Ui2')
         let loseUI = instantiate(this.gameModel.loseUIPrefabs);
         loseUI.getComponent(LoseUI).setUp(()=>{
+            //
+            
             this.currentLevelNumber;
+            //
+            this.Reload();
         })
         this.gameModel.canvasUI.addChild(loseUI);
     }
+    private Reload(){
+        
+        this.gameModel.lbGameLevel.string = 'Level '+ this.currentLevelNumber;
+        ResouceUtils.loadPrefab(Configs.LOAD_LEVEL_PATH+this.currentLevelNumber,(lvPrefab)=>{
+            //
+            this.currentLevelNode = instantiate(lvPrefab);
+            // this.currentLevelNode.getComponent(LevelController).setUp(()=>{
+            //     //win level event
+            //     this.loseLevel();
+            // }, )
+            
+            this.currentLevelNode.getComponent(LevelController).setUp(()=>{
+
+            },()=>{ 
+                //lose Ui
+                this.loseLevel();
+                
+            });
+            this.gameModel.gamePlayNode.addChild(this.currentLevelNode);})
+
+        this.ReloadLevel();
+    }
+    //reload level 
+    private ReloadLevel(){
+        let nextLevelPath = Configs.LOAD_LEVEL_PATH+(this.currentLevelNumber);
+            ResouceUtils.preloadPrefab(nextLevelPath);
+    }
+
     //next level
     private nextLevel(){
         //
         this.gameModel.lbGameLevel.string = 'Level '+ this.currentLevelNumber;
-        this.createNewLevel();
+        ResouceUtils.loadPrefab(Configs.LOAD_LEVEL_PATH+this.currentLevelNumber,(lvPrefab)=>{
+            //
+            this.currentLevelNode = instantiate(lvPrefab);
+            this.currentLevelNode.getComponent(LevelController).setUp(()=>{
+                //win level event
+                this.winLevel();
+            })
+            this.gameModel.gamePlayNode.addChild(this.currentLevelNode);
+
+        })
         //
         this.preloadNextLevel();
     }

@@ -136,9 +136,14 @@ export class PlayerController extends Component {
                     }
                 },2)
             }
-        }
-       
-       
+        }      
+    }
+    private failure(){
+        
+        let LevelControllerNode = this.node.getParent();
+        if (LevelControllerNode.getComponent(LevelController)) {
+            LevelControllerNode.getComponent(LevelController).loseGame();
+        }  
     }
     private onTriggerExit(event: ITriggerEvent){
         //check xem player da thoat khoi mat dat chua
