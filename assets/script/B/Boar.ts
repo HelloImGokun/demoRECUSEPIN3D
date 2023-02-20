@@ -51,6 +51,7 @@ export class Boar extends Component {
             if (seeObjectName != this.node.name) {
                 if (seeObjectName.includes(Configs.PLAYER_NAME) || seeObjectName.includes(Configs.KILL_PLAYER_OBJ)) {
                     //move to player
+                    
                     this.isAttack = true;
                     if(this.animator)
                     this.animator.play('Attack');
