@@ -1,7 +1,8 @@
-import { _decorator, Component, Node, animation, RigidBody, Vec3, tween, Quat, ITriggerEvent, Collider, ICollisionEvent, BoxCollider } from 'cc';
+import { _decorator, Component, Node, animation, RigidBody, Vec3, tween, Quat, ITriggerEvent, Collider, ICollisionEvent, BoxCollider, resources, Tween } from 'cc';
 import { Configs } from '../utils/Configs';
 import { LevelController } from './controller/LevelController';
 import { PointNode } from './P/PointNode';
+import { ResouceUtils } from '../utils/ResouceUtils';
 const { ccclass, property } = _decorator;
 
 @ccclass('PlayerController')
@@ -14,6 +15,8 @@ export class PlayerController extends Component {
     private newX = null;
     private oldZ = null;
     private newZ = null;
+    @property(Node)
+    basic_rig_Spine : Node ;
 
     //check door
     private isFindDoor: boolean = false;
@@ -34,32 +37,31 @@ export class PlayerController extends Component {
     //FindPath
     public findPath() {
         //lap qua path list de tim duong
+
         //
-        if (this.isFind) return;
         if(this.isOver) return;
 
         //
         let pathList = this.levelController.getPathList();
         for (let i = 0; i < pathList.length; i++) {
+      
             //trong cac point list
             let pointListObject = pathList[i];
             let pointList = pointListObject.getPointList();
-
+            console.log('point list',i,pointList);
             //tim duong va kiem tra, neu co duong roi thi thoat for
-        
             if (this.checkPointList(pointList)) {
-                //
-                this.isFind = true;
-                //
-                return this.movePlayerThroughThePointList(pointList);
+                return this.movePlayerThroughThePointList(pointListObject);
             }
         }
 
     }
     private checkPointList(pointList) {
+        if(pointList==null) return false;
+        //
         for (let i = 0; i < pointList.length; i++) {
             if (pointList[i].getIsLock()) {
-                console.log('Cannot pass');
+                console.log('point list Cannot pass',pointList[i].node.name);
                 return false;
             }
         }
@@ -72,7 +74,8 @@ export class PlayerController extends Component {
     private convertPositionToPlayerY(playerPos,pointPos){
         return new Vec3(pointPos.x,playerPos.y,0);
     }
-    private movePlayerThroughThePointList(pointList) {
+    private movePlayerThroughThePointList(pointListObject) {
+        let pointList = pointListObject.getPointList();
         //p1 - p2
         //nhan vat khi di chuyen thi y ko doi = y cua nhan vat hien tai
 
@@ -82,20 +85,28 @@ export class PlayerController extends Component {
         const moveToPoint = (position)=>{
             let newPosition = this.convertPositionToPlayerY(this.node.position,position);
             //do move
+            if(this.isOver) return;
+            //
             tween(this.node).sequence(
                 tween(this.node).to(0.5, { position:newPosition}),
                 tween(this.node).delay(1),
                 tween().call(()=>{
-                    //retrack check tiep xem co di chuyen tiep den diem sau ko
                     pointCount++;
-                    //check point again
-
-                    checkPoint();
+                    console.log('counting:', pointCount);
+                    //diem cuoi
+                    if(pointCount==pointList.length){
+                        //last
+                        console.log(pointList);
+                        pointListObject.setIsPass();
+                    }else{
+                        //check point again
+                        checkPoint();
+                    }
+ 
                 })
             ).start();
         }
         const checkPoint = ()=>{
-            console.log('p:'+pointList[pointCount]);
             if(pointList[pointCount]){
                 moveToPoint(pointList[pointCount].getPosition());
             }
@@ -127,6 +138,10 @@ export class PlayerController extends Component {
             else if (collisionNode.name.includes(Configs.KILL_PLAYER_OBJ)||collisionNode.name.includes(Configs.KILL_ALL_OBJ)){
                 this.animationController.setValue('isDie',true);
                 this.isOver = true;
+                //stop all tween
+                //
+                Tween.stopAllByTarget(this.node);
+                //
                 //delay for a second
                 this.scheduleOnce(()=>{
                     //lose game
@@ -151,7 +166,10 @@ export class PlayerController extends Component {
         }
     }
     //bring float
+    private bringFloat(){
     
+    }
+    //
     private findDoor() {
         if (this.isFindDoor) return;
         this.isFindDoor = true;

@@ -5,6 +5,7 @@ const { ccclass, property } = _decorator;
 export class PointNode extends Component {
     @property({type:Boolean})
     private isLock:boolean;
+
     start() {
 
     }
@@ -13,6 +14,9 @@ export class PointNode extends Component {
     }
     setUnlock(){
         this.isLock = false;
+    }
+    setLockPoint(){
+        this.isLock = true;
     }
     getPosition(){
         return this.node.position;

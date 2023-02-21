@@ -14,7 +14,8 @@ export class Configs {
     public static KILL_PLAYER_OBJ:string= 'hunter';
     public static KILL_ALL_OBJ:string = 'obj_kill_all';
     public static FLOOR_GROUND_NAME:string = 'floor';
-    public static PLAYER_NAME:string = 'player'
+    public static PLAYER_NAME:string = 'player';
+    public static FLOAT_PREFAB_PATH = 'items/';
 }
 
 
