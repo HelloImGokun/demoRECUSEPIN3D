@@ -2,12 +2,12 @@
   "ver": "1.1.43",
   "importer": "prefab",
   "imported": true,
-  "uuid": "6a8118b6-26ff-4ac5-b3ee-32ccc080d095",
+  "uuid": "a7c08e91-46cc-40d2-bf4c-a57b3988982e",
   "files": [
     ".json"
   ],
   "subMetas": {},
   "userData": {
-    "syncNodeName": "Water_float"
+    "syncNodeName": "Pool"
   }
 }

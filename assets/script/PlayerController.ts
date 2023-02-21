@@ -134,12 +134,13 @@ export class PlayerController extends Component {
                     if (LevelControllerNode.getComponent(LevelController)) {
                         LevelControllerNode.getComponent(LevelController).loseGame();
                     }
-                },2)
+                },1)
             }
         }
        
        
     }
+
     private onTriggerExit(event: ITriggerEvent){
         //check xem player da thoat khoi mat dat chua
         //
@@ -149,6 +150,8 @@ export class PlayerController extends Component {
             this.animationController.setValue('onair',true);
         }
     }
+    //bring float
+    
     private findDoor() {
         if (this.isFindDoor) return;
         this.isFindDoor = true;
