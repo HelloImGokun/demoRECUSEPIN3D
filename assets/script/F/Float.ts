@@ -23,7 +23,7 @@ export class Float extends Component {
             if (collisionNode.name.includes(Configs.PLAYER_NAME)) {
                 this.node.destroy();
             }
-        },500);
+        },100);
     }
 
 }
