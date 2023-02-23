@@ -18,7 +18,7 @@ export class Boar extends Component {
     private onTriggerEnter(event: ITriggerEvent){
         let name = event.otherCollider.node.name;
         console.log(this.node.name,name+'.......');
-        if (name.includes('player1')||name.includes(Configs.KILL_PLAYER_OBJ )) {
+        if (name.includes(Configs.PLAYER_NAME)||name.includes(Configs.KILL_PLAYER_OBJ )) {
             //attack
             if(this.animator)
             this.animator.play('Attack');
