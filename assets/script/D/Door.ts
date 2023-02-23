@@ -11,7 +11,6 @@ export class Door extends Component {
     
     private onTriggerStay (event: ITriggerEvent) {
         if(this.isOpen) return;
-        console.log('Open door')
         this.isOpen=true;
         //deactive door
         setTimeout(() => {

@@ -1,4 +1,4 @@
-import { _decorator, Component, Node, animation, RigidBody, Vec3, tween, Quat, ITriggerEvent, Collider, ICollisionEvent, BoxCollider, resources, Tween } from 'cc';
+import { _decorator, Component, Node, animation, RigidBody, Vec3, tween, Quat, ITriggerEvent, Collider, ICollisionEvent, BoxCollider, resources, Tween, instantiate } from 'cc';
 import { Configs } from '../utils/Configs';
 import { LevelController } from './controller/LevelController';
 import { PointNode } from './P/PointNode';
@@ -16,13 +16,13 @@ export class PlayerController extends Component {
     private oldZ = null;
     private newZ = null;
     @property(Node)
-    basic_rig_Spine : Node ;
+    basic_rig_Spine: Node;
 
     //check door
     private isFindDoor: boolean = false;
     private levelController: LevelController;
     //check xem player da die or win
-    private isOver:boolean = false;
+    private isOver: boolean = false;
     start() {
         //get LevelController
         this.levelController = this.node.parent?.getComponent(LevelController);
@@ -39,16 +39,16 @@ export class PlayerController extends Component {
         //lap qua path list de tim duong
 
         //
-        if(this.isOver) return;
+        if (this.isOver) return;
 
         //
         let pathList = this.levelController.getPathList();
         for (let i = 0; i < pathList.length; i++) {
-      
+
             //trong cac point list
             let pointListObject = pathList[i];
             let pointList = pointListObject.getPointList();
-            console.log('point list',i,pointList);
+            console.log('point list', i, pointList);
             //tim duong va kiem tra, neu co duong roi thi thoat for
             if (this.checkPointList(pointList)) {
                 return this.movePlayerThroughThePointList(pointListObject);
@@ -57,11 +57,11 @@ export class PlayerController extends Component {
 
     }
     private checkPointList(pointList) {
-        if(pointList==null) return false;
+        if (pointList == null) return false;
         //
         for (let i = 0; i < pointList.length; i++) {
             if (pointList[i].getIsLock()) {
-                console.log('point list Cannot pass',pointList[i].node.name);
+                console.log('point list Cannot pass', pointList[i].node.name);
                 return false;
             }
         }
@@ -71,8 +71,8 @@ export class PlayerController extends Component {
 
     }
     // z luon bang 0
-    private convertPositionToPlayerY(playerPos,pointPos){
-        return new Vec3(pointPos.x,playerPos.y,0);
+    private convertPositionToPlayerY(playerPos, pointPos) {
+        return new Vec3(pointPos.x, playerPos.y, 0);
     }
     private movePlayerThroughThePointList(pointListObject) {
         let pointList = pointListObject.getPointList();
@@ -82,32 +82,32 @@ export class PlayerController extends Component {
         let pointCount = 0;
         //b1: check diem pointCount neu co => thuc hien buoc di
         //b2: Thuc hien buoc di xong lap lai b1
-        const moveToPoint = (position)=>{
-            let newPosition = this.convertPositionToPlayerY(this.node.position,position);
+        const moveToPoint = (position) => {
+            let newPosition = this.convertPositionToPlayerY(this.node.position, position);
             //do move
-            if(this.isOver) return;
+            if (this.isOver) return;
             //
             tween(this.node).sequence(
-                tween(this.node).to(0.5, { position:newPosition}),
+                tween(this.node).to(0.5, { position: newPosition }),
                 tween(this.node).delay(1),
-                tween().call(()=>{
+                tween().call(() => {
                     pointCount++;
                     console.log('counting:', pointCount);
                     //diem cuoi
-                    if(pointCount==pointList.length){
+                    if (pointCount == pointList.length) {
                         //last
                         console.log(pointList);
                         pointListObject.setIsPass();
-                    }else{
+                    } else {
                         //check point again
                         checkPoint();
                     }
- 
+
                 })
             ).start();
         }
-        const checkPoint = ()=>{
-            if(pointList[pointCount]){
+        const checkPoint = () => {
+            if (pointList[pointCount]) {
                 moveToPoint(pointList[pointCount].getPosition());
             }
         }
@@ -119,15 +119,15 @@ export class PlayerController extends Component {
     //check touch door
     private onTriggerEnter(event: ITriggerEvent) {
         //
-   
-        if(this.isOver) return;
+
+        if (this.isOver) return;
         //
         let collisionNode: Node = event.otherCollider.node;
-        console.log('collider',collisionNode.name);
+        console.log('collider', collisionNode.name);
         //check player dat chan xuong mat dat hay chua
-        if(collisionNode.name.includes(Configs.FLOOR_GROUND_NAME)||collisionNode.name.includes(Configs.DOOR_NAME)){
+        if (collisionNode.name.includes(Configs.FLOOR_GROUND_NAME) || collisionNode.name.includes(Configs.DOOR_NAME)) {
             //player roi xuong mat dat
-            this.animationController.setValue('landed',true);
+            this.animationController.setValue('landed', true);
         }
         if (!this.isFindDoor) {
             //1. check door
@@ -135,45 +135,47 @@ export class PlayerController extends Component {
                 this.findDoor();
             }
             //cham vao enemy la die
-            else if (collisionNode.name.includes(Configs.KILL_PLAYER_OBJ)||collisionNode.name.includes(Configs.KILL_ALL_OBJ)){
-                this.animationController.setValue('isDie',true);
+            else if (collisionNode.name.includes(Configs.KILL_PLAYER_OBJ) || collisionNode.name.includes(Configs.KILL_ALL_OBJ)) {
+                this.animationController.setValue('isDie', true);
                 this.isOver = true;
                 //stop all tween
                 //
                 Tween.stopAllByTarget(this.node);
                 //
                 //delay for a second
-                this.scheduleOnce(()=>{
+                this.scheduleOnce(() => {
                     //lose game
                     let LevelControllerNode = this.node.getParent();
                     if (LevelControllerNode.getComponent(LevelController)) {
                         LevelControllerNode.getComponent(LevelController).loseGame();
                     }
-                },1)
+                }, 1)
             }
         }
-       
-       
+        //bring float
+        if(collisionNode.name.includes('float')){
+           let bringfloat = Configs.FLOAT_PREFAB_PATH
+            ResouceUtils.preloadPrefab(bringfloat);
+            console.log('hi bring float')
+        }
+        //
     }
 
-    private onTriggerExit(event: ITriggerEvent){
+    private onTriggerExit(event: ITriggerEvent) {
         //check xem player da thoat khoi mat dat chua
         //
-        if(this.isOver) return;
-        if(event.otherCollider.name.includes(Configs.FLOOR_GROUND_NAME)){
+        if (this.isOver) return;
+        if (event.otherCollider.name.includes(Configs.FLOOR_GROUND_NAME)) {
             //player roi tu do
-            this.animationController.setValue('onair',true);
+            this.animationController.setValue('onair', true);
         }
     }
-    //bring float
-    private bringFloat(){
-    
-    }
+   
     //
     private findDoor() {
         if (this.isFindDoor) return;
         this.isFindDoor = true;
-       
+
         tween(this.node).sequence(
             //xoay nguoi lai huong door
             tween(this.node).delay(0.5),
@@ -243,7 +245,7 @@ export class PlayerController extends Component {
 
     }
     private checkMoveLeftOrRight(deltaX) {
-       
+
         if (deltaX > 0.001) {
             //move right
             console.log('move right');
