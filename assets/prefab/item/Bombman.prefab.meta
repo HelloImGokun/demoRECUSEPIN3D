@@ -2,12 +2,12 @@
   "ver": "1.1.43",
   "importer": "prefab",
   "imported": true,
-  "uuid": "eea58f03-d505-415d-8278-9c222c22ab1f",
+  "uuid": "46119eb9-c492-44fa-b529-179cf72f21a8",
   "files": [
     ".json"
   ],
   "subMetas": {},
   "userData": {
-    "syncNodeName": "Waterball"
+    "syncNodeName": "Bombman"
   }
 }

@@ -2,12 +2,12 @@
   "ver": "1.1.43",
   "importer": "prefab",
   "imported": true,
-  "uuid": "eea58f03-d505-415d-8278-9c222c22ab1f",
+  "uuid": "d10afb4a-b926-4d5f-a7f7-6c3baa5a601c",
   "files": [
     ".json"
   ],
   "subMetas": {},
   "userData": {
-    "syncNodeName": "Waterball"
+    "syncNodeName": "pin_floor"
   }
 }

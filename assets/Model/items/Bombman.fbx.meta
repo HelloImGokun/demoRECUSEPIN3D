@@ -1,0 +1,172 @@
+{
+  "ver": "2.3.3",
+  "importer": "fbx",
+  "imported": true,
+  "uuid": "b0d1076b-de01-4a5d-a09e-a90a7ec5ee7a",
+  "files": [],
+  "subMetas": {
+    "84145": {
+      "importer": "gltf-scene",
+      "uuid": "b0d1076b-de01-4a5d-a09e-a90a7ec5ee7a@84145",
+      "displayName": "",
+      "id": "84145",
+      "name": "Bombman.prefab",
+      "userData": {
+        "gltfIndex": 0
+      },
+      "ver": "1.0.12",
+      "imported": true,
+      "files": [
+        ".json"
+      ],
+      "subMetas": {}
+    },
+    "a62fe": {
+      "importer": "gltf-mesh",
+      "uuid": "b0d1076b-de01-4a5d-a09e-a90a7ec5ee7a@a62fe",
+      "displayName": "",
+      "id": "a62fe",
+      "name": "Scene.mesh",
+      "userData": {
+        "gltfIndex": 0
+      },
+      "ver": "1.1.0",
+      "imported": true,
+      "files": [
+        ".bin",
+        ".json"
+      ],
+      "subMetas": {}
+    },
+    "fd73d": {
+      "importer": "gltf-embeded-image",
+      "uuid": "b0d1076b-de01-4a5d-a09e-a90a7ec5ee7a@fd73d",
+      "displayName": "",
+      "id": "fd73d",
+      "name": "DiffuseColor_Texture.image",
+      "userData": {
+        "gltfIndex": 0
+      },
+      "ver": "1.0.3",
+      "imported": true,
+      "files": [
+        ".json",
+        ".png"
+      ],
+      "subMetas": {}
+    },
+    "b8dfd": {
+      "importer": "gltf-embeded-image",
+      "uuid": "b0d1076b-de01-4a5d-a09e-a90a7ec5ee7a@b8dfd",
+      "displayName": "",
+      "id": "b8dfd",
+      "name": "NormalMap_Texture.image",
+      "userData": {
+        "gltfIndex": 1
+      },
+      "ver": "1.0.3",
+      "imported": true,
+      "files": [
+        ".json",
+        ".png"
+      ],
+      "subMetas": {}
+    },
+    "4f17a": {
+      "importer": "texture",
+      "uuid": "b0d1076b-de01-4a5d-a09e-a90a7ec5ee7a@4f17a",
+      "displayName": "",
+      "id": "4f17a",
+      "name": "DiffuseColor_Texture.texture",
+      "userData": {
+        "wrapModeS": "repeat",
+        "wrapModeT": "repeat",
+        "minfilter": "linear",
+        "magfilter": "linear",
+        "mipfilter": "none",
+        "anisotropy": 0,
+        "isUuid": true,
+        "imageUuidOrDatabaseUri": "b0d1076b-de01-4a5d-a09e-a90a7ec5ee7a@fd73d"
+      },
+      "ver": "1.0.22",
+      "imported": true,
+      "files": [
+        ".json"
+      ],
+      "subMetas": {}
+    },
+    "2a10f": {
+      "importer": "texture",
+      "uuid": "b0d1076b-de01-4a5d-a09e-a90a7ec5ee7a@2a10f",
+      "displayName": "",
+      "id": "2a10f",
+      "name": "NormalMap_Texture.texture",
+      "userData": {
+        "wrapModeS": "repeat",
+        "wrapModeT": "repeat",
+        "minfilter": "linear",
+        "magfilter": "linear",
+        "mipfilter": "none",
+        "anisotropy": 0,
+        "isUuid": true,
+        "imageUuidOrDatabaseUri": "b0d1076b-de01-4a5d-a09e-a90a7ec5ee7a@b8dfd"
+      },
+      "ver": "1.0.22",
+      "imported": true,
+      "files": [
+        ".json"
+      ],
+      "subMetas": {}
+    },
+    "7eb5c": {
+      "importer": "gltf-material",
+      "uuid": "b0d1076b-de01-4a5d-a09e-a90a7ec5ee7a@7eb5c",
+      "displayName": "",
+      "id": "7eb5c",
+      "name": "mon_body.material",
+      "userData": {
+        "gltfIndex": 0
+      },
+      "ver": "1.0.14",
+      "imported": true,
+      "files": [
+        ".json"
+      ],
+      "subMetas": {}
+    }
+  },
+  "userData": {
+    "imageMetas": [
+      {
+        "name": "DiffuseColor_Texture",
+        "uri": "b0d1076b-de01-4a5d-a09e-a90a7ec5ee7a@fd73d"
+      },
+      {
+        "name": "NormalMap_Texture",
+        "uri": "b0d1076b-de01-4a5d-a09e-a90a7ec5ee7a@b8dfd"
+      }
+    ],
+    "legacyFbxImporter": false,
+    "redirect": "b0d1076b-de01-4a5d-a09e-a90a7ec5ee7a@84145",
+    "assetFinder": {
+      "meshes": [
+        "b0d1076b-de01-4a5d-a09e-a90a7ec5ee7a@a62fe"
+      ],
+      "skeletons": [],
+      "textures": [
+        "b0d1076b-de01-4a5d-a09e-a90a7ec5ee7a@4f17a",
+        "b0d1076b-de01-4a5d-a09e-a90a7ec5ee7a@2a10f"
+      ],
+      "materials": [
+        "b0d1076b-de01-4a5d-a09e-a90a7ec5ee7a@7eb5c"
+      ],
+      "scenes": [
+        "b0d1076b-de01-4a5d-a09e-a90a7ec5ee7a@84145"
+      ]
+    },
+    "fbx": {
+      "preferLocalTimeSpan": false,
+      "smartMaterialEnabled": false
+    }
+  }
+}
