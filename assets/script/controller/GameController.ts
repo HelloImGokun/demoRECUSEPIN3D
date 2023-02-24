@@ -15,7 +15,7 @@ export class GameController extends Component {
     @property(Camera)
     private camera:Camera;
     //
-    private currentLevelNumber:number = 15;
+    private currentLevelNumber:number = 16;
     //
     @property(Node)
     private currentLevelNode:Node;
@@ -48,7 +48,7 @@ export class GameController extends Component {
         })
     }
     private winLevel(){
-        //
+        //    
         let winUI = instantiate(this.gameModel.winUIPrefab);
         winUI.getComponent(WinUI).setUp(()=>{
             //onNext Level
@@ -101,7 +101,6 @@ export class GameController extends Component {
             }
         }
     }
-
 
 }
 
