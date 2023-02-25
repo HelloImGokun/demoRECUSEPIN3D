@@ -264,7 +264,7 @@ export class PlayerController extends Person {
                 tween(this.node).delay(0.5),
                 //nhay vao ben trong va xoay doi dien voi npc
                 tween(this.node).to(0.2, { position: standPoint }),
-                tween(this.node).to(0.2, { eulerAngles: new Vec3(0, 90, 0) }),
+                tween(this.node).to(0.2, { eulerAngles: new Vec3(0, -90, 0) }),
                 tween(this.node).call(() => {
                     //do win animation;
                     this.animationController.setValue('win', true);

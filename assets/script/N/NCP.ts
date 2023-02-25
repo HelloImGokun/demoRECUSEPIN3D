@@ -19,7 +19,7 @@ export class NCP extends Component {
         if(name.includes('player1')){
             //cheer up
             this.isFinish=true;
-            tween(this.node).by(0.5,{eulerAngles:new Vec3(0,-90,0)}).start();
+            tween(this.node).by(0.5,{eulerAngles:new Vec3(0,90,0)}).start();
             this.playerAnimator.play('victory');
         }
     }
