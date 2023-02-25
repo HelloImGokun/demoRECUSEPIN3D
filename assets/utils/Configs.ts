@@ -16,6 +16,7 @@ export class Configs {
     public static FLOOR_GROUND_NAME:string = 'floor';
     public static PLAYER_NAME:string = 'player';
     public static FLOAT_PREFAB_PATH = 'items/';
+    public static FLOAT_NAME:string = 'float';
 }
 
 

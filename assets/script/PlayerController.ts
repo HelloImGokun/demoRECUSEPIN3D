@@ -1,4 +1,4 @@
-import { _decorator, EventTarget, Node,  Vec3, tween,ITriggerEvent,  Tween} from 'cc';
+import { _decorator, EventTarget, Node,  Vec3, tween,ITriggerEvent,  Tween, math} from 'cc';
 import { Configs } from '../utils/Configs';
 import { LevelController } from './controller/LevelController';
 import { PointNode } from './P/PointNode';
@@ -142,7 +142,7 @@ export class PlayerController extends Person {
     private moveToPoint(pointNode: PointNode, finishCallback) {
         //tween
         tween(this.node).sequence(
-            tween(this.node).to(pointNode.getMovingTime(), { position: pointNode.node.position }),
+            tween(this.node).to(pointNode.getMovingTime(), { position: this.convertPositionToPlayerY(this.node.position,pointNode.getPosition()) }),
             tween(this.node).delay(pointNode.getDelayTime()),
             tween(this.node).call(finishCallback)
         ).start();
@@ -161,12 +161,11 @@ export class PlayerController extends Person {
     //check touch door
     private onTriggerEnter(event: ITriggerEvent) {
         //
-        console.log('onTriggerEnter', event);
+
 
         if (this.isOver) return;
         //
         let collisionNode: Node = event.otherCollider.node;
-        console.log('collider', collisionNode.name);
         //check player dat chan xuong mat dat hay chua
         if (collisionNode.name.includes(Configs.FLOOR_GROUND_NAME) || collisionNode.name.includes(Configs.DOOR_NAME)) {
             //player roi xuong mat dat
@@ -196,10 +195,10 @@ export class PlayerController extends Person {
             }
         }
         //bring float
-        if(collisionNode.name.includes('float')){
-           let bringfloat = Configs.FLOAT_PREFAB_PATH
-            ResouceUtils.preloadPrefab(bringfloat);
-            console.log('hi bring float')
+        if(collisionNode.name.includes(Configs.FLOAT_NAME)){
+            console.log('bring float');
+            this.node.addChild(collisionNode);
+            collisionNode.setPosition(new math.Vec3(0,-0.33,0));
         }
         //
     }
