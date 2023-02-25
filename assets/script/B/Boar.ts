@@ -1,13 +1,16 @@
-import { _decorator, Collider, Component, geometry, physics, PhysicsSystem, RigidBody, SkeletalAnimationComponent, tween, Vec3, ITriggerEvent } from 'cc';
+import { _decorator,EventTarget, Collider, Component, geometry, physics, PhysicsSystem, RigidBody, SkeletalAnimationComponent, tween, Vec3, ITriggerEvent } from 'cc';
 import { Configs } from '../../utils/Configs';
+import { PointNode } from '../P/PointNode';
+import { PlayerController, eventTarget } from '../PlayerController';
 const { ccclass, property } = _decorator;
-
 @ccclass('Boar')
 export class Boar extends Component {
   animator: SkeletalAnimationComponent | null = null;
     //create a raycast
     LOG_NAME = null;
     isDie:boolean=false;
+    @property(PointNode)
+    private attactPoint:PointNode = null;
     start() {
         this.LOG_NAME = this.node.name;
         let collider = this.getComponent(Collider);
@@ -24,6 +27,10 @@ export class Boar extends Component {
             this.animator.play('Attack');
         } else if (name.includes(Configs.KILL_ALL_OBJ)) {
             //death
+            //mo khoa cho point
+            if(this.attactPoint){
+                this.attactPoint.setUnlock();
+            }
             console.log(this.node.name,'die....')
             this.isDie=true;
             this.node.getComponent(RigidBody).isStatic = true;
@@ -32,6 +39,8 @@ export class Boar extends Component {
             setTimeout(() => {
                 if(this.node)
                 this.node.destroy();
+                eventTarget.emit('onListingAnimal',null);
+                //
             }, 1000);
 
         }

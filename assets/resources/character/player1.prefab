@@ -1997,8 +1997,8 @@
     "rigidBody": {
       "__id__": 71
     },
-    "basic_rig_Spine": {
-      "__id__": 4
+    "collider": {
+      "__id__": 73
     },
     "_id": ""
   },

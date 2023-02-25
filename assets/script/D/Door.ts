@@ -1,22 +1,26 @@
-import { _decorator, Collider, Component,  ITriggerEvent,  tween, Vec3 } from 'cc';
+import { _decorator, CCBoolean, Collider, Component,  ITriggerEvent,  Node,  tween, Vec3 } from 'cc';
 const { ccclass, property } = _decorator;
 
 @ccclass('Door')
 export class Door extends Component {
-    isOpen:boolean=false;
-    start () {
-        let collider = this.getComponent(Collider);
-        collider.on('onTriggerEnter', this.onTriggerStay, this);
+    @property(Node)
+    private door:Node = null;
+    @property({type:CCBoolean})
+    private isNPC:boolean = false;
+    @property(Node)
+    private standPointNode:Node = null;
+    public openDoor(){
+        tween(this.door).by(0.5,{eulerAngles:new Vec3(0,90,0)}).start(); 
+
     }
-    
-    private onTriggerStay (event: ITriggerEvent) {
-        if(this.isOpen) return;
-        this.isOpen=true;
-        //deactive door
-        setTimeout(() => {
-            tween(this.node).to(0.5,{eulerAngles:new Vec3(0,90,0)}).start(); 
-        }, 1000);
-
-}}
-
+    public getIsNPC(){
+        return this.isNPC;
+    }
+    public getStandPoint(){
+        return this.standPointNode.worldPosition;
+    }
+    public rescueNPC(){
+        
+    }
+}
 

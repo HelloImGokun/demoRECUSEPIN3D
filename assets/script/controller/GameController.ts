@@ -1,4 +1,4 @@
-import { _decorator, Component,instantiate, Camera, input, Input, Vec2, geometry, PhysicsSystem, EventTouch, Node, tween } from 'cc';
+import { _decorator, Component,instantiate, Camera, input, Input, Vec2, geometry, PhysicsSystem, EventTouch, Node, tween, CCInteger } from 'cc';
 import { Configs } from '../../utils/Configs';
 import { ResouceUtils } from '../../utils/ResouceUtils';
 import { GameModel } from '../model/GameModel';
@@ -15,7 +15,7 @@ export class GameController extends Component {
     @property(Camera)
     private camera:Camera;
     //
-    private currentLevelNumber:number = 19;
+    private currentLevelNumber:number = 5;
     //
     @property(Node)
     private currentLevelNode:Node;

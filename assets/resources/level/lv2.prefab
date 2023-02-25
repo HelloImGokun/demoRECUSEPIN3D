@@ -1840,7 +1840,7 @@
   {
     "__type__": "cc.Node",
     "_name": "pathList1",
-    "_objFlags": 0,
+    "_objFlags": 512,
     "_parent": {
       "__id__": 1
     },
@@ -1893,7 +1893,7 @@
   {
     "__type__": "cc.Node",
     "_name": "p1",
-    "_objFlags": 0,
+    "_objFlags": 512,
     "__editorExtras__": {},
     "_parent": {
       "__id__": 105
@@ -1910,8 +1910,8 @@
     },
     "_lpos": {
       "__type__": "cc.Vec3",
-      "x": -0.748,
-      "y": 2.081,
+      "x": -0.65,
+      "y": 1.879,
       "z": 0
     },
     "_lrot": {
@@ -1949,6 +1949,9 @@
       "__id__": 108
     },
     "isLock": true,
+    "pointType": 1,
+    "movingTime": 0.5,
+    "jumpForce": null,
     "_id": ""
   },
   {
@@ -1964,11 +1967,13 @@
       "__id__": 0
     },
     "fileId": "ea4UmMJF5Of46qmmjZutw2",
+    "instance": null,
+    "targetOverrides": null,
     "nestedPrefabInstanceRoots": null
   },
   {
     "__type__": "cc.Node",
-    "_objFlags": 0,
+    "_objFlags": 512,
     "_parent": {
       "__id__": 105
     },
@@ -2223,6 +2228,7 @@
         "__id__": 107
       }
     ],
+    "isPass": false,
     "_id": ""
   },
   {
@@ -2238,6 +2244,8 @@
       "__id__": 0
     },
     "fileId": "3amJqYVO1CwrcBJecfYUsD",
+    "instance": null,
+    "targetOverrides": null,
     "nestedPrefabInstanceRoots": null
   },
   {
@@ -2316,7 +2324,7 @@
     "_lpos": {
       "__type__": "cc.Vec3",
       "x": 0.776,
-      "y": 2.084,
+      "y": 1.815,
       "z": 0
     },
     "_lrot": {
@@ -2354,6 +2362,9 @@
       "__id__": 134
     },
     "isLock": true,
+    "pointType": 1,
+    "movingTime": 0.5,
+    "jumpForce": null,
     "_id": ""
   },
   {
@@ -2393,7 +2404,7 @@
     "_lpos": {
       "__type__": "cc.Vec3",
       "x": 0.265,
-      "y": 0.78,
+      "y": 0.567,
       "z": 0
     },
     "_lrot": {
@@ -2431,6 +2442,9 @@
       "__id__": 138
     },
     "isLock": false,
+    "pointType": 1,
+    "movingTime": 0.5,
+    "jumpForce": null,
     "_id": ""
   },
   {
@@ -2697,6 +2711,7 @@
         "__id__": 137
       }
     ],
+    "isPass": false,
     "_id": ""
   },
   {
