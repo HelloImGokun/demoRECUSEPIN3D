@@ -1,4 +1,4 @@
-import { _decorator, Collider, Component, ITriggerEvent, Node } from 'cc';
+import { _decorator, Collider, Component, ITriggerEvent, Node, CCFloat } from 'cc';
 import { PointNode } from '../P/PointNode';
 import { Configs } from '../../utils/Configs';
 import { PlayerController } from '../PlayerController';
@@ -10,6 +10,11 @@ export class Water extends Component {
     private attachPathNode:Node;
     @property(Collider)
     private waterCollider:Collider;
+
+    @property(CCFloat)
+    private waterFloatY:number = 0;
+    
+    
     start() {
         this.waterCollider.on('onTriggerEnter', this.onTriggerEnter, this);
     }
@@ -18,7 +23,7 @@ export class Water extends Component {
         let collisionNode: Node = event.otherCollider.node;
         if(collisionNode.name.includes(Configs.PLAYER_NAME)){
             //unlock
-            if(this.attachPathNode){
+            if(this.attachPathNode && collisionNode.getComponent(PlayerController).getIsFloat()){
                 this.scheduleOnce(()=>{
                     this.attachPathNode.getComponent(PointNode).setUnlock();
                     //thong bao cho level mo pin => player check path
@@ -30,6 +35,9 @@ export class Water extends Component {
         }
       
 
+    }
+    public getWaterFloatY(){
+        return this.waterFloatY;
     }
 }
 

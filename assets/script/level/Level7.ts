@@ -1,4 +1,4 @@
-import { _decorator, Component, Node } from 'cc';
+import { _decorator, Component, Node, CCFloat } from 'cc';
 import { LevelController } from '../controller/LevelController';
 import { Configs } from '../../utils/Configs';
 import { Pin } from '../P/Pin';
@@ -6,6 +6,7 @@ const { ccclass, property } = _decorator;
 
 @ccclass('Level7')
 export class Level7 extends LevelController {
+
     start() {
         //set up parent raycast
         this.setUpRaycastCallback((rayData)=>{

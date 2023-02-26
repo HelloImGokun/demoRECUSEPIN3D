@@ -1,4 +1,4 @@
-import { _decorator, EventTarget, Node,  Vec3, tween,ITriggerEvent,  Tween, math, PhysicsSystem, physics} from 'cc';
+import { _decorator, EventTarget, Node,  Vec3, tween,ITriggerEvent,  Tween, math, PhysicsSystem, physics, RigidBody, BoxCollider, Collider} from 'cc';
 import { Configs } from '../utils/Configs';
 import { LevelController } from './controller/LevelController';
 import { PointNode } from './P/PointNode';
@@ -7,7 +7,9 @@ import { Person } from './P/Person';
 import { Door } from './D/Door';
 import { PathList } from './P/PathList';
 import { PointType } from './Enum/PointType';
+import { Water } from './W/Water';
 const { ccclass, property } = _decorator;
+//emit event
 export const eventTarget = new EventTarget();
 @ccclass('PlayerController')
 export class PlayerController extends Person {
@@ -188,17 +190,28 @@ export class PlayerController extends Person {
                         LevelControllerNode.getComponent(LevelController).loseGame();
                     }
                 }, 1)
-            }
+            } 
         }
         //bring float
         if(collisionNode.name.includes(Configs.FLOAT_NAME)){
+            if(this.isFloat) return;
             this.isFloat=true;
+            if(collisionNode.getComponent(RigidBody)){
+                collisionNode.getComponent(RigidBody).isKinematic=true;
+                collisionNode.getComponent(RigidBody).destroy();
+              
+            }
+            //remove box collider
+            collisionNode.getComponent(Collider).destroy();
             this.node.addChild(collisionNode);
-            collisionNode.setPosition(new math.Vec3(0,-0.33,0));
+            //collisionNode.setRotationFromEuler(new math.Vec3(90,0,0));
+            collisionNode.setPosition(new math.Vec3(0,0.5,0));
         }
         //
     }
-
+    public getIsFloat(){
+        return this.isFloat;
+    }
     private onTriggerExit(event: ITriggerEvent) {
         //check xem player da thoat khoi mat dat chua
         //
@@ -216,7 +229,9 @@ export class PlayerController extends Person {
             if(this.isJumping){
                 //do nothing
             }else{
-                this.node.setPosition(new math.Vec3(this.node.position.x,-0.15,this.node.position.z));
+                //get vi tri cua player khi roi xuong nuoc
+                let yPos = event.otherCollider.node.getParent().getComponent(Water).getWaterFloatY();
+                this.node.setPosition(new math.Vec3(this.node.position.x,yPos,this.node.position.z));
             }
 
         
