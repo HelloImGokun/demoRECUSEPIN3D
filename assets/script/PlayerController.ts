@@ -1,4 +1,4 @@
-import { _decorator, EventTarget, Node,  Vec3, tween,ITriggerEvent,  Tween, math} from 'cc';
+import { _decorator, EventTarget, Node,  Vec3, tween,ITriggerEvent,  Tween, math, PhysicsSystem, physics} from 'cc';
 import { Configs } from '../utils/Configs';
 import { LevelController } from './controller/LevelController';
 import { PointNode } from './P/PointNode';
@@ -24,18 +24,18 @@ export class PlayerController extends Person {
     private pointCount:number = 0;
     //check xem player co dang tim duong hay khong
     private isFindingPath:boolean=false;
+
     protected onLoad(): void {
         eventTarget.on('onListingAnimal', (data) => {
            //lang nghe su kien boar die  // print 1, 2, 3
-           console.log('boar die tiep tuc find path')
            this.findPath();
         });
     }
     start() {
         //
-        console.log('start',this.collider);
         this.collider.on('onTriggerEnter', this.onTriggerEnter, this);
         this.collider.on('onTriggerExit', this.onTriggerExit, this);
+        this.collider.on('onTriggerStay', this.onTriggerStay, this);
         //get LevelController
         this.levelController = this.node.parent?.getComponent(LevelController);
         this.findPath();
@@ -45,7 +45,6 @@ export class PlayerController extends Person {
     //FindPath
     public findPath() {
         //lap qua path list de tim duong
-        console.log('findPath',this.isFindingPath);
         //
         if (this.isOver) return;
         //neu dang tim duong roi thi khong check tiep
@@ -62,11 +61,9 @@ export class PlayerController extends Person {
                 //lay ra 1 duong di va check xem co the di duoc hay khong
                 let pList: PathList = pathList[i];
                 if (pList && this.isPointUnlock(pList)) {
-                    console.log('Path ', i, ' clear!');
                     this.selectedPath = pList;
                     return this.followPath();
                 }else{
-                    console.log('Path ', i, ' not clear!');
                     this.isFindingPath=false;
                 }
             }
@@ -82,11 +79,9 @@ export class PlayerController extends Person {
     }
     private followPath() {
         //check path 0
-        console.log();
         this.checkPoint();
     }
     private checkPoint() {
-        console.log('checkpoint', this.pointCount);
         this.checkPointAndMove(this.selectedPath.getPointList()[this.pointCount]);
     }
     // z luon bang 0
@@ -97,7 +92,6 @@ export class PlayerController extends Person {
     private checkPointAndMove(pointNode: PointNode) {
         if (pointNode == null) {
             //end of way
-            console.log('End of way...');
             //khi khong tim duoc duong thi set lai
             this.isFindingPath =false
             //reset lai point
@@ -106,7 +100,6 @@ export class PlayerController extends Person {
         }
         //point dang lock
         if(pointNode.getIsLock()){
-            console.log('Point is locked...');
             this.isFindingPath =false
             return;
         };
@@ -116,7 +109,6 @@ export class PlayerController extends Person {
         switch (pointNode.getPointType()) {
             case PointType.walk:
                 this.moveToPoint(pointNode, () => {
-                    console.log('moved');
                     this.pointCount++;
                     this.checkPoint();
                 });
@@ -154,8 +146,12 @@ export class PlayerController extends Person {
     private jumpToPoint(point:PointNode, finishCallback) {
 
         //add force
-        this.rigidBody.applyForce(point.getJumpForce());
-        this.scheduleOnce(finishCallback, point.getMovingTime());
+        this.Jump(point.getJumpForce())
+        this.isJumping=true;
+        this.scheduleOnce(()=>{
+            finishCallback();
+            this.isJumping=false;
+        }, point.getMovingTime());
     }
     //
     //check touch door
@@ -196,7 +192,7 @@ export class PlayerController extends Person {
         }
         //bring float
         if(collisionNode.name.includes(Configs.FLOAT_NAME)){
-            console.log('bring float');
+            this.isFloat=true;
             this.node.addChild(collisionNode);
             collisionNode.setPosition(new math.Vec3(0,-0.33,0));
         }
@@ -210,6 +206,20 @@ export class PlayerController extends Person {
         if (event.otherCollider.name.includes(Configs.FLOOR_GROUND_NAME)) {
             //player roi tu do
             this.animationController.setValue('onair', true);
+        }
+    
+    }
+    private onTriggerStay(event: ITriggerEvent){
+        if (this.isOver) return;
+        if(event.otherCollider.name.includes('Water')&&this.isFloat){
+            //if is jump return: Neu dang jump thi khong set y
+            if(this.isJumping){
+                //do nothing
+            }else{
+                this.node.setPosition(new math.Vec3(this.node.position.x,-0.15,this.node.position.z));
+            }
+
+        
         }
     }
    
@@ -346,10 +356,8 @@ export class PlayerController extends Person {
 
         if (deltaX > 0.001) {
             //move right
-            console.log('move right');
             this.node.setRotationFromEuler(new Vec3(0, 90, 0));
         } else if (deltaX < -0.001) {
-            console.log('move left');
             //move left
             this.node.setRotationFromEuler(new Vec3(0, -90, 0));
         }

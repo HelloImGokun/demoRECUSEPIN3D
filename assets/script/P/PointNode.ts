@@ -19,9 +19,6 @@ export class PointNode extends Component {
     @property(Vec3)
     private jumpForce:Vec3 | null  = null
 
-    start() {
-        console.log('number',1000);
-    }
     getPointType(){
         return this.pointType
     }

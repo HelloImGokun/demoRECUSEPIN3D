@@ -8,14 +8,14 @@ const { ccclass, property } = _decorator;
 export class Water extends Component {
     @property(Node)
     private attachPathNode:Node;
+    @property(Collider)
+    private waterCollider:Collider;
     start() {
-        let collider = this.getComponent(Collider);
-        collider.on('onTriggerEnter', this.onTriggerEnter, this);
+        this.waterCollider.on('onTriggerEnter', this.onTriggerEnter, this);
     }
 
     private onTriggerEnter(event: ITriggerEvent) {
         let collisionNode: Node = event.otherCollider.node;
-        console.log('water xxx',collisionNode.name)
         if(collisionNode.name.includes(Configs.PLAYER_NAME)){
             //unlock
             if(this.attachPathNode){
