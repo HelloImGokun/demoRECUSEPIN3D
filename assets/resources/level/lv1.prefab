@@ -1166,7 +1166,7 @@
       "y": 1,
       "z": 1
     },
-    "_id": "87pgUboypFOY250OHi1J2h"
+    "_id": "dc171FIHJKXZ0SrmxQ1szL"
   },
   {
     "__type__": "cc.CompPrefabInfo",
@@ -1313,7 +1313,7 @@
     ],
     "value": {
       "__type__": "cc.Vec3",
-      "x": -1.063,
+      "x": 0.834,
       "y": 1.171,
       "z": 0
     }

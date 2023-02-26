@@ -1,4 +1,4 @@
-import { _decorator, CCFloat, Component, Node, tween, Vec3 } from 'cc';
+import { _decorator, CCFloat, Component, Node, tween, Vec3, randomRangeInt, Scheduler } from 'cc';
 import { PointNode } from './PointNode';
 const { ccclass, property } = _decorator;
 enum DIRECTION {
@@ -15,8 +15,6 @@ export class Pin extends Component {
     @property(Node)
     private attachPathNode: Node;
 
-    @property(CCFloat)
-    private delayToUnlock: number = 0;
     //
     callbackToLevel;
     // check 
@@ -29,7 +27,6 @@ export class Pin extends Component {
     //
 
     onTouchMe() {
-        console.log('test')
         if (this.isMove)
             return;
         this.isMove = true;
@@ -54,37 +51,17 @@ export class Pin extends Component {
     private moving(hoz,ver){
         tween(this.node).sequence(
             tween(this.node).by(0.3, { position: new Vec3(hoz, ver, 0) }),
-            tween().call(() => {
+            tween(this.node).call(() => {
                 //unlock path ma duoc gan voi pin hien tai
-                if (this.attachPathNode)
-                    this.unlockPoint();
-
+                if (this.attachPathNode){
+                    this.attachPathNode.getComponent(PointNode).setUnlock();
+                    //thong bao cho level mo pin => player check path
+                    this.callbackToLevel();
+                }
                 //destroy
                 this.node.destroy();
             })
         ).start();
-    }
-    private unlockPoint() {
-        if (this.delayToUnlock == 0) {
-            this.attachPathNode.getComponent(PointNode).setUnlock();
-            //thong bao cho level mo pin => player check path
-            this.callbackToLevel();
-        } else {
-            console.log('node',this.node.name);
-            setTimeout(() => {
-                console.log('this.node.name');
-                console.log(this.node);
-            }, 1000);
-            setTimeout(() => {
-                console.log('abc');
-            }, 1000);
-            setTimeout(() => {
-                console.log(this.node);
-                console.log('ab');
-            },1000)
-
-        }
-
     }
 }
 

@@ -15,7 +15,7 @@ export class Water extends Component {
 
     private onTriggerEnter(event: ITriggerEvent) {
         let collisionNode: Node = event.otherCollider.node;
-        console.log('water',collisionNode.name)
+        console.log('water xxx',collisionNode.name)
         if(collisionNode.name.includes(Configs.PLAYER_NAME)){
             //unlock
             if(this.attachPathNode){
