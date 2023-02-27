@@ -15,7 +15,7 @@ export const eventTarget = new EventTarget();
 export class PlayerController extends Person {
    
     //update player
-    
+
     //check door
     private isFindDoor: boolean = false;
     private levelController: LevelController;
@@ -169,9 +169,11 @@ export class PlayerController extends Person {
         if (this.isOver) return;
         //
         let collisionNode: Node = event.otherCollider.node;
+
         //check player dat chan xuong mat dat hay chua
         if (collisionNode.name.includes(Configs.FLOOR_GROUND_NAME) || collisionNode.name.includes(Configs.DOOR_NAME)) {
             //player roi xuong mat dat
+            console.log("onTriggerEnter xxxx",collisionNode.name);
             this.animationController.setValue('landed', true);
             this.animationController.setValue('onair', false);
         }
@@ -221,13 +223,12 @@ export class PlayerController extends Person {
     }
     private onTriggerExit(event: ITriggerEvent) {
         //check xem player da thoat khoi mat dat chua
-        console.log("onTriggerExit",this.isOver);
         //
         
         if (this.isOver ) return;
         if (event.otherCollider.name.includes(Configs.FLOOR_GROUND_NAME)) {
             //player roi tu do
-            console.log('IS over',this.isOver);
+            console.log("player o tren khong xxx");
             this.animationController.setValue('onair', true);
             this.animationController.setValue('landed', false);
         }
@@ -235,7 +236,10 @@ export class PlayerController extends Person {
     }
     private onTriggerStay(event: ITriggerEvent){
         if (this.isOver) return;
-        
+        if(event.otherCollider.name.includes(Configs.FLOOR_GROUND_NAME)){
+            this.animationController.setValue('onair', false);
+            this.animationController.setValue('landed', true);
+        }
         if(event.otherCollider.name.includes('Water')&&this.isFloat){
             //if is jump return: Neu dang jump thi khong set y
             if(this.isJumping){

@@ -33,11 +33,11 @@
     "_active": true,
     "_components": [
       {
-        "__id__": 142
+        "__id__": 143
       }
     ],
     "_prefab": {
-      "__id__": 144
+      "__id__": 145
     },
     "_lpos": {
       "__type__": "cc.Vec3",
@@ -1633,7 +1633,7 @@
     "_lpos": {
       "__type__": "cc.Vec3",
       "x": -0.827,
-      "y": 1.868,
+      "y": 1.854,
       "z": 0
     },
     "_lrot": {
@@ -1730,7 +1730,7 @@
     "isLock": true,
     "pointType": 1,
     "movingTime": 1,
-    "delayTime": 0,
+    "delayTime": 1,
     "jumpForce": null,
     "_id": ""
   },
@@ -1812,7 +1812,7 @@
     "_lpos": {
       "__type__": "cc.Vec3",
       "x": 0.472,
-      "y": 1.868,
+      "y": 1.871,
       "z": 0
     },
     "_lrot": {
@@ -2382,7 +2382,7 @@
     "value": {
       "__type__": "cc.Vec3",
       "x": 2.249,
-      "y": 1.596,
+      "y": 1.615,
       "z": 0
     }
   },
@@ -2514,6 +2514,9 @@
       },
       {
         "__id__": 140
+      },
+      {
+        "__id__": 142
       }
     ],
     "removedComponents": []
@@ -2597,6 +2600,16 @@
     ]
   },
   {
+    "__type__": "CCPropertyOverrideInfo",
+    "targetInfo": {
+      "__id__": 136
+    },
+    "propertyPath": [
+      "_active"
+    ],
+    "value": true
+  },
+  {
     "__type__": "c07f7XgNIhPCZdj+MQahJ1T",
     "_name": "",
     "_objFlags": 0,
@@ -2605,7 +2618,7 @@
     },
     "_enabled": true,
     "__prefab": {
-      "__id__": 143
+      "__id__": 144
     },
     "pinList": [
       {
@@ -2644,7 +2657,7 @@
     "instance": null,
     "targetOverrides": [
       {
-        "__id__": 145
+        "__id__": 146
       }
     ],
     "nestedPrefabInstanceRoots": [
@@ -2671,7 +2684,7 @@
       "__id__": 57
     },
     "sourceInfo": {
-      "__id__": 146
+      "__id__": 147
     },
     "propertyPath": [
       "waterCollider"
@@ -2680,7 +2693,7 @@
       "__id__": 57
     },
     "targetInfo": {
-      "__id__": 147
+      "__id__": 148
     }
   },
   {

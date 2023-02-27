@@ -52,9 +52,9 @@
       "id": "16759103720810.2503933565822951",
       "clone": null,
       "viewport": {
-        "scale": 0.6999999999999997,
-        "top": -83.6809326057026,
-        "left": -34.88558753967072
+        "scale": 0.7999999999999998,
+        "top": -74.47563597747406,
+        "left": -63.039691577652434
       }
     },
     "_states": [
@@ -209,8 +209,8 @@
       "name": "",
       "id": "16759104285090.3073629846578565",
       "clone": null,
-      "centerX": 85.84378011964219,
-      "centerY": 159.20074261453567
+      "centerX": 89.59378011964219,
+      "centerY": 182.95074261453567
     },
     "name": "midair",
     "_components": [
@@ -774,7 +774,11 @@
   },
   {
     "__type__": "cc.animation.AnimationTransition",
-    "__editorExtras__": null,
+    "__editorExtras__": {
+      "name": "",
+      "id": "16774816182430.9313271362542579",
+      "clone": null
+    },
     "from": {
       "__id__": 6
     },
@@ -800,7 +804,11 @@
   },
   {
     "__type__": "cc.animation.AnimationTransition",
-    "__editorExtras__": null,
+    "__editorExtras__": {
+      "name": "",
+      "id": "16774816182430.008889090695855861",
+      "clone": null
+    },
     "from": {
       "__id__": 11
     },
@@ -826,7 +834,11 @@
   },
   {
     "__type__": "cc.animation.AnimationTransition",
-    "__editorExtras__": null,
+    "__editorExtras__": {
+      "name": "",
+      "id": "16774816182430.3441695814089183",
+      "clone": null
+    },
     "from": {
       "__id__": 14
     },
@@ -852,7 +864,11 @@
   },
   {
     "__type__": "cc.animation.Transition",
-    "__editorExtras__": null,
+    "__editorExtras__": {
+      "name": "",
+      "id": "16774816182430.90906723723581",
+      "clone": null
+    },
     "from": {
       "__id__": 3
     },
