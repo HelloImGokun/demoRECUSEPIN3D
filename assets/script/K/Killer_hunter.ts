@@ -60,7 +60,7 @@ export class Killer_hunter extends Component {
                     if (desination.x > this.node.position.x) {
                         if (this.node.eulerAngles.y < -80) {
                             //-90; rotate
-                            tween(this.node).by(0.2, { eulerAngles: new Vec3(0, 180, 0) }).start();
+                            tween(this.node).by(0.2, { eulerAngles: new Vec3(0, -180, 0) }).start();
 
                         } else {
                             //do nothing
