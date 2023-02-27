@@ -51,6 +51,7 @@ export class PlayerController extends Person {
     //FindPath
     public findPath() {
         //lap qua path list de tim duong
+        console.log("find path xxxxx");
         //
         if (this.isOver) return;
         //neu dang tim duong roi thi khong check tiep
@@ -173,7 +174,6 @@ export class PlayerController extends Person {
         //check player dat chan xuong mat dat hay chua
         if (collisionNode.name.includes(Configs.FLOOR_GROUND_NAME) || collisionNode.name.includes(Configs.DOOR_NAME)) {
             //player roi xuong mat dat
-            console.log("onTriggerEnter xxxx",collisionNode.name);
             this.animationController.setValue('landed', true);
             this.animationController.setValue('onair', false);
         }
@@ -236,7 +236,6 @@ export class PlayerController extends Person {
         if (this.isOver ) return;
         if (event.otherCollider.name.includes(Configs.FLOOR_GROUND_NAME)) {
             //player roi tu do
-            console.log("player o tren khong xxx");
             this.animationController.setValue('onair', true);
             this.animationController.setValue('landed', false);
         }
@@ -271,8 +270,14 @@ export class PlayerController extends Person {
         //
         const simpleDoor = ()=>{
             //
+            let doorPosition:Vec3 = null;
             tween(this.node).sequence(
                 //xoay nguoi lai huong door
+                tween(this.node).delay(0.1),
+                tween(this.node).call(()=>{
+                    doorPosition = new math.Vec3(doorNode.position.x+0.2, this.node.position.y, this.node.position.z);
+                }),
+                tween(this.node).to(0.5,{position:doorPosition}),
                 tween(this.node).delay(0.5),
                 tween(this.node).to(0.2, { eulerAngles: new Vec3(0, 180, 0) }),
                 tween(this.node).by(0.5, { position: new Vec3(0, 0, -0.4) }),

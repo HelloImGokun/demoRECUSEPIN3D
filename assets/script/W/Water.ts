@@ -14,7 +14,7 @@ export class Water extends Component {
     @property(CCFloat)
     private waterFloatY:number = 0;
     
-    
+    private isWaterTrigger:boolean = false;
     start() {
         this.waterCollider.on('onTriggerEnter', this.onTriggerEnter, this);
     }
@@ -22,7 +22,10 @@ export class Water extends Component {
     private onTriggerEnter(event: ITriggerEvent) {
         let collisionNode: Node = event.otherCollider.node;
         if(collisionNode.name.includes(Configs.PLAYER_NAME)){
+            if(this.isWaterTrigger) return;
+            this.isWaterTrigger=true;
             //unlock
+
             if(this.attachPathNode && collisionNode.getComponent(PlayerController).getIsFloat()){
                 this.scheduleOnce(()=>{
                     this.attachPathNode.getComponent(PointNode).setUnlock();
