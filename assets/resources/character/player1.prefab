@@ -2097,8 +2097,8 @@
       "y": 0.5,
       "z": 0
     },
-    "_radius": 0.4,
-    "_cylinderHeight": 0.8,
+    "_radius": 0.3,
+    "_cylinderHeight": 0.6,
     "_direction": 1,
     "_id": ""
   },
