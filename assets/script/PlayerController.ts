@@ -205,18 +205,26 @@ export class PlayerController extends Person {
             if(this.isFloat) return;
             this.isFloat=true;
             if(collisionNode.getComponent(RigidBody)){
-                collisionNode.getComponent(RigidBody).isKinematic=true;
-                collisionNode.getComponent(RigidBody).destroy();
+                collisionNode.getComponent(RigidBody).isStatic=true;
+                setTimeout(() => {
+                    this.attachFloat(collisionNode);
+                }, 100);
               
             }
-            //remove box collider
-            collisionNode.getComponent(Collider).destroy();
-            this.node.addChild(collisionNode);
-           
-            collisionNode.setPosition(new math.Vec3(0,0.4,0));
-            collisionNode.setRotationFromEuler(new math.Vec3(90,90,0));
+
         }
         //
+    }
+    private attachFloat(float:Node){
+        if( float.getComponent(RigidBody))
+        float.getComponent(RigidBody).destroy();
+        //remove box collider
+        if( float.getComponent(Collider))
+        float.getComponent(Collider).destroy();
+        this.node.addChild(float);
+       
+        float.setPosition(new math.Vec3(0,0.4,0));
+        float.setRotationFromEuler(new math.Vec3(90,90,0));
     }
     public getIsFloat(){
         return this.isFloat;

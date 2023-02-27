@@ -4,7 +4,6 @@ import { ResouceUtils } from '../../utils/ResouceUtils';
 import { GameModel } from '../model/GameModel';
 import { WinUI } from '../ui/WinUI';
 import { LevelController } from './LevelController';
-import { PointNode } from '../P/PointNode';
 import { LoseUI } from '../ui/LoseUI';
 const { ccclass, property } = _decorator;
 
