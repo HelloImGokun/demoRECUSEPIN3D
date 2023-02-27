@@ -14,7 +14,8 @@ export const eventTarget = new EventTarget();
 @ccclass('PlayerController')
 export class PlayerController extends Person {
    
-
+    //update player
+    
     //check door
     private isFindDoor: boolean = false;
     private levelController: LevelController;
