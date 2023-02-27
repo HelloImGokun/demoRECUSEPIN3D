@@ -558,7 +558,7 @@
     },
     "isLock": true,
     "pointType": 1,
-    "movingTime": 0.5,
+    "movingTime": 1,
     "delayTime": 0,
     "jumpForce": null,
     "_id": ""
