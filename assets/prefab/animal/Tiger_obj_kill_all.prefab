@@ -2331,6 +2331,8 @@
     "__prefab": {
       "__id__": 82
     },
+    "attactPoint": null,
+    "needEmitToPlayer": false,
     "_id": ""
   },
   {
