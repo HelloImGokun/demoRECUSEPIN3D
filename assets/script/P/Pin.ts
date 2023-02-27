@@ -1,4 +1,4 @@
-import { _decorator, CCFloat, Component, Node, tween, Vec3, randomRangeInt, Scheduler } from 'cc';
+import { _decorator, CCFloat, Component, Node, tween, Vec3 } from 'cc';
 import { PointNode } from './PointNode';
 const { ccclass, property } = _decorator;
 enum DIRECTION {
@@ -27,6 +27,7 @@ export class Pin extends Component {
     //
 
     onTouchMe() {
+        console.log('test')
         if (this.isMove)
             return;
         this.isMove = true;
@@ -51,17 +52,21 @@ export class Pin extends Component {
     private moving(hoz,ver){
         tween(this.node).sequence(
             tween(this.node).by(0.3, { position: new Vec3(hoz, ver, 0) }),
-            tween(this.node).call(() => {
+            tween().call(() => {
                 //unlock path ma duoc gan voi pin hien tai
-                if (this.attachPathNode){
-                    this.attachPathNode.getComponent(PointNode).setUnlock();
-                    //thong bao cho level mo pin => player check path
-                    this.callbackToLevel();
-                }
+                if (this.attachPathNode)
+                    this.unlockPoint();
+
                 //destroy
                 this.node.destroy();
             })
         ).start();
+    }
+    private unlockPoint() {
+        this.attachPathNode.getComponent(PointNode).setUnlock();
+        //thong bao cho level mo pin => player check path
+        this.callbackToLevel();
+
     }
 }
 

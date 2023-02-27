@@ -39,7 +39,7 @@ export class PlayerController extends Person {
         this.collider.on('onTriggerExit', this.onTriggerExit, this);
         this.collider.on('onTriggerStay', this.onTriggerStay, this);
         //get LevelController
-        this.levelController = this.node.parent?.getComponent(LevelController);
+        this.levelController = this.node.parent.getComponent(LevelController);
         this.findPath();
     }
 
@@ -56,6 +56,7 @@ export class PlayerController extends Person {
         //
 
         //
+        console.log('....',this)
         //
         let pathList = this.levelController.getPathList();
                //loop qua toan bo cac duong di
@@ -204,8 +205,9 @@ export class PlayerController extends Person {
             //remove box collider
             collisionNode.getComponent(Collider).destroy();
             this.node.addChild(collisionNode);
-            //collisionNode.setRotationFromEuler(new math.Vec3(90,0,0));
-            collisionNode.setPosition(new math.Vec3(0,0.5,0));
+           
+            collisionNode.setPosition(new math.Vec3(0,0.4,0));
+            collisionNode.setRotationFromEuler(new math.Vec3(90,90,0));
         }
         //
     }
@@ -224,12 +226,15 @@ export class PlayerController extends Person {
     }
     private onTriggerStay(event: ITriggerEvent){
         if (this.isOver) return;
+        
         if(event.otherCollider.name.includes('Water')&&this.isFloat){
             //if is jump return: Neu dang jump thi khong set y
             if(this.isJumping){
                 //do nothing
+                // this.animationController.setValue('swim', false);
             }else{
                 //get vi tri cua player khi roi xuong nuoc
+                // this.animationController.setValue('swim',true)
                 let yPos = event.otherCollider.node.getParent().getComponent(Water).getWaterFloatY();
                 this.node.setPosition(new math.Vec3(this.node.position.x,yPos,this.node.position.z));
             }

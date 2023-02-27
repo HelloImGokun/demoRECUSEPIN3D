@@ -2448,6 +2448,9 @@
       "__id__": 138
     },
     "isLock": true,
+    "movingTime": 0,
+    "delayTime": 0,
+    "jumpForce": null,
     "_id": ""
   },
   {
@@ -2534,6 +2537,9 @@
     "__prefab": {
       "__id__": 143
     },
+    "movingTime": 0,
+    "delayTime": 0,
+    "jumpForce": null,
     "_id": ""
   },
   {
@@ -2610,6 +2616,9 @@
     "__prefab": {
       "__id__": 147
     },
+    "movingTime": 0,
+    "delayTime": 0,
+    "jumpForce": null,
     "_id": ""
   },
   {
@@ -2686,6 +2695,9 @@
     "__prefab": {
       "__id__": 151
     },
+    "movingTime": 0,
+    "delayTime": 0,
+    "jumpForce": null,
     "_id": ""
   },
   {
