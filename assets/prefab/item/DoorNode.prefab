@@ -38,9 +38,9 @@
     },
     "_lpos": {
       "__type__": "cc.Vec3",
-      "x": -0.204,
-      "y": -0.014,
-      "z": -2.882
+      "x": -1.293,
+      "y": -0.559,
+      "z": -0.526
     },
     "_lrot": {
       "__type__": "cc.Quat",
@@ -322,7 +322,7 @@
     "_size": {
       "__type__": "cc.Vec3",
       "x": 0.6,
-      "y": 0.1,
+      "y": 0.2,
       "z": 4
     },
     "_id": ""
@@ -345,6 +345,8 @@
     "door": {
       "__id__": 2
     },
+    "isNPC": false,
+    "standPointNode": null,
     "_id": ""
   },
   {
@@ -360,7 +362,6 @@
       "__id__": 0
     },
     "fileId": "46oLHCSh1TzIim0ahF62qF",
-    "instance": null,
     "targetOverrides": null
   }
 ]

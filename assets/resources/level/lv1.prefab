@@ -1166,7 +1166,7 @@
       "y": 1,
       "z": 1
     },
-    "_id": "4cbOJF2dpIj7xYEYC71Sel"
+    "_id": "fdKz4CQAlCw5XQIZTrZh+P"
   },
   {
     "__type__": "cc.CompPrefabInfo",
@@ -1458,7 +1458,7 @@
     "propertyPath": [
       "_name"
     ],
-    "value": "DoorNode"
+    "value": "DoorNode_floor"
   },
   {
     "__type__": "cc.TargetInfo",

@@ -40,6 +40,9 @@ export class PlayerController extends Person {
         this.collider.on('onTriggerStay', this.onTriggerStay, this);
         //get LevelController
         this.levelController = this.node.parent.getComponent(LevelController);
+        //
+        this.animationController.setValue('onair', true);
+        //
         this.findPath();
     }
 
@@ -169,6 +172,7 @@ export class PlayerController extends Person {
         if (collisionNode.name.includes(Configs.FLOOR_GROUND_NAME) || collisionNode.name.includes(Configs.DOOR_NAME)) {
             //player roi xuong mat dat
             this.animationController.setValue('landed', true);
+            this.animationController.setValue('onair', false);
         }
         if (!this.isFindDoor) {
             //1. check door
@@ -217,10 +221,13 @@ export class PlayerController extends Person {
     private onTriggerExit(event: ITriggerEvent) {
         //check xem player da thoat khoi mat dat chua
         //
-        if (this.isOver) return;
+        
+        if (this.isOver ) return;
         if (event.otherCollider.name.includes(Configs.FLOOR_GROUND_NAME)) {
             //player roi tu do
+            console.log('IS over',this.isOver);
             this.animationController.setValue('onair', true);
+            this.animationController.setValue('landed', false);
         }
     
     }

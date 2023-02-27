@@ -11,28 +11,28 @@
     ],
     "_variables": {
       "dy": {
-        "__id__": 56
-      },
-      "dx": {
-        "__id__": 57
-      },
-      "dz": {
-        "__id__": 58
-      },
-      "isDie": {
-        "__id__": 59
-      },
-      "win": {
         "__id__": 60
       },
-      "onair": {
+      "dx": {
         "__id__": 61
       },
-      "landed": {
+      "dz": {
         "__id__": 62
       },
-      "swim": {
+      "isDie": {
         "__id__": 63
+      },
+      "win": {
+        "__id__": 64
+      },
+      "onair": {
+        "__id__": 65
+      },
+      "landed": {
+        "__id__": 66
+      },
+      "swim": {
+        "__id__": 67
       }
     }
   },
@@ -52,9 +52,9 @@
       "id": "16759103720810.2503933565822951",
       "clone": null,
       "viewport": {
-        "scale": 0.6499999999999999,
-        "top": -121.38831186552494,
-        "left": -209.26191962035216
+        "scale": 0.6999999999999997,
+        "top": -83.6809326057026,
+        "left": -34.88558753967072
       }
     },
     "_states": [
@@ -115,13 +115,19 @@
         "__id__": 48
       },
       {
-        "__id__": 49
-      },
-      {
-        "__id__": 51
+        "__id__": 50
       },
       {
         "__id__": 53
+      },
+      {
+        "__id__": 55
+      },
+      {
+        "__id__": 57
+      },
+      {
+        "__id__": 59
       }
     ],
     "_entryState": {
@@ -140,8 +146,8 @@
       "name": "",
       "id": "16759103720810.1645347921470337",
       "clone": null,
-      "centerX": -249.1053122087605,
-      "centerY": 7.6095538509331675
+      "centerX": -282.6608677643161,
+      "centerY": 54.05399829537765
     },
     "name": "Entry"
   },
@@ -162,8 +168,8 @@
       "name": "",
       "id": "16759103720810.6994024245996884",
       "clone": null,
-      "centerX": 300.7947801654699,
-      "centerY": 138.10692414140692
+      "centerX": 285.01700238769206,
+      "centerY": 181.66247969696246
     },
     "name": "Any"
   },
@@ -203,8 +209,8 @@
       "name": "",
       "id": "16759104285090.3073629846578565",
       "clone": null,
-      "centerX": -48.60066432480227,
-      "centerY": 146.50232991612302
+      "centerX": 85.84378011964219,
+      "centerY": 159.20074261453567
     },
     "name": "midair",
     "_components": [
@@ -240,8 +246,8 @@
       "name": "",
       "id": "16759173108830.47552276467947063",
       "clone": null,
-      "centerX": 68.23365086296133,
-      "centerY": 46.263290996049705
+      "centerX": -100.43301580370536,
+      "centerY": 65.21567194843064
     },
     "name": "idle",
     "_components": [
@@ -699,51 +705,6 @@
     "value": 0
   },
   {
-    "__type__": "cc.animation.Transition",
-    "__editorExtras__": {
-      "name": "",
-      "id": "16766026071180.19229137577182853",
-      "clone": null
-    },
-    "from": {
-      "__id__": 3
-    },
-    "to": {
-      "__id__": 8
-    },
-    "conditions": []
-  },
-  {
-    "__type__": "cc.animation.AnimationTransition",
-    "__editorExtras__": {
-      "name": "",
-      "id": "16766026071180.4741801896922948",
-      "clone": null
-    },
-    "from": {
-      "__id__": 5
-    },
-    "to": {
-      "__id__": 8
-    },
-    "conditions": [
-      {
-        "__id__": 50
-      }
-    ],
-    "duration": 0.3,
-    "relativeDuration": false,
-    "exitConditionEnabled": false,
-    "destinationStart": 0,
-    "relativeDestinationStart": false,
-    "interruptionSource": 0,
-    "_exitCondition": 1
-  },
-  {
-    "__type__": "cc.animation.TriggerCondition",
-    "trigger": "onair"
-  },
-  {
     "__type__": "cc.animation.AnimationTransition",
     "__editorExtras__": {
       "name": "",
@@ -758,7 +719,7 @@
     },
     "conditions": [
       {
-        "__id__": 52
+        "__id__": 49
       }
     ],
     "duration": 0.3,
@@ -788,7 +749,7 @@
     },
     "conditions": [
       {
-        "__id__": 54
+        "__id__": 51
       }
     ],
     "duration": 0.3,
@@ -803,13 +764,102 @@
     "__type__": "cc.animation.UnaryCondition",
     "operator": 0,
     "operand": {
-      "__id__": 55
+      "__id__": 52
     }
   },
   {
     "__type__": "cc.animation.BindableBoolean",
     "variable": "swim",
     "value": false
+  },
+  {
+    "__type__": "cc.animation.AnimationTransition",
+    "__editorExtras__": null,
+    "from": {
+      "__id__": 6
+    },
+    "to": {
+      "__id__": 8
+    },
+    "conditions": [
+      {
+        "__id__": 54
+      }
+    ],
+    "duration": 0.3,
+    "relativeDuration": false,
+    "exitConditionEnabled": false,
+    "destinationStart": 0,
+    "relativeDestinationStart": false,
+    "interruptionSource": 0,
+    "_exitCondition": 1
+  },
+  {
+    "__type__": "cc.animation.TriggerCondition",
+    "trigger": "onair"
+  },
+  {
+    "__type__": "cc.animation.AnimationTransition",
+    "__editorExtras__": null,
+    "from": {
+      "__id__": 11
+    },
+    "to": {
+      "__id__": 8
+    },
+    "conditions": [
+      {
+        "__id__": 56
+      }
+    ],
+    "duration": 0.3,
+    "relativeDuration": false,
+    "exitConditionEnabled": false,
+    "destinationStart": 0,
+    "relativeDestinationStart": false,
+    "interruptionSource": 0,
+    "_exitCondition": 1
+  },
+  {
+    "__type__": "cc.animation.TriggerCondition",
+    "trigger": "onair"
+  },
+  {
+    "__type__": "cc.animation.AnimationTransition",
+    "__editorExtras__": null,
+    "from": {
+      "__id__": 14
+    },
+    "to": {
+      "__id__": 8
+    },
+    "conditions": [
+      {
+        "__id__": 58
+      }
+    ],
+    "duration": 0.3,
+    "relativeDuration": false,
+    "exitConditionEnabled": false,
+    "destinationStart": 0,
+    "relativeDestinationStart": false,
+    "interruptionSource": 0,
+    "_exitCondition": 1
+  },
+  {
+    "__type__": "cc.animation.TriggerCondition",
+    "trigger": "onair"
+  },
+  {
+    "__type__": "cc.animation.Transition",
+    "__editorExtras__": null,
+    "from": {
+      "__id__": 3
+    },
+    "to": {
+      "__id__": 11
+    },
+    "conditions": []
   },
   {
     "__type__": "cc.animation.PlainVariable",
