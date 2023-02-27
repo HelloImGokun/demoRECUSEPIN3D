@@ -60,7 +60,7 @@ export class PlayerController extends Person {
         //
 
         //
-        console.log('....',this)
+
         //
         let pathList = this.levelController.getPathList();
                //loop qua toan bo cac duong di
@@ -221,6 +221,7 @@ export class PlayerController extends Person {
     }
     private onTriggerExit(event: ITriggerEvent) {
         //check xem player da thoat khoi mat dat chua
+        console.log("onTriggerExit",this.isOver);
         //
         
         if (this.isOver ) return;
