@@ -69,27 +69,16 @@ export class Boar extends Component {
                     let desination = collider.node.position;
                     //range to imply effect: dis from attacker to player
                     let range: number = 0.7;
-                    if (desination.x > this.node.position.x) {
-                        if (this.node.eulerAngles.y < -80) {
+                    if (desination.x <= this.node.position.x) {
                             //-90; rotate
                             tween(this.node).by(0.2, { eulerAngles: new Vec3(0, 180, 0) }).start();
-                        } else {
-                            //do nothing
-
-                        }
-
-                        range = -0.7;
+                    
                     } else {
-                        if (this.node.eulerAngles.y < -80) {
-                            //-90 rotate
-                            //do nothing
-
-                        } else {
+                       
                             tween(this.node).by(0.2, { eulerAngles: new Vec3(0, 180, 0) }).start();
 
-                        }
                     }
-                    let attackPos = new Vec3(desination.x + range, desination.y, desination.z);
+                    let attackPos = new Vec3(desination.x + range, this.node.getPosition().y, desination.z);
                     tween(this.node).to(0.5, { position: attackPos }).start();
                     //reset
                     if (seeObjectName.includes(Configs.PLAYER_NAME) || seeObjectName.includes(Configs.KILL_PLAYER_OBJ)) {

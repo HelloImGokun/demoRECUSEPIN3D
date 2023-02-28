@@ -37,7 +37,8 @@ export class Person extends Component {
 
     }
     protected Attack() {
-
+        if (this.animationController)
+        this.animationController.setValue('Attack', true);
     }
     protected Die() {
 

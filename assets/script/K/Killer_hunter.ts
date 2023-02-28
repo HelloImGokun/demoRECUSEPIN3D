@@ -17,11 +17,18 @@ export class Killer_hunter extends Person {
         collider.on('onCollisionEnter', this.onCollisionEnter, this);
     }
     private onCollisionEnter(event: ICollisionEvent) {
-        let name = event.otherCollider.node.name;
-        if (name.includes(Configs.PLAYER_NAME) || name.includes(Configs.KILL_PLAYER_OBJ)) {
+        let otherNode: Node = event.otherCollider.node;
+        let name =otherNode.name;
+        if (name.includes(Configs.PLAYER_NAME)) {
             //attack
-            if (this.animationController)
-                this.animationController.setValue('Attack', true);
+            if(this.isAttack) return;
+            this.isAttack = true;
+            this.Attack();
+            console.log('attack');
+            this.scheduleOnce(() => {
+                //player
+                otherNode.getComponent(PlayerController).setDie();
+            },1)
         } else if (name.includes(Configs.KILL_ALL_OBJ)) {
             //kill all
             this.isDie = true;
@@ -31,7 +38,7 @@ export class Killer_hunter extends Person {
             setTimeout(() => {
                 if (this.node)
                     this.node.destroy();
-            }, 500);
+            }, 700);
 
         }
     }
@@ -50,48 +57,39 @@ export class Killer_hunter extends Person {
             if (seeObjectName != this.node.name) {
                 if (seeObjectName.includes(Configs.PLAYER_NAME)) {
                     //move to player
-                    if (this.isAttack) {
-                        return;
-                    }
-                    this.isAttack = true;
+                    // if (this.isAttack) {
+                    //     return;
+                    // }
+                    // this.isAttack = true;
 
-                    console.log('...attack...')
-                    if (this.animationController)
-                        this.animationController.setValue('Attack', true);
-                    //
-                    this.scheduleOnce(() => {
-                        // gap character trc roi thuc thi attack
-                        collider.node.getComponent(PlayerController).setDie();
+                    // console.log('...attack...')
+                    // if (this.animationController)
+                    //     this.animationController.setValue('Attack', true);
+                    // //
+                    // this.scheduleOnce(() => {
+                    //     // gap character trc roi thuc thi attack
+                    //     collider.node.getComponent(PlayerController).setDie();
 
-                    }, 0.5);
+                    // }, 0.5);
                     //
+                    this.animationController.setValue('dx', 1);
                     let desination = collider.node.position;
                     //range to imply effect: dis from attacker to player
                     let range: number = 0;
                     let deltaX = this.newX - this.oldX
-                    if (desination.x > this.node.position.x) {
-                        if (this.node.eulerAngles.y < -80) {
+                    //trai or
+                    if (desination.x <= this.node.position.x) {
+                     
                             //-90; rotate
-                            tween(this.node).by(0.2, { eulerAngles: new Vec3(0, -270, 0) }).start();
+                         
+                            tween(this.node).to(0.2, { eulerAngles: new Vec3(0, -90, 0) }).start();
 
-                        } else {
-                            //do nothing
-
-                        }
-
-                        range = -0.7;
                     } else {
-                        if (this.node.eulerAngles.y < -80) {
-                            //-90 rotate
-                            //do nothing
-                        } else {
-                            tween(this.node).by(0.2, { eulerAngles: new Vec3(0, 270, 0) }).start();
-
-                        }
-
+                        // 90
+                            tween(this.node).to(0.2, { eulerAngles: new Vec3(0, 90, 0) }).start();
                         // this.animationController.setValue('dx',Math.abs(deltaX));
                     }
-                    let attackPos = new Vec3(desination.x + range, desination.y, desination.z);
+                    let attackPos = new Vec3(desination.x + range, this.node.getPosition().y, desination.z);
 
 
                     tween(this.node).to(1, { position: attackPos }).start();
@@ -122,7 +120,7 @@ export class Killer_hunter extends Person {
     //update 
     update(deltaTime: number) {
         // [4]  
-
+        //this.checkRun();
         if (this.isAttack) return;
         this.timeCount += deltaTime;
         if (this.timeCount > this.scanRating) {
@@ -130,7 +128,7 @@ export class Killer_hunter extends Person {
             this.createRay(-1);
             this.timeCount = 0;
         }
-        this.checkRun();
+
     }
     private checkMoveLeftOrRight(deltaX) {
         
@@ -149,12 +147,12 @@ export class Killer_hunter extends Person {
         } else {
             this.newX = this.node.position.x;
             let deltaX = this.newX - this.oldX
+            console.log('deltaX', deltaX);
             //check left or right
             this.checkMoveLeftOrRight(deltaX);
             this.animationController.setValue('dx', Math.abs(deltaX));
             //console.log('dx',deltaX);
             this.oldX = this.newX;
-            console.log('deltaX', deltaX);
         }
     }
 

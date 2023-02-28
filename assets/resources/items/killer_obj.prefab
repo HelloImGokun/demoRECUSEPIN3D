@@ -1,7 +1,7 @@
 [
   {
     "__type__": "cc.Prefab",
-    "_name": "killer_hunter",
+    "_name": "killer_obj",
     "_objFlags": 0,
     "_native": "",
     "data": {
@@ -12,7 +12,7 @@
   },
   {
     "__type__": "cc.Node",
-    "_name": "killer_hunter",
+    "_name": "killer_obj",
     "_objFlags": 0,
     "__editorExtras__": {},
     "_parent": null,
@@ -47,8 +47,8 @@
     },
     "_lpos": {
       "__type__": "cc.Vec3",
-      "x": -0.365,
-      "y": 0,
+      "x": -0.19,
+      "y": 2.092,
       "z": 0.043
     },
     "_lrot": {
@@ -2113,6 +2113,7 @@
       "__id__": 0
     },
     "fileId": "39Zv2j/TlEXpj4phrWd2DL",
+    "instance": null,
     "targetOverrides": null
   }
 ]
