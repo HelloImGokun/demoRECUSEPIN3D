@@ -13,6 +13,7 @@ const { ccclass, property } = _decorator;
 export const eventTarget = new EventTarget();
 @ccclass('PlayerController')
 export class PlayerController extends Person {
+    
    
     //update player
 
@@ -184,20 +185,7 @@ export class PlayerController extends Person {
             }
             //cham vao enemy la die
             else if (collisionNode.name.includes(Configs.KILL_PLAYER_OBJ) || collisionNode.name.includes(Configs.KILL_ALL_OBJ)) {
-                this.animationController.setValue('isDie', true);
-                this.isOver = true;
-                //stop all tween
-                //
-                Tween.stopAllByTarget(this.node);
-                //
-                //delay for a second
-                this.scheduleOnce(() => {
-                    //lose game
-                    let LevelControllerNode = this.node.getParent();
-                    if (LevelControllerNode.getComponent(LevelController)) {
-                        LevelControllerNode.getComponent(LevelController).loseGame();
-                    }
-                }, 1)
+              this.setDie();
             } 
         }
         //bring float
@@ -408,7 +396,24 @@ export class PlayerController extends Person {
             this.node.setRotationFromEuler(new Vec3(0, -90, 0));
         }
     }
-    //
+    //set Die
+    setDie() {
+        console.log('set die');
+        this.animationController.setValue('isDie', true);
+        this.isOver = true;
+        //stop all tween
+        //
+        Tween.stopAllByTarget(this.node);
+        //
+        //delay for a second
+        this.scheduleOnce(() => {
+            //lose game
+            let LevelControllerNode = this.node.getParent();
+            if (LevelControllerNode.getComponent(LevelController)) {
+                LevelControllerNode.getComponent(LevelController).loseGame();
+            }
+        }, 1)
+    }
 
 }
 
