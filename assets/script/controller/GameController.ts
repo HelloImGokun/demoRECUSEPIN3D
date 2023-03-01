@@ -1,4 +1,4 @@
-import { _decorator, Component,instantiate, Camera, input, Input, Vec2, geometry, PhysicsSystem, EventTouch, Node, tween, CCInteger } from 'cc';
+import { _decorator, Component,instantiate, Camera, input, Input, Vec2, geometry, PhysicsSystem, EventTouch, Node, tween, CCInteger, director } from 'cc';
 import { Configs } from '../../utils/Configs';
 import { ResouceUtils } from '../../utils/ResouceUtils';
 import { GameModel } from '../model/GameModel';
@@ -14,7 +14,7 @@ export class GameController extends Component {
     @property(Camera)
     private camera:Camera;
     //
-    private currentLevelNumber:number = 5;
+    private currentLevelNumber:number = 1;
     //
     @property(Node)
     private currentLevelNode:Node;
@@ -32,6 +32,9 @@ export class GameController extends Component {
         //preload next level
         let nextLevelPath = Configs.LOAD_LEVEL_PATH+(this.currentLevelNumber+1);
         ResouceUtils.preloadPrefab(nextLevelPath);
+    }
+    public OnReload(){
+        director.loadScene('game');
     }
     private createNewLevel(){
         ResouceUtils.loadPrefab(Configs.LOAD_LEVEL_PATH+this.currentLevelNumber,(lvPrefab)=>{
