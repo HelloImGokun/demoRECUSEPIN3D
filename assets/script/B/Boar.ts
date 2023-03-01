@@ -1,10 +1,11 @@
-import { _decorator, CCBoolean, Collider, Component, geometry, physics, PhysicsSystem, RigidBody, SkeletalAnimationComponent, tween, Vec3, ITriggerEvent } from 'cc';
+import { _decorator, CCBoolean, Collider, Component, geometry, physics, PhysicsSystem, RigidBody, SkeletalAnimationComponent, tween, Vec3, ITriggerEvent,Node } from 'cc';
 import { Configs } from '../../utils/Configs';
 import { PointNode } from '../P/PointNode';
-import { eventTarget } from '../PlayerController';
+import { PlayerController, eventTarget } from '../PlayerController';
+import { Person } from '../P/Person';
 const { ccclass, property } = _decorator;
 @ccclass('Boar')
-export class Boar extends Component {
+export class Boar extends Person {
     animator: SkeletalAnimationComponent | null = null;
     //create a raycast
     LOG_NAME = null;
@@ -21,12 +22,18 @@ export class Boar extends Component {
         this.animator.play('Idle')
     }
     private onTriggerEnter(event: ITriggerEvent) {
-        let name = event.otherCollider.node.name;
-        console.log(this.node.name, name + '.......');
+        let otherNode: Node = event.otherCollider.node;
+        let name =otherNode.name;
+        
         if (name.includes(Configs.PLAYER_NAME) || name.includes(Configs.KILL_PLAYER_OBJ)) {
             //attack
-            if (this.animator)
-                this.animator.play('Attack');
+            if(this.isAttack) return;
+            this.isAttack = true;
+            this.animator.play('Attack'); 
+            this.scheduleOnce(() => {
+                //player
+                otherNode.getComponent(PlayerController).setDie();
+            },1)
         } else if (name.includes(Configs.KILL_ALL_OBJ)) {
             //death
             //mo khoa cho point
@@ -68,18 +75,24 @@ export class Boar extends Component {
                         this.animator.play('Attack');
                     let desination = collider.node.position;
                     //range to imply effect: dis from attacker to player
-                    let range: number = 0.7;
+                    let dis :number = 0.7;
                     if (desination.x <= this.node.position.x) {
-                            //-90; rotate
-                            tween(this.node).by(0.2, { eulerAngles: new Vec3(0, 180, 0) }).start();
-                    
-                    } else {
-                       
-                            tween(this.node).by(0.2, { eulerAngles: new Vec3(0, 180, 0) }).start();
+                     
+                        //-90; rotate
+                     
+                        tween(this.node).to(0.2, { eulerAngles: new Vec3(0, -90, 0) }).start(); 
+                               
 
-                    }
-                    let attackPos = new Vec3(desination.x + range, this.node.getPosition().y, desination.z);
-                    tween(this.node).to(0.5, { position: attackPos }).start();
+                } 
+                    else {
+                    // 90
+                        tween(this.node).to(0.2, { eulerAngles: new Vec3(0, 90, 0) }).start();
+                    // this.animationController.setValue('dx',Math.abs(deltaX));
+                        dis = -0.8;
+                }
+                  
+                    let attackPos = new Vec3(desination.x+dis, this.node.getPosition().y, desination.z);
+                    tween(this.node).to(0.6, { position: attackPos }).start();
                     //reset
                     if (seeObjectName.includes(Configs.PLAYER_NAME) || seeObjectName.includes(Configs.KILL_PLAYER_OBJ)) {
                         //game over
@@ -98,7 +111,7 @@ export class Boar extends Component {
                 }
             }
         } else {
-            console.log('failed');
+            
         }
 
     }
