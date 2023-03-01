@@ -56,7 +56,7 @@
     },
     "autoReleaseAssets": false,
     "_globals": {
-      "__id__": 29
+      "__id__": 32
     },
     "_id": "b9fd0ae7-0e99-4f0e-9346-0fc49d02e4a4"
   },
@@ -260,21 +260,24 @@
       },
       {
         "__id__": 21
+      },
+      {
+        "__id__": 25
       }
     ],
     "_active": true,
     "_components": [
       {
-        "__id__": 25
-      },
-      {
-        "__id__": 26
-      },
-      {
-        "__id__": 27
-      },
-      {
         "__id__": 28
+      },
+      {
+        "__id__": 29
+      },
+      {
+        "__id__": 30
+      },
+      {
+        "__id__": 31
       }
     ],
     "_prefab": null,
@@ -609,7 +612,7 @@
     "__prefab": null,
     "_contentSize": {
       "__type__": "cc.Size",
-      "width": 366.74,
+      "width": 443.38,
       "height": 100.8
     },
     "_anchorPoint": {
@@ -638,7 +641,7 @@
       "b": 111,
       "a": 255
     },
-    "_string": "RECUSE PIN",
+    "_string": "PIN PUZZLE 3D",
     "_horizontalAlign": 1,
     "_verticalAlign": 1,
     "_actualFontSize": 60,
@@ -916,6 +919,85 @@
     "_id": "a5kkVjiJpKTrPgp9qvY/Gu"
   },
   {
+    "__type__": "cc.Node",
+    "_name": "Predata",
+    "_objFlags": 0,
+    "_parent": {
+      "__id__": 7
+    },
+    "_children": [],
+    "_active": true,
+    "_components": [
+      {
+        "__id__": 26
+      },
+      {
+        "__id__": 27
+      }
+    ],
+    "_prefab": null,
+    "_lpos": {
+      "__type__": "cc.Vec3",
+      "x": 0,
+      "y": 0,
+      "z": 0
+    },
+    "_lrot": {
+      "__type__": "cc.Quat",
+      "x": 0,
+      "y": 0,
+      "z": 0,
+      "w": 1
+    },
+    "_lscale": {
+      "__type__": "cc.Vec3",
+      "x": 1,
+      "y": 1,
+      "z": 1
+    },
+    "_mobility": 0,
+    "_layer": 33554432,
+    "_euler": {
+      "__type__": "cc.Vec3",
+      "x": 0,
+      "y": 0,
+      "z": 0
+    },
+    "_id": "06NWqWnDhLRrvnZttMR1by"
+  },
+  {
+    "__type__": "cc.UITransform",
+    "_name": "",
+    "_objFlags": 0,
+    "node": {
+      "__id__": 25
+    },
+    "_enabled": true,
+    "__prefab": null,
+    "_contentSize": {
+      "__type__": "cc.Size",
+      "width": 100,
+      "height": 100
+    },
+    "_anchorPoint": {
+      "__type__": "cc.Vec2",
+      "x": 0.5,
+      "y": 0.5
+    },
+    "_id": "c9448IEdFJ1pKw8OTVdYc/"
+  },
+  {
+    "__type__": "b9403zyi49Pg7b+DgHVLIzC",
+    "_name": "",
+    "_objFlags": 0,
+    "node": {
+      "__id__": 25
+    },
+    "_enabled": true,
+    "__prefab": null,
+    "_id": "96/7J79rtIMqZdUf561Z3y"
+  },
+  {
     "__type__": "cc.UITransform",
     "_name": "",
     "_objFlags": 0,
@@ -994,22 +1076,22 @@
   {
     "__type__": "cc.SceneGlobals",
     "ambient": {
-      "__id__": 30
-    },
-    "shadows": {
-      "__id__": 31
-    },
-    "_skybox": {
-      "__id__": 32
-    },
-    "fog": {
       "__id__": 33
     },
-    "octree": {
+    "shadows": {
       "__id__": 34
     },
-    "lightProbeInfo": {
+    "_skybox": {
       "__id__": 35
+    },
+    "fog": {
+      "__id__": 36
+    },
+    "octree": {
+      "__id__": 37
+    },
+    "lightProbeInfo": {
+      "__id__": 38
     },
     "bakedWithStationaryMainLight": false
   },
