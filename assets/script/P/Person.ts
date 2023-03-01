@@ -1,4 +1,5 @@
-import { _decorator, animation, Collider, Component, RigidBody, Vec3, Node } from 'cc';
+import { _decorator, animation, Collider, Component, RigidBody, Vec3, Node, tween } from 'cc';
+import { PointNode } from './PointNode';
 const { ccclass, property } = _decorator;
 
 @ccclass('Person')
@@ -15,6 +16,7 @@ export class Person extends Component {
     protected isJumping: boolean = false;
     //trang thai co phao
     protected isFloat: boolean = false;
+    protected isClimbing:boolean=false;
     //khai bao trong start
     @property(Collider)
     protected collider: Collider;
@@ -42,6 +44,22 @@ export class Person extends Component {
     protected Attack() {
         if (this.animationController)
         this.animationController.setValue('Attack', true);
+    }
+    protected Climb(force:Vec3,finishCallback){
+        this.animationController.setValue('onair', true);
+        this.scheduleOnce(() => {
+            console.log('jump',force);
+            this.isJumping=true;
+            this.rigidBody.applyForce(force);
+            //finish
+            this.scheduleOnce(() => {
+                this.isJumping=false;
+                finishCallback();
+            },1);
+            //
+        }, 0.5);
+       
+
     }
     protected Die() {
 
