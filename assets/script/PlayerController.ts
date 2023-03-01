@@ -1,4 +1,4 @@
-import { _decorator, EventTarget, Node,  Vec3, tween,ITriggerEvent,  Tween, math, PhysicsSystem, physics, RigidBody, BoxCollider, Collider} from 'cc';
+import { _decorator, EventTarget, Node, Vec3, tween, ITriggerEvent, Tween, math, PhysicsSystem, physics, RigidBody, BoxCollider, Collider, CylinderCollider, instantiate } from 'cc';
 import { Configs } from '../utils/Configs';
 import { LevelController } from './controller/LevelController';
 import { PointNode } from './P/PointNode';
@@ -13,8 +13,8 @@ const { ccclass, property } = _decorator;
 export const eventTarget = new EventTarget();
 @ccclass('PlayerController')
 export class PlayerController extends Person {
-    
-   
+
+
     //update player
 
     //check door
@@ -23,16 +23,18 @@ export class PlayerController extends Person {
     //check xem player da die or win
     private isOver: boolean = false;
     //duong di duoc lua chon
-    private selectedPath:PathList = null
+    private selectedPath: PathList = null
     //index cua duong di
-    private pointCount:number = 0;
+    private pointCount: number = 0;
     //check xem player co dang tim duong hay khong
-    private isFindingPath:boolean=false;
+    private isFindingPath: boolean = false;
+
+    //
 
     protected onLoad(): void {
         eventTarget.on('onListingAnimal', (data) => {
-           //lang nghe su kien boar die  // print 1, 2, 3
-           this.findPath();
+            //lang nghe su kien boar die  // print 1, 2, 3
+            this.findPath();
         });
     }
     start() {
@@ -56,7 +58,7 @@ export class PlayerController extends Person {
         //
         if (this.isOver) return;
         //neu dang tim duong roi thi khong check tiep
-        if(this.isFindingPath) return;
+        if (this.isFindingPath) return;
         //neu dang tim duong roi thi check tiep
         this.isFindingPath = true;
         //
@@ -65,17 +67,17 @@ export class PlayerController extends Person {
 
         //
         let pathList = this.levelController.getPathList();
-               //loop qua toan bo cac duong di
-               for (let i = 0; i < pathList.length; i++) {
-                //lay ra 1 duong di va check xem co the di duoc hay khong
-                let pList: PathList = pathList[i];
-                if (pList && this.isPointUnlock(pList)) {
-                    this.selectedPath = pList;
-                    return this.followPath();
-                }else{
-                    this.isFindingPath=false;
-                }
+        //loop qua toan bo cac duong di
+        for (let i = 0; i < pathList.length; i++) {
+            //lay ra 1 duong di va check xem co the di duoc hay khong
+            let pList: PathList = pathList[i];
+            if (pList && this.isPointUnlock(pList)) {
+                this.selectedPath = pList;
+                return this.followPath();
+            } else {
+                this.isFindingPath = false;
             }
+        }
 
     }
 
@@ -102,17 +104,17 @@ export class PlayerController extends Person {
         if (pointNode == null) {
             //end of way
             //khi khong tim duoc duong thi set lai
-            this.isFindingPath =false
+            this.isFindingPath = false
             //reset lai point
             this.pointCount = 0;
             return;
         }
         //point dang lock
-        if(pointNode.getIsLock()){
-            this.isFindingPath =false
+        if (pointNode.getIsLock()) {
+            this.isFindingPath = false
             return;
         };
-        if(this.isOver) return;
+        if (this.isOver) return;
         //
         let pointType = pointNode.getPointType();
         switch (pointNode.getPointType()) {
@@ -128,14 +130,19 @@ export class PlayerController extends Person {
                     this.checkPoint();
                 })
                 break;
-                case PointType.fall:
-                    this.scheduleOnce(() => {
-                        //cho cho den khi roi xuong dat
-                        this.pointCount++;
-                        this.checkPoint();
-                    },pointNode.getMovingTime());
-                    break;
-
+            case PointType.fall:
+                this.scheduleOnce(() => {
+                    //cho cho den khi roi xuong dat
+                    this.pointCount++;
+                    this.checkPoint();
+                }, pointNode.getMovingTime());
+                break;
+            case PointType.climb:
+                this.climbOutWater(pointNode, () => {
+                    this.pointCount++;
+                    this.checkPoint();
+                })
+                break;
             case PointType.swimL:
                 break;
         }
@@ -143,7 +150,7 @@ export class PlayerController extends Person {
     private moveToPoint(pointNode: PointNode, finishCallback) {
         //tween
         tween(this.node).sequence(
-            tween(this.node).to(pointNode.getMovingTime(), { position: this.convertPositionToPlayerY(this.node.position,pointNode.getPosition()) }),
+            tween(this.node).to(pointNode.getMovingTime(), { position: this.convertPositionToPlayerY(this.node.position, pointNode.getPosition()) }),
             tween(this.node).delay(pointNode.getDelayTime()),
             tween(this.node).call(finishCallback)
         ).start();
@@ -152,15 +159,27 @@ export class PlayerController extends Person {
         //
 
     }
-    private jumpToPoint(point:PointNode, finishCallback) {
-
+    private jumpToPoint(point: PointNode, finishCallback) {
+        //
+        //set state
+        this.animationController.setValue('onair', true);
         //add force
         this.Jump(point.getJumpForce())
-        this.isJumping=true;
-        this.scheduleOnce(()=>{
+        this.isJumping = true;
+        this.scheduleOnce(() => {
             finishCallback();
-            this.isJumping=false;
+            this.isJumping = false;
         }, point.getMovingTime());
+    }
+    private climbOutWater(point: PointNode, finishCallback) {
+        //set position
+        this.animationController.setValue('onair', true);
+        this.scheduleOnce(() => {
+            tween(this.node).to(0.2,{position:point.node.getPosition()}).start();
+        }, 0.5);
+        this.scheduleOnce(() => {
+            finishCallback();
+        }, point.getDelayTime());
     }
     //
     //check touch door
@@ -178,6 +197,19 @@ export class PlayerController extends Person {
             this.animationController.setValue('landed', true);
             this.animationController.setValue('onair', false);
         }
+        if (collisionNode.name.includes(Configs.WATER_COLLIDER_NAME)) {
+            //neu co phao => chuyen sang animation swim
+            if (this.isFloat) {
+                this.animationController.setValue('swim', true)
+            } else {
+                //die
+                this.scheduleOnce(() => {
+                    this.setDie();
+                }, 1)
+
+            }
+
+        }
         if (!this.isFindDoor) {
             //1. check door
             if (collisionNode.name.includes(Configs.DOOR_NAME)) {
@@ -185,87 +217,90 @@ export class PlayerController extends Person {
             }
             //cham vao enemy la die
             else if (collisionNode.name.includes(Configs.KILL_PLAYER_OBJ) || collisionNode.name.includes(Configs.KILL_ALL_OBJ)) {
-              this.setDie();
-            } 
+                this.setDie();
+            }
         }
+
         //bring float
-        if(collisionNode.name.includes(Configs.FLOAT_NAME)){
-            if(this.isFloat) return;
-            this.isFloat=true;
-            if(collisionNode.getComponent(RigidBody)){
-                collisionNode.getComponent(RigidBody).isStatic=true;
-                setTimeout(() => {
-                    this.attachFloat(collisionNode);
-                }, 100);
-              
+        if (collisionNode.name.includes(Configs.FLOAT_NAME)) {
+            if (this.isFloat) return;
+            this.isFloat = true;
+            if (collisionNode.getComponent(RigidBody)) {
+                //collisionNode.getComponent(RigidBody).isStatic=true;
+                this.attachFloat(collisionNode);
+
             }
 
         }
         //
     }
-    private attachFloat(float:Node){
-        if( float.getComponent(RigidBody))
-        float.getComponent(RigidBody).destroy();
-        //remove box collider
-        if( float.getComponent(Collider))
-        float.getComponent(Collider).destroy();
-        this.node.addChild(float);
-       
-        float.setPosition(new math.Vec3(0,0.4,0));
-        float.setRotationFromEuler(new math.Vec3(90,90,0));
+    private attachFloat(float: Node) {
+        //remove float cu va tao 1 float moi gan vao player (de loai bo rigidbody,collider..)
+        let newFloat = instantiate(float.getChildByName('float'));
+        this.neckNode.addChild(newFloat);
+
+        newFloat.setPosition(new math.Vec3(0, 0, 0));
+        newFloat.setRotationFromEuler(new math.Vec3(0, 90, 0));
+        //huy float cu
+        float.destroy();
     }
-    public getIsFloat(){
+    public getIsFloat() {
         return this.isFloat;
     }
     private onTriggerExit(event: ITriggerEvent) {
         //check xem player da thoat khoi mat dat chua
         //
-        
-        if (this.isOver ) return;
-        if (event.otherCollider.name.includes(Configs.FLOOR_GROUND_NAME)) {
+
+        if (this.isOver) return;
+        if (event.otherCollider.name.includes(Configs.FLOOR_GROUND_NAME) || event.otherCollider.name.includes(Configs.WATER_COLLIDER_NAME)) {
             //player roi tu do
+            console.log('on air.....',event.otherCollider.name);
             this.animationController.setValue('onair', true);
             this.animationController.setValue('landed', false);
+            this.animationController.setValue('swim', false);
         }
-    
+
+
     }
-    private onTriggerStay(event: ITriggerEvent){
+    private onTriggerStay(event: ITriggerEvent) {
         if (this.isOver) return;
-        if(event.otherCollider.name.includes(Configs.FLOOR_GROUND_NAME)){
+
+        if (event.otherCollider.name.includes(Configs.FLOOR_GROUND_NAME)) {
             this.animationController.setValue('onair', false);
             this.animationController.setValue('landed', true);
         }
-        if(event.otherCollider.name.includes('Water')&&this.isFloat){
+        if (event.otherCollider.name.includes(Configs.WATER_COLLIDER_NAME) && this.isFloat) {
             //if is jump return: Neu dang jump thi khong set y
-            if(this.isJumping){
+
+            if (this.isJumping) {
                 //do nothing
-                // this.animationController.setValue('swim', false);
-            }else{
-                //get vi tri cua player khi roi xuong nuoc
-                // this.animationController.setValue('swim',true)
+            } else {
+
+
+
                 let yPos = event.otherCollider.node.getParent().getComponent(Water).getWaterFloatY();
-                this.node.setPosition(new math.Vec3(this.node.position.x,yPos,this.node.position.z));
+                this.node.setPosition(new math.Vec3(this.node.position.x, yPos, this.node.position.z));
             }
 
-        
+
         }
     }
-   
+
     //
-    private findDoor(doorNode:Node) {
+    private findDoor(doorNode: Node) {
         if (this.isFindDoor) return;
         this.isFindDoor = true;
         //
-        const simpleDoor = ()=>{
+        const simpleDoor = () => {
             //
-            let doorPosition:Vec3 = null;
+            let doorPosition: Vec3 = null;
             tween(this.node).sequence(
                 //xoay nguoi lai huong door
                 tween(this.node).delay(0.1),
-                tween(this.node).call(()=>{
-                    doorPosition = new math.Vec3(doorNode.position.x+0.2, this.node.position.y, this.node.position.z);
+                tween(this.node).call(() => {
+                    doorPosition = new math.Vec3(doorNode.position.x + 0.2, this.node.position.y, this.node.position.z);
                 }),
-                tween(this.node).to(0.5,{position:doorPosition}),
+                tween(this.node).to(0.5, { position: doorPosition }),
                 tween(this.node).delay(0.5),
                 tween(this.node).to(0.2, { eulerAngles: new Vec3(0, 180, 0) }),
                 tween(this.node).by(0.5, { position: new Vec3(0, 0, -0.4) }),
@@ -279,7 +314,7 @@ export class PlayerController extends Person {
                 tween(this.node).call(() => {
                     //do win animation;
                     this.animationController.setValue('win', true);
-    
+
                     // setTimeout(() => {
                     //     this.animationController.setValue('win',false);
                     // }, 1000);
@@ -290,9 +325,9 @@ export class PlayerController extends Person {
                 })
             ).start();
             //
-           
+
         }
-        const npcDoor = () =>{
+        const npcDoor = () => {
             //npc point 
             let standPoint = doorNode.getComponent(Door).getStandPoint();
             tween(this.node).sequence(
@@ -311,7 +346,7 @@ export class PlayerController extends Person {
                 tween(this.node).call(() => {
                     //do win animation;
                     this.animationController.setValue('win', true);
-    
+
                     // setTimeout(() => {
                     //     this.animationController.setValue('win',false);
                     // }, 1000);
@@ -320,22 +355,22 @@ export class PlayerController extends Person {
                 tween(this.node).call(() => {
                     this.openDoorSuccess();
                 })
-                
-                
+
+
             ).start();
         }
-         
+
         //
         //door npc
-        if(doorNode.getComponent(Door).getIsNPC()){
+        if (doorNode.getComponent(Door).getIsNPC()) {
             //npc
             npcDoor();
-        }else{
+        } else {
             //door thuong
             simpleDoor();
         }
 
-       
+
 
 
     }

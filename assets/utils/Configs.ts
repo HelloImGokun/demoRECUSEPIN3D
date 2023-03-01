@@ -17,6 +17,7 @@ export class Configs {
     public static PLAYER_NAME:string = 'player';
     public static FLOAT_PREFAB_PATH = 'items/';
     public static FLOAT_NAME:string = 'float';
+    public static WATER_COLLIDER_NAME:string = 'Water'
 
     //water jump force
     public static WATER_JUMP_FORCE:number = 10;

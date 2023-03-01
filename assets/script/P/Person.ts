@@ -1,4 +1,4 @@
-import { _decorator, animation, Collider, Component, RigidBody, Vec3 } from 'cc';
+import { _decorator, animation, Collider, Component, RigidBody, Vec3, Node } from 'cc';
 const { ccclass, property } = _decorator;
 
 @ccclass('Person')
@@ -18,6 +18,9 @@ export class Person extends Component {
     //khai bao trong start
     @property(Collider)
     protected collider: Collider;
+
+    @property({type:Node})
+    protected neckNode:Node;
     //
     //
     protected start(): void {

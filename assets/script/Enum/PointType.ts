@@ -1,8 +1,9 @@
 export enum PointType {
     walk = 1,
     jump = 3,
+    climb=4,
     swimL = 5,
     swimR = 6,
-    fall = 7
+    fall = 7,
 }
 
