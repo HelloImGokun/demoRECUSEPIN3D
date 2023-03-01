@@ -298,7 +298,7 @@ export class PlayerController extends Person {
                 //xoay nguoi lai huong door
                 tween(this.node).delay(0.1),
                 tween(this.node).call(() => {
-                    doorPosition = new math.Vec3(doorNode.position.x + 0.2, this.node.position.y, this.node.position.z);
+                    doorPosition = new math.Vec3(doorNode.position.x + 0.3, this.node.position.y, this.node.position.z);
                 }),
                 tween(this.node).to(0.5, { position: doorPosition }),
                 tween(this.node).delay(0.5),

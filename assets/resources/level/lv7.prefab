@@ -39,11 +39,11 @@
     "_active": true,
     "_components": [
       {
-        "__id__": 135
+        "__id__": 137
       }
     ],
     "_prefab": {
-      "__id__": 137
+      "__id__": 139
     },
     "_lpos": {
       "__type__": "cc.Vec3",
@@ -1801,7 +1801,7 @@
     },
     "_lpos": {
       "__type__": "cc.Vec3",
-      "x": -1,
+      "x": -1.132,
       "y": 0.204,
       "z": 0
     },
@@ -1936,7 +1936,7 @@
       "__id__": 99
     },
     "isLock": true,
-    "pointType": 1,
+    "pointType": 6,
     "movingTime": 1,
     "delayTime": 0,
     "jumpForce": {
@@ -2154,6 +2154,9 @@
       },
       {
         "__id__": 102
+      },
+      {
+        "__id__": 106
       }
     ],
     "isPass": false,
@@ -2367,6 +2370,9 @@
       },
       {
         "__id__": 133
+      },
+      {
+        "__id__": 135
       }
     ],
     "removedComponents": []
@@ -2441,7 +2447,7 @@
     "propertyPath": [
       "waterFloatY"
     ],
-    "value": 0
+    "value": 0.1
   },
   {
     "__type__": "cc.TargetInfo",
@@ -2483,6 +2489,27 @@
     ]
   },
   {
+    "__type__": "CCPropertyOverrideInfo",
+    "targetInfo": {
+      "__id__": 136
+    },
+    "propertyPath": [
+      "_size"
+    ],
+    "value": {
+      "__type__": "cc.Vec3",
+      "x": 1,
+      "y": 0.95,
+      "z": 1
+    }
+  },
+  {
+    "__type__": "cc.TargetInfo",
+    "localID": [
+      "eeEvJKfF9DtJICgro2Qjne"
+    ]
+  },
+  {
     "__type__": "b5a86A29exCr7sQ9dJYeI/N",
     "_name": "",
     "_objFlags": 0,
@@ -2491,7 +2518,7 @@
     },
     "_enabled": true,
     "__prefab": {
-      "__id__": 136
+      "__id__": 138
     },
     "pinList": [
       {
@@ -2530,7 +2557,7 @@
     "instance": null,
     "targetOverrides": [
       {
-        "__id__": 138
+        "__id__": 140
       }
     ],
     "nestedPrefabInstanceRoots": [
@@ -2557,7 +2584,7 @@
       "__id__": 122
     },
     "sourceInfo": {
-      "__id__": 139
+      "__id__": 141
     },
     "propertyPath": [
       "waterCollider"
@@ -2566,7 +2593,7 @@
       "__id__": 122
     },
     "targetInfo": {
-      "__id__": 140
+      "__id__": 142
     }
   },
   {
