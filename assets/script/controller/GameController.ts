@@ -14,11 +14,7 @@ export class GameController extends Component {
     @property(Camera)
     private camera:Camera;
     //
-<<<<<<< Updated upstream
     private currentLevelNumber:number = 4;
-=======
-    private currentLevelNumber:number = 7;
->>>>>>> Stashed changes
     //
     @property(Node)
     private currentLevelNode:Node;
