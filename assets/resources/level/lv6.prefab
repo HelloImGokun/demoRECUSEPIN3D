@@ -24,17 +24,29 @@
         "__id__": 70
       },
       {
+<<<<<<< Updated upstream
         "__id__": 142
+=======
+        "__id__": 141
+>>>>>>> Stashed changes
       }
     ],
     "_active": true,
     "_components": [
       {
+<<<<<<< Updated upstream
         "__id__": 155
       }
     ],
     "_prefab": {
       "__id__": 157
+=======
+        "__id__": 154
+      }
+    ],
+    "_prefab": {
+      "__id__": 156
+>>>>>>> Stashed changes
     },
     "_lpos": {
       "__type__": "cc.Vec3",
@@ -101,7 +113,11 @@
     "_active": true,
     "_components": [],
     "_prefab": {
+<<<<<<< Updated upstream
       "__id__": 141
+=======
+      "__id__": 140
+>>>>>>> Stashed changes
     },
     "_lpos": {
       "__type__": "cc.Vec3",
@@ -1289,9 +1305,12 @@
       },
       {
         "__id__": 139
+<<<<<<< Updated upstream
       },
       {
         "__id__": 140
+=======
+>>>>>>> Stashed changes
       }
     ],
     "removedComponents": []
@@ -1395,7 +1414,7 @@
     },
     "_lpos": {
       "__type__": "cc.Vec3",
-      "x": -0.047,
+      "x": 0.052,
       "y": 0.186,
       "z": 0
     },
@@ -1887,7 +1906,7 @@
     "_lpos": {
       "__type__": "cc.Vec3",
       "x": -0.824,
-      "y": 0.867,
+      "y": 0.891,
       "z": 0
     },
     "_lrot": {
@@ -1986,8 +2005,8 @@
     },
     "_shadowCastingMode": 0,
     "_shadowReceivingMode": 1,
-    "_shadowBias": 0,
-    "_shadowNormalBias": 0,
+    "_shadowBias": null,
+    "_shadowNormalBias": null,
     "_enableMorph": true,
     "_id": ""
   },
@@ -2042,12 +2061,17 @@
     },
     "isLock": false,
     "pointType": 4,
-    "movingTime": 1,
+    "movingTime": 0.5,
     "delayTime": 1,
     "jumpForce": {
       "__type__": "cc.Vec3",
+<<<<<<< Updated upstream
       "x": -85,
       "y": 1200,
+=======
+      "x": -100,
+      "y": 1400,
+>>>>>>> Stashed changes
       "z": 0
     },
     "_id": ""
@@ -2289,7 +2313,7 @@
     },
     "_lpos": {
       "__type__": "cc.Vec3",
-      "x": -1.462,
+      "x": -1.328,
       "y": 0.867,
       "z": 0
     },
@@ -2445,7 +2469,7 @@
     },
     "isLock": false,
     "pointType": 1,
-    "movingTime": 0.3,
+    "movingTime": 0.5,
     "delayTime": 0,
     "jumpForce": {
       "__type__": "cc.Vec3",
@@ -2600,19 +2624,29 @@
   {
     "__type__": "CCPropertyOverrideInfo",
     "targetInfo": {
+<<<<<<< Updated upstream
       "__id__": 138
+=======
+      "__id__": 63
+>>>>>>> Stashed changes
     },
     "propertyPath": [
       "_lscale"
     ],
     "value": {
       "__type__": "cc.Vec3",
+<<<<<<< Updated upstream
       "x": 2.15,
       "y": 1.35,
+=======
+      "x": 1.1,
+      "y": 1,
+>>>>>>> Stashed changes
       "z": 1
     }
   },
   {
+<<<<<<< Updated upstream
     "__type__": "CCPropertyOverrideInfo",
     "targetInfo": {
       "__id__": 138
@@ -2628,6 +2662,8 @@
     }
   },
   {
+=======
+>>>>>>> Stashed changes
     "__type__": "cc.PrefabInfo",
     "root": {
       "__id__": 1
@@ -2647,14 +2683,22 @@
       "__id__": 1
     },
     "_prefab": {
+<<<<<<< Updated upstream
       "__id__": 143
+=======
+      "__id__": 142
+>>>>>>> Stashed changes
     },
     "__editorExtras__": {}
   },
   {
     "__type__": "cc.PrefabInfo",
     "root": {
+<<<<<<< Updated upstream
       "__id__": 142
+=======
+      "__id__": 141
+>>>>>>> Stashed changes
     },
     "asset": {
       "__uuid__": "6a8118b6-26ff-4ac5-b3ee-32ccc080d095",
@@ -2662,7 +2706,11 @@
     },
     "fileId": "2c1u5QCkFB/aRFzfojlHYW",
     "instance": {
+<<<<<<< Updated upstream
       "__id__": 144
+=======
+      "__id__": 143
+>>>>>>> Stashed changes
     },
     "targetOverrides": null
   },
@@ -2676,7 +2724,11 @@
     "mountedComponents": [],
     "propertyOverrides": [
       {
+<<<<<<< Updated upstream
         "__id__": 145
+=======
+        "__id__": 144
+>>>>>>> Stashed changes
       },
       {
         "__id__": 147
@@ -2686,6 +2738,7 @@
       },
       {
         "__id__": 149
+<<<<<<< Updated upstream
       },
       {
         "__id__": 150
@@ -2695,6 +2748,14 @@
       },
       {
         "__id__": 153
+=======
+      },
+      {
+        "__id__": 151
+      },
+      {
+        "__id__": 152
+>>>>>>> Stashed changes
       }
     ],
     "removedComponents": []
@@ -2702,7 +2763,11 @@
   {
     "__type__": "CCPropertyOverrideInfo",
     "targetInfo": {
+<<<<<<< Updated upstream
       "__id__": 146
+=======
+      "__id__": 145
+>>>>>>> Stashed changes
     },
     "propertyPath": [
       "_name"
@@ -2718,7 +2783,11 @@
   {
     "__type__": "CCPropertyOverrideInfo",
     "targetInfo": {
+<<<<<<< Updated upstream
       "__id__": 146
+=======
+      "__id__": 145
+>>>>>>> Stashed changes
     },
     "propertyPath": [
       "_lpos"
@@ -2733,7 +2802,11 @@
   {
     "__type__": "CCPropertyOverrideInfo",
     "targetInfo": {
+<<<<<<< Updated upstream
       "__id__": 146
+=======
+      "__id__": 145
+>>>>>>> Stashed changes
     },
     "propertyPath": [
       "_lrot"
@@ -2749,7 +2822,11 @@
   {
     "__type__": "CCPropertyOverrideInfo",
     "targetInfo": {
+<<<<<<< Updated upstream
       "__id__": 146
+=======
+      "__id__": 145
+>>>>>>> Stashed changes
     },
     "propertyPath": [
       "_euler"
@@ -2764,7 +2841,11 @@
   {
     "__type__": "CCPropertyOverrideInfo",
     "targetInfo": {
+<<<<<<< Updated upstream
       "__id__": 151
+=======
+      "__id__": 150
+>>>>>>> Stashed changes
     },
     "propertyPath": [
       "_isTrigger"
@@ -2780,7 +2861,11 @@
   {
     "__type__": "CCPropertyOverrideInfo",
     "targetInfo": {
+<<<<<<< Updated upstream
       "__id__": 146
+=======
+      "__id__": 145
+>>>>>>> Stashed changes
     },
     "propertyPath": [
       "_active"
@@ -2790,7 +2875,11 @@
   {
     "__type__": "CCPropertyOverrideInfo",
     "targetInfo": {
+<<<<<<< Updated upstream
       "__id__": 154
+=======
+      "__id__": 153
+>>>>>>> Stashed changes
     },
     "propertyPath": [
       "_lpos"
@@ -2817,7 +2906,11 @@
     },
     "_enabled": true,
     "__prefab": {
+<<<<<<< Updated upstream
       "__id__": 156
+=======
+      "__id__": 155
+>>>>>>> Stashed changes
     },
     "pinList": [
       {
@@ -2856,12 +2949,20 @@
     "instance": null,
     "targetOverrides": [
       {
+<<<<<<< Updated upstream
         "__id__": 158
+=======
+        "__id__": 157
+>>>>>>> Stashed changes
       }
     ],
     "nestedPrefabInstanceRoots": [
       {
+<<<<<<< Updated upstream
         "__id__": 142
+=======
+        "__id__": 141
+>>>>>>> Stashed changes
       },
       {
         "__id__": 104
@@ -2883,7 +2984,11 @@
       "__id__": 59
     },
     "sourceInfo": {
+<<<<<<< Updated upstream
       "__id__": 159
+=======
+      "__id__": 158
+>>>>>>> Stashed changes
     },
     "propertyPath": [
       "waterCollider"
@@ -2892,7 +2997,11 @@
       "__id__": 59
     },
     "targetInfo": {
+<<<<<<< Updated upstream
       "__id__": 160
+=======
+      "__id__": 159
+>>>>>>> Stashed changes
     }
   },
   {
