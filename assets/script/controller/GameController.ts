@@ -14,12 +14,12 @@ export class GameController extends Component {
     @property(Camera)
     private camera:Camera;
     //
-    private currentLevelNumber:number = 4;
+    private currentLevelNumber:number = 5;
     //
     @property(Node)
     private currentLevelNode:Node;
     //
-    start() {
+    start() {   
 
         //create raycast
         input.on(Input.EventType.TOUCH_START,this.onTouchScreen,this);

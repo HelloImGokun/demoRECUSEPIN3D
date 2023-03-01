@@ -138,7 +138,7 @@ export class PlayerController extends Person {
                 }, pointNode.getMovingTime());
                 break;
             case PointType.climb:
-                this.Climb(pointNode.getJumpForce(),()=>{
+                this.climbOutWater(pointNode, () => {
                     this.pointCount++;
                     this.checkPoint();
                 })
@@ -149,7 +149,6 @@ export class PlayerController extends Person {
     }
     private moveToPoint(pointNode: PointNode, finishCallback) {
         //tween
-        console.log('move to :',pointNode.name);
         tween(this.node).sequence(
             tween(this.node).to(pointNode.getMovingTime(), { position: this.convertPositionToPlayerY(this.node.position, pointNode.getPosition()) }),
             tween(this.node).delay(pointNode.getDelayTime()),
@@ -171,6 +170,16 @@ export class PlayerController extends Person {
             finishCallback();
             this.isJumping = false;
         }, point.getMovingTime());
+    }
+    private climbOutWater(point: PointNode, finishCallback) {
+        //set position
+        this.animationController.setValue('onair', true);
+        this.scheduleOnce(() => {
+            tween(this.node).to(0.2,{position:point.node.getPosition()}).start();
+        }, 0.5);
+        this.scheduleOnce(() => {
+            finishCallback();
+        }, point.getDelayTime());
     }
     //
     //check touch door
@@ -263,9 +272,12 @@ export class PlayerController extends Person {
         if (event.otherCollider.name.includes(Configs.WATER_COLLIDER_NAME) && this.isFloat) {
             //if is jump return: Neu dang jump thi khong set y
 
-            if (this.isJumping || this.isClimbing) {
+            if (this.isJumping) {
                 //do nothing
             } else {
+
+
+
                 let yPos = event.otherCollider.node.getParent().getComponent(Water).getWaterFloatY();
                 this.node.setPosition(new math.Vec3(this.node.position.x, yPos, this.node.position.z));
             }

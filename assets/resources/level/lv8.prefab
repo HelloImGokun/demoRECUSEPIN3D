@@ -3164,8 +3164,7 @@
     "pathList": [
       {
         "__id__": 162
-      },
-      null
+      }
     ],
     "playerPos": {
       "__type__": "cc.Vec3",
