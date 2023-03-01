@@ -39,19 +39,11 @@
     "_active": true,
     "_components": [
       {
-<<<<<<< Updated upstream
-        "__id__": 137
-      }
-    ],
-    "_prefab": {
-      "__id__": 139
-=======
         "__id__": 142
       }
     ],
     "_prefab": {
       "__id__": 144
->>>>>>> Stashed changes
     },
     "_lpos": {
       "__type__": "cc.Vec3",
@@ -1809,7 +1801,7 @@
     },
     "_lpos": {
       "__type__": "cc.Vec3",
-      "x": -1.132,
+      "x": -1,
       "y": 0.204,
       "z": 0
     },
@@ -2064,15 +2056,9 @@
       "__id__": 104
     },
     "isLock": true,
-<<<<<<< Updated upstream
-    "pointType": 6,
-    "movingTime": 1,
-    "delayTime": 0,
-=======
     "pointType": 1,
     "movingTime": 0.5,
     "delayTime": 0.5,
->>>>>>> Stashed changes
     "jumpForce": {
       "__type__": "cc.Vec3",
       "x": 0,
@@ -2287,14 +2273,7 @@
         "__id__": 103
       },
       {
-<<<<<<< Updated upstream
-        "__id__": 102
-      },
-      {
-        "__id__": 106
-=======
         "__id__": 107
->>>>>>> Stashed changes
       }
     ],
     "isPass": false,
@@ -2511,12 +2490,6 @@
         "__id__": 132
       },
       {
-<<<<<<< Updated upstream
-        "__id__": 133
-      },
-      {
-        "__id__": 135
-=======
         "__id__": 134
       },
       {
@@ -2533,7 +2506,6 @@
       },
       {
         "__id__": 140
->>>>>>> Stashed changes
       }
     ],
     "removedComponents": []
@@ -2608,11 +2580,7 @@
     "propertyPath": [
       "waterFloatY"
     ],
-<<<<<<< Updated upstream
-    "value": 0.1
-=======
     "value": -0.3
->>>>>>> Stashed changes
   },
   {
     "__type__": "cc.TargetInfo",
@@ -2654,27 +2622,6 @@
     ]
   },
   {
-    "__type__": "CCPropertyOverrideInfo",
-    "targetInfo": {
-      "__id__": 136
-    },
-    "propertyPath": [
-      "_size"
-    ],
-    "value": {
-      "__type__": "cc.Vec3",
-      "x": 1,
-      "y": 0.95,
-      "z": 1
-    }
-  },
-  {
-    "__type__": "cc.TargetInfo",
-    "localID": [
-      "eeEvJKfF9DtJICgro2Qjne"
-    ]
-  },
-  {
     "__type__": "b5a86A29exCr7sQ9dJYeI/N",
     "_name": "",
     "_objFlags": 0,
@@ -2683,11 +2630,7 @@
     },
     "_enabled": true,
     "__prefab": {
-<<<<<<< Updated upstream
-      "__id__": 138
-=======
       "__id__": 143
->>>>>>> Stashed changes
     },
     "pinList": [
       {
@@ -2726,11 +2669,7 @@
     "instance": null,
     "targetOverrides": [
       {
-<<<<<<< Updated upstream
-        "__id__": 140
-=======
         "__id__": 145
->>>>>>> Stashed changes
       }
     ],
     "nestedPrefabInstanceRoots": [
@@ -2757,11 +2696,7 @@
       "__id__": 129
     },
     "sourceInfo": {
-<<<<<<< Updated upstream
-      "__id__": 141
-=======
       "__id__": 146
->>>>>>> Stashed changes
     },
     "propertyPath": [
       "waterCollider"
@@ -2770,11 +2705,7 @@
       "__id__": 129
     },
     "targetInfo": {
-<<<<<<< Updated upstream
-      "__id__": 142
-=======
       "__id__": 147
->>>>>>> Stashed changes
     }
   },
   {
