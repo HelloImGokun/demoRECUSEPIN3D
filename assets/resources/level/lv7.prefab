@@ -2824,15 +2824,15 @@
     ],
     "value": {
       "__type__": "cc.Vec3",
-      "x": 0.274,
-      "y": 0.346,
+      "x": 0.403,
+      "y": 0.336,
       "z": 0
     }
   },
   {
     "__type__": "cc.TargetInfo",
     "localID": [
-      "1fBvGTE7NH7prILlZBDfzI"
+      "b95t/WSBxCS71YZNBUS4BN"
     ]
   },
   {

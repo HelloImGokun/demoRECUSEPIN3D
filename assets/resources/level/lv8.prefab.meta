@@ -1,9 +1,11 @@
 {
   "ver": "1.1.43",
   "importer": "prefab",
-  "imported": false,
+  "imported": true,
   "uuid": "cf61b244-5501-461c-931f-bc1b65a1abde",
-  "files": [],
+  "files": [
+    ".json"
+  ],
   "subMetas": {},
   "userData": {
     "syncNodeName": "lv8"

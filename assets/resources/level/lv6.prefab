@@ -21,35 +21,20 @@
         "__id__": 2
       },
       {
-<<<<<<< Updated upstream
-        "__id__": 86
+        "__id__": 77
       },
       {
-        "__id__": 167
-=======
-        "__id__": 70
-      },
-      {
-        "__id__": 153
->>>>>>> Stashed changes
+        "__id__": 160
       }
     ],
     "_active": true,
     "_components": [
       {
-<<<<<<< Updated upstream
-        "__id__": 180
+        "__id__": 173
       }
     ],
     "_prefab": {
-      "__id__": 182
-=======
-        "__id__": 166
-      }
-    ],
-    "_prefab": {
-      "__id__": 168
->>>>>>> Stashed changes
+      "__id__": 175
     },
     "_lpos": {
       "__type__": "cc.Vec3",
@@ -116,11 +101,7 @@
     "_active": true,
     "_components": [],
     "_prefab": {
-<<<<<<< Updated upstream
-      "__id__": 166
-=======
-      "__id__": 152
->>>>>>> Stashed changes
+      "__id__": 159
     },
     "_lpos": {
       "__type__": "cc.Vec3",
@@ -1382,266 +1363,49 @@
     "prefabRootNode": {
       "__id__": 1
     },
-<<<<<<< Updated upstream
-    "mountedChildren": [
-      {
-        "__id__": 69
-      }
-    ],
-    "mountedComponents": [],
-    "propertyOverrides": [
-      {
-        "__id__": 78
-      },
-      {
-        "__id__": 80
-      },
-      {
-        "__id__": 81
-      },
-      {
-        "__id__": 82
-      },
-      {
-        "__id__": 83
-      },
-      {
-        "__id__": 159
-      },
-      {
-        "__id__": 161
-      },
-      {
-        "__id__": 162
-      },
-      {
-        "__id__": 164
-      },
-      {
-        "__id__": 165
-=======
     "mountedChildren": [],
     "mountedComponents": [],
     "propertyOverrides": [
       {
-        "__id__": 62
+        "__id__": 69
       },
       {
-        "__id__": 64
+        "__id__": 71
       },
       {
-        "__id__": 65
+        "__id__": 72
       },
       {
-        "__id__": 66
+        "__id__": 73
       },
       {
-        "__id__": 67
-      },
-      {
-        "__id__": 143
-      },
-      {
-        "__id__": 145
-      },
-      {
-        "__id__": 146
-      },
-      {
-        "__id__": 148
-      },
-      {
-        "__id__": 149
+        "__id__": 74
       },
       {
         "__id__": 150
->>>>>>> Stashed changes
+      },
+      {
+        "__id__": 152
+      },
+      {
+        "__id__": 153
+      },
+      {
+        "__id__": 155
+      },
+      {
+        "__id__": 156
+      },
+      {
+        "__id__": 157
       }
     ],
     "removedComponents": []
   },
   {
-<<<<<<< Updated upstream
-    "__type__": "cc.MountedChildrenInfo",
+    "__type__": "CCPropertyOverrideInfo",
     "targetInfo": {
       "__id__": 70
-    },
-    "nodes": [
-      {
-        "__id__": 71
-      }
-    ]
-  },
-  {
-    "__type__": "cc.TargetInfo",
-    "localID": [
-      "f1OlAFZH9Iho1ICay4DseA"
-    ]
-  },
-  {
-    "__type__": "cc.Node",
-    "_name": "Cube",
-    "_objFlags": 0,
-    "__editorExtras__": {
-      "mountedRoot": {
-        "__id__": 66
-      }
-    },
-    "_parent": {
-      "__id__": 66
-    },
-    "_children": [],
-    "_active": true,
-    "_components": [
-      {
-        "__id__": 72
-      },
-      {
-        "__id__": 75
-      }
-    ],
-    "_prefab": {
-      "__id__": 77
-    },
-    "_lpos": {
-      "__type__": "cc.Vec3",
-      "x": -0.808,
-      "y": 0.175,
-      "z": 0
-    },
-    "_lrot": {
-      "__type__": "cc.Quat",
-      "x": 0,
-      "y": 0,
-      "z": 0,
-      "w": 1
-    },
-    "_lscale": {
-      "__type__": "cc.Vec3",
-      "x": 0.6,
-      "y": 0.2,
-      "z": 1
-    },
-    "_mobility": 0,
-    "_layer": 1073741824,
-    "_euler": {
-      "__type__": "cc.Vec3",
-      "x": 0,
-      "y": 0,
-      "z": 0
-    },
-    "_id": ""
-  },
-  {
-    "__type__": "cc.MeshRenderer",
-    "_name": "Cube<ModelComponent>",
-    "_objFlags": 0,
-    "node": {
-      "__id__": 71
-    },
-    "_enabled": true,
-    "__prefab": {
-      "__id__": 73
-    },
-    "_materials": [
-      {
-        "__uuid__": "d3c7820c-2a98-4429-8bc7-b8453bc9ac41",
-        "__expectedType__": "cc.Material"
-      }
-    ],
-    "_visFlags": 0,
-    "bakeSettings": {
-      "__id__": 74
-    },
-    "_mesh": {
-      "__uuid__": "1263d74c-8167-4928-91a6-4e2672411f47@a804a",
-      "__expectedType__": "cc.Mesh"
-    },
-    "_shadowCastingMode": 0,
-    "_shadowReceivingMode": 1,
-    "_shadowBias": null,
-    "_shadowNormalBias": null,
-    "_enableMorph": true,
-    "_id": ""
-  },
-  {
-    "__type__": "cc.CompPrefabInfo",
-    "fileId": "f1gF87DFZA1bEFYnPwNZER"
-  },
-  {
-    "__type__": "cc.ModelBakeSettings",
-    "texture": null,
-    "uvParam": {
-      "__type__": "cc.Vec4",
-      "x": 0,
-      "y": 0,
-      "z": 0,
-      "w": 0
-    },
-    "_bakeable": false,
-    "_castShadow": false,
-    "_receiveShadow": false,
-    "_recieveShadow": false,
-    "_lightmapSize": 64,
-    "_useLightProbe": false,
-    "_bakeToLightProbe": true,
-    "_reflectionProbeType": 0,
-    "_bakeToReflectionProbe": true,
-    "_probeCubemap": null
-  },
-  {
-    "__type__": "cc.BoxCollider",
-    "_name": "",
-    "_objFlags": 0,
-    "node": {
-      "__id__": 71
-    },
-    "_enabled": true,
-    "__prefab": {
-      "__id__": 76
-    },
-    "_material": null,
-    "_isTrigger": false,
-    "_center": {
-      "__type__": "cc.Vec3",
-      "x": 0,
-      "y": 0,
-      "z": 0
-    },
-    "_size": {
-      "__type__": "cc.Vec3",
-      "x": 1,
-      "y": 1,
-      "z": 1
-    },
-    "_id": ""
-  },
-  {
-    "__type__": "cc.CompPrefabInfo",
-    "fileId": "4fWJboRAdN8LtIyRG4WU8b"
-  },
-  {
-    "__type__": "cc.PrefabInfo",
-    "root": {
-      "__id__": 1
-    },
-    "asset": {
-      "__id__": 0
-    },
-    "fileId": "9aAqhPInFHI65vJq1qcv6L",
-    "instance": null,
-    "targetOverrides": null,
-    "nestedPrefabInstanceRoots": null
-  },
-  {
-    "__type__": "CCPropertyOverrideInfo",
-    "targetInfo": {
-      "__id__": 79
-=======
-    "__type__": "CCPropertyOverrideInfo",
-    "targetInfo": {
-      "__id__": 63
->>>>>>> Stashed changes
     },
     "propertyPath": [
       "_name"
@@ -1657,11 +1421,7 @@
   {
     "__type__": "CCPropertyOverrideInfo",
     "targetInfo": {
-<<<<<<< Updated upstream
-      "__id__": 79
-=======
-      "__id__": 63
->>>>>>> Stashed changes
+      "__id__": 70
     },
     "propertyPath": [
       "_lpos"
@@ -1676,11 +1436,7 @@
   {
     "__type__": "CCPropertyOverrideInfo",
     "targetInfo": {
-<<<<<<< Updated upstream
-      "__id__": 79
-=======
-      "__id__": 63
->>>>>>> Stashed changes
+      "__id__": 70
     },
     "propertyPath": [
       "_lrot"
@@ -1696,11 +1452,7 @@
   {
     "__type__": "CCPropertyOverrideInfo",
     "targetInfo": {
-<<<<<<< Updated upstream
-      "__id__": 79
-=======
-      "__id__": 63
->>>>>>> Stashed changes
+      "__id__": 70
     },
     "propertyPath": [
       "_euler"
@@ -1715,21 +1467,13 @@
   {
     "__type__": "CCPropertyOverrideInfo",
     "targetInfo": {
-<<<<<<< Updated upstream
-      "__id__": 84
-=======
-      "__id__": 68
->>>>>>> Stashed changes
+      "__id__": 75
     },
     "propertyPath": [
       "attachPathNode"
     ],
     "value": {
-<<<<<<< Updated upstream
-      "__id__": 85
-=======
-      "__id__": 69
->>>>>>> Stashed changes
+      "__id__": 76
     }
   },
   {
@@ -1743,29 +1487,17 @@
     "_name": "p3",
     "_objFlags": 0,
     "_parent": {
-<<<<<<< Updated upstream
-      "__id__": 86
-=======
-      "__id__": 70
->>>>>>> Stashed changes
+      "__id__": 77
     },
     "_children": [],
     "_active": true,
     "_components": [
       {
-<<<<<<< Updated upstream
-        "__id__": 155
+        "__id__": 146
       }
     ],
     "_prefab": {
-      "__id__": 158
-=======
-        "__id__": 139
-      }
-    ],
-    "_prefab": {
-      "__id__": 142
->>>>>>> Stashed changes
+      "__id__": 149
     },
     "_lpos": {
       "__type__": "cc.Vec3",
@@ -1805,63 +1537,35 @@
     },
     "_children": [
       {
-<<<<<<< Updated upstream
-        "__id__": 87
+        "__id__": 78
       },
       {
-        "__id__": 98
+        "__id__": 89
       },
       {
-        "__id__": 116
+        "__id__": 107
       },
       {
-        "__id__": 85
-=======
-        "__id__": 71
+        "__id__": 76
       },
       {
-        "__id__": 82
-      },
-      {
-        "__id__": 100
-      },
-      {
-        "__id__": 69
-      },
-      {
-        "__id__": 104
->>>>>>> Stashed changes
+        "__id__": 111
       },
       {
         "__id__": 120
       },
       {
-<<<<<<< Updated upstream
         "__id__": 129
-      },
-      {
-        "__id__": 138
-=======
-        "__id__": 122
->>>>>>> Stashed changes
       }
     ],
     "_active": true,
     "_components": [
       {
-<<<<<<< Updated upstream
-        "__id__": 153
+        "__id__": 144
       }
     ],
     "_prefab": {
-      "__id__": 157
-=======
-        "__id__": 137
-      }
-    ],
-    "_prefab": {
-      "__id__": 141
->>>>>>> Stashed changes
+      "__id__": 148
     },
     "_lpos": {
       "__type__": "cc.Vec3",
@@ -1896,28 +1600,17 @@
     "__type__": "cc.Node",
     "_objFlags": 0,
     "_parent": {
-<<<<<<< Updated upstream
-      "__id__": 86
+      "__id__": 77
     },
     "_prefab": {
-      "__id__": 88
-=======
-      "__id__": 70
-    },
-    "_prefab": {
-      "__id__": 72
->>>>>>> Stashed changes
+      "__id__": 79
     },
     "__editorExtras__": {}
   },
   {
     "__type__": "cc.PrefabInfo",
     "root": {
-<<<<<<< Updated upstream
-      "__id__": 87
-=======
-      "__id__": 71
->>>>>>> Stashed changes
+      "__id__": 78
     },
     "asset": {
       "__uuid__": "fc78a8c8-a58f-4f78-86b3-b616439b8603",
@@ -1925,11 +1618,7 @@
     },
     "fileId": "89OO8oaPBOqoY81h/Wk4kW",
     "instance": {
-<<<<<<< Updated upstream
-      "__id__": 89
-=======
-      "__id__": 73
->>>>>>> Stashed changes
+      "__id__": 80
     },
     "targetOverrides": null
   },
@@ -1943,28 +1632,16 @@
     "mountedComponents": [],
     "propertyOverrides": [
       {
-<<<<<<< Updated upstream
-        "__id__": 90
-      },
-      {
-        "__id__": 92
-=======
-        "__id__": 74
-      },
-      {
-        "__id__": 76
-      },
-      {
-        "__id__": 77
-      },
-      {
-        "__id__": 78
-      },
-      {
-        "__id__": 79
-      },
-      {
         "__id__": 81
+      },
+      {
+        "__id__": 83
+      },
+      {
+        "__id__": 84
+      },
+      {
+        "__id__": 85
       },
       {
         "__id__": 86
@@ -1973,64 +1650,34 @@
         "__id__": 88
       },
       {
-        "__id__": 89
-      },
-      {
-        "__id__": 90
-      },
-      {
-        "__id__": 91
->>>>>>> Stashed changes
-      },
-      {
         "__id__": 93
       },
       {
-        "__id__": 94
+        "__id__": 95
       },
       {
-<<<<<<< Updated upstream
-        "__id__": 95
-=======
         "__id__": 96
->>>>>>> Stashed changes
       },
       {
         "__id__": 97
       },
       {
-<<<<<<< Updated upstream
-        "__id__": 102
+        "__id__": 98
+      },
+      {
+        "__id__": 100
+      },
+      {
+        "__id__": 101
+      },
+      {
+        "__id__": 103
       },
       {
         "__id__": 104
       },
       {
-        "__id__": 105
-      },
-      {
         "__id__": 106
-      },
-      {
-        "__id__": 107
-      },
-      {
-        "__id__": 109
-      },
-      {
-        "__id__": 110
-      },
-      {
-        "__id__": 112
-      },
-      {
-        "__id__": 113
-      },
-      {
-        "__id__": 115
-=======
-        "__id__": 99
->>>>>>> Stashed changes
       }
     ],
     "removedComponents": []
@@ -2038,11 +1685,7 @@
   {
     "__type__": "CCPropertyOverrideInfo",
     "targetInfo": {
-<<<<<<< Updated upstream
-      "__id__": 91
-=======
-      "__id__": 75
->>>>>>> Stashed changes
+      "__id__": 82
     },
     "propertyPath": [
       "_name"
@@ -2058,11 +1701,7 @@
   {
     "__type__": "CCPropertyOverrideInfo",
     "targetInfo": {
-<<<<<<< Updated upstream
-      "__id__": 91
-=======
-      "__id__": 75
->>>>>>> Stashed changes
+      "__id__": 82
     },
     "propertyPath": [
       "_lpos"
@@ -2077,11 +1716,7 @@
   {
     "__type__": "CCPropertyOverrideInfo",
     "targetInfo": {
-<<<<<<< Updated upstream
-      "__id__": 91
-=======
-      "__id__": 75
->>>>>>> Stashed changes
+      "__id__": 82
     },
     "propertyPath": [
       "_lrot"
@@ -2097,11 +1732,7 @@
   {
     "__type__": "CCPropertyOverrideInfo",
     "targetInfo": {
-<<<<<<< Updated upstream
-      "__id__": 91
-=======
-      "__id__": 75
->>>>>>> Stashed changes
+      "__id__": 82
     },
     "propertyPath": [
       "_euler"
@@ -2116,11 +1747,7 @@
   {
     "__type__": "CCPropertyOverrideInfo",
     "targetInfo": {
-<<<<<<< Updated upstream
-      "__id__": 96
-=======
-      "__id__": 80
->>>>>>> Stashed changes
+      "__id__": 87
     },
     "propertyPath": [
       "direction"
@@ -2136,21 +1763,13 @@
   {
     "__type__": "CCPropertyOverrideInfo",
     "targetInfo": {
-<<<<<<< Updated upstream
-      "__id__": 96
-=======
-      "__id__": 80
->>>>>>> Stashed changes
+      "__id__": 87
     },
     "propertyPath": [
       "attachPathNode"
     ],
     "value": {
-<<<<<<< Updated upstream
-      "__id__": 98
-=======
-      "__id__": 82
->>>>>>> Stashed changes
+      "__id__": 89
     }
   },
   {
@@ -2158,29 +1777,17 @@
     "_name": "p1",
     "_objFlags": 0,
     "_parent": {
-<<<<<<< Updated upstream
-      "__id__": 86
-=======
-      "__id__": 70
->>>>>>> Stashed changes
+      "__id__": 77
     },
     "_children": [],
     "_active": true,
     "_components": [
       {
-<<<<<<< Updated upstream
-        "__id__": 99
+        "__id__": 90
       }
     ],
     "_prefab": {
-      "__id__": 101
-=======
-        "__id__": 83
-      }
-    ],
-    "_prefab": {
-      "__id__": 85
->>>>>>> Stashed changes
+      "__id__": 92
     },
     "_lpos": {
       "__type__": "cc.Vec3",
@@ -2216,19 +1823,11 @@
     "_name": "",
     "_objFlags": 0,
     "node": {
-<<<<<<< Updated upstream
-      "__id__": 98
+      "__id__": 89
     },
     "_enabled": true,
     "__prefab": {
-      "__id__": 100
-=======
-      "__id__": 82
-    },
-    "_enabled": true,
-    "__prefab": {
-      "__id__": 84
->>>>>>> Stashed changes
+      "__id__": 91
     },
     "isLock": true,
     "pointType": 1,
@@ -2257,11 +1856,7 @@
   {
     "__type__": "CCPropertyOverrideInfo",
     "targetInfo": {
-<<<<<<< Updated upstream
-      "__id__": 103
-=======
-      "__id__": 87
->>>>>>> Stashed changes
+      "__id__": 94
     },
     "propertyPath": [
       "direction"
@@ -2277,31 +1872,19 @@
   {
     "__type__": "CCPropertyOverrideInfo",
     "targetInfo": {
-<<<<<<< Updated upstream
-      "__id__": 103
-=======
-      "__id__": 87
->>>>>>> Stashed changes
+      "__id__": 94
     },
     "propertyPath": [
       "attachPathNode"
     ],
     "value": {
-<<<<<<< Updated upstream
-      "__id__": 98
-=======
-      "__id__": 82
->>>>>>> Stashed changes
+      "__id__": 89
     }
   },
   {
     "__type__": "CCPropertyOverrideInfo",
     "targetInfo": {
-<<<<<<< Updated upstream
-      "__id__": 103
-=======
-      "__id__": 87
->>>>>>> Stashed changes
+      "__id__": 94
     },
     "propertyPath": [
       "delayToUnlock"
@@ -2311,11 +1894,7 @@
   {
     "__type__": "CCPropertyOverrideInfo",
     "targetInfo": {
-<<<<<<< Updated upstream
-      "__id__": 91
-=======
-      "__id__": 75
->>>>>>> Stashed changes
+      "__id__": 82
     },
     "propertyPath": [
       "_lscale"
@@ -2330,11 +1909,7 @@
   {
     "__type__": "CCPropertyOverrideInfo",
     "targetInfo": {
-<<<<<<< Updated upstream
-      "__id__": 108
-=======
-      "__id__": 92
->>>>>>> Stashed changes
+      "__id__": 99
     },
     "propertyPath": [
       "_lscale"
@@ -2355,11 +1930,7 @@
   {
     "__type__": "CCPropertyOverrideInfo",
     "targetInfo": {
-<<<<<<< Updated upstream
-      "__id__": 108
-=======
-      "__id__": 92
->>>>>>> Stashed changes
+      "__id__": 99
     },
     "propertyPath": [
       "_lpos"
@@ -2374,11 +1945,7 @@
   {
     "__type__": "CCPropertyOverrideInfo",
     "targetInfo": {
-<<<<<<< Updated upstream
-      "__id__": 111
-=======
-      "__id__": 95
->>>>>>> Stashed changes
+      "__id__": 102
     },
     "propertyPath": [
       "_size"
@@ -2399,11 +1966,7 @@
   {
     "__type__": "CCPropertyOverrideInfo",
     "targetInfo": {
-<<<<<<< Updated upstream
-      "__id__": 111
-=======
-      "__id__": 95
->>>>>>> Stashed changes
+      "__id__": 102
     },
     "propertyPath": [
       "_center"
@@ -2418,11 +1981,7 @@
   {
     "__type__": "CCPropertyOverrideInfo",
     "targetInfo": {
-<<<<<<< Updated upstream
-      "__id__": 114
-=======
-      "__id__": 98
->>>>>>> Stashed changes
+      "__id__": 105
     },
     "propertyPath": [
       "_center"
@@ -2443,11 +2002,7 @@
   {
     "__type__": "CCPropertyOverrideInfo",
     "targetInfo": {
-<<<<<<< Updated upstream
-      "__id__": 114
-=======
-      "__id__": 98
->>>>>>> Stashed changes
+      "__id__": 105
     },
     "propertyPath": [
       "_size"
@@ -2464,29 +2019,17 @@
     "_name": "p2",
     "_objFlags": 0,
     "_parent": {
-<<<<<<< Updated upstream
-      "__id__": 86
-=======
-      "__id__": 70
->>>>>>> Stashed changes
+      "__id__": 77
     },
     "_children": [],
     "_active": true,
     "_components": [
       {
-<<<<<<< Updated upstream
-        "__id__": 117
+        "__id__": 108
       }
     ],
     "_prefab": {
-      "__id__": 119
-=======
-        "__id__": 101
-      }
-    ],
-    "_prefab": {
-      "__id__": 103
->>>>>>> Stashed changes
+      "__id__": 110
     },
     "_lpos": {
       "__type__": "cc.Vec3",
@@ -2522,19 +2065,11 @@
     "_name": "",
     "_objFlags": 0,
     "node": {
-<<<<<<< Updated upstream
-      "__id__": 116
+      "__id__": 107
     },
     "_enabled": true,
     "__prefab": {
-      "__id__": 118
-=======
-      "__id__": 100
-    },
-    "_enabled": true,
-    "__prefab": {
-      "__id__": 102
->>>>>>> Stashed changes
+      "__id__": 109
     },
     "isLock": false,
     "pointType": 1,
@@ -2565,24 +2100,21 @@
     "_name": "p4",
     "_objFlags": 0,
     "_parent": {
-<<<<<<< Updated upstream
-      "__id__": 86
-=======
-      "__id__": 70
+      "__id__": 77
     },
     "_children": [
       {
-        "__id__": 105
+        "__id__": 112
       }
     ],
     "_active": true,
     "_components": [
       {
-        "__id__": 110
+        "__id__": 117
       }
     ],
     "_prefab": {
-      "__id__": 112
+      "__id__": 119
     },
     "_lpos": {
       "__type__": "cc.Vec3",
@@ -2618,17 +2150,17 @@
     "_name": "Cube",
     "_objFlags": 0,
     "_parent": {
-      "__id__": 104
+      "__id__": 111
     },
     "_children": [],
     "_active": true,
     "_components": [
       {
-        "__id__": 106
+        "__id__": 113
       }
     ],
     "_prefab": {
-      "__id__": 109
+      "__id__": 116
     },
     "_lpos": {
       "__type__": "cc.Vec3",
@@ -2664,11 +2196,11 @@
     "_name": "Cube<ModelComponent>",
     "_objFlags": 0,
     "node": {
-      "__id__": 105
+      "__id__": 112
     },
     "_enabled": true,
     "__prefab": {
-      "__id__": 107
+      "__id__": 114
     },
     "_materials": [
       {
@@ -2678,7 +2210,7 @@
     ],
     "_visFlags": 0,
     "bakeSettings": {
-      "__id__": 108
+      "__id__": 115
     },
     "_mesh": {
       "__uuid__": "1263d74c-8167-4928-91a6-4e2672411f47@a804a",
@@ -2734,11 +2266,11 @@
     "_name": "",
     "_objFlags": 0,
     "node": {
-      "__id__": 104
+      "__id__": 111
     },
     "_enabled": true,
     "__prefab": {
-      "__id__": 111
+      "__id__": 118
     },
     "isLock": false,
     "pointType": 4,
@@ -2774,8 +2306,7 @@
     "_name": "p5",
     "_objFlags": 0,
     "_parent": {
-      "__id__": 70
->>>>>>> Stashed changes
+      "__id__": 77
     },
     "_children": [
       {
@@ -2900,215 +2431,6 @@
   },
   {
     "__type__": "cc.CompPrefabInfo",
-<<<<<<< Updated upstream
-    "fileId": "e0ZI81MR1Jj5trXwacL3A2"
-  },
-  {
-    "__type__": "cc.ModelBakeSettings",
-    "texture": null,
-    "uvParam": {
-      "__type__": "cc.Vec4",
-      "x": 0,
-      "y": 0,
-      "z": 0,
-      "w": 0
-    },
-    "_bakeable": false,
-    "_castShadow": false,
-    "_receiveShadow": false,
-    "_recieveShadow": false,
-    "_lightmapSize": 64,
-    "_useLightProbe": false,
-    "_bakeToLightProbe": true,
-    "_reflectionProbeType": 0,
-    "_bakeToReflectionProbe": true,
-    "_probeCubemap": null
-  },
-  {
-    "__type__": "cc.PrefabInfo",
-    "root": {
-      "__id__": 1
-    },
-    "asset": {
-      "__id__": 0
-    },
-    "fileId": "baK3rUAUtHt56+yED+KnWr",
-    "instance": null,
-    "targetOverrides": null,
-    "nestedPrefabInstanceRoots": null
-  },
-  {
-    "__type__": "480e0nsem9FzoiM3v9Kel/v",
-    "_name": "",
-    "_objFlags": 0,
-    "node": {
-      "__id__": 120
-    },
-    "_enabled": true,
-    "__prefab": {
-      "__id__": 127
-    },
-    "isLock": false,
-    "pointType": 4,
-    "movingTime": 0.5,
-    "delayTime": 1.5,
-    "jumpForce": {
-      "__type__": "cc.Vec3",
-      "x": -100,
-      "y": 200,
-      "z": 0
-    },
-    "_id": ""
-  },
-  {
-    "__type__": "cc.CompPrefabInfo",
-    "fileId": "60cPDjTzFCUJYgjlKyNm/r"
-  },
-  {
-    "__type__": "cc.PrefabInfo",
-    "root": {
-      "__id__": 1
-    },
-    "asset": {
-      "__id__": 0
-    },
-    "fileId": "2bGjkA2gVCW6hRiOIODOqa",
-    "instance": null,
-    "targetOverrides": null,
-    "nestedPrefabInstanceRoots": null
-  },
-  {
-    "__type__": "cc.Node",
-    "_name": "p5",
-    "_objFlags": 0,
-    "_parent": {
-      "__id__": 86
-    },
-    "_children": [
-      {
-        "__id__": 130
-      }
-    ],
-    "_active": true,
-    "_components": [
-      {
-        "__id__": 135
-      }
-    ],
-    "_prefab": {
-      "__id__": 137
-    },
-    "_lpos": {
-      "__type__": "cc.Vec3",
-      "x": -1.283,
-      "y": 0.867,
-      "z": 0
-    },
-    "_lrot": {
-      "__type__": "cc.Quat",
-      "x": 0,
-      "y": 0,
-      "z": 0,
-      "w": 1
-    },
-    "_lscale": {
-      "__type__": "cc.Vec3",
-      "x": 0.2,
-      "y": 0.2,
-      "z": 0.2
-    },
-    "_mobility": 0,
-    "_layer": 1073741824,
-    "_euler": {
-      "__type__": "cc.Vec3",
-      "x": 0,
-      "y": 0,
-      "z": 0
-    },
-    "_id": ""
-  },
-  {
-    "__type__": "cc.Node",
-    "_name": "Cube",
-    "_objFlags": 0,
-    "_parent": {
-      "__id__": 129
-    },
-    "_children": [],
-    "_active": true,
-    "_components": [
-      {
-        "__id__": 131
-      }
-    ],
-    "_prefab": {
-      "__id__": 134
-    },
-    "_lpos": {
-      "__type__": "cc.Vec3",
-      "x": 0,
-      "y": 0,
-      "z": 0
-    },
-    "_lrot": {
-      "__type__": "cc.Quat",
-      "x": 0,
-      "y": 0,
-      "z": 0,
-      "w": 1
-    },
-    "_lscale": {
-      "__type__": "cc.Vec3",
-      "x": 1,
-      "y": 1,
-      "z": 1
-    },
-    "_mobility": 0,
-    "_layer": 1073741824,
-    "_euler": {
-      "__type__": "cc.Vec3",
-      "x": 0,
-      "y": 0,
-      "z": 0
-    },
-    "_id": ""
-  },
-  {
-    "__type__": "cc.MeshRenderer",
-    "_name": "Cube<ModelComponent>",
-    "_objFlags": 0,
-    "node": {
-      "__id__": 130
-    },
-    "_enabled": true,
-    "__prefab": {
-      "__id__": 132
-    },
-    "_materials": [
-      {
-        "__uuid__": "d3c7820c-2a98-4429-8bc7-b8453bc9ac41",
-        "__expectedType__": "cc.Material"
-      }
-    ],
-    "_visFlags": 0,
-    "bakeSettings": {
-      "__id__": 133
-    },
-    "_mesh": {
-      "__uuid__": "1263d74c-8167-4928-91a6-4e2672411f47@a804a",
-      "__expectedType__": "cc.Mesh"
-    },
-    "_shadowCastingMode": 0,
-    "_shadowReceivingMode": 1,
-    "_shadowBias": 0,
-    "_shadowNormalBias": 0,
-    "_enableMorph": true,
-    "_id": ""
-  },
-  {
-    "__type__": "cc.CompPrefabInfo",
-=======
->>>>>>> Stashed changes
     "fileId": "abQpfEaVtDGrv4xBX0BrXp"
   },
   {
@@ -3150,19 +2472,11 @@
     "_name": "",
     "_objFlags": 0,
     "node": {
-<<<<<<< Updated upstream
-      "__id__": 129
-    },
-    "_enabled": true,
-    "__prefab": {
-      "__id__": 136
-=======
-      "__id__": 113
-    },
-    "_enabled": true,
-    "__prefab": {
       "__id__": 120
->>>>>>> Stashed changes
+    },
+    "_enabled": true,
+    "__prefab": {
+      "__id__": 127
     },
     "isLock": false,
     "pointType": 1,
@@ -3197,28 +2511,17 @@
     "__type__": "cc.Node",
     "_objFlags": 512,
     "_parent": {
-<<<<<<< Updated upstream
-      "__id__": 86
+      "__id__": 77
     },
     "_prefab": {
-      "__id__": 139
-=======
-      "__id__": 70
-    },
-    "_prefab": {
-      "__id__": 123
->>>>>>> Stashed changes
+      "__id__": 130
     },
     "__editorExtras__": {}
   },
   {
     "__type__": "cc.PrefabInfo",
     "root": {
-<<<<<<< Updated upstream
-      "__id__": 138
-=======
-      "__id__": 122
->>>>>>> Stashed changes
+      "__id__": 129
     },
     "asset": {
       "__uuid__": "fc78a8c8-a58f-4f78-86b3-b616439b8603",
@@ -3226,11 +2529,7 @@
     },
     "fileId": "89OO8oaPBOqoY81h/Wk4kW",
     "instance": {
-<<<<<<< Updated upstream
-      "__id__": 140
-=======
-      "__id__": 124
->>>>>>> Stashed changes
+      "__id__": 131
     },
     "targetOverrides": null
   },
@@ -3244,53 +2543,28 @@
     "mountedComponents": [],
     "propertyOverrides": [
       {
-<<<<<<< Updated upstream
-        "__id__": 141
-      },
-      {
-        "__id__": 143
-      },
-      {
-        "__id__": 144
-      },
-      {
-        "__id__": 145
-      },
-      {
-        "__id__": 146
-      },
-      {
-        "__id__": 148
-      },
-      {
-        "__id__": 150
-      },
-      {
-        "__id__": 152
-=======
-        "__id__": 125
-      },
-      {
-        "__id__": 127
-      },
-      {
-        "__id__": 128
-      },
-      {
-        "__id__": 129
-      },
-      {
-        "__id__": 130
-      },
-      {
         "__id__": 132
       },
       {
         "__id__": 134
       },
       {
+        "__id__": 135
+      },
+      {
         "__id__": 136
->>>>>>> Stashed changes
+      },
+      {
+        "__id__": 137
+      },
+      {
+        "__id__": 139
+      },
+      {
+        "__id__": 141
+      },
+      {
+        "__id__": 143
       }
     ],
     "removedComponents": []
@@ -3298,11 +2572,7 @@
   {
     "__type__": "CCPropertyOverrideInfo",
     "targetInfo": {
-<<<<<<< Updated upstream
-      "__id__": 142
-=======
-      "__id__": 126
->>>>>>> Stashed changes
+      "__id__": 133
     },
     "propertyPath": [
       "_name"
@@ -3318,11 +2588,7 @@
   {
     "__type__": "CCPropertyOverrideInfo",
     "targetInfo": {
-<<<<<<< Updated upstream
-      "__id__": 142
-=======
-      "__id__": 126
->>>>>>> Stashed changes
+      "__id__": 133
     },
     "propertyPath": [
       "_lpos"
@@ -3337,11 +2603,7 @@
   {
     "__type__": "CCPropertyOverrideInfo",
     "targetInfo": {
-<<<<<<< Updated upstream
-      "__id__": 142
-=======
-      "__id__": 126
->>>>>>> Stashed changes
+      "__id__": 133
     },
     "propertyPath": [
       "_lrot"
@@ -3357,11 +2619,7 @@
   {
     "__type__": "CCPropertyOverrideInfo",
     "targetInfo": {
-<<<<<<< Updated upstream
-      "__id__": 142
-=======
-      "__id__": 126
->>>>>>> Stashed changes
+      "__id__": 133
     },
     "propertyPath": [
       "_euler"
@@ -3376,11 +2634,7 @@
   {
     "__type__": "CCPropertyOverrideInfo",
     "targetInfo": {
-<<<<<<< Updated upstream
-      "__id__": 147
-=======
-      "__id__": 131
->>>>>>> Stashed changes
+      "__id__": 138
     },
     "propertyPath": [
       "attachPathNode"
@@ -3396,11 +2650,7 @@
   {
     "__type__": "CCPropertyOverrideInfo",
     "targetInfo": {
-<<<<<<< Updated upstream
-      "__id__": 149
-=======
-      "__id__": 133
->>>>>>> Stashed changes
+      "__id__": 140
     },
     "propertyPath": [
       "_center"
@@ -3421,11 +2671,7 @@
   {
     "__type__": "CCPropertyOverrideInfo",
     "targetInfo": {
-<<<<<<< Updated upstream
-      "__id__": 151
-=======
-      "__id__": 135
->>>>>>> Stashed changes
+      "__id__": 142
     },
     "propertyPath": [
       "_center"
@@ -3446,11 +2692,7 @@
   {
     "__type__": "CCPropertyOverrideInfo",
     "targetInfo": {
-<<<<<<< Updated upstream
-      "__id__": 151
-=======
-      "__id__": 135
->>>>>>> Stashed changes
+      "__id__": 142
     },
     "propertyPath": [
       "_size"
@@ -3467,49 +2709,27 @@
     "_name": "",
     "_objFlags": 0,
     "node": {
-<<<<<<< Updated upstream
-      "__id__": 86
+      "__id__": 77
     },
     "_enabled": true,
     "__prefab": {
-      "__id__": 154
+      "__id__": 145
     },
     "pointList": [
       {
-        "__id__": 99
-=======
-      "__id__": 70
-    },
-    "_enabled": true,
-    "__prefab": {
-      "__id__": 138
-    },
-    "pointList": [
-      {
-        "__id__": 83
+        "__id__": 90
       },
       {
-        "__id__": 101
+        "__id__": 108
       },
       {
-        "__id__": 139
->>>>>>> Stashed changes
+        "__id__": 146
       },
       {
         "__id__": 117
       },
       {
-<<<<<<< Updated upstream
-        "__id__": 155
-      },
-      {
         "__id__": 126
-      },
-      {
-        "__id__": 135
-=======
-        "__id__": 119
->>>>>>> Stashed changes
       }
     ],
     "isPass": false,
@@ -3524,19 +2744,11 @@
     "_name": "",
     "_objFlags": 0,
     "node": {
-<<<<<<< Updated upstream
-      "__id__": 85
+      "__id__": 76
     },
     "_enabled": true,
     "__prefab": {
-      "__id__": 156
-=======
-      "__id__": 69
-    },
-    "_enabled": true,
-    "__prefab": {
-      "__id__": 140
->>>>>>> Stashed changes
+      "__id__": 147
     },
     "isLock": true,
     "pointType": 1,
@@ -3578,11 +2790,7 @@
   {
     "__type__": "CCPropertyOverrideInfo",
     "targetInfo": {
-<<<<<<< Updated upstream
-      "__id__": 160
-=======
-      "__id__": 144
->>>>>>> Stashed changes
+      "__id__": 151
     },
     "propertyPath": [
       "_enabled"
@@ -3598,11 +2806,7 @@
   {
     "__type__": "CCPropertyOverrideInfo",
     "targetInfo": {
-<<<<<<< Updated upstream
-      "__id__": 84
-=======
-      "__id__": 68
->>>>>>> Stashed changes
+      "__id__": 75
     },
     "propertyPath": [
       "waterFloatY"
@@ -3612,11 +2816,7 @@
   {
     "__type__": "CCPropertyOverrideInfo",
     "targetInfo": {
-<<<<<<< Updated upstream
-      "__id__": 163
-=======
-      "__id__": 147
->>>>>>> Stashed changes
+      "__id__": 154
     },
     "propertyPath": [
       "_name"
@@ -3632,11 +2832,7 @@
   {
     "__type__": "CCPropertyOverrideInfo",
     "targetInfo": {
-<<<<<<< Updated upstream
-      "__id__": 163
-=======
-      "__id__": 147
->>>>>>> Stashed changes
+      "__id__": 154
     },
     "propertyPath": [
       "_lscale"
@@ -3651,11 +2847,7 @@
   {
     "__type__": "CCPropertyOverrideInfo",
     "targetInfo": {
-<<<<<<< Updated upstream
-      "__id__": 163
-=======
-      "__id__": 147
->>>>>>> Stashed changes
+      "__id__": 154
     },
     "propertyPath": [
       "_lpos"
@@ -3670,22 +2862,22 @@
   {
     "__type__": "CCPropertyOverrideInfo",
     "targetInfo": {
-      "__id__": 151
+      "__id__": 158
     },
     "propertyPath": [
       "_lpos"
     ],
     "value": {
       "__type__": "cc.Vec3",
-      "x": -0.74,
-      "y": 0.148,
+      "x": -0.795,
+      "y": 0.134,
       "z": 0
     }
   },
   {
     "__type__": "cc.TargetInfo",
     "localID": [
-      "1fBvGTE7NH7prILlZBDfzI"
+      "b95t/WSBxCS71YZNBUS4BN"
     ]
   },
   {
@@ -3708,22 +2900,14 @@
       "__id__": 1
     },
     "_prefab": {
-<<<<<<< Updated upstream
-      "__id__": 168
-=======
-      "__id__": 154
->>>>>>> Stashed changes
+      "__id__": 161
     },
     "__editorExtras__": {}
   },
   {
     "__type__": "cc.PrefabInfo",
     "root": {
-<<<<<<< Updated upstream
-      "__id__": 167
-=======
-      "__id__": 153
->>>>>>> Stashed changes
+      "__id__": 160
     },
     "asset": {
       "__uuid__": "6a8118b6-26ff-4ac5-b3ee-32ccc080d095",
@@ -3731,11 +2915,7 @@
     },
     "fileId": "2c1u5QCkFB/aRFzfojlHYW",
     "instance": {
-<<<<<<< Updated upstream
-      "__id__": 169
-=======
-      "__id__": 155
->>>>>>> Stashed changes
+      "__id__": 162
     },
     "targetOverrides": null
   },
@@ -3749,47 +2929,25 @@
     "mountedComponents": [],
     "propertyOverrides": [
       {
-<<<<<<< Updated upstream
-        "__id__": 170
-      },
-      {
-        "__id__": 172
-      },
-      {
-        "__id__": 173
-      },
-      {
-        "__id__": 174
-      },
-      {
-        "__id__": 175
-      },
-      {
-        "__id__": 177
-      },
-      {
-        "__id__": 178
-=======
-        "__id__": 156
-      },
-      {
-        "__id__": 158
-      },
-      {
-        "__id__": 159
-      },
-      {
-        "__id__": 160
-      },
-      {
-        "__id__": 161
-      },
-      {
         "__id__": 163
       },
       {
-        "__id__": 164
->>>>>>> Stashed changes
+        "__id__": 165
+      },
+      {
+        "__id__": 166
+      },
+      {
+        "__id__": 167
+      },
+      {
+        "__id__": 168
+      },
+      {
+        "__id__": 170
+      },
+      {
+        "__id__": 171
       }
     ],
     "removedComponents": []
@@ -3797,11 +2955,7 @@
   {
     "__type__": "CCPropertyOverrideInfo",
     "targetInfo": {
-<<<<<<< Updated upstream
-      "__id__": 171
-=======
-      "__id__": 157
->>>>>>> Stashed changes
+      "__id__": 164
     },
     "propertyPath": [
       "_name"
@@ -3817,11 +2971,7 @@
   {
     "__type__": "CCPropertyOverrideInfo",
     "targetInfo": {
-<<<<<<< Updated upstream
-      "__id__": 171
-=======
-      "__id__": 157
->>>>>>> Stashed changes
+      "__id__": 164
     },
     "propertyPath": [
       "_lpos"
@@ -3836,11 +2986,7 @@
   {
     "__type__": "CCPropertyOverrideInfo",
     "targetInfo": {
-<<<<<<< Updated upstream
-      "__id__": 171
-=======
-      "__id__": 157
->>>>>>> Stashed changes
+      "__id__": 164
     },
     "propertyPath": [
       "_lrot"
@@ -3856,11 +3002,7 @@
   {
     "__type__": "CCPropertyOverrideInfo",
     "targetInfo": {
-<<<<<<< Updated upstream
-      "__id__": 171
-=======
-      "__id__": 157
->>>>>>> Stashed changes
+      "__id__": 164
     },
     "propertyPath": [
       "_euler"
@@ -3875,11 +3017,7 @@
   {
     "__type__": "CCPropertyOverrideInfo",
     "targetInfo": {
-<<<<<<< Updated upstream
-      "__id__": 176
-=======
-      "__id__": 162
->>>>>>> Stashed changes
+      "__id__": 169
     },
     "propertyPath": [
       "_isTrigger"
@@ -3895,11 +3033,7 @@
   {
     "__type__": "CCPropertyOverrideInfo",
     "targetInfo": {
-<<<<<<< Updated upstream
-      "__id__": 171
-=======
-      "__id__": 157
->>>>>>> Stashed changes
+      "__id__": 164
     },
     "propertyPath": [
       "_active"
@@ -3909,11 +3043,7 @@
   {
     "__type__": "CCPropertyOverrideInfo",
     "targetInfo": {
-<<<<<<< Updated upstream
-      "__id__": 179
-=======
-      "__id__": 165
->>>>>>> Stashed changes
+      "__id__": 172
     },
     "propertyPath": [
       "_lpos"
@@ -3940,34 +3070,19 @@
     },
     "_enabled": true,
     "__prefab": {
-<<<<<<< Updated upstream
-      "__id__": 181
+      "__id__": 174
     },
     "pinList": [
       {
-        "__id__": 87
+        "__id__": 78
       },
       {
-        "__id__": 138
-=======
-      "__id__": 167
-    },
-    "pinList": [
-      {
-        "__id__": 71
-      },
-      {
-        "__id__": 122
->>>>>>> Stashed changes
+        "__id__": 129
       }
     ],
     "pathList": [
       {
-<<<<<<< Updated upstream
-        "__id__": 153
-=======
-        "__id__": 137
->>>>>>> Stashed changes
+        "__id__": 144
       }
     ],
     "playerPos": {
@@ -3994,32 +3109,18 @@
     "instance": null,
     "targetOverrides": [
       {
-<<<<<<< Updated upstream
-        "__id__": 183
-=======
-        "__id__": 169
->>>>>>> Stashed changes
+        "__id__": 176
       }
     ],
     "nestedPrefabInstanceRoots": [
       {
-<<<<<<< Updated upstream
-        "__id__": 167
+        "__id__": 160
       },
       {
-        "__id__": 138
+        "__id__": 129
       },
       {
-        "__id__": 87
-=======
-        "__id__": 153
-      },
-      {
-        "__id__": 122
-      },
-      {
-        "__id__": 71
->>>>>>> Stashed changes
+        "__id__": 78
       },
       {
         "__id__": 66
@@ -4035,11 +3136,7 @@
       "__id__": 66
     },
     "sourceInfo": {
-<<<<<<< Updated upstream
-      "__id__": 184
-=======
-      "__id__": 170
->>>>>>> Stashed changes
+      "__id__": 177
     },
     "propertyPath": [
       "waterCollider"
@@ -4048,11 +3145,7 @@
       "__id__": 66
     },
     "targetInfo": {
-<<<<<<< Updated upstream
-      "__id__": 185
-=======
-      "__id__": 171
->>>>>>> Stashed changes
+      "__id__": 178
     }
   },
   {
