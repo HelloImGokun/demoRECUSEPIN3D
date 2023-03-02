@@ -5,9 +5,9 @@ import { Configs } from '../../utils/Configs';
 
 @ccclass('Predata')
 export class Predata extends Component {
-    public static instant: Predata;
-   public levelPlayer :number = 0;
-   public levelcurrent: number = 0;
+   public static instant: Predata;
+   public levelPlayer :number = 1;
+   public currentLevel: number = 1;
     start() {
         if(Predata.instant == null){
             Predata.instant = this;
@@ -19,6 +19,9 @@ export class Predata extends Component {
         else{
             this.levelPlayer = 1;
         }
+    }
+    public getSaveLevel(){
+        return this.currentLevel;
     }
     
 }

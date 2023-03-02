@@ -5,6 +5,7 @@ import { GameModel } from '../model/GameModel';
 import { WinUI } from '../ui/WinUI';
 import { LevelController } from './LevelController';
 import { LoseUI } from '../ui/LoseUI';
+import { Predata } from '../P/Predata';
 const { ccclass, property } = _decorator;
 
 @ccclass('GameController')
@@ -20,6 +21,9 @@ export class GameController extends Component {
     @property(Node)
     private currentLevelNode:Node;
     //
+    onLoad(){
+        this.currentLevelNumber = Predata.instant.getSaveLevel();
+    }
     start() {   
 
         //create raycast
@@ -57,6 +61,8 @@ export class GameController extends Component {
         winUI.getComponent(WinUI).setUp(()=>{
             //onNext Level
             this.currentLevelNumber++;
+            //save level
+            Predata.instant.getSaveLevel
             //
             this.currentLevelNode.destroy();
             //
