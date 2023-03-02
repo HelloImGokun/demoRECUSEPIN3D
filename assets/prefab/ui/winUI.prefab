@@ -1857,6 +1857,34 @@
     "__prefab": {
       "__id__": 80
     },
+    "winLabel": {
+      "__id__": 13
+    },
+    "iconWin": {
+      "__id__": 32
+    },
+    "smileFrames": [
+      {
+        "__uuid__": "f12b15bc-5eb0-4fd2-9986-0c60c85bb2f7@f9941",
+        "__expectedType__": "cc.SpriteFrame"
+      },
+      {
+        "__uuid__": "454cf565-2c78-420a-9372-b5f53890ce5b@f9941",
+        "__expectedType__": "cc.SpriteFrame"
+      },
+      {
+        "__uuid__": "fe82ea71-fd23-48a5-ac69-21771b27eb81@f9941",
+        "__expectedType__": "cc.SpriteFrame"
+      },
+      {
+        "__uuid__": "352e147d-018a-4381-b897-ac11fb6d16aa@f9941",
+        "__expectedType__": "cc.SpriteFrame"
+      }
+    ],
+    "confettiPrefab": {
+      "__uuid__": "321e726f-4796-4ebd-9618-eca56e1253fa",
+      "__expectedType__": "cc.Prefab"
+    },
     "_id": ""
   },
   {

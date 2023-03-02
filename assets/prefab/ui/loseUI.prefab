@@ -1321,6 +1321,23 @@
     "__prefab": {
       "__id__": 56
     },
+    "iconcry": {
+      "__id__": 19
+    },
+    "listiconcry": [
+      {
+        "__uuid__": "3f9beb6d-e815-4de2-bcf8-d7d60191f9c8@f9941",
+        "__expectedType__": "cc.SpriteFrame"
+      },
+      {
+        "__uuid__": "fe82ea71-fd23-48a5-ac69-21771b27eb81@f9941",
+        "__expectedType__": "cc.SpriteFrame"
+      },
+      {
+        "__uuid__": "96bd5395-af68-4ead-a782-09eb45ec9364@f9941",
+        "__expectedType__": "cc.SpriteFrame"
+      }
+    ],
     "_id": ""
   },
   {

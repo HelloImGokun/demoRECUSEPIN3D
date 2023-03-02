@@ -60,7 +60,10 @@ export class GameController extends Component {
             this.currentLevelNode.destroy();
             //
             this.nextLevel();
+            //
+            
         })
+
         this.gameModel.canvasUI.addChild(winUI);
     }
     // loselevel
