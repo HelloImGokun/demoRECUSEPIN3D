@@ -119,7 +119,8 @@ export class PlayerController extends Person {
         let pointType = pointNode.getPointType();
         switch (pointNode.getPointType()) {
             case PointType.walk:
-                this.moveToPoint(pointNode, () => {
+                let desinationPoint:Vec3 = this.convertPositionToPlayerY(this.node.position, pointNode.getPosition())
+                this.Move(pointNode, desinationPoint,() => {
                     this.pointCount++;
                     this.checkPoint();
                 });
@@ -147,18 +148,6 @@ export class PlayerController extends Person {
             case PointType.swimL:
                 break;
         }
-    }
-    private moveToPoint(pointNode: PointNode, finishCallback) {
-        //tween
-        tween(this.node).sequence(
-            tween(this.node).to(pointNode.getMovingTime(), { position: this.convertPositionToPlayerY(this.node.position, pointNode.getPosition()) }),
-            tween(this.node).delay(pointNode.getDelayTime()),
-            tween(this.node).call(finishCallback)
-        ).start();
-        //
-        //this.node.translate( pointNode.node.position);
-        //
-
     }
     private jumpToPoint(point: PointNode, finishCallback) {
         //
@@ -264,13 +253,9 @@ export class PlayerController extends Person {
         if (event.otherCollider.name.includes(Configs.WATER_COLLIDER_NAME) && this.isFloat) {
             //if is jump return: Neu dang jump thi khong set y
 
-            if (this.isJumping) {
-                //do nothing
-            } else {
-
-
-
+            if (!this.isJumping) {
                 let yPos = event.otherCollider.node.getParent().getComponent(Water).getWaterFloatY();
+                //this.rigidBody.useGravity=false;
                 this.node.setPosition(new math.Vec3(this.node.position.x, yPos, this.node.position.z));
             }
 
