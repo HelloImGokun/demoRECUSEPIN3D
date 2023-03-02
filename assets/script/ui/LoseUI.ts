@@ -25,9 +25,9 @@ export class LoseUI extends Component {
  
     public setLose(){
         //set lose
-        if(this.iconcry){
-            this.iconcry.spriteFrame = this.listiconcry[Math.floor(Math.random()*this.listiconcry.length)];
-        } 
+        //icon random
+        let listiconcryFrame = this.listiconcry[Math.floor(Math.random() * this.listiconcry.length)];
+        this.iconcry.spriteFrame = listiconcryFrame;   
        //icon effect    
         tween(this.iconcry.node).sequence(
                 tween(this.iconcry.node).parallel(
