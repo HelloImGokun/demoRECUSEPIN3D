@@ -23,6 +23,10 @@ export class Predata extends Component {
     public getSaveLevel(){
         return this.currentLevel;
     }
+    public setSaveLevel(level:number){
+        this.currentLevel = level;
+        Playerdata.saveStorage(Configs.KEY_STORAGE_LEVEL_PLAYER,level);
+    }
     
 }
 

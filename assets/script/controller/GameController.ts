@@ -16,13 +16,14 @@ export class GameController extends Component {
     private camera:Camera;
     //
 
-    private currentLevelNumber:number = 9;
+    private currentLevelNumber:number = 1;
     //
     @property(Node)
     private currentLevelNode:Node;
     //
     onLoad(){
         this.currentLevelNumber = Predata.instant.getSaveLevel();
+        console.log(this.currentLevelNumber);
     }
     start() {   
 
@@ -62,7 +63,7 @@ export class GameController extends Component {
             //onNext Level
             this.currentLevelNumber++;
             //save level
-            Predata.instant.getSaveLevel
+            Predata.instant.setSaveLevel(this.currentLevelNumber);
             //
             this.currentLevelNode.destroy();
             //
