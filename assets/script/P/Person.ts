@@ -31,8 +31,12 @@ export class Person extends Component {
     protected update(dt: number) {
 
     }
-    protected Move() {
-
+    protected Move(pointNode:PointNode,desinationPoint:Vec3,finishCallback) {
+        tween(this.node).sequence(
+            tween(this.node).to(pointNode.getMovingTime(), { position: desinationPoint }),
+            tween(this.node).delay(pointNode.getDelayTime()),
+            tween(this.node).call(finishCallback)
+        ).start();
     }
     protected Jump(force: Vec3) {
         this.rigidBody.applyForce(force);
@@ -47,8 +51,9 @@ export class Person extends Component {
     protected climb(point:PointNode,finishCallback) {
         console.log('Climbing');
         this.animationController.setValue('onair', true);
+        this.isJumping=true;
         this.scheduleOnce(() => {
-            this.isJumping=true;
+  
             console.log('Climbing force');
             //tween(this.node).to(0.2,{position:point.node.getPosition()}).start();
             this.rigidBody.applyForce(point.getJumpForce());
