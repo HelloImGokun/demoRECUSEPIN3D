@@ -21,11 +21,12 @@ export class Water extends Component {
 
     private onTriggerEnter(event: ITriggerEvent) {
         let collisionNode: Node = event.otherCollider.node;
+
         if(collisionNode.name.includes(Configs.PLAYER_NAME)){
             if(this.isWaterTrigger) return;
             this.isWaterTrigger=true;
             //unlock
-
+            console.log('trigger',collisionNode.name);
             if(this.attachPathNode && collisionNode.getComponent(PlayerController).getIsFloat()){
                 this.scheduleOnce(()=>{
                     this.attachPathNode.getComponent(PointNode).setUnlock();

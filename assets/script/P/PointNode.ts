@@ -26,7 +26,6 @@ export class PointNode extends Component {
         return this.isLock;
     }
     setUnlock(){
-        console.log('unlock',this.node.name);
         this.isLock = false;
     }
     setLockPoint(){

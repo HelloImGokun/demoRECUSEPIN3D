@@ -138,10 +138,11 @@ export class PlayerController extends Person {
                 }, pointNode.getMovingTime());
                 break;
             case PointType.climb:
-                this.climbOutWater(pointNode, () => {
+                this.climb(pointNode, () => {
                     this.pointCount++;
                     this.checkPoint();
                 })
+
                 break;
             case PointType.swimL:
                 break;
@@ -171,16 +172,7 @@ export class PlayerController extends Person {
             this.isJumping = false;
         }, point.getMovingTime());
     }
-    private climbOutWater(point: PointNode, finishCallback) {
-        //set position
-        this.animationController.setValue('onair', true);
-        this.scheduleOnce(() => {
-            tween(this.node).to(0.2,{position:point.node.getPosition()}).start();
-        }, 0.5);
-        this.scheduleOnce(() => {
-            finishCallback();
-        }, point.getDelayTime());
-    }
+
     //
     //check touch door
     private onTriggerEnter(event: ITriggerEvent) {
