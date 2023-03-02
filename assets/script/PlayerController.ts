@@ -257,6 +257,7 @@ export class PlayerController extends Person {
                 let yPos = event.otherCollider.node.getParent().getComponent(Water).getWaterFloatY();
                 //this.rigidBody.useGravity=false;
                 this.node.setPosition(new math.Vec3(this.node.position.x, yPos, this.node.position.z));
+                //this.rigidBody.getLinearVelocity()
             }
 
 
