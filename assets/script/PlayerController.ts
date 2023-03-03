@@ -119,8 +119,8 @@ export class PlayerController extends Person {
         let pointType = pointNode.getPointType();
         switch (pointNode.getPointType()) {
             case PointType.walk:
-                let desinationPoint:Vec3 = this.convertPositionToPlayerY(this.node.position, pointNode.getPosition())
-                this.Move(pointNode, desinationPoint,() => {
+                let desinationPoint: Vec3 = this.convertPositionToPlayerY(this.node.position, pointNode.getPosition())
+                this.Move(pointNode, desinationPoint, () => {
                     this.pointCount++;
                     this.checkPoint();
                 });
@@ -191,13 +191,14 @@ export class PlayerController extends Person {
             }
 
         }
+
         if (!this.isFindDoor) {
             //1. check door
             if (collisionNode.name.includes(Configs.DOOR_NAME)) {
                 this.findDoor(collisionNode);
             }
             //cham vao enemy la die
-            else if (collisionNode.name.includes(Configs.KILL_PLAYER_OBJ) || collisionNode.name.includes(Configs.KILL_ALL_OBJ)) {
+            else if (collisionNode.name.includes(Configs.KILL_HUNTER) || collisionNode.name.includes(Configs.KILL_ALL_OBJ)) {
                 this.setDie();
             }
         }
@@ -235,7 +236,7 @@ export class PlayerController extends Person {
         if (this.isOver) return;
         if (event.otherCollider.name.includes(Configs.FLOOR_GROUND_NAME) || event.otherCollider.name.includes(Configs.WATER_COLLIDER_NAME)) {
             //player roi tu do
-            console.log('on air.....',event.otherCollider.name);
+            console.log('on air.....', event.otherCollider.name);
             this.animationController.setValue('onair', true);
             this.animationController.setValue('landed', false);
             this.animationController.setValue('swim', false);
@@ -273,11 +274,10 @@ export class PlayerController extends Person {
             let doorPosition: Vec3 = null;
             tween(this.node).sequence(
                 //xoay nguoi lai huong door
-                tween(this.node).delay(0.1),
                 tween(this.node).call(() => {
                     doorPosition = new math.Vec3(doorNode.position.x + 0.3, this.node.position.y, this.node.position.z);
                 }),
-                tween(this.node).to(0.5, { position: doorPosition }),
+                tween(this.node).to(0.1, { position: doorPosition }),
                 tween(this.node).delay(0.5),
                 tween(this.node).to(0.2, { eulerAngles: new Vec3(0, 180, 0) }),
                 tween(this.node).by(0.5, { position: new Vec3(0, 0, -0.4) }),
@@ -292,9 +292,6 @@ export class PlayerController extends Person {
                     //do win animation;
                     this.animationController.setValue('win', true);
 
-                    // setTimeout(() => {
-                    //     this.animationController.setValue('win',false);
-                    // }, 1000);
                 }),
                 tween(this.node).delay(1),
                 tween(this.node).call(() => {
@@ -323,10 +320,10 @@ export class PlayerController extends Person {
                 tween(this.node).call(() => {
                     //do win animation;
                     this.animationController.setValue('win', true);
-
-                    // setTimeout(() => {
-                    //     this.animationController.setValue('win',false);
-                    // }, 1000);
+                    //npc wave
+                    //npc wave
+                    console.log('wave','..........');
+                    doorNode.getComponent(Door).rescueNPC();
                 }),
                 tween(this.node).delay(1),
                 tween(this.node).call(() => {

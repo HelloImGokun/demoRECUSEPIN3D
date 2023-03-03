@@ -1,8 +1,9 @@
-import { _decorator, CCBoolean, Collider, Component, geometry, physics, PhysicsSystem, RigidBody, SkeletalAnimationComponent, tween, Vec3, ITriggerEvent,Node } from 'cc';
+import { _decorator, CCBoolean, Collider, Component, geometry, physics, PhysicsSystem, RigidBody, SkeletalAnimationComponent, tween, Vec3, ITriggerEvent, Node } from 'cc';
 import { Configs } from '../../utils/Configs';
 import { PointNode } from '../P/PointNode';
 import { PlayerController, eventTarget } from '../PlayerController';
 import { Person } from '../P/Person';
+import { Killer_hunter } from '../K/Killer_hunter';
 const { ccclass, property } = _decorator;
 @ccclass('Boar')
 export class Boar extends Person {
@@ -23,17 +24,33 @@ export class Boar extends Person {
     }
     private onTriggerEnter(event: ITriggerEvent) {
         let otherNode: Node = event.otherCollider.node;
-        let name =otherNode.name;
-        
-        if (name.includes(Configs.PLAYER_NAME) || name.includes(Configs.KILL_PLAYER_OBJ)) {
+        let name = otherNode.name;
+
+        if (name.includes(Configs.PLAYER_NAME)) {
             //attack
-            if(this.isAttack) return;
+            if (this.isAttack) return;
             this.isAttack = true;
-            this.animator.play('Attack'); 
+            this.animator.play('Attack');
             this.scheduleOnce(() => {
+                this.isAttack=false;
                 //player
-                otherNode.getComponent(PlayerController).setDie();
-            },1)
+                if (otherNode && otherNode.active)
+                    otherNode.getComponent(PlayerController).setDie();
+            }, 1)
+        } else if (name.includes(Configs.KILL_HUNTER)) {
+            //attack
+            if (this.isAttack) return;
+            this.isAttack = true;
+            this.animator.play('Attack');
+            this.scheduleOnce(() => {
+                //
+                this.isAttack=false;
+                //player
+                console.log('other node:', otherNode);
+                if (otherNode && otherNode.active)
+                    otherNode.getComponent(Killer_hunter).setDie();
+            }, 1)
+
         } else if (name.includes(Configs.KILL_ALL_OBJ)) {
             //death
             //mo khoa cho point
@@ -66,43 +83,40 @@ export class Boar extends Person {
         if (PhysicsSystem.instance.raycastClosest(outRay, this.physicGroup, 3)) {
             let collider = PhysicsSystem.instance.raycastClosestResult.collider;
             let seeObjectName = collider.node.name;
-            //console.log('Wild ray to',seeObjectName);
+            console.log('Wild ray to', seeObjectName);
             if (seeObjectName != this.node.name) {
-                if (seeObjectName.includes(Configs.PLAYER_NAME) || seeObjectName.includes(Configs.KILL_PLAYER_OBJ)) {
+                if (seeObjectName.includes(Configs.PLAYER_NAME) || seeObjectName.includes(Configs.KILL_HUNTER)) {
                     //move to player
+                    console.log('set Continue attack ray attack');
                     this.isAttack = true;
                     if (this.animator)
                         this.animator.play('Attack');
                     let desination = collider.node.position;
                     //range to imply effect: dis from attacker to player
-                    let dis :number = 0.7;
+                    let dis: number = 0.7;
                     if (desination.x <= this.node.position.x) {
-                     
-                        //-90; rotate
-                     
-                        tween(this.node).to(0.2, { eulerAngles: new Vec3(0, -90, 0) }).start(); 
-                               
 
-                } 
+                        tween(this.node).to(0.2, { eulerAngles: new Vec3(0, -90, 0) }).start();
+                    }
                     else {
-                    // 90
+                        // 90
                         tween(this.node).to(0.2, { eulerAngles: new Vec3(0, 90, 0) }).start();
-                    // this.animationController.setValue('dx',Math.abs(deltaX));
                         dis = -0.8;
-                }
-                  
-                    let attackPos = new Vec3(desination.x+dis, this.node.getPosition().y, desination.z);
+                    }
+                    let attackPos = new Vec3(desination.x + dis, this.node.getPosition().y, desination.z);
                     tween(this.node).to(0.6, { position: attackPos }).start();
                     //reset
-                    if (seeObjectName.includes(Configs.PLAYER_NAME) || seeObjectName.includes(Configs.KILL_PLAYER_OBJ)) {
+                    if (seeObjectName.includes(Configs.PLAYER_NAME) || seeObjectName.includes(Configs.KILL_HUNTER)) {
                         //game over
                     } else {
                         //restart
 
                     }
-                    setTimeout(() => {
+                    console.log('set Continue attack ray');
+                    this.scheduleOnce(()=>{
+                        console.log('Continue attack ray');
                         this.isAttack = false;
-                    }, 1000);
+                    },1)
 
                 }
                 if (seeObjectName.includes('pin')) {
@@ -111,7 +125,7 @@ export class Boar extends Person {
                 }
             }
         } else {
-            
+
         }
 
     }

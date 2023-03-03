@@ -18,31 +18,41 @@ export class Killer_hunter extends Person {
     }
     private onCollisionEnter(event: ICollisionEvent) {
         let otherNode: Node = event.otherCollider.node;
-        let name =otherNode.name;
+        let name = otherNode.name;
         if (name.includes(Configs.PLAYER_NAME)) {
             //attack
-            if(this.isAttack) return;
+            if (this.isAttack) return;
             this.isAttack = true;
             this.Attack();
             console.log('attack');
             this.scheduleOnce(() => {
                 //player
                 otherNode.getComponent(PlayerController).setDie();
-            },1)
+            }, 1)
         } else if (name.includes(Configs.KILL_ALL_OBJ)) {
-            //kill all
-            this.isDie = true;
-            this.node.getComponent(RigidBody).isStatic = true;
-            if (this.animationController)
-                this.animationController.setValue('Die', true);
-            setTimeout(() => {
-                if (this.node)
-                    this.node.destroy();
-            }, 700);
+            //
+            this.setDie();
+            //
 
         }
     }
+    public setDie() {
+        //
+        //kill all
+        this.isDie = true;
+        this.node.getComponent(RigidBody).isStatic = true;
+        if (this.animationController)
+            this.animationController.setValue('Die', true);
+        // setTimeout(() => {
 
+        // }, 700);
+        //thay settimout = scheduleOnce
+        this.scheduleOnce(() => {
+            if (this.node)
+                this.node.destroy();
+        }, 0.8)
+        //
+    }
     //vision determine enemy
     isAttack: boolean = false;
     physicGroup: physics.PhysicsGroup = 1;
@@ -79,14 +89,14 @@ export class Killer_hunter extends Person {
                     let deltaX = this.newX - this.oldX
                     //trai or
                     if (desination.x <= this.node.position.x) {
-                     
-                            //-90; rotate
-                         
-                            tween(this.node).to(0.2, { eulerAngles: new Vec3(0, -90, 0) }).start();
+
+                        //-90; rotate
+
+                        tween(this.node).to(0.2, { eulerAngles: new Vec3(0, -90, 0) }).start();
 
                     } else {
                         // 90
-                            tween(this.node).to(0.2, { eulerAngles: new Vec3(0, 90, 0) }).start();
+                        tween(this.node).to(0.2, { eulerAngles: new Vec3(0, 90, 0) }).start();
                         // this.animationController.setValue('dx',Math.abs(deltaX));
                     }
                     let attackPos = new Vec3(desination.x + range, this.node.getPosition().y, desination.z);
@@ -94,7 +104,7 @@ export class Killer_hunter extends Person {
 
                     tween(this.node).to(1, { position: attackPos }).start();
                     //reset
-                    if (seeObjectName.includes(Configs.PLAYER_NAME) || seeObjectName.includes(Configs.KILL_PLAYER_OBJ)) {
+                    if (seeObjectName.includes(Configs.PLAYER_NAME) || seeObjectName.includes(Configs.KILL_HUNTER)) {
                         //game over
                     } else {
                         //restart
@@ -131,7 +141,7 @@ export class Killer_hunter extends Person {
 
     }
     private checkMoveLeftOrRight(deltaX) {
-        
+
         if (deltaX > 0.001) {
             //move right
             this.node.setRotationFromEuler(new Vec3(0, 90, 0));
