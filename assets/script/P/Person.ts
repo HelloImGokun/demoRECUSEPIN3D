@@ -51,10 +51,11 @@ export class Person extends Component {
     protected climb(point:PointNode,finishCallback) {
         console.log('Climbing');
         this.animationController.setValue('onair', true);
-        this.isJumping=true;
+     
         this.scheduleOnce(() => {
-  
+            this.isJumping=true;
             console.log('Climbing force');
+            this.rigidBody.clearState();
             //tween(this.node).to(0.2,{position:point.node.getPosition()}).start();
             this.rigidBody.applyForce(point.getJumpForce());
         }, point.getMovingTime());

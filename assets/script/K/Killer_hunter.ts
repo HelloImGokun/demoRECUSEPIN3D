@@ -1,4 +1,4 @@
-import { _decorator, Collider, Component, geometry, ICollisionEvent, Node, physics, PhysicsSystem, RigidBody, SkeletalAnimationComponent, tween, Vec3 } from 'cc';
+import { _decorator, Collider, Component, geometry, ICollisionEvent, Node, physics, PhysicsSystem, RigidBody, SkeletalAnimationComponent, tween, Vec3, Tween, ITriggerEvent } from 'cc';
 import { Configs } from '../../utils/Configs';
 import { Person } from '../P/Person';
 import { PlayerController } from '../PlayerController';
@@ -14,11 +14,13 @@ export class Killer_hunter extends Person {
     start() {
         this.LOG_NAME = this.node.name;
         let collider = this.getComponent(Collider)
-        collider.on('onCollisionEnter', this.onCollisionEnter, this);
+        collider.on('onTriggerEnter', this.onTriggerEnter, this);
     }
-    private onCollisionEnter(event: ICollisionEvent) {
+    private onTriggerEnter(event:ITriggerEvent){
+
         let otherNode: Node = event.otherCollider.node;
         let name = otherNode.name;
+
         if (name.includes(Configs.PLAYER_NAME)) {
             //attack
             if (this.isAttack) return;
@@ -27,6 +29,7 @@ export class Killer_hunter extends Person {
             console.log('attack');
             this.scheduleOnce(() => {
                 //player
+                if(!this.isDie)
                 otherNode.getComponent(PlayerController).setDie();
             }, 1)
         } else if (name.includes(Configs.KILL_ALL_OBJ)) {
@@ -39,7 +42,10 @@ export class Killer_hunter extends Person {
     public setDie() {
         //
         //kill all
+        if(this.isDie) return;
         this.isDie = true;
+        tween(this.node).stop();
+        
         this.node.getComponent(RigidBody).isStatic = true;
         if (this.animationController)
             this.animationController.setValue('Die', true);
@@ -59,12 +65,15 @@ export class Killer_hunter extends Person {
     createRay(direction: number) {
         if (this.isDie) return;
         //console.log('Tiger Direction',direction);
-        const outRay = geometry.Ray.create(this.node.worldPosition.x, this.node.worldPosition.y + 0.1, this.node.worldPosition.z, direction, 0, 0);
+        const outRay = geometry.Ray.create(this.node.worldPosition.x, this.node.worldPosition.y , this.node.worldPosition.z, direction, 0, 0);
         if (PhysicsSystem.instance.raycastClosest(outRay, this.physicGroup, 3)) {
             let collider = PhysicsSystem.instance.raycastClosestResult.collider;
             let seeObjectName = collider.node.name;
+            console.log('hunter',seeObjectName);
             //console.log('Wild ray to',seeObjectName);
             if (seeObjectName != this.node.name) {
+   
+                
                 if (seeObjectName.includes(Configs.PLAYER_NAME)) {
                     //move to player
                     // if (this.isAttack) {

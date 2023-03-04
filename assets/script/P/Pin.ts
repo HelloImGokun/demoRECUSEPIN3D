@@ -63,6 +63,7 @@ export class Pin extends Component {
         ).start();
     }
     private unlockPoint() {
+        console.log('unlock point');
         this.attachPathNode.getComponent(PointNode).setUnlock();
         //thong bao cho level mo pin => player check path
         this.callbackToLevel();

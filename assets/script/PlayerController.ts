@@ -54,7 +54,7 @@ export class PlayerController extends Person {
     //FindPath
     public findPath() {
         //lap qua path list de tim duong
-        console.log("find path xxxxx");
+        console.log("find path ......................");
         //
         if (this.isOver) return;
         //neu dang tim duong roi thi khong check tiep
@@ -154,6 +154,7 @@ export class PlayerController extends Person {
         //set state
         this.animationController.setValue('onair', true);
         //add force
+        this.rigidBody.clearForces();
         this.Jump(point.getJumpForce())
         this.isJumping = true;
         this.scheduleOnce(() => {
@@ -198,7 +199,7 @@ export class PlayerController extends Person {
                 this.findDoor(collisionNode);
             }
             //cham vao enemy la die
-            else if (collisionNode.name.includes(Configs.KILL_HUNTER) || collisionNode.name.includes(Configs.KILL_ALL_OBJ)) {
+            else if (collisionNode.name.includes(Configs.KILL_ALL_OBJ)) {
                 this.setDie();
             }
         }
