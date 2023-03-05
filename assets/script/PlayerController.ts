@@ -199,7 +199,7 @@ export class PlayerController extends Person {
                 this.findDoor(collisionNode);
             }
             //cham vao enemy la die
-            else if (collisionNode.name.includes(Configs.KILL_ALL_OBJ)) {
+            else if (collisionNode.name.includes(Configs.KILL_ALL_OBJ)||collisionNode.name.includes(Configs.KILL_HUNTER)) {
                 this.setDie();
             }
         }

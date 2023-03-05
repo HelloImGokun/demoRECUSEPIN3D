@@ -2374,7 +2374,7 @@
     "propertyPath": [
       "_active"
     ],
-    "value": false
+    "value": true
   },
   {
     "__type__": "CCPropertyOverrideInfo",
@@ -2473,7 +2473,7 @@
       "__type__": "cc.Vec3",
       "x": -1.291,
       "y": 0.687,
-      "z": -0.084
+      "z": 0.317
     }
   },
   {
