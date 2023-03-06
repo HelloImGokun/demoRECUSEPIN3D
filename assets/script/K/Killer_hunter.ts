@@ -69,7 +69,7 @@ export class Killer_hunter extends Person {
         if (PhysicsSystem.instance.raycastClosest(outRay, this.physicGroup, 3)) {
             let collider = PhysicsSystem.instance.raycastClosestResult.collider;
             let seeObjectName = collider.node.name;
-            //console.log('Wild ray to',seeObjectName);
+            console.log('Wild ray to',seeObjectName);
             if (seeObjectName != this.node.name) {
    
                 

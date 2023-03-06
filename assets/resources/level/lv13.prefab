@@ -5038,7 +5038,7 @@
     },
     "_lpos": {
       "__type__": "cc.Vec3",
-      "x": -1.142,
+      "x": -1.168,
       "y": 0.444,
       "z": 0
     },
@@ -5079,7 +5079,7 @@
     "isLock": false,
     "pointType": 1,
     "movingTime": 0.5,
-    "delayTime": 0,
+    "delayTime": 0.25,
     "jumpForce": null,
     "_id": ""
   },
