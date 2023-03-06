@@ -56,7 +56,7 @@ export class Killer_hunter extends Person {
         this.scheduleOnce(() => {
             if (this.node)
                 this.node.destroy();
-        }, 0.8)
+        }, 0.5)
         //
     }
     //vision determine enemy
@@ -124,7 +124,7 @@ export class Killer_hunter extends Person {
                     // }, 1000);
 
                 }
-                if (seeObjectName.includes(Configs.PIN_NAME)) {
+                if (seeObjectName.includes(Configs.PIN_NAME)||seeObjectName.includes(Configs.KILL_ALL_OBJ)) {
 
                     return;
                 }
@@ -149,30 +149,4 @@ export class Killer_hunter extends Person {
         }
 
     }
-    private checkMoveLeftOrRight(deltaX) {
-
-        if (deltaX > 0.001) {
-            //move right
-            this.node.setRotationFromEuler(new Vec3(0, 90, 0));
-        } else if (deltaX < -0.001) {
-            //move left
-            this.node.setRotationFromEuler(new Vec3(0, -90, 0));
-        }
-    }
-
-    private checkRun() {
-        if (this.oldX == null) {
-            this.oldX = this.node.position.x;
-        } else {
-            this.newX = this.node.position.x;
-            let deltaX = this.newX - this.oldX
-            console.log('deltaX', deltaX);
-            //check left or right
-            this.checkMoveLeftOrRight(deltaX);
-            this.animationController.setValue('dx', Math.abs(deltaX));
-            //console.log('dx',deltaX);
-            this.oldX = this.newX;
-        }
-    }
-
 }

@@ -32,7 +32,7 @@ export class Boar extends Person {
             this.isAttack = true;
             this.animator.play('Attack');
             this.scheduleOnce(() => {
-                this.isAttack=false;
+                this.isAttack = false;
                 //player
                 if (otherNode && otherNode.active)
                     otherNode.getComponent(PlayerController).setDie();
@@ -44,12 +44,12 @@ export class Boar extends Person {
             this.animator.play('Attack');
             this.scheduleOnce(() => {
                 //
-                this.isAttack=false;
+                this.isAttack = false;
                 //player
                 console.log('other node:', otherNode);
                 if (otherNode && otherNode.active)
                     otherNode.getComponent(Killer_hunter).setDie();
-            }, 1)
+            }, 0.8)
 
         } else if (name.includes(Configs.KILL_ALL_OBJ)) {
             //death
@@ -68,7 +68,8 @@ export class Boar extends Person {
             setTimeout(() => {
                 if (this.node)
                     this.node.destroy();
-            }, 1000);
+            }, 700);
+
 
         }
     }
@@ -113,10 +114,10 @@ export class Boar extends Person {
 
                     }
                     console.log('set Continue attack ray');
-                    this.scheduleOnce(()=>{
+                    this.scheduleOnce(() => {
                         console.log('Continue attack ray');
                         this.isAttack = false;
-                    },1)
+                    }, 1)
 
                 }
                 if (seeObjectName.includes('pin')) {

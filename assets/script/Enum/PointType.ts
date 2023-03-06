@@ -5,5 +5,7 @@ export enum PointType {
     swimL = 5,
     swimR = 6,
     fall = 7,
+    teleout = 8,
+    telein=9,
 }
 

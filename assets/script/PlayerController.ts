@@ -145,9 +145,60 @@ export class PlayerController extends Person {
                 })
 
                 break;
+            case PointType.teleout:
+                this.teleport(pointNode, () => {
+                    this.pointCount++;
+                    this.checkPoint();
+                })
+                break;
+            case PointType.telein:
+                this.teleIn(pointNode, () => {
+                    this.pointCount++;
+                    this.checkPoint();
+                })
             case PointType.swimL:
                 break;
         }
+    }
+    private teleIn(pointNode: PointNode, callback: () => void) {
+        this.node.setPosition(pointNode.getPosition());
+        tween(this.node).sequence(
+            tween(this.node).call(() => {
+                //chuyen = static
+                this.rigidBody.isStatic=true;
+            }),
+            tween(this.node).by(0,{eulerAngles:new Vec3(0,-90,0)}),
+            tween(this.node).by(0.5,{position:new Vec3(0,-0.5,0)}),
+            // tween(this.node).call(() => {
+            //     //chuyen = dynamic
+            //     this.rigidBody.isDynamic=true;
+            // }),
+        ).start();
+        this.scheduleOnce(() => {
+            callback();
+        },pointNode.getDelayTime());
+        
+    }
+    private teleport(pointNode: PointNode, callback) {
+        //
+        //this.Move(pointNode, desinationPoint, callback);
+        this.node.setPosition(pointNode.getPosition());
+        tween(this.node).sequence(
+            tween(this.node).call(() => {
+                //chuyen = static
+                this.rigidBody.isStatic=true;
+            }),
+            tween(this.node).by(0.5,{position:new Vec3(0,0.5,0)}),
+            tween(this.node).by(0,{eulerAngles:new Vec3(0,90,0)}),
+            tween(this.node).call(() => {
+                //chuyen = dynamic
+                this.rigidBody.isDynamic=true;
+            }),
+        ).start();
+        this.scheduleOnce(() => {
+            callback();
+        },pointNode.getDelayTime());
+        
     }
     private jumpToPoint(point: PointNode, finishCallback) {
         //
@@ -274,6 +325,10 @@ export class PlayerController extends Person {
             //
             let doorPosition: Vec3 = null;
             tween(this.node).sequence(
+                tween(this.node).call(() => {
+                    //open door
+                    doorNode.getComponent(Door).openDoor();
+                }),
                 //xoay nguoi lai huong door
                 tween(this.node).call(() => {
                     doorPosition = new math.Vec3(doorNode.position.x + 0.3, this.node.position.y, this.node.position.z);
@@ -281,11 +336,9 @@ export class PlayerController extends Person {
                 tween(this.node).to(0.1, { position: doorPosition }),
                 tween(this.node).delay(0.5),
                 tween(this.node).to(0.2, { eulerAngles: new Vec3(0, 180, 0) }),
-                tween(this.node).by(0.5, { position: new Vec3(0, 0, -0.4) }),
-                tween(this.node).call(() => {
-                    //open door
-                    doorNode.getComponent(Door).openDoor();
-                }),
+           
+                tween(this.node).by(0.7, { position: new Vec3(0, 0, -0.4) }),
+              
                 tween(this.node).delay(0.5),
                 //xoay nguoi huong ra ngoai 
                 tween(this.node).to(0.2, { eulerAngles: new Vec3(0, 0, 0) }),
@@ -306,14 +359,15 @@ export class PlayerController extends Person {
             //npc point 
             let standPoint = doorNode.getComponent(Door).getStandPoint();
             tween(this.node).sequence(
-                //xoay nguoi lai huong door
-                tween(this.node).delay(0.5),
-                tween(this.node).to(0.2, { eulerAngles: new Vec3(0, 180, 0) }),
-                tween(this.node).by(0.5, { position: new Vec3(0, 0, -0.4) }),
                 tween(this.node).call(() => {
                     //open door
                     doorNode.getComponent(Door).openDoor();
                 }),
+                //xoay nguoi lai huong door
+                tween(this.node).delay(0.5),
+                tween(this.node).to(0.2, { eulerAngles: new Vec3(0, 180, 0) }),
+                tween(this.node).by(0.7, { position: new Vec3(0, 0, -0.4) }),
+              
                 tween(this.node).delay(0.5),
                 //nhay vao ben trong va xoay doi dien voi npc
                 tween(this.node).to(0.2, { position: standPoint }),

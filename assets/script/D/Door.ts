@@ -12,10 +12,10 @@ export class Door extends Component {
     private npc:NCP = null;
     public openDoor(){
         if(this.npc==null){
-            tween(this.door).by(0.5,{eulerAngles:new Vec3(0,90,0)}).start(); 
+            tween(this.door).by(0.3,{eulerAngles:new Vec3(0,90,0)}).start(); 
         }else{
             //npc
-            tween(this.door).by(0.5,{eulerAngles:new Vec3(0,-90,0)}).start(); 
+            tween(this.door).by(0.3,{eulerAngles:new Vec3(0,-90,0)}).start(); 
         }
 
 

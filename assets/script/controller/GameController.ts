@@ -16,7 +16,7 @@ export class GameController extends Component {
     private camera:Camera;
     //
 
-    private currentLevelNumber:number = 1;
+    private currentLevelNumber:number = 1;  
     //
     @property(Node)
     private currentLevelNode:Node;
