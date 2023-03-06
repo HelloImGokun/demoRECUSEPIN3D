@@ -7,7 +7,7 @@ import { Configs } from '../../utils/Configs';
 export class Predata extends Component {
    public static instant: Predata;
    public levelPlayer :number = 1;
-   public currentLevel: number = 12;
+   public currentLevel: number = 13;
     start() {
         if(Predata.instant == null){
             Predata.instant = this;
