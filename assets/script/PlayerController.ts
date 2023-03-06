@@ -54,15 +54,12 @@ export class PlayerController extends Person {
     //FindPath
     public findPath() {
         //lap qua path list de tim duong
-        console.log("find path ......................");
+
         //
         if (this.isOver) return;
         //neu dang tim duong roi thi khong check tiep
         if (this.isFindingPath) return;
         //neu dang tim duong roi thi check tiep
-        this.isFindingPath = true;
-        //
-
         //
 
         //
@@ -73,8 +70,10 @@ export class PlayerController extends Person {
             let pList: PathList = pathList[i];
             if (pList && this.isPointUnlock(pList)) {
                 this.selectedPath = pList;
+                this.isFindingPath=true;
                 return this.followPath();
             } else {
+               
                 this.isFindingPath = false;
             }
         }
@@ -104,6 +103,7 @@ export class PlayerController extends Person {
         if (pointNode == null) {
             //end of way
             //khi khong tim duoc duong thi set lai
+         
             this.isFindingPath = false
             //reset lai point
             this.pointCount = 0;
@@ -408,6 +408,7 @@ export class PlayerController extends Person {
     //
     update(deltaTime: number) {
         //check run
+        console.log('is find',this.isFindingPath)
         this.checkRun();
 
         //
