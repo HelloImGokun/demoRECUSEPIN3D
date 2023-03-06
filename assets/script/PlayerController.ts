@@ -463,6 +463,10 @@ export class PlayerController extends Person {
         //
         Tween.stopAllByTarget(this.node);
         //
+        this.scheduleOnce(() => {
+            this.node.destroy();
+        },2);
+        //
         //delay for a second
         this.scheduleOnce(() => {
             //lose game
