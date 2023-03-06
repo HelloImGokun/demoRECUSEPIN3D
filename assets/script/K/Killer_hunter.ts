@@ -31,7 +31,7 @@ export class Killer_hunter extends Person {
                 //player
                 if(!this.isDie)
                 otherNode.getComponent(PlayerController).setDie();
-            }, 1)
+            }, 0.3);
         } else if (name.includes(Configs.KILL_ALL_OBJ)) {
             //
             this.setDie();

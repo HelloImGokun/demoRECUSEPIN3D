@@ -2259,7 +2259,7 @@
     "isLock": true,
     "pointType": 7,
     "movingTime": 1,
-    "delayTime": 1,
+    "delayTime": 1.25,
     "jumpForce": null,
     "_id": ""
   },
@@ -2861,8 +2861,8 @@
     },
     "isLock": false,
     "pointType": 8,
-    "movingTime": 0.6,
-    "delayTime": 1,
+    "movingTime": 0,
+    "delayTime": 1.25,
     "jumpForce": null,
     "_id": ""
   },
@@ -3464,8 +3464,8 @@
     },
     "isLock": false,
     "pointType": 9,
-    "movingTime": 1.5,
-    "delayTime": 0.5,
+    "movingTime": 0,
+    "delayTime": 0,
     "jumpForce": null,
     "_id": ""
   },

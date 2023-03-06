@@ -146,7 +146,7 @@ export class PlayerController extends Person {
 
                 break;
             case PointType.teleout:
-                this.teleport(pointNode, () => {
+                this.teleout(pointNode, () => {
                     this.pointCount++;
                     this.checkPoint();
                 })
@@ -166,39 +166,31 @@ export class PlayerController extends Person {
             tween(this.node).call(() => {
                 //chuyen = static
                 this.rigidBody.isStatic=true;
+                this.node.setRotationFromEuler(new Vec3(0,0,0));
             }),
-            tween(this.node).by(0,{eulerAngles:new Vec3(0,-90,0)}),
             tween(this.node).by(0.5,{position:new Vec3(0,-0.5,0)}),
-            // tween(this.node).call(() => {
-            //     //chuyen = dynamic
-            //     this.rigidBody.isDynamic=true;
-            // }),
+            tween(this.node).call(() => {
+                callback();
+            })
         ).start();
-        this.scheduleOnce(() => {
-            callback();
-        },pointNode.getDelayTime());
+        
         
     }
-    private teleport(pointNode: PointNode, callback) {
-        //
-        //this.Move(pointNode, desinationPoint, callback);
+    private teleout(pointNode: PointNode, callback) {
         this.node.setPosition(pointNode.getPosition());
         tween(this.node).sequence(
-            tween(this.node).call(() => {
-                //chuyen = static
-                this.rigidBody.isStatic=true;
-            }),
+            //di len
             tween(this.node).by(0.5,{position:new Vec3(0,0.5,0)}),
-            tween(this.node).by(0,{eulerAngles:new Vec3(0,90,0)}),
             tween(this.node).call(() => {
                 //chuyen = dynamic
                 this.rigidBody.isDynamic=true;
             }),
-        ).start();
-        this.scheduleOnce(() => {
-            callback();
-        },pointNode.getDelayTime());
-        
+            tween(this.node).call(() => {
+                this.scheduleOnce(() => {
+                    callback();
+                },pointNode.getDelayTime());
+            })
+        ).start();        
     }
     private jumpToPoint(point: PointNode, finishCallback) {
         //
@@ -451,14 +443,16 @@ export class PlayerController extends Person {
 
     }
     private checkMoveLeftOrRight(deltaX) {
-
-        if (deltaX > 0.001) {
-            //move right
-            this.node.setRotationFromEuler(new Vec3(0, 90, 0));
-        } else if (deltaX < -0.001) {
-            //move left
-            this.node.setRotationFromEuler(new Vec3(0, -90, 0));
+        if(!this.rigidBody.isStatic){
+            if (deltaX > 0.001) {
+                //move right
+                this.node.setRotationFromEuler(new Vec3(0, 90, 0));
+            } else if (deltaX < -0.001) {
+                //move left
+                this.node.setRotationFromEuler(new Vec3(0, -90, 0));
+            }
         }
+       
     }
     //set Die
     setDie() {

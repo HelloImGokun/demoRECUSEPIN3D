@@ -1166,7 +1166,7 @@
       "y": 1,
       "z": 1
     },
-    "_id": "381xiD1aFMBJG37nf7f99a"
+    "_id": "8fZ7a8SJ1E5Lf5wDM2mAA9"
   },
   {
     "__type__": "cc.CompPrefabInfo",
@@ -1563,7 +1563,7 @@
     },
     "fileId": "e9L+TopCxDLpi5b4/2QUbR",
     "instance": null,
-    "targetOverrides": null,
+    "targetOverrides": [],
     "nestedPrefabInstanceRoots": [
       {
         "__id__": 85
