@@ -69,7 +69,6 @@ export class Killer_hunter extends Person {
         if (PhysicsSystem.instance.raycastClosest(outRay, this.physicGroup, 3)) {
             let collider = PhysicsSystem.instance.raycastClosestResult.collider;
             let seeObjectName = collider.node.name;
-            console.log('hunter',seeObjectName);
             //console.log('Wild ray to',seeObjectName);
             if (seeObjectName != this.node.name) {
    
@@ -113,7 +112,7 @@ export class Killer_hunter extends Person {
 
                     tween(this.node).to(1, { position: attackPos }).start();
                     //reset
-                    if (seeObjectName.includes(Configs.PLAYER_NAME) || seeObjectName.includes(Configs.KILL_HUNTER)) {
+                    if (seeObjectName.includes(Configs.PLAYER_NAME) || seeObjectName.includes(Configs.KILL_HUNTER)||seeObjectName.includes(Configs.KILL_ALL_OBJ)) {
                         //game over
                     } else {
                         //restart

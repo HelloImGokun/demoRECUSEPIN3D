@@ -12,10 +12,10 @@ export class Gun extends Component {
         // [3]
         setInterval(() => {
             this.fire();
-        }, 5000);
+        }, 9000);
         setTimeout(() => {
             this.fire();
-        }, 2000);
+        }, 3000);
     }
     fire() {
         if (this.bulletPrefab) {

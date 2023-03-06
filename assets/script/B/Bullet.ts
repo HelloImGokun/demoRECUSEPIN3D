@@ -7,10 +7,14 @@ export class Bullet extends Component {
         let collider = this.getComponent(Collider);
         collider.on('onCollisionEnter', this.onCollisionEnter, this);
         //forward
-        tween(this.node).by(5,{position:new Vec3(bulletDirection*0,50,0)}).start();
+        tween(this.node).by(20,{position:new Vec3(bulletDirection*0,50,0)}).start();
     }
     onCollisionEnter(event: ICollisionEvent) {
-            this.node.destroy();
+            // if(this.node)
+            this.scheduleOnce(() => {
+                this.node.destroy();
+            }, 0.1);
+            
     }
 }
 
