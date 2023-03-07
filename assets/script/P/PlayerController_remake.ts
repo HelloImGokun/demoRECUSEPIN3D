@@ -16,7 +16,7 @@ export class PlayerController_remake extends Person {
     private isFindDoor: boolean = false;
     private levelController: LevelController;
     //check xem player da die or win
-    private isOver: boolean = false;
+
     //duong di duoc lua chon
     private selectedPath: PathList = null
     //index cua duong di
@@ -215,7 +215,8 @@ export class PlayerController_remake extends Person {
         if (this.isOver) return;
         if (event.otherCollider.name.includes(Configs.FLOOR_GROUND_NAME) || event.otherCollider.name.includes(Configs.WATER_COLLIDER_NAME)) {
             //player roi tu do
-            this.playJump()
+            console.log('player water',event.otherCollider.name);
+           // this.playJump()
         }
     }
     private onTriggerStay(event: ITriggerEvent) {
@@ -248,6 +249,7 @@ export class PlayerController_remake extends Person {
         //check player dat chan xuong mat dat hay chua
         if (collisionNode.name.includes(Configs.FLOOR_GROUND_NAME) || collisionNode.name.includes(Configs.DOOR_NAME)) {
             //player roi xuong mat dat
+            console.log("player enter:",collisionNode.name);
             this.playIdle();
         }
         if (collisionNode.name.includes(Configs.WATER_COLLIDER_NAME)) {
@@ -407,7 +409,7 @@ export class PlayerController_remake extends Person {
             }
             this.oldZ = this.newZ;
         }
-        if(Math.abs(deltaX)<0.001 && Math.abs(deltaZ)<0.001){
+        if(Math.abs(deltaX)<0.001 && Math.abs(deltaZ)<0.001&&this.notJump()&&this.notSwim()){
             this.playIdle();
         }
         
@@ -425,6 +427,7 @@ export class PlayerController_remake extends Person {
 
     }
     setDie() {
+        console.log("die");
         this.playDie();
         this.isOver = true;
         //stop all tween

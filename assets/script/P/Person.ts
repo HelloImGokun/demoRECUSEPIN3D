@@ -5,8 +5,8 @@ const enum AnimationState {
     Idle = 'idle',
     Run = 'run',
     Jump = 'midair',
-    swim = 'swim',
-    Dead = 'die',
+    Swim = 'swim',
+    Die = 'die',
     Victory = 'victory'
 }
 @ccclass('Person')
@@ -18,6 +18,8 @@ export class Person extends Component {
     protected newZ: number = null;
     //
     animator: SkeletalAnimationComponent | null = null;
+    //
+    protected isOver: boolean = false;
     //
 
     @property(RigidBody)
@@ -36,6 +38,7 @@ export class Person extends Component {
     //
     protected start(): void {
         this.animator = this.node.getComponent(SkeletalAnimationComponent);
+        this.currentAnimationState = null;
 
     }
     protected update(dt: number) {
@@ -52,11 +55,7 @@ export class Person extends Component {
         this.rigidBody.applyForce(force);
     }
     protected Swim() {
-        console.log('swim');
-        if (this.currentAnimationState != AnimationState.swim) {
-            this.animator.play(AnimationState.swim);
-            this.currentAnimationState = AnimationState.swim;
-        }
+
     }
     protected Attack() {
         if (this.animator)
@@ -87,6 +86,7 @@ export class Person extends Component {
     }
     //
     protected playJump() {
+        if (this.isOver) return;
         if (this.currentAnimationState != AnimationState.Jump) {
             console.log('play jump');
             this.animator.play(AnimationState.Jump);
@@ -94,8 +94,9 @@ export class Person extends Component {
         }
     }
     protected playIdle() {
-    
+        if (this.isOver) return;
         if (this.currentAnimationState != AnimationState.Idle) {
+            console.log('play idle');
             this.animator.play(AnimationState.Idle);
             this.currentAnimationState = AnimationState.Idle;
         }
@@ -103,23 +104,37 @@ export class Person extends Component {
 
     protected playRun() {
         //neu dang run roi thi thoi
-        if (this.currentAnimationState != AnimationState.Run &&this.currentAnimationState != AnimationState.Jump) {
+        if (this.currentAnimationState != AnimationState.Run && this.notJump() && this.notSwim() && this.notDie()) {
             console.log('playRun');
             this.animator.play(AnimationState.Run);
             this.currentAnimationState = AnimationState.Run;
         }
     }
     protected playSwim() {
-
+        if (this.isOver) return;
+        if (this.currentAnimationState != AnimationState.Swim) {
+            console.log('swim');
+            this.animator.play(AnimationState.Swim);
+            this.currentAnimationState = AnimationState.Swim;
+        }
     }
     protected playDie() {
-        if (this.currentAnimationState != AnimationState.Dead) {
-            this.animator.play(AnimationState.Dead);
-            this.currentAnimationState = AnimationState.Dead;
+        if (this.currentAnimationState != AnimationState.Die) {
+            this.animator.play(AnimationState.Die);
+            this.currentAnimationState = AnimationState.Die;
         }
     }
     protected playVictory() {
         this.animator.play(AnimationState.Victory);
+    }
+    protected notJump() {
+        return this.currentAnimationState != AnimationState.Jump;
+    }
+    protected notSwim() {
+        return this.currentAnimationState != AnimationState.Swim
+    }
+    protected notDie() {
+        return this.currentAnimationState != AnimationState.Die
     }
     //
 

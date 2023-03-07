@@ -4,6 +4,7 @@ import { PointNode } from '../P/PointNode';
 import { PlayerController, eventTarget } from '../PlayerController';
 import { Person } from '../P/Person';
 import { Killer_hunter } from '../K/Killer_hunter';
+import { PlayerController_remake } from '../P/PlayerController_remake';
 const { ccclass, property } = _decorator;
 @ccclass('Boar')
 export class Boar extends Component {
@@ -35,7 +36,7 @@ export class Boar extends Component {
                 this.isAttack = false;
                 //player
                 if (otherNode && otherNode.active)
-                    otherNode.getComponent(PlayerController).setDie();
+                    otherNode.getComponent(PlayerController_remake).setDie();
             }, 1)
         } else if (name.includes(Configs.KILL_HUNTER)) {
             //attack
