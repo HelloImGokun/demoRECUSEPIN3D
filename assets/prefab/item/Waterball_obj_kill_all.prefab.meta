@@ -2,12 +2,12 @@
   "ver": "1.1.43",
   "importer": "prefab",
   "imported": true,
-  "uuid": "eea58f03-d505-415d-8278-9c222c22ab1f",
+  "uuid": "7658ea2b-36bf-47e0-a757-d2fe00eb79b9",
   "files": [
     ".json"
   ],
   "subMetas": {},
   "userData": {
-    "syncNodeName": "Waterball"
+    "syncNodeName": "Waterball_obj_kill_all"
   }
 }

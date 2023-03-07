@@ -11,8 +11,7 @@ export class Person extends Component {
     //
     animator: SkeletalAnimationComponent | null = null;
     //
-    @property(animation.AnimationController)
-    protected animationController: animation.AnimationController;
+
     @property(RigidBody)
     protected rigidBody: RigidBody;
     protected isJumping: boolean = false;
@@ -47,16 +46,14 @@ export class Person extends Component {
 
     }
     protected Attack() {
-        if (this.animationController)
-        this.animationController.setValue('Attack', true);
+        if (this.animator)
+        this.animator.play('attack');
     }
     protected climb(point:PointNode,finishCallback) {
-        console.log('Climbing');
-        this.animationController.setValue('onair', true);
+        this.animator.play('midair');
      
         this.scheduleOnce(() => {
             this.isJumping=true;
-            console.log('Climbing force');
             this.rigidBody.clearState();
             //tween(this.node).to(0.2,{position:point.node.getPosition()}).start();
             this.rigidBody.applyForce(point.getJumpForce());

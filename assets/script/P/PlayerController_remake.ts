@@ -181,7 +181,7 @@ export class PlayerController_remake extends Person {
     private jumpToPoint(point: PointNode, finishCallback) {
         //
         //set state
-        this.animationController.setValue('onair', true);
+        this.animator.play('midair');
         //add force
         this.rigidBody.clearForces();
         this.Jump(point.getJumpForce())
