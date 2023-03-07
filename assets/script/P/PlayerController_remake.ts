@@ -38,10 +38,13 @@ export class PlayerController_remake extends Person {
         this.levelController = this.node.parent.getComponent(LevelController);
         //
         this.animator = this.node.getComponent(SkeletalAnimationComponent);
-        this.animator.play('midair');
+        this.playJump();
         this.findPath();
 
     }
+    //
+
+    //
     public findPath() {
         //lap qua path list de tim duong
         //
@@ -181,7 +184,7 @@ export class PlayerController_remake extends Person {
     private jumpToPoint(point: PointNode, finishCallback) {
         //
         //set state
-        this.animator.play('midair');
+       //this.animator.play('midair');
         //add force
         this.rigidBody.clearForces();
         this.Jump(point.getJumpForce())
@@ -192,6 +195,47 @@ export class PlayerController_remake extends Person {
         }, point.getMovingTime());
     }
     //
+   
+    private attachFloat(float: Node) {
+        //remove float cu va tao 1 float moi gan vao player (de loai bo rigidbody,collider..)
+        let newFloat = instantiate(float.getChildByName('float'));
+        this.neckNode.addChild(newFloat);
+
+        newFloat.setPosition(new math.Vec3(0, 0, 0));
+        newFloat.setRotationFromEuler(new math.Vec3(0, 90, 0));
+        //huy float cu
+        float.destroy();
+    }
+    public getIsFloat() {
+        return this.isFloat;
+    }
+    private onTriggerExit(event: ITriggerEvent) {
+        //check xem player da thoat khoi mat dat chua
+        //
+        if (this.isOver) return;
+        if (event.otherCollider.name.includes(Configs.FLOOR_GROUND_NAME) || event.otherCollider.name.includes(Configs.WATER_COLLIDER_NAME)) {
+            //player roi tu do
+            this.playJump()
+        }
+    }
+    private onTriggerStay(event: ITriggerEvent) {
+        if (this.isOver) return;
+
+        if (event.otherCollider.name.includes(Configs.FLOOR_GROUND_NAME)) {
+            //this.playRun();
+        }
+        if (event.otherCollider.name.includes(Configs.WATER_COLLIDER_NAME) && this.isFloat) {
+            //if is jump return: Neu dang jump thi khong set y
+
+            if (!this.isJumping) {
+                let yPos = event.otherCollider.node.getParent().getComponent(Water).getWaterFloatY();
+                //this.rigidBody.useGravity=false;
+                this.node.setPosition(new math.Vec3(this.node.position.x, yPos, this.node.position.z));
+            }
+        }
+    }
+    //
+    isRun:boolean = false;
     //check touch door
     private onTriggerEnter(event: ITriggerEvent) {
         //
@@ -204,12 +248,12 @@ export class PlayerController_remake extends Person {
         //check player dat chan xuong mat dat hay chua
         if (collisionNode.name.includes(Configs.FLOOR_GROUND_NAME) || collisionNode.name.includes(Configs.DOOR_NAME)) {
             //player roi xuong mat dat
-            this.animator.play('midair');
+            this.playIdle();
         }
         if (collisionNode.name.includes(Configs.WATER_COLLIDER_NAME)) {
             //neu co phao => chuyen sang animation swim
             if (this.isFloat) {
-                this.animator.play('swim');
+                this.playSwim();
             } else {
                 //die
                 this.scheduleOnce(() => {
@@ -241,44 +285,6 @@ export class PlayerController_remake extends Person {
 
         }
     }
-    private attachFloat(float: Node) {
-        //remove float cu va tao 1 float moi gan vao player (de loai bo rigidbody,collider..)
-        let newFloat = instantiate(float.getChildByName('float'));
-        this.neckNode.addChild(newFloat);
-
-        newFloat.setPosition(new math.Vec3(0, 0, 0));
-        newFloat.setRotationFromEuler(new math.Vec3(0, 90, 0));
-        //huy float cu
-        float.destroy();
-    }
-    public getIsFloat() {
-        return this.isFloat;
-    }
-    private onTriggerExit(event: ITriggerEvent) {
-        //check xem player da thoat khoi mat dat chua
-        //
-        if (this.isOver) return;
-        if (event.otherCollider.name.includes(Configs.FLOOR_GROUND_NAME) || event.otherCollider.name.includes(Configs.WATER_COLLIDER_NAME)) {
-            //player roi tu do
-            this.animator.play('midair');
-        }
-    }
-    private onTriggerStay(event: ITriggerEvent) {
-        if (this.isOver) return;
-
-        if (event.otherCollider.name.includes(Configs.FLOOR_GROUND_NAME)) {
-            this.animator.play('idle');
-        }
-        if (event.otherCollider.name.includes(Configs.WATER_COLLIDER_NAME) && this.isFloat) {
-            //if is jump return: Neu dang jump thi khong set y
-
-            if (!this.isJumping) {
-                let yPos = event.otherCollider.node.getParent().getComponent(Water).getWaterFloatY();
-                //this.rigidBody.useGravity=false;
-                this.node.setPosition(new math.Vec3(this.node.position.x, yPos, this.node.position.z));
-            }
-        }
-    }
     //
     private findDoor(doorNode: Node) {
         if (this.isFindDoor) return;
@@ -307,7 +313,7 @@ export class PlayerController_remake extends Person {
                 tween(this.node).to(0.2, { eulerAngles: new Vec3(0, 0, 0) }),
                 tween(this.node).call(() => {
                     //do win animation;
-                    this.animator.play('victory');
+                    this.playVictory();
 
                 }),
                 tween(this.node).delay(1),
@@ -374,15 +380,19 @@ export class PlayerController_remake extends Person {
         //
     }
     private checkRun() {
+        let deltaX;
+        let deltaZ;
         if (this.oldX == null) {
             this.oldX = this.node.position.x;
         } else {
             this.newX = this.node.position.x;
-            let deltaX = this.newX - this.oldX
+            deltaX = this.newX - this.oldX
+            if(Math.abs(deltaX)>0.001){
+                this.playRun();
+            }
             //check left or right
             this.checkMoveLeftOrRight(deltaX);
-            this.animator.play('run');
-            //console.log('dx',deltaX);
+
             this.oldX = this.newX;
         }
 
@@ -390,12 +400,17 @@ export class PlayerController_remake extends Person {
             this.oldZ = this.node.position.z;
         } else {
             this.newZ = this.node.position.z;
-            let deltaZ = this.newZ - this.oldZ
-            //check left or right
-            this.animator.play('run');
-            //console.log('dx',deltaX);
+            deltaZ = this.newZ - this.oldZ
+           
+            if(Math.abs(deltaZ)>0.001){
+                this.playRun();
+            }
             this.oldZ = this.newZ;
         }
+        if(Math.abs(deltaX)<0.001 && Math.abs(deltaZ)<0.001){
+            this.playIdle();
+        }
+        
     }
     private checkMoveLeftOrRight(deltaX) {
         if (!this.rigidBody.isStatic) {
@@ -410,7 +425,7 @@ export class PlayerController_remake extends Person {
 
     }
     setDie() {
-        this.animator.play('die');
+        this.playDie();
         this.isOver = true;
         //stop all tween
         //

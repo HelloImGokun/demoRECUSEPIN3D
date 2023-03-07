@@ -4,6 +4,7 @@ import { PathList } from '../P/PathList';
 import { ResouceUtils } from '../../utils/ResouceUtils';
 import { PlayerController } from '../PlayerController';
 import { Configs } from '../../utils/Configs';
+import { PlayerController_remake } from '../P/PlayerController_remake';
 const { ccclass, property } = _decorator;
 
 @ccclass('LevelController')
@@ -23,13 +24,14 @@ export class LevelController extends Component {
     @property(Vec3)
     private playerPos: Vec3 = new Vec3(0, 0, 0);
 
-    private player: PlayerController;
+    private player: PlayerController_remake;
     setUp(winCallback,loseCallback) {
         //setup player
         //khoi tao player
         ResouceUtils.loadPrefab(Configs.PLAYER_PREFAB_PATH+'player1', (playerPrefab) => {
             let newPlayer: Node = instantiate(playerPrefab);
-            this.player = newPlayer.getComponent(PlayerController);
+            this.player = newPlayer.getComponent(PlayerController_remake);
+            console.log(this.player)
             //set pos
             newPlayer.setPosition(this.playerPos);
             this.node.addChild(newPlayer);
@@ -43,6 +45,7 @@ export class LevelController extends Component {
                 // console.log('set pin callback')
                 this.pinList[i].getComponent(Pin).setUpCallback(()=>{
                     //thong bao cho player
+                    console.log(this.player)
                     this.player.findPath();
                 });
             }

@@ -1,7 +1,7 @@
 import { _decorator, Collider, Component, ITriggerEvent, Node, CCFloat } from 'cc';
 import { PointNode } from '../P/PointNode';
 import { Configs } from '../../utils/Configs';
-import { PlayerController } from '../PlayerController';
+import { PlayerController_remake } from '../P/PlayerController_remake';
 const { ccclass, property } = _decorator;
 
 @ccclass('Water')
@@ -27,12 +27,12 @@ export class Water extends Component {
             this.isWaterTrigger=true;
             //unlock
             console.log('trigger',collisionNode.name);
-            if(this.attachPathNode && collisionNode.getComponent(PlayerController).getIsFloat()){
+            if(this.attachPathNode && collisionNode.getComponent(PlayerController_remake).getIsFloat()){
                 this.scheduleOnce(()=>{
                     this.attachPathNode.getComponent(PointNode).setUnlock();
                     //thong bao cho level mo pin => player check path
                     //thong bao cho player tim duong
-                    collisionNode.getComponent(PlayerController).findPath();
+                    collisionNode.getComponent(PlayerController_remake).findPath();
                 },0.5)
              
             }
