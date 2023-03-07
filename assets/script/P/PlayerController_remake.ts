@@ -38,7 +38,7 @@ export class PlayerController_remake extends Person {
         this.levelController = this.node.parent.getComponent(LevelController);
         //
         this.animator = this.node.getComponent(SkeletalAnimationComponent);
-        this.animator.play('Idle');
+        this.animator.play('midair');
         this.findPath();
 
     }
