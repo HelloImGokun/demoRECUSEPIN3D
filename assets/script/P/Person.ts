@@ -1,4 +1,4 @@
-import { _decorator, animation, Collider, Component, RigidBody, Vec3, Node, tween } from 'cc';
+import { _decorator, animation, Collider, Component, RigidBody, Vec3, Node, tween, SkeletalAnimationComponent } from 'cc';
 import { PointNode } from './PointNode';
 const { ccclass, property } = _decorator;
 
@@ -8,6 +8,8 @@ export class Person extends Component {
     protected newX: number = null;
     protected oldZ: number = null;
     protected newZ: number = null;
+    //
+    animator: SkeletalAnimationComponent | null = null;
     //
     @property(animation.AnimationController)
     protected animationController: animation.AnimationController;

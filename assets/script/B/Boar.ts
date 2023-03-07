@@ -6,7 +6,7 @@ import { Person } from '../P/Person';
 import { Killer_hunter } from '../K/Killer_hunter';
 const { ccclass, property } = _decorator;
 @ccclass('Boar')
-export class Boar extends Person {
+export class Boar extends Component {
     animator: SkeletalAnimationComponent | null = null;
     //create a raycast
     LOG_NAME = null;
