@@ -5,8 +5,8 @@ const enum AnimationState {
     Idle = 'idle',
     Run = 'run',
     Jump = 'midair',
-    Swim = 'swim',
-    Die = 'die',
+    swim = 'swim',
+    Dead = 'die',
     Victory = 'victory'
 }
 @ccclass('Person')
@@ -18,8 +18,6 @@ export class Person extends Component {
     protected newZ: number = null;
     //
     animator: SkeletalAnimationComponent | null = null;
-    //
-    protected isOver: boolean = false;
     //
 
     @property(RigidBody)

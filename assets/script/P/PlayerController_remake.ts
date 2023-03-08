@@ -215,8 +215,7 @@ export class PlayerController_remake extends Person {
         if (this.isOver) return;
         if (event.otherCollider.name.includes(Configs.FLOOR_GROUND_NAME) || event.otherCollider.name.includes(Configs.WATER_COLLIDER_NAME)) {
             //player roi tu do
-            console.log('player water',event.otherCollider.name);
-           // this.playJump()
+            this.playJump()
         }
     }
     private onTriggerStay(event: ITriggerEvent) {
