@@ -16,7 +16,7 @@ export class PlayerController_remake extends Person {
     private isFindDoor: boolean = false;
     private levelController: LevelController;
     //check xem player da die or win
-
+    private isOver: boolean = false;
     //duong di duoc lua chon
     private selectedPath: PathList = null
     //index cua duong di
@@ -215,12 +215,8 @@ export class PlayerController_remake extends Person {
         if (this.isOver) return;
         if (event.otherCollider.name.includes(Configs.FLOOR_GROUND_NAME) || event.otherCollider.name.includes(Configs.WATER_COLLIDER_NAME)) {
             //player roi tu do
-          
-            this.playJump()
-        }
-        if (event.otherCollider.name.includes('pin')) {
-            //player roi tu do
-            this.playRun();
+            console.log('player water',event.otherCollider.name);
+           // this.playJump()
         }
     }
     private onTriggerStay(event: ITriggerEvent) {
@@ -417,7 +413,7 @@ export class PlayerController_remake extends Person {
             }
             this.oldZ = this.newZ;
         }
-        if(Math.abs(deltaX)<0.001 && Math.abs(deltaZ)<0.001&&this.notJump()&&this.notSwim()){
+        if(Math.abs(deltaX)<0.001 && Math.abs(deltaZ)<0.001){
             this.playIdle();
         }
         
@@ -435,7 +431,6 @@ export class PlayerController_remake extends Person {
 
     }
     setDie() {
-        console.log("die");
         this.playDie();
         this.isOver = true;
         //stop all tween
