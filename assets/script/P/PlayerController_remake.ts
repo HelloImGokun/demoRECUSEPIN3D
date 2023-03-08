@@ -218,10 +218,10 @@ export class PlayerController_remake extends Person {
           
             this.playJump()
         }
-        if (event.otherCollider.name.includes('pin')) {
-            //player roi tu do
-            this.playRun();
-        }
+        // if (event.otherCollider.name.includes('pin')) {
+        //     //player roi tu do
+        //     this.playRun();
+        // }
     }
     private onTriggerStay(event: ITriggerEvent) {
         if (this.isOver) return;
@@ -252,7 +252,7 @@ export class PlayerController_remake extends Person {
         let collisionNode: Node = event.otherCollider.node;
 
         //check player dat chan xuong mat dat hay chua
-        if (collisionNode.name.includes(Configs.FLOOR_GROUND_NAME) || collisionNode.name.includes('pin')) {
+        if (collisionNode.name.includes(Configs.FLOOR_GROUND_NAME)) {
             //player roi xuong mat dat
             this.playIdle();
         }
@@ -435,7 +435,6 @@ export class PlayerController_remake extends Person {
 
     }
     setDie() {
-        console.log("die");
         this.playDie();
         this.isOver = true;
         //stop all tween
