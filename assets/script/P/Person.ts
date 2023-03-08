@@ -1,4 +1,4 @@
-import { _decorator, animation, Collider, Component, RigidBody, Vec3, Node, tween, SkeletalAnimationComponent } from 'cc';
+import { _decorator, animation, Collider, Component, RigidBody, Vec3, Node, tween, SkeletalAnimationComponent, CCBoolean } from 'cc';
 import { PointNode } from './PointNode';
 const { ccclass, property } = _decorator;
 const enum AnimationState {
@@ -7,7 +7,8 @@ const enum AnimationState {
     Jump = 'midair',
     Swim = 'swim',
     Die = 'die',
-    Victory = 'victory'
+    Victory = 'victory',
+    Attack = 'attack',
 }
 @ccclass('Person')
 export class Person extends Component {
@@ -20,6 +21,9 @@ export class Person extends Component {
     animator: SkeletalAnimationComponent | null = null;
     //
     protected isOver: boolean = false;
+    //
+    Exittime: boolean = false;
+    TimetooutAnim: number = 0;
     //
 
     @property(RigidBody)
@@ -57,9 +61,12 @@ export class Person extends Component {
     protected Swim() {
 
     }
-    protected Attack() {
-        if (this.animator)
-            this.animator.play('attack');
+    protected playAttack() {
+        if (this.isOver) return;
+        if (this.currentAnimationState != AnimationState.Attack) {
+            this.animator.play(AnimationState.Attack);
+            this.currentAnimationState = AnimationState.Attack;
+        }
     }
     protected climb(point: PointNode, finishCallback) {
         this.playJump();

@@ -709,8 +709,8 @@
     },
     "_size": {
       "__type__": "cc.Vec3",
-      "x": 1,
-      "y": 1,
+      "x": 0.5,
+      "y": 2,
       "z": 4
     },
     "_id": ""
@@ -2528,7 +2528,7 @@
     "propertyPath": [
       "_name"
     ],
-    "value": "pin_floor"
+    "value": "pin"
   },
   {
     "__type__": "cc.TargetInfo",

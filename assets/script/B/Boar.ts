@@ -58,7 +58,6 @@ export class Boar extends Component {
             if (this.attactPoint) {
                 this.attactPoint.setUnlock();
             }
-            console.log(this.node.name, 'die....')
             this.isDie = true;
             this.node.getComponent(RigidBody).isStatic = true;
             if (this.animator)
@@ -89,7 +88,6 @@ export class Boar extends Component {
             if (seeObjectName != this.node.name) {
                 if (seeObjectName.includes(Configs.PLAYER_NAME) || seeObjectName.includes(Configs.KILL_HUNTER)) {
                     //move to player
-                    console.log('set Continue attack ray attack');
                     this.isAttack = true;
                     if (this.animator)
                         this.animator.play('Attack');
@@ -114,9 +112,9 @@ export class Boar extends Component {
                         //restart
 
                     }
-                    console.log('set Continue attack ray');
+
                     this.scheduleOnce(() => {
-                        console.log('Continue attack ray');
+
                         this.isAttack = false;
                     }, 1)
 

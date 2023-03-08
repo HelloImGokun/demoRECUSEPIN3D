@@ -15,7 +15,7 @@ export class Killer_hunter_remake extends Person {
         let collider = this.getComponent(Collider)
         collider.on('onTriggerEnter', this.onTriggerEnter, this);
     }
-    private onTriggerEnter(event:ITriggerEvent){
+    private onTriggerEnter(event: ITriggerEvent) {
 
         let otherNode: Node = event.otherCollider.node;
         let name = otherNode.name;
@@ -24,11 +24,11 @@ export class Killer_hunter_remake extends Person {
             //attack
             if (this.isAttack) return;
             this.isAttack = true;
-            this.Attack();
+            this.playAttack();
             this.scheduleOnce(() => {
                 //player
-                if(!this.isDie)
-                otherNode.getComponent(PlayerController).setDie();
+                if (!this.isDie)
+                    otherNode.getComponent(PlayerController).setDie();
             }, 0.3);
         } else if (name.includes(Configs.KILL_ALL_OBJ)) {
             //
@@ -40,13 +40,12 @@ export class Killer_hunter_remake extends Person {
     public setDie() {
         //
         //kill all
-        if(this.isDie) return;
+        if (this.isDie) return;
         this.isDie = true;
         tween(this.node).stop();
-        
+
         this.node.getComponent(RigidBody).isStatic = true;
-        if (this.animator)
-            this.animator.play('die')
+        this.playDie();
         // setTimeout(() => {
 
         // }, 700);
@@ -63,13 +62,13 @@ export class Killer_hunter_remake extends Person {
     createRay(direction: number) {
         if (this.isDie) return;
         //console.log('Tiger Direction',direction);
-        const outRay = geometry.Ray.create(this.node.worldPosition.x, this.node.worldPosition.y , this.node.worldPosition.z, direction, 0, 0);
+        const outRay = geometry.Ray.create(this.node.worldPosition.x, this.node.worldPosition.y, this.node.worldPosition.z, direction, 0, 0);
         if (PhysicsSystem.instance.raycastClosest(outRay, this.physicGroup, 3)) {
             let collider = PhysicsSystem.instance.raycastClosestResult.collider;
             let seeObjectName = collider.node.name;
             if (seeObjectName != this.node.name) {
-   
-                
+
+
                 if (seeObjectName.includes(Configs.PLAYER_NAME)) {
                     //move to player
                     // if (this.isAttack) {
@@ -87,7 +86,7 @@ export class Killer_hunter_remake extends Person {
 
                     // }, 0.5);
                     //
-                    this.animator.play('run')
+                    this.animator.play('Run');
                     let desination = collider.node.position;
                     //range to imply effect: dis from attacker to player
                     let range: number = 0;
@@ -109,7 +108,7 @@ export class Killer_hunter_remake extends Person {
 
                     tween(this.node).to(1, { position: attackPos }).start();
                     //reset
-                    if (seeObjectName.includes(Configs.PLAYER_NAME) || seeObjectName.includes(Configs.KILL_HUNTER)||seeObjectName.includes(Configs.KILL_ALL_OBJ)) {
+                    if (seeObjectName.includes(Configs.PLAYER_NAME) || seeObjectName.includes(Configs.KILL_HUNTER) || seeObjectName.includes(Configs.KILL_ALL_OBJ)) {
                         //game over
                     } else {
                         //restart
@@ -120,7 +119,7 @@ export class Killer_hunter_remake extends Person {
                     // }, 1000);
 
                 }
-                if (seeObjectName.includes(Configs.PIN_NAME)||seeObjectName.includes(Configs.KILL_ALL_OBJ)) {
+                if (seeObjectName.includes(Configs.PIN_NAME) || seeObjectName.includes(Configs.KILL_ALL_OBJ)) {
 
                     return;
                 }

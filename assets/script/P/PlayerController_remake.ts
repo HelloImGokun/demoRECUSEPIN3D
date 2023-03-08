@@ -215,8 +215,12 @@ export class PlayerController_remake extends Person {
         if (this.isOver) return;
         if (event.otherCollider.name.includes(Configs.FLOOR_GROUND_NAME) || event.otherCollider.name.includes(Configs.WATER_COLLIDER_NAME)) {
             //player roi tu do
-            console.log('Exit',event.otherCollider.name);
+          
             this.playJump()
+        }
+        if (event.otherCollider.name.includes('pin')) {
+            //player roi tu do
+            this.playRun();
         }
     }
     private onTriggerStay(event: ITriggerEvent) {
@@ -224,6 +228,7 @@ export class PlayerController_remake extends Person {
 
         if (event.otherCollider.name.includes(Configs.FLOOR_GROUND_NAME)) {
             //this.playRun();
+            
         }
         if (event.otherCollider.name.includes(Configs.WATER_COLLIDER_NAME) && this.isFloat) {
             //if is jump return: Neu dang jump thi khong set y
@@ -247,10 +252,13 @@ export class PlayerController_remake extends Person {
         let collisionNode: Node = event.otherCollider.node;
 
         //check player dat chan xuong mat dat hay chua
-        if (collisionNode.name.includes(Configs.FLOOR_GROUND_NAME) || collisionNode.name.includes(Configs.DOOR_NAME)) {
+        if (collisionNode.name.includes(Configs.FLOOR_GROUND_NAME) || collisionNode.name.includes('pin')) {
             //player roi xuong mat dat
-            console.log("player enter:",collisionNode.name);
             this.playIdle();
+        }
+        else{
+            //th khac cho ve run
+            this.playRun();
         }
         if (collisionNode.name.includes(Configs.WATER_COLLIDER_NAME)) {
             //neu co phao => chuyen sang animation swim
@@ -344,7 +352,7 @@ export class PlayerController_remake extends Person {
                 tween(this.node).to(0.2, { eulerAngles: new Vec3(0, -90, 0) }),
                 tween(this.node).call(() => {
                     //do win animation;
-                    this.animator.play('victory');
+                    this.playVictory();
                     //npc wave
                     doorNode.getComponent(Door).rescueNPC();
                 }),
