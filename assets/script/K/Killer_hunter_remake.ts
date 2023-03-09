@@ -1,7 +1,6 @@
 import { _decorator, Collider, Component, geometry, ITriggerEvent, Node, physics, PhysicsSystem, RigidBody, tween, Vec3 } from 'cc';
 import { Person } from '../P/Person';
 import { Configs } from '../../utils/Configs';
-import { PlayerController } from '../PlayerController';
 const { ccclass, property } = _decorator;
 
 @ccclass('Killer_hunter_remake')
@@ -27,8 +26,8 @@ export class Killer_hunter_remake extends Person {
             this.playAttack();
             this.scheduleOnce(() => {
                 //player
-                if (!this.isDie)
-                    otherNode.getComponent(PlayerController).setDie();
+                // if (!this.isDie)
+                //     otherNode.getComponent(PlayerController).setDie();
             }, 0.3);
         } else if (name.includes(Configs.KILL_ALL_OBJ)) {
             //
@@ -45,7 +44,7 @@ export class Killer_hunter_remake extends Person {
         tween(this.node).stop();
 
         this.node.getComponent(RigidBody).isStatic = true;
-        this.playDie();
+        // this.playDie();
         // setTimeout(() => {
 
         // }, 700);

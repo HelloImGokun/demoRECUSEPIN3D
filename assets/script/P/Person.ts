@@ -52,8 +52,11 @@ export class Person extends Component {
         tween(this.node).sequence(
             tween(this.node).to(pointNode.getMovingTime(), { position: desinationPoint }),
             tween(this.node).delay(pointNode.getDelayTime()),
-            tween(this.node).call(finishCallback)
+            //tween(this.node).call(finishCallback)
         ).start();
+        this.scheduleOnce(()=>{
+            finishCallback();
+        },pointNode.getDelayTime())
     }
     protected Jump(force: Vec3) {
         this.rigidBody.applyForce(force);
@@ -69,7 +72,7 @@ export class Person extends Component {
         }
     }
     protected climb(point: PointNode, finishCallback) {
-        this.playJump();
+       // this.playJump();
 
         this.scheduleOnce(() => {
             this.isJumping = true;
@@ -92,48 +95,48 @@ export class Person extends Component {
 
     }
     //
-    protected playJump() {
-        if (this.isOver) return;
-        if (this.currentAnimationState != AnimationState.Jump) {
-            console.log('play jump');
-            this.animator.play(AnimationState.Jump);
-            this.currentAnimationState = AnimationState.Jump;
-        }
-    }
-    protected playIdle() {
-        if (this.isOver) return;
-        if (this.currentAnimationState != AnimationState.Idle) {
-            console.log('play idle');
-            this.animator.play(AnimationState.Idle);
-            this.currentAnimationState = AnimationState.Idle;
-        }
-    }
+    // protected playJump() {
+    //     if (this.isOver) return;
+    //     if (this.currentAnimationState != AnimationState.Jump) {
+    //         console.log('play jump');
+    //         this.animator.play(AnimationState.Jump);
+    //         this.currentAnimationState = AnimationState.Jump;
+    //     }
+    // }
+    // protected playIdle() {
+    //     if (this.isOver) return;
+    //     if (this.currentAnimationState != AnimationState.Idle) {
+    //         console.log('play idle');
+    //         this.animator.play(AnimationState.Idle);
+    //         this.currentAnimationState = AnimationState.Idle;
+    //     }
+    // }
 
-    protected playRun() {
-        //neu dang run roi thi thoi
-        if (this.currentAnimationState != AnimationState.Run && this.notJump() && this.notSwim() && this.notDie()) {
-            console.log('playRun');
-            this.animator.play(AnimationState.Run);
-            this.currentAnimationState = AnimationState.Run;
-        }
-    }
-    protected playSwim() {
-        if (this.isOver) return;
-        if (this.currentAnimationState != AnimationState.Swim) {
-            console.log('swim');
-            this.animator.play(AnimationState.Swim);
-            this.currentAnimationState = AnimationState.Swim;
-        }
-    }
-    protected playDie() {
-        if (this.currentAnimationState != AnimationState.Die) {
-            this.animator.play(AnimationState.Die);
-            this.currentAnimationState = AnimationState.Die;
-        }
-    }
-    protected playVictory() {
-        this.animator.play(AnimationState.Victory);
-    }
+    // protected playRun() {
+    //     //neu dang run roi thi thoi
+    //     if (this.currentAnimationState != AnimationState.Run && this.notJump() && this.notSwim() && this.notDie()) {
+    //         console.log('playRun');
+    //         this.animator.play(AnimationState.Run);
+    //         this.currentAnimationState = AnimationState.Run;
+    //     }
+    // }
+    // protected playSwim() {
+    //     if (this.isOver) return;
+    //     if (this.currentAnimationState != AnimationState.Swim) {
+    //         console.log('swim');
+    //         this.animator.play(AnimationState.Swim);
+    //         this.currentAnimationState = AnimationState.Swim;
+    //     }
+    // }
+    // protected playDie() {
+    //     if (this.currentAnimationState != AnimationState.Die) {
+    //         this.animator.play(AnimationState.Die);
+    //         this.currentAnimationState = AnimationState.Die;
+    //     }
+    // }
+    // protected playVictory() {
+    //     this.animator.play(AnimationState.Victory);
+    // }
     protected notJump() {
         return this.currentAnimationState != AnimationState.Jump;
     }

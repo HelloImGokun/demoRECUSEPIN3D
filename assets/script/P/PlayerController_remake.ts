@@ -111,6 +111,9 @@ export class PlayerController_remake extends Person {
         switch (pointNode.getPointType()) {
             case PointType.walk:
                 let desinationPoint: Vec3 = this.convertPositionToPlayerY(this.node.position, pointNode.getPosition())
+                //play animation run 
+            // pointNode.getAnimimation();
+                this.animator.play('run')
                 this.Move(pointNode, desinationPoint, () => {
                     this.pointCount++;
                     this.checkPoint();
@@ -123,6 +126,7 @@ export class PlayerController_remake extends Person {
                 })
                 break;
             case PointType.fall:
+                //set animation jump
                 this.scheduleOnce(() => {
                     //cho cho den khi roi xuong dat
                     this.pointCount++;
@@ -216,7 +220,7 @@ export class PlayerController_remake extends Person {
         if (event.otherCollider.name.includes(Configs.FLOOR_GROUND_NAME) || event.otherCollider.name.includes(Configs.WATER_COLLIDER_NAME)) {
             //player roi tu do
           
-            this.playJump()
+            //this.playJump()
         }
         // if (event.otherCollider.name.includes('pin')) {
         //     //player roi tu do
@@ -254,16 +258,16 @@ export class PlayerController_remake extends Person {
         //check player dat chan xuong mat dat hay chua
         if (collisionNode.name.includes(Configs.FLOOR_GROUND_NAME)) {
             //player roi xuong mat dat
-            this.playIdle();
+            //this.playIdle();
         }
         else{
             //th khac cho ve run
-            this.playRun();
+           // this.playRun();
         }
         if (collisionNode.name.includes(Configs.WATER_COLLIDER_NAME)) {
             //neu co phao => chuyen sang animation swim
             if (this.isFloat) {
-                this.playSwim();
+                //this.playSwim();
             } else {
                 //die
                 this.scheduleOnce(() => {
@@ -323,7 +327,7 @@ export class PlayerController_remake extends Person {
                 tween(this.node).to(0.2, { eulerAngles: new Vec3(0, 0, 0) }),
                 tween(this.node).call(() => {
                     //do win animation;
-                    this.playVictory();
+                    //this.playVictory();
 
                 }),
                 tween(this.node).delay(1),
@@ -352,7 +356,7 @@ export class PlayerController_remake extends Person {
                 tween(this.node).to(0.2, { eulerAngles: new Vec3(0, -90, 0) }),
                 tween(this.node).call(() => {
                     //do win animation;
-                    this.playVictory();
+                    //this.playVictory();
                     //npc wave
                     doorNode.getComponent(Door).rescueNPC();
                 }),
@@ -435,7 +439,7 @@ export class PlayerController_remake extends Person {
 
     }
     setDie() {
-        this.playDie();
+        
         this.isOver = true;
         //stop all tween
         //

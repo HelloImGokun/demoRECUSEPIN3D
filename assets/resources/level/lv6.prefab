@@ -2017,8 +2017,14 @@
     "isLock": true,
     "pointType": 1,
     "movingTime": 1,
-    "delayTime": 1,
+    "delayTime": 0.1,
     "jumpForce": null,
+    "moveRotation": {
+      "__type__": "cc.Vec3",
+      "x": 0,
+      "y": -90,
+      "z": 0
+    },
     "_id": ""
   },
   {
@@ -2261,6 +2267,12 @@
     "movingTime": 1,
     "delayTime": 0,
     "jumpForce": null,
+    "moveRotation": {
+      "__type__": "cc.Vec3",
+      "x": 0,
+      "y": 90,
+      "z": 0
+    },
     "_id": ""
   },
   {
@@ -2347,6 +2359,12 @@
       "y": 200,
       "z": 0
     },
+    "moveRotation": {
+      "__type__": "cc.Vec3",
+      "x": 0,
+      "y": -90,
+      "z": 0
+    },
     "_id": ""
   },
   {
@@ -2431,6 +2449,12 @@
       "__type__": "cc.Vec3",
       "x": -100,
       "y": 200,
+      "z": 0
+    },
+    "moveRotation": {
+      "__type__": "cc.Vec3",
+      "x": 0,
+      "y": -90,
       "z": 0
     },
     "_id": ""
@@ -2621,10 +2645,16 @@
       "__id__": 136
     },
     "isLock": true,
-    "pointType": 1,
+    "pointType": 5,
     "movingTime": 0.4,
     "delayTime": 0,
     "jumpForce": null,
+    "moveRotation": {
+      "__type__": "cc.Vec3",
+      "x": 0,
+      "y": -90,
+      "z": 0
+    },
     "_id": ""
   },
   {

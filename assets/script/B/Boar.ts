@@ -1,9 +1,6 @@
 import { _decorator, CCBoolean, Collider, Component, geometry, physics, PhysicsSystem, RigidBody, SkeletalAnimationComponent, tween, Vec3, ITriggerEvent, Node } from 'cc';
 import { Configs } from '../../utils/Configs';
 import { PointNode } from '../P/PointNode';
-import { PlayerController, eventTarget } from '../PlayerController';
-import { Person } from '../P/Person';
-import { Killer_hunter } from '../K/Killer_hunter';
 import { PlayerController_remake } from '../P/PlayerController_remake';
 const { ccclass, property } = _decorator;
 @ccclass('Boar')
@@ -49,7 +46,8 @@ export class Boar extends Component {
                 //player
                 console.log('other node:', otherNode);
                 if (otherNode && otherNode.active)
-                    otherNode.getComponent(Killer_hunter).setDie();
+                    // otherNode.getComponent(Killer_hunter).setDie();
+                    console.log('other node:', otherNode);
             }, 0.8)
 
         } else if (name.includes(Configs.KILL_ALL_OBJ)) {
@@ -62,9 +60,9 @@ export class Boar extends Component {
             this.node.getComponent(RigidBody).isStatic = true;
             if (this.animator)
                 this.animator.play('Die');
-            if (this.needEmitToPlayer) {
-                eventTarget.emit('onListingAnimal', null);
-            }
+            // if (this.needEmitToPlayer) {
+            //     eventTarget.emit('onListingAnimal', null);
+            // }
             setTimeout(() => {
                 if (this.node)
                     this.node.destroy();

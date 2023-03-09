@@ -18,6 +18,10 @@ export class PointNode extends Component {
 
     @property(Vec3)
     private jumpForce:Vec3 | null  = null
+    @property(Vec3)
+    private moveRotation:Vec3 | null = null;
+    //@property()
+    //animation
 
     getPointType(){
         return this.pointType
@@ -42,6 +46,9 @@ export class PointNode extends Component {
     }
     getDelayTime(){
         return this.delayTime;
+    }
+    getDirection(){
+        return this.moveRotation;
     }
 }
 

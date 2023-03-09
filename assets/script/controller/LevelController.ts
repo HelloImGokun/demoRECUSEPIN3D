@@ -2,9 +2,9 @@ import { _decorator, Component, instantiate, Node, Vec3 } from 'cc';
 import { Pin } from '../P/Pin';
 import { PathList } from '../P/PathList';
 import { ResouceUtils } from '../../utils/ResouceUtils';
-import { PlayerController } from '../PlayerController';
 import { Configs } from '../../utils/Configs';
 import { PlayerController_remake } from '../P/PlayerController_remake';
+import { PlayerController } from './PlayerController';
 const { ccclass, property } = _decorator;
 
 @ccclass('LevelController')
@@ -24,13 +24,13 @@ export class LevelController extends Component {
     @property(Vec3)
     private playerPos: Vec3 = new Vec3(0, 0, 0);
 
-    private player: PlayerController_remake;
+    private player: PlayerController;
     setUp(winCallback,loseCallback) {
         //setup player
         //khoi tao player
         ResouceUtils.loadPrefab(Configs.PLAYER_PREFAB_PATH+'player1', (playerPrefab) => {
             let newPlayer: Node = instantiate(playerPrefab);
-            this.player = newPlayer.getComponent(PlayerController_remake);
+            this.player = newPlayer.getComponent(PlayerController);
             console.log(this.player)
             //set pos
             newPlayer.setPosition(this.playerPos);
@@ -55,6 +55,9 @@ export class LevelController extends Component {
     }
     //lay list all duong di
     public getPathList(){
+        console.log('aaaa')
+        console.log(this.pathList);
+        
         return this.pathList;
     }
     //pass tu Ray to cua GameController vao

@@ -2261,6 +2261,7 @@
     "movingTime": 1,
     "delayTime": 1.25,
     "jumpForce": null,
+    "moveForce": null,
     "_id": ""
   },
   {
@@ -2462,6 +2463,7 @@
     "movingTime": 0.5,
     "delayTime": 0.5,
     "jumpForce": null,
+    "moveForce": null,
     "_id": ""
   },
   {
@@ -2663,6 +2665,7 @@
     "movingTime": 0.5,
     "delayTime": 0.5,
     "jumpForce": null,
+    "moveForce": null,
     "_id": ""
   },
   {
@@ -2864,6 +2867,7 @@
     "movingTime": 0,
     "delayTime": 1.25,
     "jumpForce": null,
+    "moveForce": null,
     "_id": ""
   },
   {
@@ -3065,6 +3069,7 @@
     "movingTime": 0.5,
     "delayTime": 0.5,
     "jumpForce": null,
+    "moveForce": null,
     "_id": ""
   },
   {
@@ -3266,6 +3271,7 @@
     "movingTime": 1,
     "delayTime": 0.5,
     "jumpForce": null,
+    "moveForce": null,
     "_id": ""
   },
   {
@@ -3467,6 +3473,7 @@
     "movingTime": 0,
     "delayTime": 0,
     "jumpForce": null,
+    "moveForce": null,
     "_id": ""
   },
   {
