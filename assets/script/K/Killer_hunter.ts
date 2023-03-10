@@ -32,7 +32,7 @@ export class Killer_hunter extends Component {
                 //player
                 if (otherNode && otherNode.active)
                     otherNode.getComponent(PlayerController).setDie();
-            }, 1)
+            }, 2)
    
 
         } else if (name.includes(Configs.KILL_ALL_OBJ)) {
@@ -66,15 +66,10 @@ export class Killer_hunter extends Component {
             if (seeObjectName != this.node.name) {
                 if (seeObjectName.includes(Configs.PLAYER_NAME)) {
                     //move to player
-                    this.isAttack = true;
-                    if (this.animator)
-                        this.scheduleOnce(() => {
-                            this.animator.play('attack');
-                        }, 0.01)
-                  
+                    this.isAttack = true;                          
                     let desination = collider.node.position;
                     //range to imply effect: dis from attacker to player
-                    let dis: number = 0.7;
+                    let dis: number = 0.1;
                     if (desination.x <= this.node.position.x) {
 
                         tween(this.node).to(0.2, { eulerAngles: new Vec3(0, -90, 0) }).start();
@@ -82,14 +77,27 @@ export class Killer_hunter extends Component {
                     else {
                         // 90
                         tween(this.node).to(0.2, { eulerAngles: new Vec3(0, 90, 0) }).start();
-                        dis = -0.8;
+                        dis = -0.1;
                     }
                     let attackPos = new Vec3(desination.x + dis, this.node.getPosition().y, desination.z);
-                    tween(this.node).to(0.6, { position: attackPos }).start();
+                    //
+                    //run
                     this.scheduleOnce(() => {
-
-                        this.isAttack = false;
-                    }, 1)
+                        this.animator.play('run');
+                    },0.01);
+                    //sequence
+                    tween(this.node).sequence(
+                        tween(this.node).to(0.6, { position: attackPos }),
+                        tween(this.node).call(() => {
+                            if (this.animator)
+                            this.scheduleOnce(() => {
+                                this.animator.play('attack');
+                            }, 0.01)
+                        this.scheduleOnce(() => {
+                            this.isAttack = false;
+                        }, 1)
+                        })
+                    ).start(); //                  
                 }
                 if (seeObjectName.includes('pin')) {
 
