@@ -186,6 +186,12 @@
     "movingTime": 0.5,
     "delayTime": 0.5,
     "jumpForce": null,
+    "moveRotation": {
+      "__type__": "cc.Vec3",
+      "x": 0,
+      "y": 90,
+      "z": 0
+    },
     "_id": ""
   },
   {
@@ -564,6 +570,12 @@
     "movingTime": 0.5,
     "delayTime": 0,
     "jumpForce": null,
+    "moveRotation": {
+      "__type__": "cc.Vec3",
+      "x": 0,
+      "y": -90,
+      "z": 0
+    },
     "_id": ""
   },
   {
@@ -1135,8 +1147,14 @@
     "isLock": false,
     "pointType": 7,
     "movingTime": 0.5,
-    "delayTime": 0,
+    "delayTime": 0.3,
     "jumpForce": null,
+    "moveRotation": {
+      "__type__": "cc.Vec3",
+      "x": 0,
+      "y": 0,
+      "z": 0
+    },
     "_id": ""
   },
   {

@@ -309,7 +309,7 @@ export class PlayerController extends Component {
         let desinationPoint = this.convertPositionToPlayerY(this.node.position, pointNode.getPosition());
         this.animator.play('run');
         //set huong quay mat
-        this.node.setRotationFromEuler(pointNode.getDirection())
+        this.node.setRotationFromEuler(pointNode.getDirection());
         tween(this.node).sequence(
             tween(this.node).to(pointNode.getMovingTime(), { worldPosition: desinationPoint }),
             //quay mat huong ra ngoai
@@ -331,16 +331,18 @@ export class PlayerController extends Component {
     private fall(pointNode: PointNode, finishcallback) {
         //set animation
         this.animator.play('midair');
-        this.scheduleOnce(() => {
-            //set animation khi roi xuong mat dat
-            this.animator.play('idle');
-            //delay 1 khoang de doi di den diem tiep theo
+        // tween(this.node).sequence(
+        // tween(this.node).to(.2,{eulerAngles: new Vec3(0, -90, 0)}),
+        // tween(this.node).call(()=>{
             this.scheduleOnce(() => {
-                finishcallback();
-            }, pointNode.getDelayTime());
-        }, pointNode.getMovingTime());
-
-
+                //set animation khi roi xuong mat dat
+                this.animator.play('idle');
+                //delay 1 khoang de doi di den diem tiep theo
+                this.scheduleOnce(() => {
+                    finishcallback();
+                }, pointNode.getDelayTime());
+            }, pointNode.getMovingTime());
+        // })).start();    
     }
     private jump(pointNode: PointNode, finishcallback) {
         this.animator.play('midair');
