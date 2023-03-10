@@ -38,7 +38,7 @@ export class PlayerController_remake extends Person {
         this.levelController = this.node.parent.getComponent(LevelController);
         //
         this.animator = this.node.getComponent(SkeletalAnimationComponent);
-        this.playJump();
+        // this.playJump();
         this.findPath();
 
     }
@@ -151,8 +151,8 @@ export class PlayerController_remake extends Person {
                     this.pointCount++;
                     this.checkPoint();
                 })
-            case PointType.swimL:
-                break;
+            // case PointType.swimL:
+            //     break;
         }
     }
     private teleIn(pointNode: PointNode, callback: () => void) {
@@ -402,7 +402,7 @@ export class PlayerController_remake extends Person {
             this.newX = this.node.position.x;
             deltaX = this.newX - this.oldX
             if(Math.abs(deltaX)>0.001){
-                this.playRun();
+                // this.playRun();
             }
             //check left or right
             this.checkMoveLeftOrRight(deltaX);
@@ -417,12 +417,12 @@ export class PlayerController_remake extends Person {
             deltaZ = this.newZ - this.oldZ
            
             if(Math.abs(deltaZ)>0.001){
-                this.playRun();
+                // this.playRun();
             }
             this.oldZ = this.newZ;
         }
         if(Math.abs(deltaX)<0.001 && Math.abs(deltaZ)<0.001&&this.notJump()&&this.notSwim()){
-            this.playIdle();
+            // this.playIdle();
         }
         
     }
