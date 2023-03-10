@@ -49,7 +49,7 @@ export class PlayerController extends Component {
 
     private onTriggerEnter(event: ITriggerEvent) {
         console.log('onTriggerEnter');
-        
+
         if (this.isOver) return;
         //
         let collisionNode: Node = event.otherCollider.node;
@@ -57,10 +57,10 @@ export class PlayerController extends Component {
         if (!this.isFindDoor) {
             //1.find door
             console.log('collider:', collisionNode);
-            
+
             if (collisionNode.name.includes(Configs.DOOR_NAME)) {
                 this.findDoor(collisionNode);
-                
+
             }
             //2.setdie
             if (collisionNode.name.includes(Configs.KILL_HUNTER) || collisionNode.name.includes(Configs.KILL_ALL_OBJ)) {
@@ -104,48 +104,53 @@ export class PlayerController extends Component {
     }
     //
     private findDoor(doorNode: Node) {
+        if (this.isOver) return;
+        this.isOver = true;
         if (this.isFindDoor) return;
         this.isFindDoor = true;
         //
         const simpleDoor = () => {
             //
             let doorPosition: Vec3 = null;
-            tween(this.node).sequence(
-                tween(this.node).call(() => {
-                    //open door
-                    doorNode.getComponent(Door).openDoor();
-                }),
-                //xoay nguoi lai huong door
-                tween(this.node).call(() => {
-                    doorPosition = new math.Vec3(doorNode.position.x + 0.3, this.node.position.y, this.node.position.z);
-                }),
-                tween(this.node).to(0.1, { position: doorPosition }),
-                tween(this.node).delay(0.5),
-                tween(this.node).to(0.2, { eulerAngles: new Vec3(0, 180, 0) }),
-                tween(this.node).call(() => {
-                    //do win animation;
-                    //this.playVictory();
-                    this.animator.play('run');
-                }),
-                tween(this.node).by(0.7, { position: new Vec3(0, 0, -0.4) }),
+            tween(this.node).delay(0.1),
+                tween(this.node).sequence(
+                    tween(this.node).call(() => {
+                        //open door
+                        doorNode.getComponent(Door).openDoor();
+                    }),
+                    //xoay nguoi lai huong door
+                    tween(this.node).call(() => {
+                        doorPosition = new math.Vec3(doorNode.position.x + 0.3, this.node.position.y, this.node.position.z);
+                    }),
+                    tween(this.node).to(0.1, { position: doorPosition }),
+                    tween(this.node).delay(0.5),
+                    tween(this.node).to(0.2, { eulerAngles: new Vec3(0, 180, 0) }),
+                    tween(this.node).call(() => {
+                        this.scheduleOnce(() => {
+                            this.animator.play('run');
+                        }, 0.01);
+                    }),
+                    tween(this.node).by(0.5, { position: new Vec3(0, 0, -0.4) }),
 
-                tween(this.node).delay(0.5),
-                //xoay nguoi huong ra ngoai 
-                tween(this.node).to(0.2, { eulerAngles: new Vec3(0, 0, 0) }),
-                tween(this.node).call(() => {
-                    //do win animation;
-                    //this.playVictory();
-                    this.animator.play('victory');
-                }),
-                tween(this.node).delay(1),
-                tween(this.node).call(() => {
-                    this.openDoorSuccess();
-                })
-            ).start();
+                    tween(this.node).delay(0.5),
+                    //xoay nguoi huong ra ngoai 
+                    tween(this.node).to(0.2, { eulerAngles: new Vec3(0, 0, 0) }),
+                    tween(this.node).delay(0.3),
+                    tween(this.node).call(() => {
+                        //do win animation;
+                        //this.playVictory();
+                        this.animator.play('victory');
+                    }),
+                    tween(this.node).delay(1),
+                    tween(this.node).call(() => {
+                        this.openDoorSuccess();
+                    })
+                ).start();
             //
         }
         const npcDoor = () => {
-            //npc point 
+            //npc point
+
             let standPoint = doorNode.getComponent(Door).getStandPoint();
             tween(this.node).sequence(
                 tween(this.node).call(() => {
@@ -157,8 +162,9 @@ export class PlayerController extends Component {
                 tween(this.node).to(0.2, { eulerAngles: new Vec3(0, 180, 0) }),
                 tween(this.node).call(() => {
                     //do win animation;
-                    //this.playVictory();
-                    this.animator.play('run');
+                    this.scheduleOnce(() => {
+                        this.animator.play('run');
+                    }, 0.01);
                 }),
                 tween(this.node).by(0.7, { position: new Vec3(0, 0, -0.4) }),
 
@@ -166,6 +172,7 @@ export class PlayerController extends Component {
                 //nhay vao ben trong va xoay doi dien voi npc
                 tween(this.node).to(0.2, { position: standPoint }),
                 tween(this.node).to(0.2, { eulerAngles: new Vec3(0, -90, 0) }),
+                tween(this.node).delay(0.3),
                 tween(this.node).call(() => {
                     //do win animation;
                     this.animator.play('victory');
@@ -238,6 +245,7 @@ export class PlayerController extends Component {
     }
     //
     private checkPointAndMove(pointNode: PointNode) {
+
         if (pointNode == null) {
             //end of way
             //khi khong tim duoc duong thi set lai
@@ -307,13 +315,15 @@ export class PlayerController extends Component {
     private run(pointNode: PointNode, finishcallback) {
         //set animation
         let desinationPoint = this.convertPositionToPlayerY(this.node.position, pointNode.getPosition());
-        this.animator.play('run');
+        this.scheduleOnce(() => {
+            this.animator.play('run');
+        }, 0.01);
         //set huong quay mat
         this.node.setRotationFromEuler(pointNode.getDirection());
         tween(this.node).sequence(
             tween(this.node).to(pointNode.getMovingTime(), { worldPosition: desinationPoint }),
             //quay mat huong ra ngoai
-            tween(this.node).to(.2, { eulerAngles: new Vec3(0, 90, 0) }),
+            //tween(this.node).to(.2, { eulerAngles: new Vec3(0, 90, 0) }),
             tween(this.node).call(() => {
                 //         
                 this.animator.play('idle')
@@ -329,19 +339,21 @@ export class PlayerController extends Component {
         this.animator.play('midair');
     }
     private fall(pointNode: PointNode, finishcallback) {
-        //set animation
-        this.animator.play('midair');
+        //set animation BUG animation
+        this.scheduleOnce(() => {
+            this.onMidAir();
+        }, 0.01)
         // tween(this.node).sequence(
         // tween(this.node).to(.2,{eulerAngles: new Vec3(0, -90, 0)}),
         // tween(this.node).call(()=>{
+        this.scheduleOnce(() => {
+            //set animation khi roi xuong mat dat
+            this.animator.play('idle');
+            //delay 1 khoang de doi di den diem tiep theo
             this.scheduleOnce(() => {
-                //set animation khi roi xuong mat dat
-                this.animator.play('idle');
-                //delay 1 khoang de doi di den diem tiep theo
-                this.scheduleOnce(() => {
-                    finishcallback();
-                }, pointNode.getDelayTime());
-            }, pointNode.getMovingTime());
+                finishcallback();
+            }, pointNode.getDelayTime());
+        }, pointNode.getMovingTime());
         // })).start();    
     }
     private jump(pointNode: PointNode, finishcallback) {
@@ -386,7 +398,9 @@ export class PlayerController extends Component {
         }, point.getDelayTime());
     }
     setDie() {
-        this.animator.play('die');
+        this.scheduleOnce(() => {
+            this.animator.play('die');
+        },0.01);
         this.isOver = true;
         //stop all tween
         //

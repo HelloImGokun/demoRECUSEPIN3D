@@ -9,10 +9,10 @@ export class Boar extends Component {
     //create a raycast
     LOG_NAME = null;
     isDie: boolean = false;
-    @property(PointNode)
-    private attactPoint: PointNode = null;
-    @property(CCBoolean)
-    private needEmitToPlayer: boolean = false;
+    // @property(PointNode)
+    // private attactPoint: PointNode = null;
+    // @property(CCBoolean)
+    // private needEmitToPlayer: boolean = false;
     start() {
         this.LOG_NAME = this.node.name;
         let collider = this.getComponent(Collider);
@@ -35,31 +35,34 @@ export class Boar extends Component {
                 if (otherNode && otherNode.active)
                     otherNode.getComponent(PlayerController_remake).setDie();
             }, 1)
-        } else if (name.includes(Configs.KILL_HUNTER)) {
-            //attack
-            if (this.isAttack) return;
-            this.isAttack = true;
-            this.animator.play('Attack');
-            this.scheduleOnce(() => {
-                //
-                this.isAttack = false;
-                //player
-                console.log('other node:', otherNode);
-                if (otherNode && otherNode.active)
-                    // otherNode.getComponent(Killer_hunter).setDie();
-                    console.log('other node:', otherNode);
-            }, 0.8)
+        // } else if (name.includes(Configs.KILL_HUNTER)) {
+        //     //attack
+        //     if (this.isAttack) return;
+        //     this.isAttack = true;
+        //     this.animator.play('Attack');
+        //     this.scheduleOnce(() => {
+        //         //
+        //         this.isAttack = false;
+        //         //player
+        //         console.log('other node:', otherNode);
+        //         if (otherNode && otherNode.active)
+        //             // otherNode.getComponent(Killer_hunter).setDie();
+        //             console.log('other node:', otherNode);
+        //     }, 0.8)
 
         } else if (name.includes(Configs.KILL_ALL_OBJ)) {
             //death
-            //mo khoa cho point
-            if (this.attactPoint) {
-                this.attactPoint.setUnlock();
-            }
+            // //mo khoa cho point
+            // if (this.attactPoint) {
+            //     this.attactPoint.setUnlock();
+            // }
             this.isDie = true;
             this.node.getComponent(RigidBody).isStatic = true;
             if (this.animator)
+            this.scheduleOnce(() => {
                 this.animator.play('Die');
+            }, 0.01)
+               
             // if (this.needEmitToPlayer) {
             //     eventTarget.emit('onListingAnimal', null);
             // }
@@ -82,13 +85,17 @@ export class Boar extends Component {
         if (PhysicsSystem.instance.raycastClosest(outRay, this.physicGroup, 3)) {
             let collider = PhysicsSystem.instance.raycastClosestResult.collider;
             let seeObjectName = collider.node.name;
-            console.log('Wild ray to', seeObjectName);
+            //console.log('Wild ray to', seeObjectName);//
             if (seeObjectName != this.node.name) {
-                if (seeObjectName.includes(Configs.PLAYER_NAME) || seeObjectName.includes(Configs.KILL_HUNTER)) {
+                if (seeObjectName.includes(Configs.PLAYER_NAME)) {
+                    //|| seeObjectName.includes(Configs.KILL_HUNTER)
                     //move to player
                     this.isAttack = true;
                     if (this.animator)
-                        this.animator.play('Attack');
+                        this.scheduleOnce(() => {
+                            this.animator.play('Attack');
+                        }, 0.01)
+                  
                     let desination = collider.node.position;
                     //range to imply effect: dis from attacker to player
                     let dis: number = 0.7;
@@ -104,12 +111,12 @@ export class Boar extends Component {
                     let attackPos = new Vec3(desination.x + dis, this.node.getPosition().y, desination.z);
                     tween(this.node).to(0.6, { position: attackPos }).start();
                     //reset
-                    if (seeObjectName.includes(Configs.PLAYER_NAME) || seeObjectName.includes(Configs.KILL_HUNTER)) {
-                        //game over
-                    } else {
-                        //restart
+                    // if (seeObjectName.includes(Configs.PLAYER_NAME) || seeObjectName.includes(Configs.KILL_HUNTER)) {
+                    //     //game over
+                    // } else {
+                    //     //restart
 
-                    }
+                    // }
 
                     this.scheduleOnce(() => {
 
