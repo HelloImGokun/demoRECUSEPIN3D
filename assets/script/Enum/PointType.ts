@@ -1,4 +1,5 @@
 export enum PointType {
+    idle=0,
     walk = 1,
     jump = 3,
     climb=4,

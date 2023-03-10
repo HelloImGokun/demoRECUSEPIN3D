@@ -35,7 +35,7 @@ export class Water extends Component {
                     //thong bao cho level mo pin => player check path
                     //thong bao cho player tim duong
                     collisionNode.getComponent(PlayerController).findPath();
-                },0.2)
+                },0.1);
              
             }
         }

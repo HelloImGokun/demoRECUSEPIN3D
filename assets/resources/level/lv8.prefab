@@ -2797,14 +2797,14 @@
     "delayTime": 1.5,
     "jumpForce": {
       "__type__": "cc.Vec3",
-      "x": 60,
+      "x": 70,
       "y": 300,
       "z": 0
     },
     "moveRotation": {
       "__type__": "cc.Vec3",
       "x": 0,
-      "y": 0,
+      "y": 90,
       "z": 0
     },
     "_id": ""

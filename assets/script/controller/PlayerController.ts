@@ -77,11 +77,13 @@ export class PlayerController extends Component {
         }
         //4.in water
         if (collisionNode.name.includes(Configs.WATER_COLLIDER_NAME)) {
+            if (this.isOver) return;
             //neu co phao => chuyen sang animation swim
             if (this.isFloat) {
                 //this.animator.play('swim');
             } else {
                 //die
+                this.isOver = true;
                 this.scheduleOnce(() => {
                     this.setDie();
                 }, 0.5)
@@ -265,6 +267,12 @@ export class PlayerController extends Component {
         //
         let pointType = pointNode.getPointType();
         switch (pointType) {
+            case PointType.idle:
+                this.idle(pointNode, () => {
+                    this.pointCount++;
+                    this.checkPoint();
+                });
+                 break;
             case PointType.walk:
                 //let desinationPoint: Vec3 = this.convertPositionToPlayerY(this.node.position, pointNode.getPosition())
                 this.run(pointNode, () => {
@@ -312,6 +320,18 @@ export class PlayerController extends Component {
                     this.checkPoint();
                 })
         }
+    }
+    //
+    private idle(pointNode: PointNode, finishCallback) {
+        this.scheduleOnce(() => {
+            this.animator.play('idle');
+        }, 0.01)
+        tween(this.node).call(() => {
+            //delay 1 khoang 
+            this.scheduleOnce(() => {
+                finishCallback();
+            }, pointNode.getDelayTime())
+        }).start();
     }
     //
     private run(pointNode: PointNode, finishcallback) {
@@ -376,7 +396,7 @@ export class PlayerController extends Component {
     private swim(pointNode: PointNode, finishcallback) {
         this.scheduleOnce(() => {
             this.animator.play('swim');
-        },0.01)
+        }, 0.01)
         let desinationPoint = this.convertPositionToPlayerY(this.node.position, pointNode.getPosition());
         this.node.setRotationFromEuler(pointNode.getDirection());
         tween(this.node).sequence(
@@ -389,7 +409,9 @@ export class PlayerController extends Component {
     protected climb(point: PointNode, finishCallback) {
         // this.playJump();
         this.node.setRotationFromEuler(point.getDirection())
-        this.animator.play('midair');
+        this.scheduleOnce(() => {
+            this.animator.play('midair');
+        }, 0.01)
         //cho 1 khoang thoi gian truoc khi nhay
         this.scheduleOnce(() => {
             this.isJumping = true;
@@ -398,7 +420,9 @@ export class PlayerController extends Component {
         }, point.getMovingTime());
         this.scheduleOnce(() => {
             this.isJumping = false;
-            this.animator.play('idle');
+            this.scheduleOnce(() => {
+                this.animator.play('idle');
+            }, 0.01)
             finishCallback();
         }, point.getDelayTime());
     }
