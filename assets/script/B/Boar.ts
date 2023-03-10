@@ -36,7 +36,7 @@ export class Boar extends Component {
                 //player
                 if (otherNode && otherNode.active)
                     otherNode.getComponent(PlayerController).setDie();
-            }, 1)
+            }, 0.5)
         // } else if (name.includes(Configs.KILL_HUNTER)) {
         //     //attack
         //     if (this.isAttack) return;

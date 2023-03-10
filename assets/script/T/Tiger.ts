@@ -33,7 +33,7 @@ export class Tiger extends Component {
                 if (otherNode && otherNode.active)
                     otherNode.getComponent(PlayerController).setDie();
 
-            }, 1)
+            }, 0.5)
         } else if (name.includes(Configs.KILL_ALL_OBJ)) {
             this.isDie = true;
             this.node.getComponent(RigidBody).isStatic = true;
