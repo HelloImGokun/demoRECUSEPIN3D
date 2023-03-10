@@ -137,9 +137,9 @@ export class PlayerController extends Component {
                     tween(this.node).to(0.2, { eulerAngles: new Vec3(0, 0, 0) }),
                     tween(this.node).delay(0.3),
                     tween(this.node).call(() => {
-                        //do win animation;
-                        //this.playVictory();
-                        this.animator.play('victory');
+                        this.scheduleOnce(() => {
+                            this.animator.play('victory'); 
+                        },0.01);
                     }),
                     tween(this.node).delay(1),
                     tween(this.node).call(() => {
@@ -357,7 +357,9 @@ export class PlayerController extends Component {
         // })).start();    
     }
     private jump(pointNode: PointNode, finishcallback) {
-        this.animator.play('midair');
+        this.scheduleOnce(() => {
+            this.animator.play('midair');
+        },0.01);
         this.node.setRotationFromEuler(pointNode.getDirection());
         this.rigidBody.applyForce(pointNode.getJumpForce());
         this.scheduleOnce(() => {

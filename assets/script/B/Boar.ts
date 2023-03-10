@@ -1,7 +1,7 @@
 import { _decorator, CCBoolean, Collider, Component, geometry, physics, PhysicsSystem, RigidBody, SkeletalAnimationComponent, tween, Vec3, ITriggerEvent, Node } from 'cc';
 import { Configs } from '../../utils/Configs';
 import { PointNode } from '../P/PointNode';
-import { PlayerController_remake } from '../P/PlayerController_remake';
+import { PlayerController } from '../controller/PlayerController';
 const { ccclass, property } = _decorator;
 @ccclass('Boar')
 export class Boar extends Component {
@@ -33,7 +33,7 @@ export class Boar extends Component {
                 this.isAttack = false;
                 //player
                 if (otherNode && otherNode.active)
-                    otherNode.getComponent(PlayerController_remake).setDie();
+                    otherNode.getComponent(PlayerController).setDie();
             }, 1)
         // } else if (name.includes(Configs.KILL_HUNTER)) {
         //     //attack
