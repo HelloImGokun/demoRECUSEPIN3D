@@ -37,27 +37,10 @@ export class Boar extends Component {
                 if (otherNode && otherNode.active)
                     otherNode.getComponent(PlayerController).setDie();
             }, 1)
-        // } else if (name.includes(Configs.KILL_HUNTER)) {
-        //     //attack
-        //     if (this.isAttack) return;
-        //     this.isAttack = true;
-        //     this.animator.play('Attack');
-        //     this.scheduleOnce(() => {
-        //         //
-        //         this.isAttack = false;
-        //         //player
-        //         console.log('other node:', otherNode);
-        //         if (otherNode && otherNode.active)
-        //             // otherNode.getComponent(Killer_hunter).setDie();
-        //             console.log('other node:', otherNode);
-        //     }, 0.8)
+   
 
         } else if (name.includes(Configs.KILL_ALL_OBJ)) {
-            //death
-            // //mo khoa cho point
-            // if (this.attactPoint) {
-            //     this.attactPoint.setUnlock();
-            // }
+           
             this.isDie = true;
             this.node.getComponent(RigidBody).isStatic = true;
             if (this.animator)

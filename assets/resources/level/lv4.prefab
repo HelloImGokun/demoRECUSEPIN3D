@@ -2430,7 +2430,7 @@
     "isLock": true,
     "pointType": 3,
     "movingTime": 0.5,
-    "delayTime": 0.5,
+    "delayTime": 0.2,
     "jumpForce": {
       "__type__": "cc.Vec3",
       "x": 150,
@@ -2525,7 +2525,7 @@
     "delayTime": 0.75,
     "jumpForce": {
       "__type__": "cc.Vec3",
-      "x": 100,
+      "x": 90,
       "y": 100,
       "z": 0
     },

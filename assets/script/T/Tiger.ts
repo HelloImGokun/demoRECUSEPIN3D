@@ -45,16 +45,6 @@ export class Tiger extends Component {
                 if (this.node)
                     this.node.destroy();
             }, 700);
-        } else if (name.includes(Configs.KILL_HUNTER)) {
-            //attack
-            if (this.isAttack) return;
-            this.isAttack = true;
-            this.scheduleOnce(() => {
-                this.animator.play('Attack');
-            }, 0.01);
-            this.scheduleOnce(() => {
-                this.isAttack = false;
-            }, 0.8)
         }
         //
     }
@@ -75,6 +65,12 @@ export class Tiger extends Component {
                         this.scheduleOnce(() => {
                             this.animator.play('Attack');
                         }, 0.01)
+                        this.scheduleOnce(() => {         
+                            this.isAttack = false;
+                        }, 2.33)
+                        this.scheduleOnce(() => {
+                            this.animator.play('Idle');
+                        },2.8)
 
                     let desination = collider.node.position;
                     //range to imply effect: dis from attacker to player
