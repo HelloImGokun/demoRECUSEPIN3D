@@ -84,7 +84,7 @@ export class PlayerController extends Component {
                 //die
                 this.scheduleOnce(() => {
                     this.setDie();
-                }, 1)
+                }, 0.5)
             }
         }
     }
@@ -138,8 +138,8 @@ export class PlayerController extends Component {
                     tween(this.node).delay(0.3),
                     tween(this.node).call(() => {
                         this.scheduleOnce(() => {
-                            this.animator.play('victory'); 
-                        },0.01);
+                            this.animator.play('victory');
+                        }, 0.01)
                     }),
                     tween(this.node).delay(1),
                     tween(this.node).call(() => {
@@ -175,7 +175,9 @@ export class PlayerController extends Component {
                 tween(this.node).delay(0.3),
                 tween(this.node).call(() => {
                     //do win animation;
-                    this.animator.play('victory');
+                    this.scheduleOnce(() => {
+                        this.animator.play('victory');
+                    }, 0.01)
                     //npc wave
                     doorNode.getComponent(Door).rescueNPC();
                 }),
@@ -359,7 +361,7 @@ export class PlayerController extends Component {
     private jump(pointNode: PointNode, finishcallback) {
         this.scheduleOnce(() => {
             this.animator.play('midair');
-        },0.01);
+        }, 0.01);
         this.node.setRotationFromEuler(pointNode.getDirection());
         this.rigidBody.applyForce(pointNode.getJumpForce());
         this.scheduleOnce(() => {
@@ -372,8 +374,9 @@ export class PlayerController extends Component {
         }, pointNode.getMovingTime())
     }
     private swim(pointNode: PointNode, finishcallback) {
-
-        this.animator.play('swim');
+        this.scheduleOnce(() => {
+            this.animator.play('swim');
+        },0.01)
         let desinationPoint = this.convertPositionToPlayerY(this.node.position, pointNode.getPosition());
         this.node.setRotationFromEuler(pointNode.getDirection());
         tween(this.node).sequence(
@@ -402,7 +405,7 @@ export class PlayerController extends Component {
     setDie() {
         this.scheduleOnce(() => {
             this.animator.play('die');
-        },0.01);
+        }, 0.01);
         this.isOver = true;
         //stop all tween
         //

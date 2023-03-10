@@ -575,7 +575,7 @@
     "__prefab": {
       "__id__": 30
     },
-    "isLock": true,
+    "isLock": false,
     "pointType": 1,
     "movingTime": 0.5,
     "delayTime": 0,

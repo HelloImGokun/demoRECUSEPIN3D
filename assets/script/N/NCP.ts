@@ -17,7 +17,9 @@ export class NCP extends Component {
         tween(this.node).sequence(
             tween(this.node).to(0.2,{eulerAngles:new Vec3(0,90,0)}),
             tween(this.node).call(()=>{
-                this.playerAnimator.play('victory');
+                this.scheduleOnce(()=>{
+                    this.playerAnimator.play('victory'); 
+                },0.01)
             })
    
         ).start();

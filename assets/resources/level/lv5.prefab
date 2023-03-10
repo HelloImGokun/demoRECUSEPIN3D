@@ -4322,7 +4322,7 @@
     },
     "isLock": true,
     "pointType": 7,
-    "movingTime": 1,
+    "movingTime": 0.5,
     "delayTime": 0,
     "jumpForce": null,
     "moveRotation": {
@@ -4420,7 +4420,7 @@
     "moveRotation": {
       "__type__": "cc.Vec3",
       "x": 0,
-      "y": 0,
+      "y": -90,
       "z": 0
     },
     "_id": ""
@@ -4754,7 +4754,7 @@
     "moveRotation": {
       "__type__": "cc.Vec3",
       "x": 0,
-      "y": 0,
+      "y": 90,
       "z": 0
     },
     "_id": ""

@@ -26,7 +26,9 @@ export class Tiger extends Component {
             //attack
             if (this.isAttack) return;
             this.isAttack = true;
-            this.animator.play('Attack');
+            this.scheduleOnce(() => {
+                this.animator.play('Attack');
+            },0.01)
             this.scheduleOnce(() => {
                 this.isAttack = false;
                 //player
