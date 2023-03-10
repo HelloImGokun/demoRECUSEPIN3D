@@ -5,10 +5,12 @@ import { PointNode } from '../P/PointNode';
 import { PointType } from '../Enum/PointType';
 import { LevelController } from './LevelController';
 import { Water } from '../W/Water';
+import { Door } from '../D/Door';
 const { ccclass, property } = _decorator;
 
 @ccclass('PlayerController')
 export class PlayerController extends Component {
+    private isFindDoor: boolean = false;
     private levelController: LevelController;
     private isFindingPath: boolean = false;
     //
@@ -46,12 +48,26 @@ export class PlayerController extends Component {
 
 
     private onTriggerEnter(event: ITriggerEvent) {
+        console.log('onTriggerEnter');
+        
         if (this.isOver) return;
         //
         let collisionNode: Node = event.otherCollider.node;
-        if (collisionNode.name.includes(Configs.KILL_HUNTER) || collisionNode.name.includes(Configs.KILL_ALL_OBJ)) {
-            this.setDie();
+        //
+        if (!this.isFindDoor) {
+            //1.find door
+            console.log('collider:', collisionNode);
+            
+            if (collisionNode.name.includes(Configs.DOOR_NAME)) {
+                this.findDoor(collisionNode);
+                
+            }
+            //2.setdie
+            if (collisionNode.name.includes(Configs.KILL_HUNTER) || collisionNode.name.includes(Configs.KILL_ALL_OBJ)) {
+                this.setDie();
+            }
         }
+        //3.bringfloat
         if (collisionNode.name.includes(Configs.FLOAT_NAME)) {
             if (this.isFloat) return;
             this.isFloat = true;
@@ -59,6 +75,7 @@ export class PlayerController extends Component {
                 this.attachFloat(collisionNode);
             }
         }
+        //4.in water
         if (collisionNode.name.includes(Configs.WATER_COLLIDER_NAME)) {
             //neu co phao => chuyen sang animation swim
             if (this.isFloat) {
@@ -68,13 +85,12 @@ export class PlayerController extends Component {
                 this.scheduleOnce(() => {
                     this.setDie();
                 }, 1)
-
             }
-
         }
     }
     //
     private onTriggerStay(event: ITriggerEvent) {
+        //5.stay in water
         if (this.isOver) return;
         if (event.otherCollider.name.includes(Configs.WATER_COLLIDER_NAME) && this.isFloat) {
             //if is jump return: Neu dang jump thi khong set y
@@ -84,6 +100,94 @@ export class PlayerController extends Component {
                 //this.rigidBody.useGravity=false;
                 this.node.setPosition(new math.Vec3(this.node.position.x, yPos, this.node.position.z));
             }
+        }
+    }
+    //
+    private findDoor(doorNode: Node) {
+        if (this.isFindDoor) return;
+        this.isFindDoor = true;
+        //
+        const simpleDoor = () => {
+            //
+            let doorPosition: Vec3 = null;
+            tween(this.node).sequence(
+                tween(this.node).call(() => {
+                    //open door
+                    doorNode.getComponent(Door).openDoor();
+                }),
+                //xoay nguoi lai huong door
+                tween(this.node).call(() => {
+                    doorPosition = new math.Vec3(doorNode.position.x + 0.3, this.node.position.y, this.node.position.z);
+                }),
+                tween(this.node).to(0.1, { position: doorPosition }),
+                tween(this.node).delay(0.5),
+                tween(this.node).to(0.2, { eulerAngles: new Vec3(0, 180, 0) }),
+                tween(this.node).call(() => {
+                    //do win animation;
+                    //this.playVictory();
+                    this.animator.play('run');
+                }),
+                tween(this.node).by(0.7, { position: new Vec3(0, 0, -0.4) }),
+
+                tween(this.node).delay(0.5),
+                //xoay nguoi huong ra ngoai 
+                tween(this.node).to(0.2, { eulerAngles: new Vec3(0, 0, 0) }),
+                tween(this.node).call(() => {
+                    //do win animation;
+                    //this.playVictory();
+                    this.animator.play('victory');
+                }),
+                tween(this.node).delay(1),
+                tween(this.node).call(() => {
+                    this.openDoorSuccess();
+                })
+            ).start();
+            //
+        }
+        const npcDoor = () => {
+            //npc point 
+            let standPoint = doorNode.getComponent(Door).getStandPoint();
+            tween(this.node).sequence(
+                tween(this.node).call(() => {
+                    //open door
+                    doorNode.getComponent(Door).openDoor();
+                }),
+                //xoay nguoi lai huong door
+                tween(this.node).delay(0.5),
+                tween(this.node).to(0.2, { eulerAngles: new Vec3(0, 180, 0) }),
+                tween(this.node).call(() => {
+                    //do win animation;
+                    //this.playVictory();
+                    this.animator.play('run');
+                }),
+                tween(this.node).by(0.7, { position: new Vec3(0, 0, -0.4) }),
+
+                tween(this.node).delay(0.5),
+                //nhay vao ben trong va xoay doi dien voi npc
+                tween(this.node).to(0.2, { position: standPoint }),
+                tween(this.node).to(0.2, { eulerAngles: new Vec3(0, -90, 0) }),
+                tween(this.node).call(() => {
+                    //do win animation;
+                    this.animator.play('victory');
+                    //npc wave
+                    doorNode.getComponent(Door).rescueNPC();
+                }),
+                tween(this.node).delay(1),
+                tween(this.node).call(() => {
+                    this.openDoorSuccess();
+                })
+
+
+            ).start();
+        }
+        //
+        //door npc
+        if (doorNode.getComponent(Door).getIsNPC()) {
+            //npc
+            npcDoor();
+        } else {
+            //door thuong
+            simpleDoor();
         }
     }
     //

@@ -464,8 +464,8 @@
     "door": {
       "__id__": 2
     },
-    "isNPC": false,
     "standPointNode": null,
+    "npc": null,
     "_id": ""
   },
   {
@@ -481,6 +481,7 @@
       "__id__": 0
     },
     "fileId": "46oLHCSh1TzIim0ahF62qF",
+    "instance": null,
     "targetOverrides": null
   }
 ]
