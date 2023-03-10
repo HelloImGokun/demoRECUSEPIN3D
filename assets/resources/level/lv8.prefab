@@ -1686,7 +1686,7 @@
     "propertyPath": [
       "_name"
     ],
-    "value": "killer_remake"
+    "value": "killer_hunter"
   },
   {
     "__type__": "cc.TargetInfo",
@@ -2407,6 +2407,12 @@
     "movingTime": 0.7,
     "delayTime": 0,
     "jumpForce": null,
+    "moveRotation": {
+      "__type__": "cc.Vec3",
+      "x": 0,
+      "y": 0,
+      "z": 0
+    },
     "_id": ""
   },
   {
@@ -2596,6 +2602,12 @@
     "movingTime": 1,
     "delayTime": 0,
     "jumpForce": null,
+    "moveRotation": {
+      "__type__": "cc.Vec3",
+      "x": 0,
+      "y": 0,
+      "z": 0
+    },
     "_id": ""
   },
   {
@@ -2677,6 +2689,12 @@
     "movingTime": 1,
     "delayTime": 0,
     "jumpForce": null,
+    "moveRotation": {
+      "__type__": "cc.Vec3",
+      "x": 0,
+      "y": 0,
+      "z": 0
+    },
     "_id": ""
   },
   {
@@ -2762,6 +2780,12 @@
       "y": 300,
       "z": 0
     },
+    "moveRotation": {
+      "__type__": "cc.Vec3",
+      "x": 0,
+      "y": 0,
+      "z": 0
+    },
     "_id": ""
   },
   {
@@ -2843,6 +2867,12 @@
     "movingTime": 0.3,
     "delayTime": 0,
     "jumpForce": null,
+    "moveRotation": {
+      "__type__": "cc.Vec3",
+      "x": 0,
+      "y": 0,
+      "z": 0
+    },
     "_id": ""
   },
   {

@@ -37,13 +37,10 @@
       },
       {
         "__id__": 73
-      },
-      {
-        "__id__": 75
       }
     ],
     "_prefab": {
-      "__id__": 77
+      "__id__": 75
     },
     "_lpos": {
       "__type__": "cc.Vec3",
@@ -2058,33 +2055,6 @@
     "fileId": "fdhclcANBDD4REliOZFpJ9"
   },
   {
-    "__type__": "72814hbMhJN5pcgT6CCwEEF",
-    "_name": "",
-    "_objFlags": 0,
-    "node": {
-      "__id__": 1
-    },
-    "_enabled": true,
-    "__prefab": {
-      "__id__": 74
-    },
-    "animationController": {
-      "__id__": 75
-    },
-    "rigidBody": {
-      "__id__": 69
-    },
-    "collider": {
-      "__id__": 67
-    },
-    "neckNode": null,
-    "_id": ""
-  },
-  {
-    "__type__": "cc.CompPrefabInfo",
-    "fileId": "bb0Rpc1RhONYjANUCxPzvh"
-  },
-  {
     "__type__": "cc.animation.AnimationController",
     "_name": "",
     "_objFlags": 0,
@@ -2093,7 +2063,7 @@
     },
     "_enabled": true,
     "__prefab": {
-      "__id__": 76
+      "__id__": 74
     },
     "graph": {
       "__uuid__": "58aa6983-bb0e-487b-9203-d1e064018131",
@@ -2114,6 +2084,7 @@
       "__id__": 0
     },
     "fileId": "39Zv2j/TlEXpj4phrWd2DL",
-    "instance": null
+    "instance": null,
+    "targetOverrides": null
   }
 ]
