@@ -17,9 +17,9 @@ export class PointNode extends Component {
     private delayTime:number = 0;
 
     @property(Vec3)
-    private jumpForce:Vec3 | null  = null
+    private jumpForce:Vec3 | null  = new Vec3(0, 0, 0);
     @property(Vec3)
-    private moveRotation:Vec3 | null = null;
+    private moveRotation:Vec3 | null = new Vec3(0, 0, 0);
     //@property()
     //animation
 

@@ -62,7 +62,7 @@ export class PlayerController extends Component {
         if (collisionNode.name.includes(Configs.WATER_COLLIDER_NAME)) {
             //neu co phao => chuyen sang animation swim
             if (this.isFloat) {
-                this.animator.play('swim');
+                //this.animator.play('swim');
             } else {
                 //die
                 this.scheduleOnce(() => {
@@ -179,13 +179,13 @@ export class PlayerController extends Component {
                     this.checkPoint();
                 });
                 break;
-                case PointType.climb:
-                    this.climb(pointNode, () => {
-                        this.pointCount++;
-                        this.checkPoint();
-                    })
-    
-                    break;
+            case PointType.climb:
+                this.climb(pointNode, () => {
+                    this.pointCount++;
+                    this.checkPoint();
+                })
+
+                break;
             case PointType.teleout:
                 this.teleout(pointNode, () => {
                     this.pointCount++;
@@ -221,6 +221,9 @@ export class PlayerController extends Component {
         ).start();
 
     }
+    public onMidAir() {
+        this.animator.play('midair');
+    }
     private fall(pointNode: PointNode, finishcallback) {
         //set animation
         this.animator.play('midair');
@@ -249,8 +252,10 @@ export class PlayerController extends Component {
         }, pointNode.getMovingTime())
     }
     private swim(pointNode: PointNode, finishcallback) {
+
         this.animator.play('swim');
         let desinationPoint = this.convertPositionToPlayerY(this.node.position, pointNode.getPosition());
+        this.node.setRotationFromEuler(pointNode.getDirection());
         tween(this.node).sequence(
             tween(this.node).to(pointNode.getMovingTime(), { worldPosition: desinationPoint }),
             tween(this.node).call(() => {
@@ -262,16 +267,18 @@ export class PlayerController extends Component {
         // this.playJump();
         this.node.setRotationFromEuler(point.getDirection())
         this.animator.play('midair');
-         this.scheduleOnce(() => {
-             this.isJumping = true;
-             this.rigidBody.clearState();
-             this.rigidBody.applyForce(point.getJumpForce());
-         }, point.getMovingTime());
-         this.scheduleOnce(() => {
-             this.isJumping = false;
-             finishCallback();
-         }, point.getDelayTime());
-     }
+        //cho 1 khoang thoi gian truoc khi nhay
+        this.scheduleOnce(() => {
+            this.isJumping = true;
+            this.rigidBody.clearState();
+            this.rigidBody.applyForce(point.getJumpForce());
+        }, point.getMovingTime());
+        this.scheduleOnce(() => {
+            this.isJumping = false;
+            this.animator.play('idle');
+            finishCallback();
+        }, point.getDelayTime());
+    }
     setDie() {
         this.animator.play('die');
         this.isOver = true;

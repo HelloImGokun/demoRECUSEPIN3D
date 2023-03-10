@@ -2102,7 +2102,7 @@
     },
     "_lpos": {
       "__type__": "cc.Vec3",
-      "x": -1.274,
+      "x": -0.81,
       "y": 1.941,
       "z": 0
     },
@@ -2257,11 +2257,16 @@
       "__id__": 128
     },
     "isLock": true,
-    "pointType": 7,
-    "movingTime": 1,
-    "delayTime": 1.25,
+    "pointType": 1,
+    "movingTime": 0.5,
+    "delayTime": 0,
     "jumpForce": null,
-    "moveForce": null,
+    "moveRotation": {
+      "__type__": "cc.Vec3",
+      "x": 0,
+      "y": 90,
+      "z": 0
+    },
     "_id": ""
   },
   {
@@ -2404,8 +2409,8 @@
     },
     "_shadowCastingMode": 0,
     "_shadowReceivingMode": 1,
-    "_shadowBias": 0,
-    "_shadowNormalBias": 0,
+    "_shadowBias": null,
+    "_shadowNormalBias": null,
     "_enableMorph": true,
     "_id": ""
   },
@@ -2462,8 +2467,18 @@
     "pointType": 1,
     "movingTime": 0.5,
     "delayTime": 0.5,
-    "jumpForce": null,
-    "moveForce": null,
+    "jumpForce": {
+      "__type__": "cc.Vec3",
+      "x": 0,
+      "y": 0,
+      "z": 0
+    },
+    "moveRotation": {
+      "__type__": "cc.Vec3",
+      "x": 0,
+      "y": 90,
+      "z": 0
+    },
     "_id": ""
   },
   {
@@ -2665,7 +2680,12 @@
     "movingTime": 0.5,
     "delayTime": 0.5,
     "jumpForce": null,
-    "moveForce": null,
+    "moveRotation": {
+      "__type__": "cc.Vec3",
+      "x": 0,
+      "y": 90,
+      "z": 0
+    },
     "_id": ""
   },
   {
@@ -2867,7 +2887,12 @@
     "movingTime": 0,
     "delayTime": 1.25,
     "jumpForce": null,
-    "moveForce": null,
+    "moveRotation": {
+      "__type__": "cc.Vec3",
+      "x": 0,
+      "y": 90,
+      "z": 0
+    },
     "_id": ""
   },
   {
@@ -3069,7 +3094,12 @@
     "movingTime": 0.5,
     "delayTime": 0.5,
     "jumpForce": null,
-    "moveForce": null,
+    "moveRotation": {
+      "__type__": "cc.Vec3",
+      "x": 0,
+      "y": 90,
+      "z": 0
+    },
     "_id": ""
   },
   {
@@ -3271,7 +3301,12 @@
     "movingTime": 1,
     "delayTime": 0.5,
     "jumpForce": null,
-    "moveForce": null,
+    "moveRotation": {
+      "__type__": "cc.Vec3",
+      "x": 0,
+      "y": 90,
+      "z": 0
+    },
     "_id": ""
   },
   {
@@ -3470,10 +3505,15 @@
     },
     "isLock": false,
     "pointType": 9,
-    "movingTime": 0,
-    "delayTime": 0,
+    "movingTime": 0.5,
+    "delayTime": 0.5,
     "jumpForce": null,
-    "moveForce": null,
+    "moveRotation": {
+      "__type__": "cc.Vec3",
+      "x": 0,
+      "y": 90,
+      "z": 0
+    },
     "_id": ""
   },
   {

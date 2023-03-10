@@ -1439,7 +1439,7 @@
     "_lscale": {
       "__type__": "cc.Vec3",
       "x": 2.15,
-      "y": 1.2,
+      "y": 1.5,
       "z": 1
     },
     "_mobility": 0,
@@ -2352,7 +2352,7 @@
     "isLock": false,
     "pointType": 4,
     "movingTime": 0.5,
-    "delayTime": 1.5,
+    "delayTime": 1.2,
     "jumpForce": {
       "__type__": "cc.Vec3",
       "x": -100,
@@ -2646,7 +2646,7 @@
     },
     "isLock": true,
     "pointType": 5,
-    "movingTime": 0.4,
+    "movingTime": 1,
     "delayTime": 0,
     "jumpForce": null,
     "moveRotation": {

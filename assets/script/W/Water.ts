@@ -28,12 +28,14 @@ export class Water extends Component {
             //unlock
             console.log('trigger',collisionNode.name);
             if(this.attachPathNode && collisionNode.getComponent(PlayerController).getIsFloat()){
+                //khi roi xuong nuoc => chuyen sang trai thai midair
+                collisionNode.getComponent(PlayerController).onMidAir();
                 this.scheduleOnce(()=>{
                     this.attachPathNode.getComponent(PointNode).setUnlock();
                     //thong bao cho level mo pin => player check path
                     //thong bao cho player tim duong
                     collisionNode.getComponent(PlayerController).findPath();
-                },0.5)
+                },0.2)
              
             }
         }
