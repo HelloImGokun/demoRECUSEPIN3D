@@ -10,12 +10,10 @@ export class Gun extends Component {
     direction: number = 1;
     start() {
         // [3]
-        setInterval(() => {
+        this.fire();
+        this.schedule(()=>{
             this.fire();
-        }, 9000);
-        setTimeout(() => {
-            this.fire();
-        }, 3000);
+        },5,100);
     }
     fire() {
         if (this.bulletPrefab) {

@@ -19,35 +19,28 @@ export class Killer_hunter extends Component {
     private onTriggerEnter(event: ITriggerEvent) {
         let otherNode: Node = event.otherCollider.node;
         let name = otherNode.name;
-
+        console.log(name);
         if (name.includes(Configs.PLAYER_NAME)) {
             //attack
             if (this.isAttack) return;
             this.isAttack = true;
             this.scheduleOnce(() => {
                 this.animator.play('attack');
-            },0.01);
-            this.scheduleOnce(() => {
-                this.isAttack = false;
-                //player
+                //
                 if (otherNode && otherNode.active)
                     otherNode.getComponent(PlayerController).setDie();
-            }, 2)
+                //
+            },0.01);
+            // this.scheduleOnce(() => {
+            //     this.isAttack = false;
+            //     //player
+
+            // }, 2)
    
 
         } else if (name.includes(Configs.KILL_ALL_OBJ)) {
            
-            this.isDie = true;
-            // this.node.getComponent(RigidBody).isStatic = true;
-            if (this.animator)
-            this.scheduleOnce(() => {
-                this.animator.play('die');
-            }, 0.01)
-            setTimeout(() => {
-                if (this.node)
-                    this.node.destroy();
-            }, 700);
-
+            this.setDie();
 
         }
     }
@@ -65,8 +58,7 @@ export class Killer_hunter extends Component {
             //console.log('Wild ray to', seeObjectName);//
             if (seeObjectName != this.node.name) {
                 if (seeObjectName.includes(Configs.PLAYER_NAME)) {
-                    //move to player
-                    this.isAttack = true;                          
+                    //move to player                  
                     let desination = collider.node.position;
                     //range to imply effect: dis from attacker to player
                     let dis: number = 0.1;
@@ -86,18 +78,19 @@ export class Killer_hunter extends Component {
                         this.animator.play('run');
                     },0.01);
                     //sequence
-                    tween(this.node).sequence(
-                        tween(this.node).to(0.6, { position: attackPos }),
-                        tween(this.node).call(() => {
-                            if (this.animator)
-                            this.scheduleOnce(() => {
-                                this.animator.play('attack');
-                            }, 0.01)
-                        this.scheduleOnce(() => {
-                            this.isAttack = false;
-                        }, 1)
-                        })
-                    ).start(); //                  
+                    // tween(this.node).sequence(
+                    //    // tween(this.node).to(0.6, { position: attackPos }),
+                    //     // tween(this.node).call(() => {
+                    //     //     if (this.animator)
+                    //     //     this.scheduleOnce(() => {
+                    //     //         this.animator.play('attack');
+                    //     //     }, 0.01)
+                    //     // this.scheduleOnce(() => {
+                    //     //     this.isAttack = false;
+                    //     // }, 1)
+                    //     // })
+                    // ).start(); //   
+                    tween(this.node).to(0.6, { position: attackPos }).start();               
                 }
                 if (seeObjectName.includes('pin')) {
 
@@ -107,6 +100,19 @@ export class Killer_hunter extends Component {
         } else {
 
         }
+
+    }
+    setDie(){
+        this.isDie = true;
+        // this.node.getComponent(RigidBody).isStatic = true;
+        if (this.animator)
+        this.scheduleOnce(() => {
+            this.animator.play('die');
+        }, 0.01)
+        setTimeout(() => {
+            if (this.node)
+                this.node.destroy();
+        }, 700);
 
     }
     timeCount: number = 0;

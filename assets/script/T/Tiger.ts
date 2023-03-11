@@ -20,6 +20,7 @@ export class Tiger extends Component {
     }
     private onTriggerEnter(event: ITriggerEvent) {
         let otherNode: Node = event.otherCollider.node;
+
         let name = otherNode.name;
         // lao vao nguoi tan cong
         if (name.includes(Configs.PLAYER_NAME)) {
@@ -28,14 +29,11 @@ export class Tiger extends Component {
             this.isAttack = true;
             this.scheduleOnce(() => {
                 this.animator.play('Attack');
-            },0.01)
-            this.scheduleOnce(() => {
-                this.isAttack = false;
-                //player
-                if (otherNode && otherNode.active)
-                    otherNode.getComponent(PlayerController).setDie();
-
-            }, 1)
+            }, 0.01)
+            this.isAttack = false;
+            //player
+            if (otherNode)
+                otherNode.getComponent(PlayerController).setDie();
         } else if (name.includes(Configs.KILL_ALL_OBJ)) {
             this.isDie = true;
             this.node.getComponent(RigidBody).isStatic = true;
@@ -67,12 +65,12 @@ export class Tiger extends Component {
                         this.scheduleOnce(() => {
                             this.animator.play('Attack');
                         }, 0.01)
-                        this.scheduleOnce(() => {         
-                            this.isAttack = false;
-                        }, 2.33)
-                        this.scheduleOnce(() => {
-                            this.animator.play('Idle');
-                        },2.8)
+                    this.scheduleOnce(() => {
+                        this.isAttack = false;
+                    }, 2.33)
+                    this.scheduleOnce(() => {
+                        this.animator.play('Idle');
+                    }, 2.8)
 
                     let desination = collider.node.position;
                     //range to imply effect: dis from attacker to player
@@ -100,7 +98,7 @@ export class Tiger extends Component {
             }
         } else {
             //donothing
-            }
+        }
     }
     timeCount: number = 0;
     //scan rating and action, scan every time unit

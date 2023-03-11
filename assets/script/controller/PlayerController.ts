@@ -132,9 +132,7 @@ export class PlayerController extends Component {
                     tween(this.node).delay(0.5),
                     tween(this.node).to(0.2, { eulerAngles: new Vec3(0, 180, 0) }),
                     tween(this.node).call(() => {
-                        this.scheduleOnce(() => {
-                            this.animator.play('run');
-                        }, 0.01);
+                        this.playAnimation('run');
                     }),
                     tween(this.node).by(0.5, { position: new Vec3(0, 0, -0.4) }),
 
@@ -143,9 +141,7 @@ export class PlayerController extends Component {
                     tween(this.node).to(0.2, { eulerAngles: new Vec3(0, 0, 0) }),
                     tween(this.node).delay(0.3),
                     tween(this.node).call(() => {
-                        this.scheduleOnce(() => {
-                            this.animator.play('victory');
-                        }, 0.01)
+                        this.playAnimation('victory');
                     }),
                     tween(this.node).delay(1),
                     tween(this.node).call(() => {
@@ -168,9 +164,7 @@ export class PlayerController extends Component {
                 tween(this.node).to(0.2, { eulerAngles: new Vec3(0, 180, 0) }),
                 tween(this.node).call(() => {
                     //do win animation;
-                    this.scheduleOnce(() => {
-                        this.animator.play('run');
-                    }, 0.01);
+                    this.playAnimation('run');
                 }),
                 tween(this.node).by(0.7, { position: new Vec3(0, 0, -0.4) }),
 
@@ -181,9 +175,7 @@ export class PlayerController extends Component {
                 tween(this.node).delay(0.3),
                 tween(this.node).call(() => {
                     //do win animation;
-                    this.scheduleOnce(() => {
-                        this.animator.play('victory');
-                    }, 0.01)
+                    this.playAnimation('victory');
                     //npc wave
                     doorNode.getComponent(Door).rescueNPC();
                 }),
@@ -327,9 +319,8 @@ export class PlayerController extends Component {
     }
     //
     private idle(pointNode: PointNode, finishCallback) {
-        this.scheduleOnce(() => {
-            this.animator.play('idle');
-        }, 0.01)
+
+        this.playAnimation('idle');
         tween(this.node).call(() => {
             //delay 1 khoang 
             this.scheduleOnce(() => {
@@ -341,9 +332,7 @@ export class PlayerController extends Component {
     private run(pointNode: PointNode, finishcallback) {
         //set animation
         let desinationPoint = this.convertPositionToPlayerY(this.node.position, pointNode.getPosition());
-        this.scheduleOnce(() => {
-            this.animator.play('run');
-        }, 0.01);
+        this.playAnimation('run');
         //set huong quay mat
         this.node.setRotationFromEuler(pointNode.getDirection());
         tween(this.node).sequence(
@@ -352,7 +341,7 @@ export class PlayerController extends Component {
             //tween(this.node).to(.2, { eulerAngles: new Vec3(0, 90, 0) }),
             tween(this.node).call(() => {
                 //         
-                this.animator.play('idle')
+                this.playAnimation('idle');
                 //delay 1 khoang 
                 this.scheduleOnce(() => {
                     finishcallback();
@@ -363,9 +352,7 @@ export class PlayerController extends Component {
     }
     public onMidAir() {
 
-        this.scheduleOnce(() => {
-            this.animator.play('midair');
-        }, 0.01)
+        this.playAnimation('midair');
     }
     private fall(pointNode: PointNode, finishcallback) {
         //set animation BUG animation
@@ -375,8 +362,7 @@ export class PlayerController extends Component {
         // tween(this.node).call(()=>{
         this.scheduleOnce(() => {
             //set animation khi roi xuong mat dat
-
-            this.animator.play('idle');
+            this.playAnimation('idle');
             //delay 1 khoang de doi di den diem tiep theo
             this.scheduleOnce(() => {
                 finishcallback();
@@ -384,15 +370,14 @@ export class PlayerController extends Component {
         }, pointNode.getMovingTime());
         // })).start();    
     }
+    
     private jump(pointNode: PointNode, finishcallback) {
-        this.scheduleOnce(() => {
-            this.animator.play('midair');
-        }, 0.01);
+        this.playAnimation('midair');
         this.node.setRotationFromEuler(pointNode.getDirection());
         this.rigidBody.applyForce(pointNode.getJumpForce());
         this.scheduleOnce(() => {
             //tra ve animation sau khi nhay xong
-            this.animator.play('idle');
+            this.playAnimation('idle');
             //delay 1 khoang cho den point tiep theo
             this.scheduleOnce(() => {
                 finishcallback();
@@ -400,9 +385,7 @@ export class PlayerController extends Component {
         }, pointNode.getMovingTime())
     }
     private swim(pointNode: PointNode, finishcallback) {
-        this.scheduleOnce(() => {
-            this.animator.play('swim');
-        }, 0.01)
+        this.playAnimation('swim');
         let desinationPoint = this.convertPositionToPlayerY(this.node.position, pointNode.getPosition());
         this.node.setRotationFromEuler(pointNode.getDirection());
         tween(this.node).sequence(
@@ -415,9 +398,7 @@ export class PlayerController extends Component {
     protected climb(point: PointNode, finishCallback) {
         // this.playJump();
         this.node.setRotationFromEuler(point.getDirection())
-        this.scheduleOnce(() => {
-            this.animator.play('midair');
-        }, 0.01)
+        this.playAnimation('midair');
         //cho 1 khoang thoi gian truoc khi nhay
         this.scheduleOnce(() => {
             this.isJumping = true;
@@ -427,20 +408,15 @@ export class PlayerController extends Component {
         //luc nay player da o tren mat dat roi
         this.scheduleOnce(() => {
             this.isJumping = false;
-            this.scheduleOnce(() => {
-                this.animator.play('idle');
-            }, 0.01)
+            this.playAnimation('idle');
             finishCallback();
         }, point.getDelayTime());
     }
     setDie() {
         if(this.isOver) return;
         this.isOver = true;
-
-        this.scheduleOnce(() => {
-            console.log('die');
-            this.animator.play('die');
-        }, 0.1);
+        console.log('set dide');
+        this.playAnimation('die');
 
         //stop all tween
         //
@@ -469,7 +445,7 @@ export class PlayerController extends Component {
 
     }
     private teleIn(pointNode: PointNode, callback: () => void) {
-        this.animator.play('midair');
+        this.playAnimation('midair');
         this.node.setRotationFromEuler(pointNode.getDirection());
         this.node.setPosition(pointNode.getPosition());
         tween(this.node).sequence(
@@ -480,15 +456,13 @@ export class PlayerController extends Component {
             }),
             tween(this.node).by(0.5, { position: new Vec3(0, -0.5, 0) }),
             tween(this.node).call(() => {
-                this.animator.play('idle');
+                this.playAnimation('idle');
                 callback();
             })
         ).start();
     }
     private teleout(pointNode: PointNode, callback) {
-        this.scheduleOnce(() => {
-            this.animator.play('midair');
-        },0.01);
+        this.playAnimation('midair');
         this.node.setRotationFromEuler(pointNode.getDirection());
         this.node.setPosition(pointNode.getPosition());
         tween(this.node).sequence(
@@ -499,7 +473,7 @@ export class PlayerController extends Component {
                 this.rigidBody.isDynamic = true;
             }),
             tween(this.node).call(() => {
-                this.animator.play('idle');
+                this.playAnimation('idle');
                 //
                 this.scheduleOnce(() => {
                     callback();
@@ -520,5 +494,17 @@ export class PlayerController extends Component {
     }
     public getIsFloat() {
         return this.isFloat;
+    }
+    //play animation
+    isOverAnnn:boolean=false;
+    private playAnimation(annString:string){
+        //da die or victory thi se khong chuyen ann nua
+        if(this.isOverAnnn) return;
+        if(annString=='die' || annString == 'victory') this.isOverAnnn = true;
+        //if(this.isOver) return;
+        this.scheduleOnce(()=>{
+            this.animator.play(annString);
+        },0.01)
+
     }
 }

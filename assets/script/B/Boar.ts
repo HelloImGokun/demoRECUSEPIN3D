@@ -21,9 +21,9 @@ export class Boar extends Component {
         this.animator.play('Idle')
     }
     private onTriggerEnter(event: ITriggerEvent) {
+        console.log(event.otherCollider.node.name);
         let otherNode: Node = event.otherCollider.node;
         let name = otherNode.name;
-
         if (name.includes(Configs.PLAYER_NAME)) {
             //attack              
             if (this.isAttack) return;
@@ -66,6 +66,7 @@ export class Boar extends Component {
             let seeObjectName = collider.node.name;
             //console.log('Wild ray to', seeObjectName);//
             if (seeObjectName != this.node.name) {
+                //return;
                 if (seeObjectName.includes(Configs.PLAYER_NAME)) {
                     //move to player
                     // this.isAttack = true;
