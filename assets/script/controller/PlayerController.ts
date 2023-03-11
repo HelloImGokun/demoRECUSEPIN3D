@@ -48,7 +48,6 @@ export class PlayerController extends Component {
 
 
     private onTriggerEnter(event: ITriggerEvent) {
-        console.log('onTriggerEnter');
 
         if (this.isOver) return;
         //
@@ -63,7 +62,7 @@ export class PlayerController extends Component {
 
             }
             //2.setdie
-            if (collisionNode.name.includes(Configs.KILL_HUNTER) || collisionNode.name.includes(Configs.KILL_ALL_OBJ)) {
+            if (collisionNode.name.includes(Configs.KILL_ALL_OBJ)) {
                 this.setDie();
             }
         }
@@ -376,6 +375,7 @@ export class PlayerController extends Component {
         // tween(this.node).call(()=>{
         this.scheduleOnce(() => {
             //set animation khi roi xuong mat dat
+
             this.animator.play('idle');
             //delay 1 khoang de doi di den diem tiep theo
             this.scheduleOnce(() => {
@@ -434,10 +434,14 @@ export class PlayerController extends Component {
         }, point.getDelayTime());
     }
     setDie() {
-        this.scheduleOnce(() => {
-            this.animator.play('die');
-        }, 0.01);
+        if(this.isOver) return;
         this.isOver = true;
+
+        this.scheduleOnce(() => {
+            console.log('die');
+            this.animator.play('die');
+        }, 0.1);
+
         //stop all tween
         //
         Tween.stopAllByTarget(this.node);

@@ -1,0 +1,83 @@
+{
+  "ver": "2.3.3",
+  "importer": "fbx",
+  "imported": true,
+  "uuid": "c77f5da3-2e86-4301-b800-eb76a6ff494a",
+  "files": [
+    "__original-animation-0.cconb"
+  ],
+  "subMetas": {
+    "cf5ee": {
+      "importer": "gltf-animation",
+      "uuid": "c77f5da3-2e86-4301-b800-eb76a6ff494a@cf5ee",
+      "displayName": "",
+      "id": "cf5ee",
+      "name": "run.animation",
+      "userData": {
+        "gltfIndex": 0,
+        "wrapMode": 2,
+        "sample": 30,
+        "span": {
+          "from": 0,
+          "to": 1.6666666269302368
+        },
+        "events": []
+      },
+      "ver": "1.0.16",
+      "imported": true,
+      "files": [
+        ".cconb"
+      ],
+      "subMetas": {}
+    },
+    "cb9cd": {
+      "importer": "gltf-scene",
+      "uuid": "c77f5da3-2e86-4301-b800-eb76a6ff494a@cb9cd",
+      "displayName": "",
+      "id": "cb9cd",
+      "name": "free_sample_zombie@zombie_walk_forward.prefab",
+      "userData": {
+        "gltfIndex": 0
+      },
+      "ver": "1.0.12",
+      "imported": true,
+      "files": [
+        ".json"
+      ],
+      "subMetas": {}
+    }
+  },
+  "userData": {
+    "imageMetas": [],
+    "legacyFbxImporter": false,
+    "animationImportSettings": [
+      {
+        "name": "Take 001",
+        "duration": 1.6666666269302368,
+        "fps": 30,
+        "splits": [
+          {
+            "name": "run",
+            "from": 0,
+            "to": 1.6666666269302368,
+            "wrapMode": 2
+          }
+        ]
+      }
+    ],
+    "redirect": "c77f5da3-2e86-4301-b800-eb76a6ff494a@cb9cd",
+    "assetFinder": {
+      "meshes": [],
+      "skeletons": [],
+      "textures": [],
+      "materials": [],
+      "scenes": [
+        "c77f5da3-2e86-4301-b800-eb76a6ff494a@cb9cd"
+      ]
+    },
+    "fbx": {
+      "preferLocalTimeSpan": false,
+      "smartMaterialEnabled": false
+    }
+  }
+}

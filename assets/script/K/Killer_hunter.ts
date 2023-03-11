@@ -38,7 +38,7 @@ export class Killer_hunter extends Component {
         } else if (name.includes(Configs.KILL_ALL_OBJ)) {
            
             this.isDie = true;
-            this.node.getComponent(RigidBody).isStatic = true;
+            // this.node.getComponent(RigidBody).isStatic = true;
             if (this.animator)
             this.scheduleOnce(() => {
                 this.animator.play('die');

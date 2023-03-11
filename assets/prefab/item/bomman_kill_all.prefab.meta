@@ -2,12 +2,12 @@
   "ver": "1.1.43",
   "importer": "prefab",
   "imported": true,
-  "uuid": "e65cd517-bf6c-422e-be17-33c12d439c47",
+  "uuid": "e095d2c0-1d40-472c-948b-d6d97915ab31",
   "files": [
     ".json"
   ],
   "subMetas": {},
   "userData": {
-    "syncNodeName": "killer_obj"
+    "syncNodeName": "bomman_kill_all"
   }
 }
