@@ -111,7 +111,7 @@ export class Killer_hunter extends Component {
     }
     timeCount: number = 0;
     //scan rating and action, scan every time unit
-    scanRating: number = 0.5;
+    scanRating: number = 1;
     update(deltaTime: number) {
         // [4]
         if (this.isAttack) return;
