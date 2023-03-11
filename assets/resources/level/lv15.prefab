@@ -4284,10 +4284,10 @@
       "__id__": 188
     },
     "asset": {
-      "__uuid__": "e65cd517-bf6c-422e-be17-33c12d439c47",
+      "__uuid__": "36964661-73ac-4aa0-adf6-71ee6f1a10e3",
       "__expectedType__": "cc.Prefab"
     },
-    "fileId": "39Zv2j/TlEXpj4phrWd2DL",
+    "fileId": "f0w2pLPDVF6p6gZKvOIwgg",
     "instance": {
       "__id__": 190
     },
@@ -4295,7 +4295,7 @@
   },
   {
     "__type__": "cc.PrefabInstance",
-    "fileId": "345mAj84JIuZeoAcCHXJnn",
+    "fileId": "c9oSwqxKdMwYZs4Z69jF7m",
     "prefabRootNode": {
       "__id__": 1
     },
@@ -4325,12 +4325,12 @@
     "propertyPath": [
       "_name"
     ],
-    "value": "killer_obj_hunter"
+    "value": "killer_hunter"
   },
   {
     "__type__": "cc.TargetInfo",
     "localID": [
-      "39Zv2j/TlEXpj4phrWd2DL"
+      "f0w2pLPDVF6p6gZKvOIwgg"
     ]
   },
   {
@@ -4343,8 +4343,8 @@
     ],
     "value": {
       "__type__": "cc.Vec3",
-      "x": 1.277,
-      "y": 2.455,
+      "x": 1.266,
+      "y": 2.428,
       "z": 0
     }
   },
@@ -4866,6 +4866,12 @@
     "movingTime": 0.75,
     "delayTime": 0,
     "jumpForce": null,
+    "moveRotation": {
+      "__type__": "cc.Vec3",
+      "x": 0,
+      "y": -90,
+      "z": 0
+    },
     "_id": ""
   },
   {
@@ -5413,6 +5419,12 @@
     "movingTime": 0.5,
     "delayTime": 0.5,
     "jumpForce": null,
+    "moveRotation": {
+      "__type__": "cc.Vec3",
+      "x": 0,
+      "y": 90,
+      "z": 0
+    },
     "_id": ""
   },
   {
@@ -5492,8 +5504,14 @@
     "isLock": true,
     "pointType": 1,
     "movingTime": 0.75,
-    "delayTime": 0.5,
+    "delayTime": 0.1,
     "jumpForce": null,
+    "moveRotation": {
+      "__type__": "cc.Vec3",
+      "x": 0,
+      "y": -90,
+      "z": 0
+    },
     "_id": ""
   },
   {
@@ -5532,8 +5550,8 @@
     },
     "_lpos": {
       "__type__": "cc.Vec3",
-      "x": 0.107,
-      "y": 0.092,
+      "x": 0.054,
+      "y": 0.478,
       "z": 0
     },
     "_lrot": {
@@ -5575,6 +5593,12 @@
     "movingTime": 0,
     "delayTime": 0,
     "jumpForce": null,
+    "moveRotation": {
+      "__type__": "cc.Vec3",
+      "x": 0,
+      "y": 0,
+      "z": 0
+    },
     "_id": ""
   },
   {
@@ -5656,6 +5680,12 @@
     "movingTime": 0,
     "delayTime": 0.5,
     "jumpForce": null,
+    "moveRotation": {
+      "__type__": "cc.Vec3",
+      "x": 0,
+      "y": -90,
+      "z": 0
+    },
     "_id": ""
   },
   {
@@ -5737,6 +5767,12 @@
     "movingTime": 0.5,
     "delayTime": 0.5,
     "jumpForce": null,
+    "moveRotation": {
+      "__type__": "cc.Vec3",
+      "x": 0,
+      "y": -90,
+      "z": 0
+    },
     "_id": ""
   },
   {
@@ -5818,6 +5854,12 @@
     "movingTime": 1,
     "delayTime": 0,
     "jumpForce": null,
+    "moveRotation": {
+      "__type__": "cc.Vec3",
+      "x": 0,
+      "y": -90,
+      "z": 0
+    },
     "_id": ""
   },
   {

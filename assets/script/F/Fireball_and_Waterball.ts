@@ -6,15 +6,15 @@ const { ccclass, property } = _decorator;
 export class Fireball_and_Waterball extends Component {
     start() {
         let collider = this.getComponent(Collider);
-        collider.on('onTriggerStay', this.onTriggerStay, this);
+        collider.on('onTriggerEnter', this.onTriggerEnter, this);
     }
 
-    private onTriggerStay(event: ITriggerEvent) {
+    private onTriggerEnter(event: ITriggerEvent) {
         let collisionNode: Node = event.otherCollider.node;
         if(collisionNode.name.includes(Configs.PLAYER_NAME)||collisionNode.name.includes(Configs.KILL_ALL_OBJ)||collisionNode.name.includes(Configs.KILL_HUNTER)){
             this.scheduleOnce(() => {
                 this.node.destroy();
-            }, 0.8);
+            }, 0.7);
         }
        
     }

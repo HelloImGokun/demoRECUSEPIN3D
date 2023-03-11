@@ -358,13 +358,14 @@ export class PlayerController extends Component {
 
     }
     public onMidAir() {
-        this.animator.play('midair');
+
+        this.scheduleOnce(() => {
+            this.animator.play('midair');
+        }, 0.01)
     }
     private fall(pointNode: PointNode, finishcallback) {
         //set animation BUG animation
-        this.scheduleOnce(() => {
-            this.onMidAir();
-        }, 0.01)
+        this.onMidAir();
         // tween(this.node).sequence(
         // tween(this.node).to(.2,{eulerAngles: new Vec3(0, -90, 0)}),
         // tween(this.node).call(()=>{
@@ -418,6 +419,7 @@ export class PlayerController extends Component {
             this.rigidBody.clearState();
             this.rigidBody.applyForce(point.getJumpForce());
         }, point.getMovingTime());
+        //luc nay player da o tren mat dat roi
         this.scheduleOnce(() => {
             this.isJumping = false;
             this.scheduleOnce(() => {
@@ -475,7 +477,9 @@ export class PlayerController extends Component {
         ).start();
     }
     private teleout(pointNode: PointNode, callback) {
-        this.animator.play('midair');
+        this.scheduleOnce(() => {
+            this.animator.play('midair');
+        },0.01);
         this.node.setRotationFromEuler(pointNode.getDirection());
         this.node.setPosition(pointNode.getPosition());
         tween(this.node).sequence(
