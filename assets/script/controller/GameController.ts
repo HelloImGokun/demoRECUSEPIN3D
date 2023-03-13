@@ -22,7 +22,7 @@ export class GameController extends Component {
     private currentLevelNode:Node;
     //
     onLoad(){
-        this.currentLevelNumber = 21;//Predata.instant.getSaveLevel();
+        this.currentLevelNumber = 22;//Predata.instant.getSaveLevel();
     }
     start() {   
 
