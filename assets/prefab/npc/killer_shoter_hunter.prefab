@@ -31,10 +31,13 @@
       },
       {
         "__id__": 51
+      },
+      {
+        "__id__": 53
       }
     ],
     "_prefab": {
-      "__id__": 53
+      "__id__": 55
     },
     "_lpos": {
       "__type__": "cc.Vec3",
@@ -874,7 +877,7 @@
       "0"
     ],
     "value": {
-      "__uuid__": "1acce9bc-2203-4ddc-ba8c-af6ac62c03a3@73b7f",
+      "__uuid__": "34e1e913-b2d8-4bce-827f-d438c946b9c0@b4251",
       "__expectedType__": "cc.AnimationClip"
     }
   },
@@ -1009,6 +1012,34 @@
     "fileId": "8eZv2nopNFQIMCU6FTy+Ks"
   },
   {
+    "__type__": "101396fNvZIEJZcEPEqzpOc",
+    "_name": "",
+    "_objFlags": 0,
+    "node": {
+      "__id__": 1
+    },
+    "_enabled": true,
+    "__prefab": {
+      "__id__": 54
+    },
+    "animator": null,
+    "bulletPrefab": {
+      "__uuid__": "5453633e-132d-4404-9ce1-95d6d39b8887",
+      "__expectedType__": "cc.Prefab"
+    },
+    "direction": {
+      "__type__": "cc.Vec3",
+      "x": 0,
+      "y": 0,
+      "z": 0.1
+    },
+    "_id": ""
+  },
+  {
+    "__type__": "cc.CompPrefabInfo",
+    "fileId": "fflYK0KChLdpFosXLkPMx0"
+  },
+  {
     "__type__": "cc.PrefabInfo",
     "root": {
       "__id__": 1
@@ -1018,11 +1049,60 @@
     },
     "fileId": "f0w2pLPDVF6p6gZKvOIwgg",
     "instance": null,
-    "targetOverrides": null,
+    "targetOverrides": [
+      {
+        "__id__": 56
+      },
+      {
+        "__id__": 58
+      }
+    ],
     "nestedPrefabInstanceRoots": [
       {
         "__id__": 2
       }
+    ]
+  },
+  {
+    "__type__": "cc.TargetOverrideInfo",
+    "source": null,
+    "sourceInfo": null,
+    "propertyPath": [
+      "animator"
+    ],
+    "target": {
+      "__id__": 2
+    },
+    "targetInfo": {
+      "__id__": 57
+    }
+  },
+  {
+    "__type__": "cc.TargetInfo",
+    "localID": [
+      "eb7t59XDdZqZ025lnMAU3s"
+    ]
+  },
+  {
+    "__type__": "cc.TargetOverrideInfo",
+    "source": {
+      "__id__": 53
+    },
+    "sourceInfo": null,
+    "propertyPath": [
+      "animator"
+    ],
+    "target": {
+      "__id__": 2
+    },
+    "targetInfo": {
+      "__id__": 59
+    }
+  },
+  {
+    "__type__": "cc.TargetInfo",
+    "localID": [
+      "eb7t59XDdZqZ025lnMAU3s"
     ]
   }
 ]

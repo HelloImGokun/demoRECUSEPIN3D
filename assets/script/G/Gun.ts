@@ -11,9 +11,9 @@ export class Gun extends Component {
     start() {
         // [3]
         this.fire();
-        this.schedule(()=>{
+        this.schedule(() => {
             this.fire();
-        },5,100);
+        }, 5, 100);
     }
     fire() {
         if (this.bulletPrefab) {
@@ -23,6 +23,6 @@ export class Gun extends Component {
         }
 
 
-}
+    }
 
 }

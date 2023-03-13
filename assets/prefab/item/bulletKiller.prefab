@@ -1,7 +1,7 @@
 [
   {
     "__type__": "cc.Prefab",
-    "_name": "bullet",
+    "_name": "bulletKiller",
     "_objFlags": 0,
     "_native": "",
     "data": {
@@ -12,7 +12,7 @@
   },
   {
     "__type__": "cc.Node",
-    "_name": "bullet",
+    "_name": "bulletKiller",
     "_objFlags": 0,
     "__editorExtras__": {},
     "_parent": null,
@@ -163,7 +163,7 @@
     "__prefab": {
       "__id__": 8
     },
-    "isShootFromKiller": false,
+    "isShootFromKiller": true,
     "_id": ""
   },
   {
