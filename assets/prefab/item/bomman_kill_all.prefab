@@ -31,10 +31,13 @@
       },
       {
         "__id__": 68
+      },
+      {
+        "__id__": 70
       }
     ],
     "_prefab": {
-      "__id__": 70
+      "__id__": 72
     },
     "_lpos": {
       "__type__": "cc.Vec3",
@@ -1029,6 +1032,26 @@
     "fileId": "19IKb9ym9Nhb9mdeJqqtyX"
   },
   {
+    "__type__": "94da4Akh65LkZHZvYnx8Z5A",
+    "_name": "",
+    "_objFlags": 0,
+    "node": {
+      "__id__": 1
+    },
+    "_enabled": true,
+    "__prefab": {
+      "__id__": 71
+    },
+    "bombMan": {
+      "__id__": 2
+    },
+    "_id": ""
+  },
+  {
+    "__type__": "cc.CompPrefabInfo",
+    "fileId": "45M/GbyI5GUbrUmE8KK17g"
+  },
+  {
     "__type__": "cc.PrefabInfo",
     "root": {
       "__id__": 1
@@ -1037,6 +1060,7 @@
       "__id__": 0
     },
     "fileId": "dcYu1JNrlLl5Qg/sYahdbK",
+    "instance": null,
     "targetOverrides": null
   }
 ]
