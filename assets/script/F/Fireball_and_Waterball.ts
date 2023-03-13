@@ -11,7 +11,7 @@ export class Fireball_and_Waterball extends Component {
 
     private onTriggerEnter(event: ITriggerEvent) {
         let collisionNode: Node = event.otherCollider.node;
-        if(collisionNode.name.includes(Configs.PLAYER_NAME)||collisionNode.name.includes(Configs.KILL_ALL_OBJ)||collisionNode.name.includes(Configs.KILL_HUNTER)){
+        if(collisionNode.name.includes(Configs.PLAYER_NAME)||collisionNode.name.includes(Configs.BOMB_ELECTRIC_FIRE)||collisionNode.name.includes(Configs.KILL_HUNTER)){
             this.scheduleOnce(() => {
                 this.node.destroy();
             }, 0.7);

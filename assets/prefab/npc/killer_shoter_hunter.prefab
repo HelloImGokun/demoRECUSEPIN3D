@@ -37,7 +37,7 @@
       }
     ],
     "_prefab": {
-      "__id__": 55
+      "__id__": 60
     },
     "_lpos": {
       "__type__": "cc.Vec3",
@@ -1033,11 +1033,145 @@
       "y": 0,
       "z": 0.1
     },
+    "characterBody": {
+      "__id__": 55
+    },
+    "firedMat": {
+      "__uuid__": "ed6da5b4-ae4a-4e6e-8c11-576382df3b5d",
+      "__expectedType__": "cc.Material"
+    },
     "_id": ""
   },
   {
     "__type__": "cc.CompPrefabInfo",
     "fileId": "ffWiIgVp1IDqI5Dx1eDSK/"
+  },
+  {
+    "__type__": "cc.Node",
+    "_name": "common_people_male_3",
+    "_objFlags": 0,
+    "_parent": {
+      "__id__": 2
+    },
+    "_children": [],
+    "_active": true,
+    "_components": [
+      {
+        "__id__": 56
+      }
+    ],
+    "_prefab": {
+      "__id__": 59
+    },
+    "_lpos": {
+      "__type__": "cc.Vec3",
+      "x": 0,
+      "y": 0,
+      "z": 0
+    },
+    "_lrot": {
+      "__type__": "cc.Quat",
+      "x": 0,
+      "y": 0,
+      "z": 0,
+      "w": 1
+    },
+    "_lscale": {
+      "__type__": "cc.Vec3",
+      "x": 1,
+      "y": 1,
+      "z": 1
+    },
+    "_mobility": 0,
+    "_layer": 1073741824,
+    "_euler": {
+      "__type__": "cc.Vec3",
+      "x": 0,
+      "y": 0,
+      "z": 0
+    },
+    "_id": ""
+  },
+  {
+    "__type__": "cc.SkinnedMeshRenderer",
+    "_name": "",
+    "_objFlags": 0,
+    "node": {
+      "__id__": 55
+    },
+    "_enabled": true,
+    "__prefab": {
+      "__id__": 57
+    },
+    "_materials": [
+      {
+        "__uuid__": "a8a5a2a9-33f6-4878-ad9a-acc41c99919f",
+        "__expectedType__": "cc.Material"
+      },
+      {
+        "__uuid__": "7f4a81e5-ae60-44f9-8ce2-4a22ecc92888",
+        "__expectedType__": "cc.Material"
+      }
+    ],
+    "_visFlags": 0,
+    "bakeSettings": {
+      "__id__": 58
+    },
+    "_mesh": {
+      "__uuid__": "1acce9bc-2203-4ddc-ba8c-af6ac62c03a3@8dcca",
+      "__expectedType__": "cc.Mesh"
+    },
+    "_shadowCastingMode": 0,
+    "_shadowReceivingMode": 1,
+    "_shadowBias": 0,
+    "_shadowNormalBias": 0,
+    "_enableMorph": true,
+    "_skeleton": {
+      "__uuid__": "1acce9bc-2203-4ddc-ba8c-af6ac62c03a3@438fe",
+      "__expectedType__": "cc.Skeleton"
+    },
+    "_skinningRoot": {
+      "__id__": 2
+    },
+    "_id": ""
+  },
+  {
+    "__type__": "cc.CompPrefabInfo",
+    "fileId": "71ZWr9rNJZQJS+AqNtVoyh"
+  },
+  {
+    "__type__": "cc.ModelBakeSettings",
+    "texture": null,
+    "uvParam": {
+      "__type__": "cc.Vec4",
+      "x": 0,
+      "y": 0,
+      "z": 0,
+      "w": 0
+    },
+    "_bakeable": false,
+    "_castShadow": false,
+    "_receiveShadow": false,
+    "_recieveShadow": false,
+    "_lightmapSize": 64,
+    "_useLightProbe": false,
+    "_bakeToLightProbe": true,
+    "_reflectionProbeType": 0,
+    "_bakeToReflectionProbe": true,
+    "_probeCubemap": null
+  },
+  {
+    "__type__": "cc.PrefabInfo",
+    "root": {
+      "__id__": 1
+    },
+    "asset": {
+      "__id__": 0
+    },
+    "fileId": "4cinc4uy5Ss4hH3U9ANB8c",
+    "instance": null,
+    "targetOverrides": null,
+    "nestedPrefabInstanceRoots": null
   },
   {
     "__type__": "cc.PrefabInfo",
@@ -1051,13 +1185,16 @@
     "instance": null,
     "targetOverrides": [
       {
-        "__id__": 56
+        "__id__": 61
       },
       {
-        "__id__": 58
+        "__id__": 63
       },
       {
-        "__id__": 60
+        "__id__": 65
+      },
+      {
+        "__id__": 67
       }
     ],
     "nestedPrefabInstanceRoots": [
@@ -1077,7 +1214,7 @@
       "__id__": 2
     },
     "targetInfo": {
-      "__id__": 57
+      "__id__": 62
     }
   },
   {
@@ -1097,7 +1234,7 @@
       "__id__": 2
     },
     "targetInfo": {
-      "__id__": 59
+      "__id__": 64
     }
   },
   {
@@ -1119,13 +1256,35 @@
       "__id__": 2
     },
     "targetInfo": {
-      "__id__": 61
+      "__id__": 66
     }
   },
   {
     "__type__": "cc.TargetInfo",
     "localID": [
       "eb7t59XDdZqZ025lnMAU3s"
+    ]
+  },
+  {
+    "__type__": "cc.TargetOverrideInfo",
+    "source": {
+      "__id__": 53
+    },
+    "sourceInfo": null,
+    "propertyPath": [
+      "characterBody"
+    ],
+    "target": {
+      "__id__": 2
+    },
+    "targetInfo": {
+      "__id__": 68
+    }
+  },
+  {
+    "__type__": "cc.TargetInfo",
+    "localID": [
+      "4cinc4uy5Ss4hH3U9ANB8c"
     ]
   }
 ]
