@@ -19,22 +19,33 @@
     "_children": [
       {
         "__id__": 2
+<<<<<<< Updated upstream
       },
       {
         "__id__": 227
       },
       {
         "__id__": 277
+=======
+>>>>>>> Stashed changes
       }
     ],
     "_active": true,
     "_components": [
       {
+<<<<<<< Updated upstream
         "__id__": 330
       }
     ],
     "_prefab": {
       "__id__": 332
+=======
+        "__id__": 51
+      }
+    ],
+    "_prefab": {
+      "__id__": 53
+>>>>>>> Stashed changes
     },
     "_lpos": {
       "__type__": "cc.Vec3",
@@ -94,6 +105,7 @@
       },
       {
         "__id__": 43
+<<<<<<< Updated upstream
       },
       {
         "__id__": 50
@@ -109,12 +121,18 @@
       },
       {
         "__id__": 165
+=======
+>>>>>>> Stashed changes
       }
     ],
     "_active": true,
     "_components": [],
     "_prefab": {
+<<<<<<< Updated upstream
       "__id__": 226
+=======
+      "__id__": 50
+>>>>>>> Stashed changes
     },
     "_lpos": {
       "__type__": "cc.Vec3",
@@ -883,30 +901,41 @@
     },
     "_lpos": {
       "__type__": "cc.Vec3",
-      "x": -1.524,
-      "y": 0.934,
+      "x": -1.2200000286102295,
+      "y": 1.309999942779541,
       "z": 0
     },
     "_lrot": {
       "__type__": "cc.Quat",
+<<<<<<< Updated upstream
       "x": 0.573576436351046,
       "y": -0.8191520442889918,
       "z": -3.5121427342182706e-17,
       "w": 5.015859645267624e-17
+=======
+      "x": -0.5927162352312012,
+      "y": 0.8054113635238525,
+      "z": 3.8524475756632514e-17,
+      "w": -5.0959108401118395e-17
+>>>>>>> Stashed changes
     },
     "_lscale": {
       "__type__": "cc.Vec3",
       "x": 0.3600003123283386,
-      "y": 0.609735,
+      "y": 0.8097352981567383,
       "z": 0.26800039410591125
     },
     "_mobility": 0,
     "_layer": 1073741824,
     "_euler": {
       "__type__": "cc.Vec3",
-      "x": 0,
+      "x": -3.174306075658474e-16,
       "y": -180,
+<<<<<<< Updated upstream
       "z": -70
+=======
+      "z": -72.69999670488228
+>>>>>>> Stashed changes
     },
     "_id": ""
   },
@@ -1165,6 +1194,7 @@
     "nestedPrefabInstanceRoots": null
   },
   {
+<<<<<<< Updated upstream
     "__type__": "cc.Node",
     "_objFlags": 0,
     "_parent": {
@@ -3778,6 +3808,8 @@
     ]
   },
   {
+=======
+>>>>>>> Stashed changes
     "__type__": "cc.PrefabInfo",
     "root": {
       "__id__": 1
@@ -3791,6 +3823,7 @@
     "nestedPrefabInstanceRoots": null
   },
   {
+<<<<<<< Updated upstream
     "__type__": "cc.Node",
     "_name": "Pathlist",
     "_objFlags": 0,
@@ -5556,6 +5589,8 @@
     "nestedPrefabInstanceRoots": null
   },
   {
+=======
+>>>>>>> Stashed changes
     "__type__": "54c6bLnqVVMfogm52Xl+dq/",
     "_name": "",
     "_objFlags": 0,
@@ -5564,6 +5599,7 @@
     },
     "_enabled": true,
     "__prefab": {
+<<<<<<< Updated upstream
       "__id__": 331
     },
     "pinList": [
@@ -5588,10 +5624,16 @@
         "__id__": 327
       }
     ],
+=======
+      "__id__": 52
+    },
+    "pinList": [],
+    "pathList": [],
+>>>>>>> Stashed changes
     "playerPos": {
       "__type__": "cc.Vec3",
-      "x": 0.1,
-      "y": 2.4,
+      "x": 0,
+      "y": 0,
       "z": 0
     },
     "_id": ""
@@ -5610,6 +5652,7 @@
     },
     "fileId": "9bvHKGmWdBirnyVqWqTRxW",
     "instance": null,
+<<<<<<< Updated upstream
     "targetOverrides": [
       {
         "__id__": 333
@@ -5735,5 +5778,8 @@
       "7d0t1B/bdIbKCeY0XLDyve",
       "91L+hfs19V36nF7eIGzokj"
     ]
+=======
+    "targetOverrides": null
+>>>>>>> Stashed changes
   }
 ]
