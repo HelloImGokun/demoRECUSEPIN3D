@@ -1893,7 +1893,7 @@
     "delayTime": 0,
     "jumpForce": {
       "__type__": "cc.Vec3",
-      "x": -100,
+      "x": -111,
       "y": 450,
       "z": 0
     },
