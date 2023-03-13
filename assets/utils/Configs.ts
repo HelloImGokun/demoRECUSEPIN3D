@@ -13,6 +13,7 @@ export class Configs {
     public static SPIKE_PREFABS:string = 'Spike'
     public static KILL_HUNTER:string= 'hunter';
     public static KILL_ALL_OBJ:string = 'obj_kill_all';
+    public static BOMB_ELECTRIC_FIRE:string = 'fire';
     public static FLOOR_GROUND_NAME:string = 'floor';
     public static PLAYER_NAME:string = 'player';
     public static FLOAT_PREFAB_PATH = 'items/';

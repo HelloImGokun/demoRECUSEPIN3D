@@ -9,6 +9,8 @@ export class Boomman extends Component {
     // explosionPrefab:Prefab | null = null;
     @property(Node)
     bombMan:Node | null = null;
+    @property(Prefab)
+    explosionPrefab:Prefab | null = null;
     // isExplosived:boolean=false;
     start () {
         // [3]
@@ -26,9 +28,10 @@ export class Boomman extends Component {
         //hide it
         // this.isExplosived=true;
         this.bombMan.destroy();
+        
         //init explosion
-        // let explosion = instantiate(this.explosionPrefab);
-        // this.node.addChild(explosion);
+        let explosion = instantiate(this.explosionPrefab);
+        this.node.addChild(explosion);
        this.scheduleOnce(()=>{
         this.node.destroy();
        },1);     

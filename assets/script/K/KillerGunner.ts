@@ -1,4 +1,4 @@
-import { _decorator, Component, Node, SkeletalAnimationComponent, Prefab, Vec3, Collider, ITriggerEvent, physics, geometry, PhysicsSystem, instantiate } from 'cc';
+import { _decorator, Component, Node, SkeletalAnimationComponent, Prefab, Vec3, Collider, ITriggerEvent, physics, geometry, PhysicsSystem, instantiate, Material, SkinnedMeshRenderer } from 'cc';
 import { Configs } from '../../utils/Configs';
 import { BulletGunner } from '../B/BulletGunner';
 import { PlayerController } from '../controller/PlayerController';
@@ -7,16 +7,22 @@ const { ccclass, property } = _decorator;
 @ccclass('KillerGunner')
 export class KillerGunner extends Component {
     @property(SkeletalAnimationComponent)
-    animator: SkeletalAnimationComponent | null = null;
+    private animator: SkeletalAnimationComponent | null = null;
     @property(Prefab)
-    bulletPrefab:Prefab | null = null;
+    private bulletPrefab:Prefab | null = null;
     @property(Vec3)
-    direction: Vec3 | null = new Vec3(0,0,0);
+    private direction: Vec3 | null = new Vec3(0,0,0);
     //create a raycast
-    LOG_NAME = null;
-    isDie: boolean = false;
-    gunPos:Vec3  = new Vec3(0,0.5,0.5);
+    private LOG_NAME = null;
+    private isDie: boolean = false;
+    private gunPos:Vec3  = new Vec3(0,0.5,0.5);
 
+
+    @property(Node)
+    private characterBody: Node | null = null;
+
+    @property(Material)
+    private firedMat:Material;
     start() {
         this.LOG_NAME = this.node.name;
         let collider = this.getComponent(Collider);
@@ -50,6 +56,15 @@ export class KillerGunner extends Component {
            
             this.setDie();
 
+        }else if(name.includes(Configs.BOMB_ELECTRIC_FIRE)){
+              //set mat
+              if (this.characterBody && this.firedMat) {
+                let skinMesh = this.characterBody.getComponent(SkinnedMeshRenderer);
+                console.log('skin mesh',this.characterBody);
+                skinMesh.setMaterial(this.firedMat, 0);
+                skinMesh.setMaterial(this.firedMat, 1);
+            }
+            this.setDie();
         }
     }
 

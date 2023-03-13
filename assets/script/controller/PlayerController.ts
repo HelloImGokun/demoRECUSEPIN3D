@@ -1,4 +1,4 @@
-import { _decorator, Collider, Component, instantiate, ITriggerEvent, math, Node, RigidBody, SkeletalAnimation, tween, Tween, Vec3 } from 'cc';
+import { _decorator, Collider, Component, instantiate, ITriggerEvent, math, Node, RigidBody, SkeletalAnimation, tween, Tween, Vec3, Material, SkinnedMeshRenderer } from 'cc';
 import { PathList } from '../P/PathList';
 import { Configs } from '../../utils/Configs';
 import { PointNode } from '../P/PointNode';
@@ -34,6 +34,12 @@ export class PlayerController extends Component {
     protected neckNode: Node;
     //
     protected isJumping: boolean = false;
+    //
+    @property(Node)
+    characterBody: Node | null = null;
+    @property(Material)
+    firedMat: Material | null = null;
+    //
 
     start() {
         //get LevelController
@@ -63,6 +69,16 @@ export class PlayerController extends Component {
             }
             //2.setdie
             if (collisionNode.name.includes(Configs.KILL_ALL_OBJ)) {
+                this.setDie();
+            }
+            //3. hit bomb
+            if (collisionNode.name.includes(Configs.BOMB_ELECTRIC_FIRE)) {
+                //set mat
+                if (this.characterBody && this.firedMat) {
+                    let skinMesh = this.characterBody.getComponent(SkinnedMeshRenderer);
+                    skinMesh.setMaterial(this.firedMat, 0);
+                    skinMesh.setMaterial(this.firedMat, 1);
+                }
                 this.setDie();
             }
         }
