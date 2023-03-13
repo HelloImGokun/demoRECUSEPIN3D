@@ -2136,6 +2136,13 @@
     "neckNode": {
       "__id__": 63
     },
+    "characterBody": {
+      "__id__": 58
+    },
+    "firedMat": {
+      "__uuid__": "ed6da5b4-ae4a-4e6e-8c11-576382df3b5d",
+      "__expectedType__": "cc.Material"
+    },
     "_id": ""
   },
   {
