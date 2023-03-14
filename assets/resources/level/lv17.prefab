@@ -1301,7 +1301,7 @@
     "propertyPath": [
       "_name"
     ],
-    "value": "fire_obj_kill_all"
+    "value": "fire"
   },
   {
     "__type__": "cc.TargetInfo",
@@ -1488,7 +1488,7 @@
     "propertyPath": [
       "_name"
     ],
-    "value": "fire_obj_kill_all"
+    "value": "fire"
   },
   {
     "__type__": "cc.TargetInfo",
