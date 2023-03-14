@@ -2567,7 +2567,7 @@
     "isLock": true,
     "pointType": 0,
     "movingTime": 0,
-    "delayTime": 0.5,
+    "delayTime": 0.75,
     "jumpForce": null,
     "moveRotation": {
       "__type__": "cc.Vec3",
