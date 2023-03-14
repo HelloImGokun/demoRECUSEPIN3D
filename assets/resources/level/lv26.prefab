@@ -1955,7 +1955,7 @@
     ],
     "value": {
       "__type__": "cc.Vec3",
-      "x": 0.1,
+      "x": -0.1,
       "y": -0.5,
       "z": 2
     }
@@ -2355,7 +2355,7 @@
     "value": {
       "__type__": "cc.Vec2",
       "x": 0,
-      "y": 0.003
+      "y": 0.002
     }
   },
   {
@@ -2459,7 +2459,7 @@
     },
     "isLock": true,
     "pointType": 1,
-    "movingTime": 0.5,
+    "movingTime": 0.75,
     "delayTime": 0,
     "jumpForce": {
       "__type__": "cc.Vec3",

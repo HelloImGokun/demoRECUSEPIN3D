@@ -4515,7 +4515,7 @@
     "jumpForce": {
       "__type__": "cc.Vec3",
       "x": 150,
-      "y": 260,
+      "y": 275,
       "z": 0
     },
     "moveRotation": {

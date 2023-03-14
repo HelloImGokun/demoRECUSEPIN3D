@@ -2059,7 +2059,7 @@
     },
     "isLock": false,
     "pointType": 1,
-    "movingTime": 0.5,
+    "movingTime": 0.75,
     "delayTime": 0,
     "jumpForce": {
       "__type__": "cc.Vec3",
