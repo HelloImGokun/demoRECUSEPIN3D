@@ -5,6 +5,7 @@ import { ResouceUtils } from '../../utils/ResouceUtils';
 import { Configs } from '../../utils/Configs';
 import { PlayerController_remake } from '../P/PlayerController_remake';
 import { PlayerController } from './PlayerController';
+import { Pinmove } from '../P/Pinmove';
 const { ccclass, property } = _decorator;
 
 @ccclass('LevelController')
@@ -14,7 +15,7 @@ export class LevelController extends Component {
     private rayToChildCallback;
     private touchMoveCallback;
     //selected moving pin
-    protected currentMovePin:Node;
+    protected currentMovePin: Node;
     @property({ type: Node })
     private pinList: Node[] = [];
     //
@@ -28,10 +29,10 @@ export class LevelController extends Component {
     private playerPos: Vec3 = new Vec3(0, 0, 0);
 
     private player: PlayerController;
-    setUp(winCallback,loseCallback) {
+    setUp(winCallback, loseCallback) {
         //setup player
         //khoi tao player
-        ResouceUtils.loadPrefab(Configs.PLAYER_PREFAB_PATH+'player1', (playerPrefab) => {
+        ResouceUtils.loadPrefab(Configs.PLAYER_PREFAB_PATH + 'player1', (playerPrefab) => {
             let newPlayer: Node = instantiate(playerPrefab);
             this.player = newPlayer.getComponent(PlayerController);
             console.log(this.player)
@@ -46,21 +47,26 @@ export class LevelController extends Component {
         if (this.pinList && this.pinList.length > 0) {
             for (let i = 0; i < this.pinList.length; i++) {
                 // console.log('set pin callback')
-                this.pinList[i].getComponent(Pin).setUpCallback(()=>{
-                    //thong bao cho player
-                    console.log(this.player)
-                    this.player.findPath();
-                });
+                if (this.pinList[i].getComponent(Pin)) {
+                    this.pinList[i].getComponent(Pin).setUpCallback(() => {
+                        //thong bao cho player
+                        this.player.findPath();
+                    });
+                }else if (this.pinList[i].getComponent(Pinmove)){
+                    this.pinList[i].getComponent(Pinmove).setUpCallback(() => {
+                        //thong bao cho player
+                        this.player.findPath();
+                    });
+                }
             }
         }
         //
         this.loseCallback = loseCallback;
     }
     //lay list all duong di
-    public getPathList(){
-        console.log('aaaa')
+    public getPathList() {
         console.log(this.pathList);
-        
+
         return this.pathList;
     }
     //pass tu Ray to cua GameController vao
@@ -71,18 +77,18 @@ export class LevelController extends Component {
         }
     }
     //set position 
-    public onMovePin(location:Vec2){
+    public onMovePin(location: Vec2) {
         console.log(location)
-        if(this.touchMoveCallback){
+        if (this.touchMoveCallback) {
             this.touchMoveCallback(location);
         }
     }
     //
-    public onTouchCancel(){
-        this.currentMovePin=null;
+    public onTouchCancel() {
+        this.currentMovePin = null;
     }
     //setup raycast callback from prarent class to extend class
-    protected setUpRaycastCallback(parentCallback,touchMoveCallback = null) {
+    protected setUpRaycastCallback(parentCallback, touchMoveCallback = null) {
         this.rayToChildCallback = parentCallback;
         this.touchMoveCallback = touchMoveCallback;
     }
@@ -111,7 +117,7 @@ export class LevelController extends Component {
     onDestroy() {
         console.log('destroyed');
     }
-    
+
     //
     update(deltaTime: number) {
 
