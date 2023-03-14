@@ -6,6 +6,7 @@ import { WinUI } from '../ui/WinUI';
 import { LevelController } from './LevelController';
 import { LoseUI } from '../ui/LoseUI';
 import { Predata } from '../P/Predata';
+import { Pinmove } from '../P/Pinmove';
 const { ccclass, property } = _decorator;
 
 @ccclass('GameController')
@@ -14,6 +15,8 @@ export class GameController extends Component {
     private gameModel:GameModel;
     @property(Camera)
     private camera:Camera;
+    //
+
     //
 
     private currentLevelNumber:number = 1;  
@@ -31,6 +34,7 @@ export class GameController extends Component {
         //set callback
         this.startLastLevel();
     }
+
     private startLastLevel(){
         this.gameModel.lbGameLevel.string = 'Level '+ this.currentLevelNumber;
         this.createNewLevel();

@@ -9,6 +9,7 @@ const { ccclass, property } = _decorator;
 export class Level26 extends LevelController {
     start() {
         //set up parent raycast callback
+        
         this.setUpRaycastCallback((rayData) => {
           for (let i = 0; i < rayData.length; i++) {
               this.rayToNode(rayData[i].collider.node)

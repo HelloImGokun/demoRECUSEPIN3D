@@ -96,6 +96,7 @@ export class LevelController extends Component {
     onDestroy() {
         console.log('destroyed');
     }
+    
     //
     update(deltaTime: number) {
 
