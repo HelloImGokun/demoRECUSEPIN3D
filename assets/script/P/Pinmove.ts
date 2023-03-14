@@ -17,7 +17,7 @@ export class Pinmove extends Component {
     @property(Vec2)
     private pinDirection:Vec2 | null = null;
     callbackToLevel;
-    
+
     setUpCallback(callbackToLevel) {
         this.callbackToLevel = callbackToLevel;
     }
@@ -35,7 +35,6 @@ export class Pinmove extends Component {
         let constrainDelta = new Vec3(this.moveDirection.x*delta.x,this.moveDirection.y*delta.y,0)
         //move by y
         let newPos = currentPos.add(constrainDelta);
-   
         if(this.moveDirection.y!=0){
             if(newPos.y>this.maxPos){
                 //khi keo pin vuot qua diem min max
