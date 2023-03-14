@@ -2,6 +2,7 @@ import { _decorator, Collider, Component, ITriggerEvent, tween, Vec3, Node } fro
 import { Configs } from '../../utils/Configs';
 import { PlayerController } from '../controller/PlayerController';
 import { Killer_hunter } from '../K/Killer_hunter';
+import { KillerGunner } from '../K/KillerGunner';
 const { ccclass, property } = _decorator;
 
 @ccclass('Bullet')
@@ -23,6 +24,9 @@ export class Bullet extends Component {
         } else if (name.includes(Configs.KILL_HUNTER)) {
             if (otherNode)
                 otherNode.getComponent(Killer_hunter).setDie();
+        } else if (name.includes(Configs.KILL_SHOTER)){
+            if (otherNode)
+                otherNode.getComponent(KillerGunner).setDie();
         }
         this.node.destroy();
         // this.scheduleOnce(() => {

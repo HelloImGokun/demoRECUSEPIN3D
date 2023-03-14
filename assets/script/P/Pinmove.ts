@@ -5,48 +5,48 @@ const { ccclass, property } = _decorator;
 @ccclass('Pinmove')
 export class Pinmove extends Component {
     @property(Vec2)
-    moveDirection:Vec2 | null = null;
+    moveDirection: Vec2 | null = null;
     @property
-    maxPos:number = 0;
+    maxPos: number = 0;
     @property
-    minPos:number = 0;
+    minPos: number = 0;
     @property(Node)
     private attachPathNode: Node;
 
 
     @property(Vec2)
-    private pinDirection:Vec2 | null = null;
+    private pinDirection: Vec2 | null = null;
     callbackToLevel;
 
     setUpCallback(callbackToLevel) {
         this.callbackToLevel = callbackToLevel;
     }
-    start(){
+    start() {
         //move by x
     }
-    onTouchMe(){
+    onTouchMe() {
 
     }
-    onMoveMe(delta:Vec2){
+    onMoveMe(delta: Vec2) {
         //move up/dow or left/right with fixed direction
 
         let currentPos = this.node.getWorldPosition();
         //add delta
-        let constrainDelta = new Vec3(this.moveDirection.x*delta.x,this.moveDirection.y*delta.y,0)
+        let constrainDelta = new Vec3(this.moveDirection.x * delta.x, this.moveDirection.y * delta.y, 0)
         //move by y
         let newPos = currentPos.add(constrainDelta);
-        if(this.moveDirection.y!=0){
-            if(newPos.y>this.maxPos){
+        if (this.moveDirection.y != 0) {
+            if (newPos.y > this.maxPos) {
                 //khi keo pin vuot qua diem min max
-                if(this.pinDirection.y==1){
+                if (this.pinDirection.y == 1) {
                     //unlock
                     this.unlockPoint();
                 }
                 return;
             }
-            if(newPos.y<this.minPos){
+            if (newPos.y < this.minPos) {
                 //khi keo pin vuot qua diem min max
-                if(this.pinDirection.y==-1){
+                if (this.pinDirection.y == -1) {
                     //unlock
                     this.unlockPoint();
                 }
@@ -54,16 +54,16 @@ export class Pinmove extends Component {
             }
         }
         //move by x
-        if(this.moveDirection.x!=0){
-            if(newPos.x>this.maxPos ){
-                if(this.pinDirection.x==1){
+        if (this.moveDirection.x != 0) {
+            if (newPos.x > this.maxPos) {
+                if (this.pinDirection.x == 1) {
                     //unlock
                     this.unlockPoint();
                 }
                 return;
             }
-            if(newPos.x<this.minPos){
-                if(this.pinDirection.x==-1){
+            if (newPos.x < this.minPos) {
+                if (this.pinDirection.x == -1) {
                     //unlock
                     this.unlockPoint();
                 }
@@ -75,10 +75,11 @@ export class Pinmove extends Component {
         // tween(this.node).to(0.01,{position:newPos}).start();
     }
     private unlockPoint() {
-        this.attachPathNode.getComponent(PointNode).setUnlock();
-        //thong bao cho level mo pin => player check path
-        this.callbackToLevel();
-
+        if (this.attachPathNode != undefined) {
+            this.attachPathNode.getComponent(PointNode).setUnlock();
+            //thong bao cho level mo pin => player check path
+            this.callbackToLevel();
+        }
     }
 }
 
