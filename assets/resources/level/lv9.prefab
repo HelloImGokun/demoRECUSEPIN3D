@@ -3351,8 +3351,8 @@
       "__id__": 188
     },
     "pointType": 4,
-    "movingTime": 0.25,
-    "delayTime": 0.2,
+    "movingTime": 0.5,
+    "delayTime": 1,
     "jumpForce": {
       "__type__": "cc.Vec3",
       "x": -85,
