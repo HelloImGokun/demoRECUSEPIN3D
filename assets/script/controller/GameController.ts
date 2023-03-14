@@ -1,4 +1,4 @@
-import { _decorator, Component,instantiate, Camera, input, Input, Vec2, geometry, PhysicsSystem, EventTouch, Node, tween, CCInteger, director } from 'cc';
+import { _decorator, Component,instantiate, Camera, input, Input, Vec2, geometry, PhysicsSystem, EventTouch, Node, tween, CCInteger, director, Game, sys } from 'cc';
 import { Configs } from '../../utils/Configs';
 import { ResouceUtils } from '../../utils/ResouceUtils';
 import { GameModel } from '../model/GameModel';
@@ -46,6 +46,11 @@ export class GameController extends Component {
         ResouceUtils.preloadPrefab(nextLevelPath);
     }
     public OnReload(){
+        director.loadScene('game');
+    }
+    public OnRestartalllevel(){
+        sys.localStorage.clear();
+        Predata.instant.setSaveLevel(1);
         director.loadScene('game');
     }
     private createNewLevel(){

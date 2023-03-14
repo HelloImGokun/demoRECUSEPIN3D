@@ -2485,6 +2485,13 @@
     "__prefab": {
       "__id__": 88
     },
+    "characterBody": {
+      "__id__": 76
+    },
+    "firedMat": {
+      "__uuid__": "ed6da5b4-ae4a-4e6e-8c11-576382df3b5d",
+      "__expectedType__": "cc.Material"
+    },
     "_id": ""
   },
   {
@@ -2500,6 +2507,7 @@
       "__id__": 0
     },
     "fileId": "063jlp9aZI5oEC86y+mZjb",
+    "instance": null,
     "targetOverrides": null
   }
 ]

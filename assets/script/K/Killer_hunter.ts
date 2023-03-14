@@ -1,4 +1,4 @@
-import { _decorator, Collider, Component, geometry, ITriggerEvent, Node, physics, PhysicsSystem, RigidBody, SkeletalAnimationComponent, tween, Vec3 } from 'cc';
+import { _decorator, Collider, Component, geometry, ITriggerEvent, Material, Node, physics, PhysicsSystem, RigidBody, SkeletalAnimationComponent, SkinnedMeshRenderer, tween, Vec3 } from 'cc';
 import { Configs } from '../../utils/Configs';
 import { PlayerController } from '../controller/PlayerController';
 const { ccclass, property } = _decorator;
@@ -6,6 +6,10 @@ const { ccclass, property } = _decorator;
 @ccclass('Killer_hunter')
 export class Killer_hunter extends Component {
     animator: SkeletalAnimationComponent | null = null;
+    @property(Node)
+    private characterBody: Node | null = null;
+    @property(Material)
+    private firedMat: Material;
     //create a raycast
     LOG_NAME = null;
     isDie: boolean = false;
@@ -30,18 +34,20 @@ export class Killer_hunter extends Component {
                 if (otherNode && otherNode.active)
                     otherNode.getComponent(PlayerController).setDie();
                 //
-            },0.01);
-            // this.scheduleOnce(() => {
-            //     this.isAttack = false;
-            //     //player
-
-            // }, 2)
-   
-
+            }, 0.01);
         } else if (name.includes(Configs.KILL_ALL_OBJ)) {
-           
+
             this.setDie();
 
+        } else if (name.includes(Configs.BOMB_ELECTRIC_FIRE)) {
+            //set mat
+            if (this.characterBody && this.firedMat) {
+                let skinMesh = this.characterBody.getComponent(SkinnedMeshRenderer);
+                console.log('skin mesh', this.characterBody);
+                skinMesh.setMaterial(this.firedMat, 0);
+                skinMesh.setMaterial(this.firedMat, 1);
+            }
+            this.setDie();
         }
     }
 
@@ -76,21 +82,8 @@ export class Killer_hunter extends Component {
                     //run
                     this.scheduleOnce(() => {
                         this.animator.play('run');
-                    },0.01);
-                    //sequence
-                    // tween(this.node).sequence(
-                    //    // tween(this.node).to(0.6, { position: attackPos }),
-                    //     // tween(this.node).call(() => {
-                    //     //     if (this.animator)
-                    //     //     this.scheduleOnce(() => {
-                    //     //         this.animator.play('attack');
-                    //     //     }, 0.01)
-                    //     // this.scheduleOnce(() => {
-                    //     //     this.isAttack = false;
-                    //     // }, 1)
-                    //     // })
-                    // ).start(); //   
-                    tween(this.node).to(0.6, { position: attackPos }).start();               
+                    }, 0.01);
+                    tween(this.node).to(0.6, { position: attackPos }).start();
                 }
                 if (seeObjectName.includes('pin')) {
 
@@ -102,13 +95,12 @@ export class Killer_hunter extends Component {
         }
 
     }
-    setDie(){
+    setDie() {
         this.isDie = true;
-        // this.node.getComponent(RigidBody).isStatic = true;
         if (this.animator)
-        this.scheduleOnce(() => {
-            this.animator.play('die');
-        }, 0.01)
+            this.scheduleOnce(() => {
+                this.animator.play('die');
+            }, 0.01)
         setTimeout(() => {
             if (this.node)
                 this.node.destroy();

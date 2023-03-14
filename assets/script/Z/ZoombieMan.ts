@@ -1,4 +1,4 @@
-import { _decorator, Collider, Component, geometry, ITriggerEvent, Node, physics, PhysicsSystem, RigidBody, SkeletalAnimationComponent, tween, Vec3 } from 'cc';
+import { _decorator, Collider, Component, geometry, ITriggerEvent, Material, Node, physics, PhysicsSystem, RigidBody, SkeletalAnimationComponent, SkinnedMeshRenderer, tween, Vec3 } from 'cc';
 import { Configs } from '../../utils/Configs';
 import { PlayerController } from '../controller/PlayerController';
 const { ccclass, property } = _decorator;
@@ -6,6 +6,10 @@ const { ccclass, property } = _decorator;
 @ccclass('ZoombieMan')
 export class ZoombieMan extends Component {
     animator: SkeletalAnimationComponent | null = null;
+    @property(Node)
+    private characterBody: Node | null = null;
+    @property(Material)
+    private firedMat:Material;
     //create a raycast
     LOG_NAME = null;
     isDie: boolean = false;
@@ -32,12 +36,7 @@ export class ZoombieMan extends Component {
             console.log('attack', otherNode);
             if (otherNode)
                 otherNode.getComponent(PlayerController).setDie();
-            // this.scheduleOnce(() => {
-            //     this.isAttack = false;
-            //     //player
-            //     if (otherNode && otherNode.active)
-            //         otherNode.getComponent(PlayerController).setDie();
-            // }, 2)
+          
         } else if (name.includes(Configs.KILL_ALL_OBJ)) {
 
             this.isDie = true;
@@ -50,8 +49,24 @@ export class ZoombieMan extends Component {
                 if (this.node)
                     this.node.destroy();
             }, 700);
-
-
+        }else if (name.includes(Configs.BOMB_ELECTRIC_FIRE)) {
+            //set mat
+            if (this.characterBody && this.firedMat) {
+                let skinMesh = this.characterBody.getComponent(SkinnedMeshRenderer);
+                console.log('skin mesh', this.characterBody);
+                skinMesh.setMaterial(this.firedMat, 0);
+                skinMesh.setMaterial(this.firedMat, 1);
+            }
+            this.isDie = true;
+            //this.node.getComponent(RigidBody).isStatic = true;
+            if (this.animator)
+                this.scheduleOnce(() => {
+                    this.animator.play('die');
+                }, 0.01)
+            setTimeout(() => {
+                if (this.node)
+                    this.node.destroy();
+            }, 700);
         }
     }
     //vision determine enemy

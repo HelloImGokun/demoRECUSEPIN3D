@@ -640,7 +640,7 @@
     "propertyPath": [
       "_name"
     ],
-    "value": "Fireball_obj_kill_all"
+    "value": "fire"
   },
   {
     "__type__": "cc.TargetInfo",

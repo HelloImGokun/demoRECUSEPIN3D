@@ -45,13 +45,6 @@ export class KillerGunner extends Component {
                     otherNode.getComponent(PlayerController).setDie();
                 //
             },0.01);
-            // this.scheduleOnce(() => {
-            //     this.isAttack = false;
-            //     //player
-
-            // }, 2)
-   
-
         } else if (name.includes(Configs.KILL_ALL_OBJ)) {
            
             this.setDie();

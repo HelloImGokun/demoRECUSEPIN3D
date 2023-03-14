@@ -21,7 +21,7 @@
         "__id__": 2
       },
       {
-        "__id__": 81
+        "__id__": 83
       }
     ],
     "_active": true,
@@ -89,11 +89,11 @@
     "_active": true,
     "_components": [
       {
-        "__id__": 78
+        "__id__": 80
       }
     ],
     "_prefab": {
-      "__id__": 80
+      "__id__": 82
     },
     "_lpos": {
       "__type__": "cc.Vec3",
@@ -872,6 +872,9 @@
       },
       {
         "__id__": 77
+      },
+      {
+        "__id__": 78
       }
     ],
     "removedComponents": []
@@ -1166,9 +1169,9 @@
     ],
     "value": {
       "__type__": "cc.Vec3",
-      "x": 1.7,
+      "x": 1.8,
       "y": 0.3,
-      "z": 0.5
+      "z": 1
     }
   },
   {
@@ -1229,6 +1232,27 @@
     }
   },
   {
+    "__type__": "CCPropertyOverrideInfo",
+    "targetInfo": {
+      "__id__": 79
+    },
+    "propertyPath": [
+      "_size"
+    ],
+    "value": {
+      "__type__": "cc.Vec3",
+      "x": 0.5,
+      "y": 0.6,
+      "z": 0.8
+    }
+  },
+  {
+    "__type__": "cc.TargetInfo",
+    "localID": [
+      "d9aAws/PRHpJNXw7dCATTB"
+    ]
+  },
+  {
     "__type__": "c08c2lFog5MLr986hEHRsJA",
     "_name": "",
     "_objFlags": 0,
@@ -1237,7 +1261,7 @@
     },
     "_enabled": true,
     "__prefab": {
-      "__id__": 79
+      "__id__": 81
     },
     "pointList": [
       {
@@ -1279,10 +1303,10 @@
     },
     "_children": [
       {
-        "__id__": 82
+        "__id__": 84
       },
       {
-        "__id__": 91
+        "__id__": 93
       },
       {
         "__id__": 100
@@ -1342,23 +1366,23 @@
     "_name": "floor",
     "_objFlags": 0,
     "_parent": {
-      "__id__": 81
+      "__id__": 83
     },
     "_children": [],
     "_active": true,
     "_components": [
       {
-        "__id__": 83
-      },
-      {
-        "__id__": 86
+        "__id__": 85
       },
       {
         "__id__": 88
+      },
+      {
+        "__id__": 90
       }
     ],
     "_prefab": {
-      "__id__": 90
+      "__id__": 92
     },
     "_lpos": {
       "__type__": "cc.Vec3",
@@ -1394,11 +1418,11 @@
     "_name": "",
     "_objFlags": 0,
     "node": {
-      "__id__": 82
+      "__id__": 84
     },
     "_enabled": true,
     "__prefab": {
-      "__id__": 84
+      "__id__": 86
     },
     "_materials": [
       {
@@ -1408,7 +1432,7 @@
     ],
     "_visFlags": 0,
     "bakeSettings": {
-      "__id__": 85
+      "__id__": 87
     },
     "_mesh": {
       "__uuid__": "aed6a56e-f39c-425c-90b6-cf02e2b73183@99d6c",
@@ -1452,11 +1476,11 @@
     "_objFlags": 0,
     "__editorExtras__": {},
     "node": {
-      "__id__": 82
+      "__id__": 84
     },
     "_enabled": true,
     "__prefab": {
-      "__id__": 87
+      "__id__": 89
     },
     "_material": null,
     "_isTrigger": false,
@@ -1484,11 +1508,11 @@
     "_objFlags": 0,
     "__editorExtras__": {},
     "node": {
-      "__id__": 82
+      "__id__": 84
     },
     "_enabled": true,
     "__prefab": {
-      "__id__": 89
+      "__id__": 91
     },
     "_material": null,
     "_isTrigger": true,
@@ -1528,16 +1552,13 @@
     "_name": "floor",
     "_objFlags": 0,
     "_parent": {
-      "__id__": 81
+      "__id__": 83
     },
     "_children": [],
     "_active": true,
     "_components": [
       {
-        "__id__": 92
-      },
-      {
-        "__id__": 95
+        "__id__": 94
       },
       {
         "__id__": 97
@@ -1580,11 +1601,11 @@
     "_name": "",
     "_objFlags": 0,
     "node": {
-      "__id__": 91
+      "__id__": 93
     },
     "_enabled": true,
     "__prefab": {
-      "__id__": 93
+      "__id__": 95
     },
     "_materials": [
       {
@@ -1594,7 +1615,7 @@
     ],
     "_visFlags": 0,
     "bakeSettings": {
-      "__id__": 94
+      "__id__": 96
     },
     "_mesh": {
       "__uuid__": "aed6a56e-f39c-425c-90b6-cf02e2b73183@6ec10",
@@ -1638,11 +1659,11 @@
     "_objFlags": 0,
     "__editorExtras__": {},
     "node": {
-      "__id__": 91
+      "__id__": 93
     },
     "_enabled": true,
     "__prefab": {
-      "__id__": 96
+      "__id__": 98
     },
     "_material": null,
     "_isTrigger": false,
@@ -1654,47 +1675,15 @@
     },
     "_size": {
       "__type__": "cc.Vec3",
-      "x": 0.5,
+      "x": 0.4,
       "y": 2,
-      "z": 5
+      "z": 4
     },
     "_id": ""
   },
   {
     "__type__": "cc.CompPrefabInfo",
     "fileId": "55mxvafq9PPYOiD8MH8HE5"
-  },
-  {
-    "__type__": "cc.BoxCollider",
-    "_name": "",
-    "_objFlags": 0,
-    "__editorExtras__": {},
-    "node": {
-      "__id__": 91
-    },
-    "_enabled": true,
-    "__prefab": {
-      "__id__": 98
-    },
-    "_material": null,
-    "_isTrigger": true,
-    "_center": {
-      "__type__": "cc.Vec3",
-      "x": 0,
-      "y": 0,
-      "z": 0
-    },
-    "_size": {
-      "__type__": "cc.Vec3",
-      "x": 0.5,
-      "y": 2,
-      "z": 5
-    },
-    "_id": ""
-  },
-  {
-    "__type__": "cc.CompPrefabInfo",
-    "fileId": "54vB/Lq8hKtq4Cw7BH1acv"
   },
   {
     "__type__": "cc.PrefabInfo",
@@ -1714,7 +1703,7 @@
     "_name": "Wall__4_",
     "_objFlags": 0,
     "_parent": {
-      "__id__": 81
+      "__id__": 83
     },
     "_children": [],
     "_active": true,
@@ -1830,7 +1819,7 @@
     "_name": "Wall__5_",
     "_objFlags": 0,
     "_parent": {
-      "__id__": 81
+      "__id__": 83
     },
     "_children": [],
     "_active": true,
@@ -1981,7 +1970,7 @@
     "_name": "Wall__6_",
     "_objFlags": 0,
     "_parent": {
-      "__id__": 81
+      "__id__": 83
     },
     "_children": [],
     "_active": true,
@@ -2098,7 +2087,7 @@
     "_objFlags": 0,
     "__editorExtras__": {},
     "_parent": {
-      "__id__": 81
+      "__id__": 83
     },
     "_children": [
       {
@@ -4884,7 +4873,7 @@
     "__type__": "cc.Node",
     "_objFlags": 0,
     "_parent": {
-      "__id__": 81
+      "__id__": 83
     },
     "_prefab": {
       "__id__": 220
@@ -5092,7 +5081,7 @@
     "__type__": "cc.Node",
     "_objFlags": 0,
     "_parent": {
-      "__id__": 81
+      "__id__": 83
     },
     "_prefab": {
       "__id__": 236
@@ -5379,7 +5368,7 @@
     ],
     "pathList": [
       {
-        "__id__": 78
+        "__id__": 80
       }
     ],
     "playerPos": {

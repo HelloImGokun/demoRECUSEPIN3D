@@ -1349,7 +1349,7 @@
     "propertyPath": [
       "_name"
     ],
-    "value": "Waterball_obj_kill_all"
+    "value": "fire_obj_kill_all"
   },
   {
     "__type__": "cc.TargetInfo",
@@ -1581,7 +1581,7 @@
     "propertyPath": [
       "_name"
     ],
-    "value": "Fireball_obj_kill_all"
+    "value": "fire_obj_kill_all"
   },
   {
     "__type__": "cc.TargetInfo",

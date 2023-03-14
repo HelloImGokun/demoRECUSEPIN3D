@@ -98,7 +98,6 @@ export class PlayerController extends Component {
                 //this.animator.play('swim');
             } else {
                 //die
-                this.isOver = true;
                 this.scheduleOnce(() => {
                     this.setDie();
                 }, 0.5)
@@ -429,9 +428,10 @@ export class PlayerController extends Component {
         }, point.getDelayTime());
     }
     setDie() {
+        console.log('set dide',this.isOver);
         if(this.isOver) return;
         this.isOver = true;
-        console.log('set dide');
+        
         this.playAnimation('die');
 
         //stop all tween

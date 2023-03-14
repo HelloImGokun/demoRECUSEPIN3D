@@ -3351,12 +3351,12 @@
       "__id__": 188
     },
     "pointType": 4,
-    "movingTime": 0.75,
-    "delayTime": 0,
+    "movingTime": 0.25,
+    "delayTime": 0.2,
     "jumpForce": {
       "__type__": "cc.Vec3",
-      "x": -70,
-      "y": 220,
+      "x": -85,
+      "y": 210,
       "z": 0
     },
     "moveRotation": {
