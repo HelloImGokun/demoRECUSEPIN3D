@@ -1,4 +1,4 @@
-import { _decorator, Component, instantiate, Node, Vec3 } from 'cc';
+import { _decorator, Component, instantiate, Node, Vec3, Vec2 } from 'cc';
 import { Pin } from '../P/Pin';
 import { PathList } from '../P/PathList';
 import { ResouceUtils } from '../../utils/ResouceUtils';
@@ -12,6 +12,9 @@ export class LevelController extends Component {
     private winCallback;
     private loseCallback;
     private rayToChildCallback;
+    private touchMoveCallback;
+    //selected moving pin
+    protected currentMovePin:Node;
     @property({ type: Node })
     private pinList: Node[] = [];
     //
@@ -67,9 +70,21 @@ export class LevelController extends Component {
             this.rayToChildCallback(raycastResult);
         }
     }
+    //set position 
+    public onMovePin(location:Vec2){
+        console.log(location)
+        if(this.touchMoveCallback){
+            this.touchMoveCallback(location);
+        }
+    }
+    //
+    public onTouchCancel(){
+        this.currentMovePin=null;
+    }
     //setup raycast callback from prarent class to extend class
-    protected setUpRaycastCallback(parentCallback) {
+    protected setUpRaycastCallback(parentCallback,touchMoveCallback = null) {
         this.rayToChildCallback = parentCallback;
+        this.touchMoveCallback = touchMoveCallback;
     }
     //
     public winLevel() {
