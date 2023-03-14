@@ -28,6 +28,9 @@ export class GameController extends Component {
 
         //create raycast
         input.on(Input.EventType.TOUCH_START,this.onTouchScreen,this);
+        //
+        input.on(Input.EventType.TOUCH_MOVE,this.onTouchMove,this);
+        input.on(Input.EventType.TOUCH_CANCEL,this.onTouchCancel,this);
         //set callback
         this.startLastLevel();
     }
@@ -98,6 +101,17 @@ export class GameController extends Component {
     private onTouchScreen(touch: EventTouch){
         let loc:Vec2 = touch.getLocation();
         this.onRay(loc);
+    }
+    private onTouchMove(touch: EventTouch){
+        let delta:Vec2 = touch.getDelta();
+        if(this.currentLevelNode!=null) {
+            this.currentLevelNode.getComponent(LevelController).onMovePin(delta);
+        }
+    }
+    private onTouchCancel(touch: EventTouch){
+        if(this.currentLevelNode!=null) {
+            this.currentLevelNode.getComponent(LevelController).onTouchCancel();
+        }
     }
     private onRay(position:Vec2){
         if (this.camera) {
