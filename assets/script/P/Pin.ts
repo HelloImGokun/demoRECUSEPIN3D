@@ -27,7 +27,8 @@ export class Pin extends Component {
     }
     //
 
-    onTouchMe() {
+    onTouchMe() { 
+            AudioController.instance.play("Pin");
         if (this.isMove)
             return;
         this.isMove = true;
