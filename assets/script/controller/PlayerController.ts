@@ -103,15 +103,8 @@ export class PlayerController extends Component {
                 }, 0.5)
             }
         }
-    }
-    //
-    private onTriggerStay(event: ITriggerEvent) {
-        //5.stay in water
-        let collisionNode: Node = event.otherCollider.node;
-        if (this.isOver) return;
         if (event.otherCollider.name.includes(Configs.WATER_COLLIDER_NAME) && this.isFloat) {
             //if is jump return: Neu dang jump thi khong set y
-
             if (!this.isJumping) {
                 // let yPos = event.otherCollider.node.getParent().getComponent(Water).getWaterFloatY();
                 //this.rigidBody.useGravity=false;
@@ -119,6 +112,21 @@ export class PlayerController extends Component {
                 this.node.setPosition(new math.Vec3(this.node.position.x, this.node.position.y-0.1, this.node.position.z));
             }
         }
+    }
+    //
+    private onTriggerStay(event: ITriggerEvent) {
+        //5.stay in water
+        // let collisionNode: Node = event.otherCollider.node;
+        // if (this.isOver) return;
+        // if (event.otherCollider.name.includes(Configs.WATER_COLLIDER_NAME) && this.isFloat) {
+        //     //if is jump return: Neu dang jump thi khong set y
+        //     if (!this.isJumping) {
+        //         // let yPos = event.otherCollider.node.getParent().getComponent(Water).getWaterFloatY();
+        //         //this.rigidBody.useGravity=false;
+        //         this.rigidBody.isStatic = true;
+        //         this.node.setPosition(new math.Vec3(this.node.position.x, this.node.position.y-0.1, this.node.position.z));
+        //     }
+        // }
         //6.stay in kill all
         // if(collisionNode.name.includes(Configs.KILL_ALL_OBJ)){
         //     this.setDie();
