@@ -1,5 +1,6 @@
 import { _decorator, CCFloat, Component, Node, tween, Vec3 } from 'cc';
 import { PointNode } from './PointNode';
+import { AudioController } from '../A/AudioController';
 const { ccclass, property } = _decorator;
 enum DIRECTION {
     left = 1,
@@ -27,7 +28,6 @@ export class Pin extends Component {
     //
 
     onTouchMe() {
-        console.log('test')
         if (this.isMove)
             return;
         this.isMove = true;
@@ -49,7 +49,7 @@ export class Pin extends Component {
         }
         this.moving(hoz, ver);
     }
-    private moving(hoz,ver){
+    private moving(hoz, ver) {
         tween(this.node).sequence(
             tween(this.node).by(0.3, { position: new Vec3(hoz, ver, 0) }),
             tween().call(() => {
