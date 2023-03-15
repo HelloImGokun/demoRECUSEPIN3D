@@ -108,8 +108,8 @@ export class PlayerController extends Component {
             if (!this.isJumping) {
                 // let yPos = event.otherCollider.node.getParent().getComponent(Water).getWaterFloatY();
                 //this.rigidBody.useGravity=false;
-                this.rigidBody.isStatic = true;
-                this.node.setPosition(new math.Vec3(this.node.position.x, this.node.position.y-0.1, this.node.position.z));
+                // this.rigidBody.isStatic = true;
+                // this.node.setPosition(new math.Vec3(this.node.position.x, this.node.position.y-0.1, this.node.position.z));
             }
         }
     }
@@ -409,11 +409,14 @@ export class PlayerController extends Component {
         }, pointNode.getMovingTime())
     }
     private swim(pointNode: PointNode, finishcallback) {
+        //set khong trong luc
+        this.rigidBody.isStatic=true;
+        //this.rigidBody.useGravity=false;
         this.playAnimation('swim');
         let desinationPoint = this.convertPositionToPlayerY(this.node.position, pointNode.getPosition());
         this.node.setRotationFromEuler(pointNode.getDirection());
         tween(this.node).sequence(
-            tween(this.node).to(pointNode.getMovingTime(), { worldPosition: desinationPoint }),
+            tween(this.node).to(pointNode.getMovingTime(), { worldPosition:  desinationPoint }),
             tween(this.node).call(() => {
                 finishcallback();
             })
