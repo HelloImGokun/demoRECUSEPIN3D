@@ -11,8 +11,8 @@ export class Water extends Component {
     @property(Collider)
     private waterCollider:Collider;
 
-    @property(CCFloat)
-    private waterFloatY:number = 0;
+    // @property(CCFloat)
+    // private waterFloatY:number = 0;
     
     private isWaterTrigger:boolean = false;
     start() {
@@ -28,8 +28,7 @@ export class Water extends Component {
             //unlock
             console.log('trigger',collisionNode.name);
             if(this.attachPathNode && collisionNode.getComponent(PlayerController).getIsFloat()){
-                //khi roi xuong nuoc => chuyen sang trai thai midair
-              
+                //khi roi xuong nuoc => chuyen sang trai thai midair             
                 collisionNode.getComponent(PlayerController).onMidAir();
                 this.attachPathNode.getComponent(PointNode).setUnlock();
                 //thong bao cho level mo pin => player check path
@@ -41,9 +40,9 @@ export class Water extends Component {
       
 
     }
-    public getWaterFloatY(){
-        return this.waterFloatY;
-    }
+    // public getWaterFloatY(){
+    //     return this.waterFloatY;
+    // }
 }
 
 

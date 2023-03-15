@@ -113,9 +113,10 @@ export class PlayerController extends Component {
             //if is jump return: Neu dang jump thi khong set y
 
             if (!this.isJumping) {
-                let yPos = event.otherCollider.node.getParent().getComponent(Water).getWaterFloatY();
+                // let yPos = event.otherCollider.node.getParent().getComponent(Water).getWaterFloatY();
                 //this.rigidBody.useGravity=false;
-                this.node.setPosition(new math.Vec3(this.node.position.x, yPos, this.node.position.z));
+                this.rigidBody.isStatic = true;
+                this.node.setPosition(new math.Vec3(this.node.position.x, this.node.position.y-0.1, this.node.position.z));
             }
         }
         //6.stay in kill all
@@ -416,6 +417,7 @@ export class PlayerController extends Component {
         this.playAnimation('midair');
         //cho 1 khoang thoi gian truoc khi nhay
         this.scheduleOnce(() => {
+            this.rigidBody.isDynamic = true;
             this.isJumping = true;
             this.rigidBody.clearState();
             this.rigidBody.applyForce(point.getJumpForce());
